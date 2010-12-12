@@ -7,7 +7,7 @@
 
   The gvisAnnotatedTimeLine function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
-  included into a web page, or as a standalone page.
+  included into a web page, or as a stand-alone page.
   
   An annotated time line is an interactive time series line chart with optional
   annotations. The chart is rendered within the browser using Flash. 
@@ -53,7 +53,7 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
   }
   \item{date.format}{
     if \code{datevar} is of class \code{\link{Date}} then this argument
-    specifies how the dates are reformatted to be used by javascript. 
+    specifies how the dates are reformatted to be used by JavaScript. 
   }
   \item{options}{list of configuration options for Google Annotated Time Line.
     The possible components are, taken from
@@ -150,7 +150,7 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
       \item{\code{fill}}{number. Default 0. A number from 0-100
 	(inclusive) specifying the alpha of the fill below each line in
 	the line graph. 100 means 100\% opaque fill, 0 means no fill at
-	all. The fill color is the same color asthe line above it.
+	all. The fill color is the same color as the line above it.
       }
       \item{\code{highlightDot}}{string. Default 'nearest'.
 	Which dot on the series to highlight, and corresponding values to
@@ -384,7 +384,7 @@ described by a set of one to three columns.
 ## Please note that by default the plot (better plot.gvis) command will
 ## try to write the output into the rsp/myAnalysis folder of the
 ## googleVis library. Further the plot command will open a
-## browser window and requires Flash and internet connection to
+## browser window and requires Flash and Internet connection to
 ## display the visualisation.
 ## Because of those requirements the plot commands are not executed
 ## automatically as part of the example. 
@@ -399,6 +399,7 @@ A1 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                            numvar="Value", idvar="Device",
                            titlevar="Title", annotationvar="Annotation",
                            options=list(displayAnnotations=TRUE,
+			    legendPosition='newRow',
                             width=600, height=350)
                            )
 \dontrun{
@@ -436,21 +437,22 @@ plot(A3)
 }
 \keyword{ hplot }
 
-%% ## Example with ChainLadder triangle
+%%## Example with ChainLadder triangle
+%% library(ChainLadder)
 %% lRAA=as.data.frame(RAA, na.rm=TRUE)
 %% lRAA$dev.year.end <- as.Date(with(lRAA, paste(dev,"-12-31", sep="")))
 %% lRAA$title <- NA
 %% lRAA$annotation <- NA
- 
+%% 
 %% lRAA$title[c(2,47)] <- c("Low first claim", "Negative development")
 %% lRAA$annotation[c(2,47)] <- c("Change in underlying claims process resulted in delayed reporting", 
 %%    "Joe Bloggs was on holiday and the person who covered for him
 %% mixed up the signs.")	
-%% wRAA=reshape(lRAA,  idvar="dev.year.end", v.names=c("value", "title",
-%% "annotation"), timevar="origin", direction="wide")
-%% A=gvisAnnotatedTimeLine(wRAA[,-1], "cal.year.end",
-%% options=list(legendPosition='newRow', width=800, height=400,
-%% displayAnnotations=TRUE))
-%% plot(A)
- 							   
- 							   
+%%  A <- gvisAnnotatedTimeLine(lRAA, datevar="dev.year.end", numvar="value", idvar="origin",
+%%                                   titlevar="title", annotationvar="annotation", 
+%%                                   options=list(legendPosition='newRow',
+%%				   width=800, height=400,
+%%				   displayAnnotations=TRUE))
+%% plot(A) 							   
+
+

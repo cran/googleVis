@@ -7,7 +7,7 @@
 \description{
   The gvisTable function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
-  included into a web page, or as a standalone page. The actual chart is
+  included into a web page, or as a stand-alone page. The actual chart is
   rendered by the web browser.
   
   A table that can be sorted and paged. Table cells can be formatted
@@ -218,7 +218,7 @@ Diego de Castillo \email{decastillo@gmail.com}
 ## Please note that by default the plot (better plot.gvis) command will
 ## try to write the output into the rsp/myAnalysis folder of the
 ## googleVis library. Further the plot command will open a
-## browser window and requires Flash and internet connection to
+## browser window and requires Flash and Internet connection to
 ## display the visualisation.
 ## Because of those requirements the plot commands are not executed
 ## automatically as part of the example. 

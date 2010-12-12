@@ -11,15 +11,15 @@ Using the Google Visualisation API with R
  The functions of the package allow the user to visualise data stored
  in R data frames with the Google Visualisation API.
 
- To view the output a browser with Flash and internet connection is required.
+ To view the output a browser with Flash and Internet connection is required.
  
 } 
 \details{
 \tabular{ll}{
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
-	Version: \tab 0.2.1\cr
-	Date: \tab 20010-11-30\cr
+	Version: \tab 0.2.2\cr
+	Date: \tab 20010-12-12\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}
@@ -29,6 +29,7 @@ Using the Google Visualisation API with R
 \note{
   See \code{vignette("googleVis")} for an introduction to the
   \code{googleVis} package. 
+
 
   Many thanks to 
   \itemize{  

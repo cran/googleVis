@@ -6,7 +6,7 @@
 \description{
   The gvisMap function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
-  included into a web page, or as a standalone page.
+  included into a web page, or as a stand-alone page.
   
   The maps are the well known Google Maps. 
 }
@@ -44,7 +44,7 @@ gvisMap(data, locationvar='', tipvar='',
 	to \code{TRUE}, enables zooming in and out using the mouse scroll wheel.
       }
       \item{\code{showTip}}{boolean. Default \code{FALSE}.	If set to \code{TRUE}, shows
-	the location description as a tooltip when the mouse is positioned
+	the location description as a tool-tip when the mouse is positioned
 	above a point marker.
       }
       \item{\code{showLine}}{boolean. Default \code{FALSE}.	If set to \code{TRUE}, shows a
@@ -141,7 +141,7 @@ Diego de Castillo \email{decastillo@gmail.com}
 ## Please note that by default the plot (better plot.gvis) command will
 ## try to write the output into the rsp/myAnalysis folder of the
 ## googleVis library. Further the plot command will open a
-## browser window and requires Flash and internet connection to
+## browser window and requires Flash and Internet connection to
 ## display the visualisation.
 ## Because of those requirements the plot commands are not executed
 ## automatically as part of the example. 
@@ -163,7 +163,7 @@ plot(M1)
 }
 
 
-## Example with address, here UK postcode
+## Example with address, here UK post-code
 
 df <- data.frame(Postcode=c("EC3M 7HA", "EC2P 2EJ"),
                  Tip=c("Lloyd's", "Guildhall"))

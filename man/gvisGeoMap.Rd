@@ -6,13 +6,13 @@
 \description{
   The gvisGeoMap function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
-  included into a web page, or as a standalone page.
+  included into a web page, or as a stand-alone page.
   
-  A geomap is a map of a country, continent, or region map, with colors
+  A Geo map is a map of a country, continent, or region map, with colors
   and values assigned to specific regions. Values are displayed as a color
-  scale, and you can specify optional hovertext for regions. The map is
+  scale, and you can specify optional hover-text for regions. The map is
   rendered in the browser using an embedded Flash player. Note that the
-  map is not scrollable or draggable, but can be configured to allow
+  map is not scroll-able or drag-gable, but can be configured to allow
   zooming.
 }
 \usage{
@@ -192,7 +192,7 @@ Diego de Castillo \email{decastillo@gmail.com}
 ## Please note that by default the plot (better plot.gvis) command will
 ## try to write the output into the rsp/myAnalysis folder of the
 ## googleVis library. Further the plot command will open a
-## browser window and requires Flash and internet connection to
+## browser window and requires Flash and Internet connection to
 ## display the visualisation.
 ## Because of those requirements the plot commands are not executed
 ## automatically as part of the example. 

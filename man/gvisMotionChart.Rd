@@ -5,7 +5,7 @@
 \description{
    The gvisMotionChart function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
-  included into a web page, or as a standalone page. The actual chart is
+  included into a web page, or as a stand-alone page. The actual chart is
   rendered by the web browser in flash.
 
   A Motion Chart is a dynamic chart to explore several indicators over time.
@@ -34,7 +34,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   }
   \item{date.format}{
     if \code{timevar} is of class \code{\link{Date}} then this argument
-    specifies how the dates are reformatted to be used by javascript. 
+    specifies how the dates are reformatted to be used by JavaScript. 
   }
   \item{options}{list of configuration options for Google Motion Chart.
     The possible components are, taken from
@@ -170,7 +170,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 ## Please note that by default the plot (better plot.gvis) command will
 ## try to write the output into the rsp/myAnalysis folder of the
 ## googleVis library. Further the plot command will open a
-## browser window and requires Flash and internet connection to
+## browser window and requires Flash and Internet connection to
 ## display the visualisation.
 ## Because of those requirements the plot commands are not executed
 ## automatically as part of the example. 

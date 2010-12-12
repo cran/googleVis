@@ -91,7 +91,7 @@ Diego de Castillo \email{decastillo@gmail.com}
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-See also \code{\link{cat}}, \code{\link{browseRsp}}
+See also \code{\link{cat}}, \code{\link{browseRsp}}, \code{\link{createGoogleGadget}}
 }
 \examples{
 
@@ -100,7 +100,7 @@ M <- gvisMotionChart(Fruits, "Fruit", "Year")
 str(M)
 M
 \dontrun{
-## Web browser with internet connection and Flash required.
+## Web browser with Internet connection and Flash required.
 plot(M)
 }			
 
