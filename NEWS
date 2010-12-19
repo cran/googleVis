@@ -1,3 +1,17 @@
+Version 0.2.3 [2010-12-19]
+==========================
+
+Changes
+    
+NEW FEATURES
+
+   o gvisAnnotatedTimeLine accepts date in POSIX* formats
+
+BUG FIXES
+
+   o Google date objects expect the months Jan.- Dec. as 0 - 11 and not 1 - 12
+   o Fixed typo in the Andrew data set. The Pressure at 1992-08-24 12:00:00 was 951 and not 51 
+
 Version 0.2.2 [2010-12-12]
 ==========================
 

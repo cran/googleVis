@@ -18,8 +18,8 @@ Using the Google Visualisation API with R
 \tabular{ll}{
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
-	Version: \tab 0.2.2\cr
-	Date: \tab 20010-12-12\cr
+	Version: \tab 0.2.3\cr
+	Date: \tab 20010-12-19\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}
@@ -72,13 +72,19 @@ Using the Google Visualisation API with R
 \section{Warning }{
   By default the visualisation files will be stored in the
   \code{rsp/myAnlysis} folder of the googleVis library. The following
-  R-command will show the path to this folder:
+    R-command will show the path to this folder:
   
   \code{system.file(file.path("rsp", "myAnalysis"), package="googleVis")}
   
   It is preferable that you have write-access to this directory; so you
-  may want to install the package locally (e.g. in your home
-  folder). Please contact your system administrator if you need further
+  may want to install the package locally e.g. in your home
+  folder, via  
+
+  \code{install.packages("googleVis", lib=Sys.getenv("R_LIBS_USER"))}
+  
+  Please see also the R Admin Manual
+  \url{http://cran.r-project.org/doc/manuals/R-admin.html#Managing-libraries}
+  or contact your system administrator if you need further
   help.
 }
 \examples{
