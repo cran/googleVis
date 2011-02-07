@@ -3,109 +3,211 @@
 \alias{plot.gvis}
 
 \title{
-	Print and plot gvis objects
+  Print and plot gvis objects
 }
 \description{
-	Methods to print and plot \code{gvis} objects
+  Methods to print and plot \code{gvis} objects
 }
 \usage{	
-\method{print}{gvis}(x, file = "", ...)
+\method{print}{gvis}(x, tag="html", file = "", ...)
 		
-\method{plot}{gvis}(x, filename = NULL, 
-		    repos = paste("http://127.0.0.1:8074/", 
-		       	     basename(dirname(system.file(package = "googleVis"))), 
-			       		"/googleVis/rsp/myAnalysis/", sep = ""), 
-	     	     ...)
+\method{plot}{gvis}(x,...)
 }
 \arguments{
   \item{x}{
-   An object of class \code{gvis}.
-}
+    An object of class \code{gvis}.
+  }
+  \item{tag}{name tag of the objects to be extracted from gvis objects. The
+    default tag "html" will show a complete web page with the
+    visualisation. The tag "chart" will present all code for the
+    visualisation chart only. For more information see the details section.
+  }	
   \item{file}{
     file name to be used internally by \code{\link{cat}}. If "" (the
-    default), output will be printed to the standard output connection, the console unless
-    redirected by \code{\link{sink}}. 
+    default), output will be printed to the standard output connection,
+    the console unless redirected by \code{\link{sink}}.
+  }
+  \item{\dots}{arguments passed on to \code{\link{cat}}
+      (\code{print.gvis}) or \code{\link{browseURL}} (\code{plot.gvis}).
+  }
 }
-  \item{filename}{
-      If \code{filename=NULL} (Default) plot.gvis will create a
-      rsp-file, based on the chard id, in the \code{rsp/myAnalysis} folder of the
-      \code{googleVis} library folder, see Details for more information.      
-}
-  \item{repos}{repository for the output file. By default the
-    \code{rsp/myAnalysis} folder of the \code{googleVis} package will be
-    used. 
-}
-  \item{\dots}{arguments passed on to \code{\link{cat}}.
-}
-}
-\details{
-  You can find the path to your \code{googleVis} folder with the
-  following R command:
-  \code{filePath( system.file( file.path( "rsp", "myAnalysis" ), package
-		    = "googleVis" ))}.
-  The default \code{filename} of the plot command is build as:  
-  \code{filePath(system.file( file.path( "rsp", "myAnalysis" ), 
-    package = "googleVis"), paste( x$chartid, ".rsp", 
-    sep = "" ))}, 		  
-  where \code{x} is a \code{gvis} object.
-}
-\value{
-\item{\code{print.gvis}}{ None (invisible \code{NULL}).}
 
-\item{\code{plot.gvis}}{Returns an invisible list with filename and repos.}
+\details{
+
+  An object of class "\code{gvis}" is a list containing at least the
+  following components (tags):
+  \describe{
+    \item{\code{type}}{Google visualisation type, e.g. 'MotionChart'}
+    \item{\code{chartid}}{character id of the chart object. Unique chart
+      ids are required to place several charts on the same page.
+    }
+  \item{\code{html}}{a list with the building blocks for a page
+    \describe{
+      \item{\code{header}}{a character string of a html page header:
+	\code{<html>...<body>},}
+      \item{\code{chart}}{a named character vector of the chart's building blocks:
+      	\describe{
+	  \item{\code{jsHeader}}{Opening \code{<script>} tag and
+	    reference to Google's JavaScript library.
+	  }
+	  \item{\code{jsData}}{JavaScript function defining the input
+	    \code{data} as a JSON object.
+	  } 
+	  \item{\code{jsDrawChart}}{JavaScript function
+	    combing the data with the visualisation API and user
+	    options.
+	  }
+	  \item{\code{jsDisplayChart}}{JavaScript function calling the
+	    handler to display the chart.
+	  }
+	  \item{\code{jsChart}}{Call of the \code{jsDisplayChart} 
+	    function.
+	  }
+	  \item{\code{jsFooter}}{End tag \code{</script>}.
+	  }
+	  \item{\code{divChart}}{\code{<div>} container to embed the chart
+	    into the page.
+	  }
+	}   
+      }
+      \item{\code{caption}}{character string of a standard caption,
+	including data name and chart id.
+      }	
+      \item{\code{footer}}{character string of a html page footer:
+	\code{</body>...</html>}, including the used R and googleVis version
+	and link to Google's Terms of Use.}
+    }
+  }
+}
+}
+
+\value{
+  \item{\code{print.gvis}}{ None (invisible \code{NULL}).}
+  
+  \item{\code{plot.gvis}}{Returns the file name invisibly.}
 }
 \references{
-  For more details on rps-pages type: \code{\link{browseRsp}()}, which
-  starts the internal web browser and opens the URL in the default web
-  browser. From this page you access not only help pages and demos on
-  how to use RSP, but also other package RSP pages, such as the
-  \code{googleVis} package. 
+  Please see also the package vignette for the usage of the googleVis
+  package with RApache and R.rsp.
 }
 \author{
-Markus Gesmann \email{markus.gesmann@gmail.com},
-
-Diego de Castillo \email{decastillo@gmail.com}
+  Markus Gesmann \email{markus.gesmann@gmail.com},
+  
+  Diego de Castillo \email{decastillo@gmail.com}
 }
 \note{
   The \code{plot} command does not open a graphics device in the
-  traditional way. Instead it uses the \code{R.rsp} package to display the output
-  of a \code{googleVis} function in a browser using the local web server
-  provided by \code{R.rsp}. 
-}
-\section{Warning }{
-  By default the visualisation files will be stored in the
-  \code{rsp/myAnlysis} folder of the googleVis library. The following
-  R-command will show the path to this folder:
-  
-  \code{system.file(file.path("rsp", "myAnalysis"), package="googleVis")}
-  
-  It is preferable that you have write-access to this directory, so you
-  may want to install the package locally (e.g. in your home
-  folder). Please contact your system administrator if you need further
-  help.
-
-  Therefore the \code{plot} commands are not executed automatically as
-  part of the examples.
+  traditional way. Instead it creates HTML files in a temporary
+  directory and uses the R HTTP server to display the output  
+  of a \code{googleVis} function locally. 
+  A browser with Flash and Internet connection is required.
+  The displayed page includes a link (click on the chart id) to a
+  further page which shows the code of the chart for the user to copy
+  and paste into her own page.
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-See also \code{\link{cat}}, \code{\link{browseRsp}}, \code{\link{createGoogleGadget}}
+  See also \code{\link{cat}}, \code{\link{browseURL}},
+  \code{\link{createGoogleGadget}}
 }
 \examples{
 
-
 M <- gvisMotionChart(Fruits, "Fruit", "Year")
 str(M)
+## The output for a complete web page
 M
-\dontrun{
-## Web browser with Internet connection and Flash required.
+
+## Access only the plot,
+M$html$chart
+
+## wrap it in cat and it becomes more readable,
+cat(unlist(M$html$chart))
+
+## or use the print function.
+print(M, "chart")
+
+## Extract the data as a JavaScript function.
+print(M, "jsData")
+
+## Display the visualisation.
+## A web browser with Internet connection and Flash is required.
 plot(M)
-}			
+
+
+\dontrun{
+
+  ## Suppose you have an existing web page in which you embedded a
+  ## motion chart with the id "mtnc".
+  ## Now you have a new set of data, but you would like to avoid
+  ## touching the html file again.
+  ## The idea is to write the data and JavaScript functions into separate
+  ## files and to have references to these files in the html page.
+
+  ## In this example we call the chart id "mtnc"
+  ## To display the example we use the R HTTP server again, and
+  ## write the files into a temp directory
+
+  myChartID <- "mtnc"
+  baseURL <- sprintf("http://127.0.0.1:\%s/custom/googleVis", tools:::httpdPort)
+  wwwdir <- tempdir()
+
+  
+  ## Create a motion chart
+  M=gvisMotionChart(Fruits, "Fruit", "Year", chartid=myChartID)
+
+  ## Here is our plot again
+  plot(M)
+
+  ## Write the data and functions into separate files:
+  cat(M$html$chart['jsData'], file=file.path(wwwdir, "gvisData.js"))
+  cat(M$html$chart[c('jsDrawChart', 'jsDisplayChart', 'jsChart')], 
+  				    file=file.path(dr, "gvisFunctions.js"))
+
+  
+  ## Create a html page with reference to the above
+  ## JavaScript files
+  
+  html <- sprintf('
+  <html>
+  <head>
+  <script type="text/javascript" src="http://www.google.com/jsapi">
+  </script>
+  <script type="text/javascript" src="\%s/gvisFunctions.js"></script>
+  <script type="text/javascript" src="\%s/gvisData.js"></script>
+  <script type="text/javascript">
+  displayChart\%s()
+  </script>
+  </head>
+  <body>
+  <div id="\%s" style="width: 600px; height: 500px;"></div>
+  </body>
+  </html>
+  ', baseURL, baseURL, myChartID, myChartID)
+  
+  ## Write html scaffold into a file
+  cat(html, file=file.path(wwwdir, paste("Chart", myChartID, ".html", sep="")))
+
+  ## Display the result via
+  URL <- paste(baseURL,"/Chart", myChartID, ".html", sep="")
+  browseURL(URL)
+
+  ## Update the data, say the data should have shown North and South
+  ## instead of East and West as a location  
+  FruitsUpdate <- Fruits
+  levels(FruitsUpdate$Location)=c("North", "South")
+
+  Mupdate=gvisMotionChart(FruitsUpdate, "Fruit", "Year", chartid=myChartID)
+
+  ## Only update the file gvisData.js:
+  cat(Mupdate$html$chart['jsData'], file=file.path(wwwdir, "gvisData.js"))
+
+  ## Redisplay the chart with the updated data
+  browseURL(URL)
 
 }
-
+}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ hplot }

@@ -64,22 +64,16 @@ pause()
 
 ## Several charts on one page
 Page <- list(type="MotionGeoTableTree", 
-			 chartid=format(Sys.time(), "MotionGeoTableTree-%Y-%m-%d-%H-%M-%S"), 
-			 html=list(Header=Motion$html$header,
-			 		Chart1=Motion$html$chart,
-					Caption1=Motion$html$caption,
-					Chart2=Geo$html$chart,
-					Caption2=Geo$html$caption,
-					Chart3=Table$html$chart,
-					Caption3=Table$html$caption,
-					Chart4=Tree$html$chart,
-					Caption4=Tree$html$caption,
-                 			Chart4=AndrewMap$html$chart,
-					Caption4=AndrewMap$html$caption,
-                                        Chart5=AnnoTimeLine$html$chart,
-                                        Caption5=AnnoTimeLine$html$caption,               
-					Footer=Tree$html$footer)
-            )
+             chartid=format(Sys.time(), "MotionGeoTableTree-%Y-%m-%d-%H-%M-%S"), 
+             html=list(header=Motion$html$header,
+               chart=list(Motion$html$chart,
+                 Geo$html$chart, 
+                 Table$html$chart,
+                 Tree$html$chart, 
+                 AndrewMap$html$chart, 
+                 AnnoTimeLine$html$chart),
+               footer=Tree$html$footer)
+             )
 		
 
 class(Page) <- list("gvis", class(Page))
@@ -88,4 +82,5 @@ pause()
 
 
 ## See how googleVis functions can be integrated into rsp-files:
-browseRsp() ## Click on googleVis in the Package section.
+if(require(R.rsp))
+  browseRsp() ## Click on googleVis in the Package section.

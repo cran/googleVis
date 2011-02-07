@@ -19,18 +19,18 @@
 ### MA 02110-1301, USA
 
 
-gvisChart <- function(type, checked.data, options){
+gvisChart <- function(type, checked.data, options, chartid){
   
-  Chart = gvis(type=type, checked.data, options=options)
+  Chart = gvis(type=type, checked.data, options=options, chartid=chartid)
   chartid <- Chart$chartid
-  htmlChart <- Chart$jsChart
+  htmlChart <- Chart$chart
   
   htmlScaffold <- gvisHtmlWrapper(title="", chartid=chartid, dataName=options$dataName)
   
   output <- list(type=Chart$type,
                  chartid=Chart$chartid,
                  html=list(header=htmlScaffold[["htmlHeader"]],
-                   chart=htmlChart,
+                   chart=unlist(htmlChart),
                    caption=htmlScaffold[["htmlCaption"]],
                    footer=htmlScaffold[["htmlFooter"]]
                    ))
@@ -40,7 +40,7 @@ gvisChart <- function(type, checked.data, options){
   return(output)
 }
 
-gvis <- function(type="", data, options, chartid=NULL){
+gvis <- function(type="", data, options, chartid){
 
   if( ! is.data.frame(data) ){
     stop("Data has to be a data.frame. See ?data.frame for more details.")
@@ -48,8 +48,10 @@ gvis <- function(type="", data, options, chartid=NULL){
 
   ## we need a unique chart id to have more than one chart on the same page
   ## we use type and date to create the chart id
-  if(is.null(chartid)){
-    chartid <- paste(type, format(Sys.time(), "%Y-%m-%d-%H-%M-%S"), sep="_")
+  if(missing(chartid)){
+    ##    chartid <- paste(type, format(Sys.time(), "%Y-%m-%d-%H-%M-%S"), basename(tempfile(pattern="")),sep="_")
+    chartid <- paste(type, basename(tempfile(pattern="")),sep="ID")
+ 
   }
 
   
@@ -68,49 +70,98 @@ gvis <- function(type="", data, options, chartid=NULL){
     stop(message)
   }  
 
-  jsTableTemplate <- '
+  jsHeader <- '
+<!-- jsHeader -->
 <script type="text/javascript\" src="http://www.google.com/jsapi">
 </script>
 <script type="text/javascript">
-google.load("visualization", "1", { packages:["%s"] %s});
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-var data = new google.visualization.DataTable();
-var datajson = %s;
+'
+  jsHeader  <- paste(infoString(type),   jsHeader , sep="\n")
+
+ jsData <- '
+// jsData 
+function gvisData%s ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+%s;
 %s
 data.addRows(datajson);
-var chart = new google.visualization.%s(
-   document.getElementById(\'%s\')
-);
-var options ={};
-%s
-chart.draw(data,options);
+return(data);
 }
-</script>
-<div id="%s" style="width: %spx; height: %spx;">
-</div>\n'
+'
+  jsData <- sprintf(jsData, chartid,
+                     data.json,
+                     paste(paste("data.addColumn('", data.type, "','",
+                                 names(data.type), "');", sep=""), collapse="\n"))
   
-  jsChart <- sprintf(jsTableTemplate,
+  jsDisplayChart <- '
+// jsDisplayChart 
+function displayChart%s()
+{
+  google.load("visualization", "1", { packages:["%s"] %s}); 
+  google.setOnLoadCallback(drawChart%s);
+}
+'
+  jsDisplayChart <- sprintf(jsDisplayChart, chartid,
                      tolower(type),
                      ifelse(!is.null(options$gvis$gvis.language),
                             paste(",'language':'",
-                                  options$gvis$gvis.language, "'", sep=""), ''), 
-                     data.json,
-                     paste(paste("data.addColumn('", data.type, "','",
-                                 names(data.type), "');", sep=""), collapse="\n"),
-                     type,
-		     chartid,
-                     paste(gvisOptions(options), collapse="\n"),
+                                  options$gvis$gvis.language, "'", sep=""), ''),
+                     chartid
+                     )
+
+
+  jsDrawChart <- '
+// jsDrawChart
+function drawChart%s() {
+  var data = gvisData%s()
+  var chart = new google.visualization.%s(
+   document.getElementById(\'%s\')
+  );
+  var options ={};
+%s
+  chart.draw(data,options);
+}
+'
+  jsDrawChart <- sprintf(jsDrawChart, chartid,  chartid, type, chartid,
+                     paste(gvisOptions(options), collapse="\n")
+                     )
+
+
+
+  jsChart <- '
+// jsChart 
+displayChart%s()
+'
+   jsChart <- sprintf(jsChart, chartid )
+
+  jsFooter <- '
+<!-- jsFooter -->  
+//-->
+</script>
+'
+
+divChart <- '
+<!-- divChart -->
+<div id="%s"
+  style="width: %spx; height: %spx;">
+</div>
+'
+  divChart <- sprintf(divChart, 
 		     chartid,
                      ifelse(!(is.null(options$gvis$width) || (options$gvis$width == "")),options$gvis$width,600),
                      ifelse(!(is.null(options$gvis$height) || (options$gvis$height == "")),options$gvis$height,500)
                      )
-  
-  jsChart <- paste(infoString(type), jsChart, sep="\n")
-  
-  ## return json object and chart id
-  
-  output <- list(jsChart=jsChart, type=type, chartid=chartid)
+
+   output <- list(chart=list(jsHeader=jsHeader,
+                                   jsData=jsData,
+                                   jsDrawChart=jsDrawChart,
+                                   jsDisplayChart=jsDisplayChart,
+                                   jsChart=jsChart,
+                                   jsFooter=jsFooter,
+                                   divChart=divChart),
+                     type=type, chartid=chartid)
   return(output)
 }
 
@@ -277,30 +328,46 @@ checkSquareBracketOps <- function(char){
 
 gvisHtmlWrapper <- function(title, dataName, chartid){
 
-  htmlHeader <- '
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
- "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html>
-<%%@include file="../src/simpleHead.rsp"%%>
+  htmlHeader <- '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>%s</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+    body {
+          color: #444444;
+          font-family: Arial,Helvetica,sans-serif;
+          font-size: 75%%;
+    }
+    a {
+          color: #4D87C7;
+          text-decoration: none;
+    }
+  </style>
+</head>
 <body>
-<%%@include file="../src/simpleHeader.rsp"%%>
 '
-  
-  htmlHeader <- sprintf(htmlHeader,title)
+  htmlHeader <- sprintf(htmlHeader,chartid) 
 
-  htmlFooter <- '
-<%@include file="../src/simpleFooter.rsp"%>
+ htmlFooter <- '
+<!-- htmlFooter -->
+<span> 
+%s &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-%s</a>
+&#8226; <a href="http://code.google.com/apis/visualization/terms.html">Google Terms of Use</a>
+</span></div>
 </body>
-</html>\n'
-
-  googleTerms <- '<a href="http://code.google.com/apis/visualization/terms.html">\nGoogle Terms of Use</a>'
-    
-  htmlCaption <- sprintf('Data: %s, Chart ID: %s\n<BR>\n%s,\n%s\n<BR>\n<BR>\n',
-                         dataName, chartid, R.Version()$version.string, googleTerms)
+</html>
+'
+  htmlFooter <- sprintf(htmlFooter, R.Version()$version.string,
+		        packageDescription('googleVis')$Version,chartid)  
+  htmlCaption <- sprintf('<div><span>Data: %s &#8226; Chart ID: <a href="Chart_%s.html">%s</a></span><br />' ,
+                         dataName, chartid, chartid)
 
   return(list(htmlHeader=htmlHeader,
               htmlFooter=htmlFooter,
-              htmlCaption=htmlCaption))
+              htmlCaption=htmlCaption
+              ))
 }
 
 

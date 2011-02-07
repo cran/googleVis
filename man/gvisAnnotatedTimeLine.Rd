@@ -16,7 +16,7 @@
 gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
                       titlevar="", annotationvar="",
                       date.format = "\%Y/\%m/\%d",
-                      options = list())
+                      options = list(), chartid)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -289,6 +289,9 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
       }
     }
   }
+  \item{chartid}{character. If missing (default) a random chart id will be generated based on
+    chart type and \code{\link{tempfile}}
+  }
 }
 \details{
 From
@@ -338,26 +341,49 @@ described by a set of one to three columns.
   An object of class "\code{gvis}" is a list containing at least the
   following components:
   \item{\code{type}}{Google visualisation type, here 'AnnotatedTimeLine'}
-  \item{\code{chartid}}{character id of the chart object. The string is
-    build at run time from chart type and date/time when the function is
-    executed. Unique chart ids are required to place several charts on
-    the same page.
+  \item{\code{chartid}}{character id of the chart object. Unique chart
+    ids are required to place several charts on the same page.
   }
-  \item{\code{html}}{a list with the building blocks for a page
+   \item{\code{html}}{a list with the building blocks for a page
     \describe{
       \item{\code{header}}{a character string of a html page header:
 	\code{<html>...<body>},}
-      \item{\code{chart}}{a character string of the chart object with
-	reference to the Google API. Only this string is needed to embed the
-	chart into pages, see also the examples in the \code{googleVis} demo,}
-      \item{\code{caption}}{a character string of a standard caption,
-	including data set, chart id and R version used; further a link to Google's
-	Terms of Use,}
-      \item{\code{footer}}{a character string of a html page footer:
-	\code{</body>...</html>}.}
+      \item{\code{chart}}{a named character vector of the chart's building blocks:
+      	\describe{
+	  \item{\code{jsHeader}}{Opening \code{<script>} tag and
+	    reference to Google's JavaScript library.
+	  }
+	  \item{\code{jsData}}{JavaScript function defining the input
+	    \code{data} as a JSON object.
+	  } 
+	  \item{\code{jsDrawChart}}{JavaScript function
+	    combing the data with the visualisation API and user
+	    options.
+	  }
+	  \item{\code{jsDisplayChart}}{JavaScript function calling the
+	    handler to display the chart.
+	  }
+	  \item{\code{jsChart}}{Call of the \code{jsDisplayChart} 
+	    function.
+	  }
+	  \item{\code{jsFooter}}{End tag \code{</script>}.
+	  }
+	  \item{\code{divChart}}{\code{<div>} container to embed the chart
+	    into the page.
+	  }
+	}   
+      }
+      \item{\code{caption}}{character string of a standard caption,
+	including data name and chart id.
+      }	
+      \item{\code{footer}}{character string of a html page footer:
+	\code{</body>...</html>}, including the used R and googleVis version
+	and link to Google's Terms of Use.}
     }
   }
 }
+
+
 \references{
   Google Annotated Time Line API:
   \url{http://code.google.com/apis/visualization/documentation/gallery/annotatedtimeline.html}
@@ -382,16 +408,9 @@ described by a set of one to three columns.
   
 }
 \examples{
-## Please note that by default the plot (better plot.gvis) command will
-## try to write the output into the rsp/myAnalysis folder of the
-## googleVis library. Further the plot command will open a
-## browser window and requires Flash and Internet connection to
-## display the visualisation.
-## Because of those requirements the plot commands are not executed
-## automatically as part of the example. 
-## Please copy and paste the plot commands manually
-## to see the visualisation output, see also ?plot.gvis for further
-## details.  
+## Please note that by default the plot (better plot.gvis) command
+## will open a browser window and requires Flash and Internet
+## connection to display the visualisation.
 
 
 data(Stock)
@@ -403,9 +422,7 @@ A1 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                             legendPosition='newRow',
                             width=600, height=350)
                            )
-\dontrun{
 plot(A1)
-}
 
 ## Two Y-axis
 
@@ -417,9 +434,7 @@ A2 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                             width=600, height=350, scaleColumns='[0,1]',
                             scaleType='allmaximized')
                           )
-\dontrun{
 plot(A2)
-}
 
 ## Zoom into the time window, no Y-axis ticks
 A3 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
@@ -430,9 +445,7 @@ A3 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                             zoomStartTime=as.Date("2008-01-04"),
                             zoomEndTime=as.Date("2008-01-05")) 
                           )
-\dontrun{
 plot(A3)
-}
 
 
 ## Data with POSIXct datetime variable
@@ -441,10 +454,55 @@ A4 <- gvisAnnotatedTimeLine(Andrew, datevar="Date/Time UTC",
                             options=list(scaleType='maximized')
                             )
 
-\dontrun{
 plot(A4)
-}
 
+
+\dontrun{
+
+## Plot Apple's monthly stock prices since 1984
+
+## Get current date
+d <- Sys.time() 
+current.year <- format(d, "\%Y")
+current.month <- format(d, "\%m")
+current.day <- format(d, "\%d")
+
+## Yahoo finance sets January to 00 hence: 
+month <- as.numeric(current.month)  - 1
+month <- ifelse(month < 10, paste("0",month, sep=""), m)
+
+## Get weekly stock prices from Apple Inc.
+tckr <- 'AAPL'
+fn <- sprintf('http://ichart.finance.yahoo.com/table.csv?s=\%s&a=08&b=7&c=1984&d=%s&e=%s&f=%s&g=w&ignore=.csv',
+      tckr, month, current.day, current.year)
+
+## Get data from Yahoo! Finance
+data <- read.csv(fn, colClasses=c("Date", rep("numeric",6)))
+
+AAPL <- reshape(data[,c("Date", "Close", "Volume")], idvar="Date", times=c("Close", "Volume"), 
+                  timevar="Type",
+                  varying=list(c("Close", "Volume")),
+                  v.names="Value", "Type",
+                   direction="long")
+
+## Calculate last year for zoom start time
+lyd <- as.POSIXlt(as.Date(d))
+lyd$year <- lyd$year-1
+lyd <- as.Date(lyd)
+
+aapl <- gvisAnnotatedTimeLine(AAPL, datevar="Date",
+                           numvar="Value", idvar="Type",
+                          options=list(
+                            zoomStartTime=lyd,
+                            zoomEndTime=as.Date(d),
+                            legendPosition='newRow',
+                            width=600, height=400, scaleColumns='[0,1]',
+                            scaleType='allmaximized')
+                           )
+
+plot(aapl)
+
+}
 }
 \keyword{ hplot }
 

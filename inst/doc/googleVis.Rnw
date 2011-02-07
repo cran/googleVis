@@ -1,6 +1,6 @@
 
 \documentclass{article}
-
+\usepackage[T1]{fontenc}
 \usepackage{Sweave}
 \usepackage{thumbpdf}
 \usepackage{url}
@@ -26,6 +26,8 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 
 \newcommand{\googleVis}{\textbf{\texttt{googleVis}} }
 \newcommand{\rsp}{\textbf{\texttt{R.rsp }}}
+\newcommand{\brew}{\textbf{\texttt{brew }}}
+\newcommand{\rapache}{\emph{{RApache }}}
 \newcommand{\rjsonio}{\textbf{\texttt{RJSONIO }}}
 
 \renewcommand{\familydefault}{\sfdefault}
@@ -42,12 +44,18 @@ Contact: rvisualisation@gmail.com}
 \begin{abstract}
   The \googleVis package provides an interface between R and the
   Google Visualisation API.  The Google Visualisation API offers
-  interactive charts which can be embedded into web pages. The most
-  well known of those charts is probably the Motion Chart, popularised
-  by Hans Rosling in his TED talks.  With the \googleVis package users
-  can create easily web pages with  interactive charts based on R data frames
-  and display them either via the \rsp package or
-  within their own sites. Currently the package provides interfaces to
+  interactive charts which can be embedded into web pages. The best
+  known of these charts is probably the Motion Chart, popularised 
+  by Hans Rosling in his TED talks. 
+ 
+  The functions of the \googleVis package allow the user to visualise
+  data stored in R data frames with the Google Visualisation API
+  without uploading their data to Google. The output of a \googleVis
+  function is html code that contains the data and references to
+  JavaScript functions hosted by Google and can be displayed via a
+  browser. 
+
+  Currently the package provides interfaces to
   Motion Charts, Annotated Time Lines, Maps, Geo Maps, Tables and Tree Maps. 
 \end{abstract}
 
@@ -71,14 +79,14 @@ In 2006 Hans Rosling gave an inspiring talk at
 TED~\cite{HansRoslingTedTalk} about social and economic developments
 in the world over the last 50 years, which challenged the views and
 perceptions of many listeners. Rosling had used extensive data analysis
-to come to his conclusions.  To visualise his talk, he and his team at
+to reach his conclusions.  To visualise his talk, he and his team at
 Gapminder~\cite{Gapminder} had developed animated bubble charts, aka
 motion charts, see Figure~\ref{MotionChartGUI}. 
 
 Rosling's presentation popularised the idea and use of interactive
 charts, and as one result the software behind
 Gapminder was bought by Google and integrated as motion charts into
-their Visualisation API~\cite{GoogleVisApi} a few years later. 
+their Visualisation API~\cite{GoogleVisApi} one year later. 
 
 We also notice that data journalism has grown over the recent
 years. The data blogs of the
@@ -125,23 +133,23 @@ there, e.g.
 The Google Visualisation API~\cite{GoogleVisApi}, \cite{GoogleTerms}
 allows users to create interactive charts as part of Google
 documents, spreadsheets and web pages. In this text we will focus 
-on the usage of the API as part of web sites.
+on the usage of the API as part of web pages.
 
 The Google Public Data Explorer~\cite{GooglePublicData} provides a
 good example, demonstrating the use of motion charts and how they can
-help to analyse data. Please note, that all those charts are rendered
+help to analyse data. Please note, that most of those charts are rendered
 within a browser using Adobe Flash~\cite{Flash}.
 
 The charting data can either be embedded into the html file or read
-dynamically. Key to the Google Visualisation API is that the data is
+dynamically. The key to the Google Visualisation API is that the data is
 structured in a DataTable~\cite{DataTable}, and this is where the \googleVis
 package helps, as it uses the functionality of the \rjsonio
 package~\cite{RJSONIO} to transform R data frames into
 JSON~\cite{json} objects as the basis for a DataTable.
 
-As an example we shall look at the html-code of a motion chart from Google's visualisation 
-gallery~\cite{GoogleMotionChart}, which generates output similar to
-Figure~\ref{MotionChartGUI}:
+As an example we shall look at the html-code of a motion chart from
+Google's visualisation gallery~\cite{GoogleMotionChart}, which
+generates output similar to Figure~\ref{MotionChartGUI}:
 
 \begin{verbatim}
 <html>
@@ -178,24 +186,18 @@ Figure~\ref{MotionChartGUI}:
   </body>
 </html>
 \end{verbatim}
-You will notice that the above html-code has three generic parts:
+You will notice that the above html code has three generic parts:
 \begin{itemize}
-\item reference to a JavaScript function provided by Google, here 
-	\texttt{'motionchart'},
+\item references to JavaScript functions provided by Google.
 
 \item data to visualise as a \texttt{DataTable}, 
 
-\item chart with chart id (\texttt{'chart\_div'}) and options, here width
-  and height. 
+\item chart with chart id (\texttt{'chart\_div'}) and options, shown
+  here as width and height. 
 \end{itemize}
 
-Those principles hold true for most of the interactive charts of the
+These principles hold true for most of the interactive charts of the
 Google Visualisation API, see the examples in Figure~\ref{demos}.
-
-To display the visualisation the html-page must be loaded from a
-web server in a browser with Internet connection and Flash; it may not
-work when loaded as a local file. For more details see the Google
-Visualisation API documentation~\cite{GoogleMotionChart}.
 
 \section{The \googleVis package}
 
@@ -205,25 +207,20 @@ visualise data stored in R data frames with the Google  Visualisation
 API. 
 
 The output of a \googleVis function is html code that contains the
-data and references to JavaScript functions hosted by Google. To view the output
-a browser with Flash and Internet  connection is required, the actual
-chart is rendered in the browser; it may not work when loaded as a
-local file. For more details see the Google Visualisation API
-documentation~\cite{GoogleMotionChart}. 
+data and references to JavaScript functions hosted by Google. To view
+the output a browser with Flash and Internet connection is required,
+the actual chart is rendered in the browser; it may not work when
+loaded as a local file. For more details see the Google Visualisation
+API documentation~\cite{GoogleMotionChart}. 
 
-Fortunately, the package \rsp~\cite{Rsp} provides an internal
-cross-platform web server which can be started from the R console; it
-serves the \googleVis package as a tool to display web
-pages. Additionally the \rsp  web server has the capability 
-to extract and execute R code from html code, similar to the approach
-taken by Sweave~\cite{Sweave2002} for \LaTeX. For more details see the
-\rsp documentation.
+Fortunately, R comes with an internal HTTP server which 
+allows the \googleVis package to display pages locally. 
 
 Currently the package provides interfaces to Motion
 Chart~\cite{GoogleMotionChart}, Annotated Time
 Line~\cite{GoogleAnnotatedTimeLine}, Geo Map~\cite{GoogleGeoMap}, 
 Map~\cite{GoogleMap}, Table~\cite{GoogleTable} and Tree
-Map~\cite{GoogleTreeMap}, see Figure~\ref{demos} for examples.  
+Map~\cite{GoogleTreeMap}; see Figure~\ref{demos} for examples.  
 
 \begin{figure}%%[!ht]
 \begin{center}
@@ -235,7 +232,6 @@ Map~\cite{GoogleTreeMap}, see Figure~\ref{demos} for examples.
   right.   }\label{demos}
 \end{center}
 \end{figure}
-
 
 \subsection{Installation}
 We can install \googleVis in the usual way from CRAN, e.g.:
@@ -253,17 +249,6 @@ library(googleVis)
 <<echo=FALSE>>=
 cat(googleVis:::gvisWelcomeMessage())
 @ 
-Please note that by default the visualisation output files will be
-written into the \texttt{rsp/myAnlysis} folder of the \googleVis
-library. The following  R-command will show the path to this folder: 
-<<eval=FALSE>>=
-system.file(file.path("rsp", "myAnalysis"), package="googleVis")
-@ 
-It is preferable that you have write-access to this directory. So you
-may want to install the package locally, e.g. in your home
-folder, via   \texttt{install.packages("googleVis", lib=Sys.getenv("R\_LIBS\_USER"))} .
-Please see also the \href{http://cran.r-project.org/doc/manuals/R-admin.html#Managing-libraries}{R Admin Manual}
-or contact your system administrator if you need further help.
 
 \subsection{Using the  \googleVis package}
 
@@ -276,11 +261,12 @@ Figure~\ref{MotionChartGUI}. It works similarly for the other
 APIs. Further examples are covered in the demos of the \googleVis
 package, see also Figure~\ref{demos}. 
 
-The design of the visualisation functions are fairly generic. The name
+The design of the visualisation functions is fairly generic. The name
 of the visualisation function is \texttt{'gvis' + ChartType}. So for
 the Motion Chart we have: 
 \begin{verbatim}
-gvisMotionChart(data, idvar='id', timevar='date', options=list())
+gvisMotionChart(data, idvar='id', timevar='date', 
+                options=list(), chartid)
 \end{verbatim}
 Here \texttt{data} is the input \texttt{data.frame} and \texttt{idvar}
 and \texttt{timevar} specify the column names of the id variable and
@@ -290,16 +276,22 @@ Google Visualisation API and are documented in the help pages, see
 <<eval=FALSE>>=
 help('gvisMotionChart')
 @ 
+The argument \texttt{chartid}  allows the user to set a chart id of the
+output chart manually. If the argument is missing a random id using 
+\texttt{tempfile(pattern=\textquotesingle\textquotesingle)}  
+will be generated. Unique chart ids are required to place more than one chart into a page.
+
 The output of a \googleVis function is a list of lists (a nested list)
 containing information about the chart type, chart id and the html
 code in a  sub-list with header, chart, caption and footer.
 
 The idea behind this concept is that users can get a
-complete web page while at the same time can extract specific parts,
+complete web page while at the same time extracting specific parts,
 such as the chart. This is particular helpful if the package functions
 are used in solutions where the user wants to feed the visualisation
-output into other sites, or would like to embed them into rsp-pages,
-see page~\pageref{rspexample}, or Google Gadgets.  
+output into other sites, or would like to embed them into rsp-pages
+(see page~\pageref{rspexample}),  or use \rapache (see
+page~\pageref{rapacheexample}) or Google Gadgets.  
 
 The output of a \googleVis function will be of class \texttt{'gvis'}
 and \texttt{'list'}. Generic print (\texttt{print.gvis})  and plot
@@ -311,7 +303,7 @@ To illustrate the concept we shall create a motion chart using the
 \subsection{Motion Chart Example}
 
 Following the documentation of the Google Motion Chart API we need a
-data set which has at least four columns; one identifying the
+data set which has at least four columns: one identifying the
 variable we would like to plot, one time variable and at least two
 numerical variables, further numerical and character columns are allowed.
 
@@ -323,12 +315,12 @@ Fruits
 
 Here we will use the columns \texttt{'Fruit'} and
 \texttt{'Year'} as id and time variable respectively. However we could
-also heave used \texttt{'Date'} instead of \texttt{'Year'}. 
+heave used \texttt{'Date'} instead of \texttt{'Year'} as well. 
 
 <<>>=
  M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
 @
-The structural output of \texttt{gvisMotionChart} is a list of list as
+The structural output of \texttt{gvisMotionChart} is a list of lists as
 described above 
 <<eval=FALSE>>=
  str(M)
@@ -338,8 +330,8 @@ described above
 cat(paste(substring( capture.output( str(M) ) , 0, 66), sep="\n", collapse="\n"))
 @ 
 The first two items of the list contain information about the chart type
-used and the individual chart id generated at run time from the chart
-type and date:
+used and the individual chart id: %generated at run time from the chart
+%type and \texttt{tempfile(pattern=\textquotesingle\textquotesingle)}:
 <<>>=
 M$type
 M$chartid
@@ -348,77 +340,231 @@ The html output is a list with header, chart, caption and
 footer. This allows the user to extract only certain parts
 of the page, or to create a complete html page. 
 
-The header part of the html page has only basic html tags and includes
-links to two rsp-files to provide a  simple layout.
+The header part of the html page has only basic html and formatting tags: 
 <<>>=
-cat(M$html$header)
+print(M, tag='header')
 @ 
-The actual Google visualisation code is stored with the data in the \texttt{chart} item
-of the html list. 
+Here we used the \texttt{print} statement with the tag
+\texttt{'header'} instead of \texttt{M\$html\$header} to achieve
+a formatted screen output. This is the same output as
+\texttt{cat(M\$html\$chart)}. 
+
+
+The actual Google visualisation code is stored with the data
+as a named character vector in the \texttt{chart} item of the html
+list. The chart is made up of several JavaScript and  HTML
+statements. Please notice that the JavaScript functions are  
+uniquely named with the information of the chart id.
+This concept allows the user get all the chart code directly or only
+specific parts; see the examples in the help page of \texttt{print.gvis}
+for more details.
 <<>>=
-cat(M$html$chart)
+names(M$html$chart)
+@ 
+The complete chart can be displayed via:
+<<>>=
+print(M, tag='chart')  ## or cat(M$html$chart)
 @
-
-A basic chart caption and html footer are the final items of the html list:
+Similarly you can also access specific components of the chart, e.g.
 <<>>=
-cat(M$html$caption)
-cat(M$html$footer)
+cat(M$html$chart['jsChart']) # or print(M, 'jsChart')
 @ 
-\subsection{Displaying \texttt{gvis} objects}
 
-To display the page locally just type:
+A basic chart caption and html footer are the final items of the html
+list (output is truncated):
+
+<<eval=FALSE>>=
+print(M, tag='caption')
+@ 
+<<echo=FALSE>>=
+cat(paste(substring( capture.output( cat(M$html$caption) ) , 0, 66), sep="\n", collapse="\n"))
+@ 
+
+<<eval=FALSE>>=
+print(M, tag='footer')
+@ 
+<<echo=FALSE>>=
+cat(paste(substring( capture.output( cat(M$html$footer) ) , 0, 66), sep="\n", collapse="\n"))
+@ 
+
+\subsection{Displaying \texttt{gvis} objects locally}
+
+To display the page locally, type:
 <<eval=FALSE>>=
 plot(M)
 @
 
-The plot method for \texttt{gvis} object will by
-default automatically create a rsp-file in the \texttt{rsp/myAnalysis}
-folder of the \googleVis package using the type and chart id
-information of the object and it will display the output using the
-local web server of the \rsp package. 
+The plot method for \texttt{gvis}-objects creates html files in a temporary folder using
+the type and chart id information of the object and it will display
+the output using the R HTTP help web server locally.  
 
-The following R-command will show you the path to the
-\texttt{rsp/myAnalysis} folder:
-<<eval=FALSE>>=
-system.file(file.path("rsp", "myAnalysis"), package="googleVis")
-@ 
-If you would like to write the output into a different directory,
-e.g. your web server repository, then you can set the arguments for 
-\texttt{filename} and \texttt{repos} (web server address of the
-repository) individually. 
+Please note that the chart caption provides a link to the chart code via
+the chart id for easy copy and paste. 
+
+The R command \texttt{tempdir()}  will show you the path of the
+per-session temporary directory, in which the files were written.  
 
 Further examples are part of the \googleVis demo, including one
 example demonstrating how the output of several visualisations can
 be incorporated into a single page.
 
-\subsection{Using \googleVis with \rsp}\label{rspexample}
-The \rsp package allows the user to integrate R code into html-code.
+
+\section{Embedding \googleVis in web sites}
+
+\subsection{Integrating \texttt{gvis} objects in existing sites}
+
+Suppose you have an existing web page and would like to integrate the
+output of a \googleVis function, such as \texttt{gvisMotionChart}. 
+In this case you only need the chart output from
+\texttt{gvisMotionChart}.  So you can either copy and paste the output
+from the R console
+<<eval=FALSE>>=
+print(M, 'chart')  ## or cat(M$html$chart) 
+@ or the browse, see previous section, 
+into your existing html page, or write the content directly into a file
+<<eval=FALSE>>=
+print(M, 'chart', file='myfilename')
+@
+and process it from there.
+
+
+\subsection{Embedding \googleVis in web sites dynamically}
+
+In this section we provide examples how the \googleVis functions can be
+embedded into web sites dynamically. With the R packages \rsp~\cite{Rsp} and
+\brew~\cite{brew2010} we have two options to integrate R snippets into
+html code. While the \rsp package comes with its own internal web
+server, \brew requires the Apache HTTP server~\cite{Apache2.0} with
+the \rapache~\cite{Rapache} module installed. Please note that
+currently the \rapache module only runs on UNIX/Linux and Mac OS X.  
+
+\subsubsection{Using \googleVis with \rsp}\label{rspexample}
+The \rsp package allows the user to integrate R code into html code.
 The R code is filtered by the \rsp web server and executed
 at run time. 
 
-As mentioned above the R.rsp package allows us to dynamically
-generate documents into static content using R Server Pages. This
-means we can mix html and R code to create content on the fly.   As an
-example, we can embed the above motion chart into a rsp-page: 
+As an example, we can embed the above motion chart into a rsp-page: 
 \begin{verbatim}
 <html>
 <body>
-<%=library(googleVis)%>
-<%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")$html$Chart%>
+<% library(googleVis)%>
+<% M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year") %>
+<%= M$html$chart %>
 </body>
 </html>
 \end{verbatim}
-You find a few examples as part of the \googleVis package. Those examples can be displayed
-via the following R command:
+The R code included in \texttt{<\%$\dots$\%>} is executed when read by
+the R.rsp HTTP server, but no R output will be displayed. To embed the
+R output into the html code we have to add an equal sign,
+\texttt{<\%=$\dots$\%>}, which acts as a \texttt{cat} statement.
+
+You find an example as part of the \googleVis package. This example
+can be displayed via the following R command:
 <<eval=FALSE>>=
-browseRsp() # In the browser follow the link for googleVis
+library(R.rsp) 
+browseRsp() 
+# Follow the link for googleVis in the opening browser window
 @
 The actual rsp-file is located within the \googleVis package directory
 and again R allows you to find the file with the following command: 
 <<eval=FALSE>>=
-filePath(system.file("rsp", package = "googleVis"), "index.rsp")
+file.path(system.file("rsp", package = "googleVis"), "index.rsp")
 @ 
-For more information read also the documentation of the \rsp package.
+For more information read the documentation of the \rsp package.
+
+\subsubsection{Using \googleVis with \rapache and \brew}\label{rapacheexample}
+
+\rapache supports web application development using
+R and the Apache HTTP server. The  \rapache module
+embeds the R interpreter into the Apache web server.  However, as we
+would like to mix R and html code we also need a parser and
+this is where the R package \brew comes into place. 
+
+Files sitting in a dedicated \brew folder of the HTTP repository are
+parsed by \brew when opened in the browser. The R code is 
+executed with \rapache and the output is embedded into the site.
+Hence the approach is similar to \rsp with the difference that the
+two tasks are split. This has the advantage that R does not have to
+run in a separate window.
+
+Detailed installation instructions for \rapache are available on the
+project site: 
+\href{http://rapache.net/manual.html}{http://\-rapache.\-net/\-manual\-.html},
+for specific comments on Mac OS X see: 
+\href{http://worldofrcraft.blogspot.com/2010/08/installing-rapache-on-mac-os-x-snow.html}{http://\-worldofrcraft\-.blog\-spot\-.com/\-2010/\-08/\-installing\--rapache\--on\--mac\--os\--x\--snow\-.html}  
+
+Following the installation of \rapache you will have to configure Apache.
+Most likely you have to add something along the following lines to your
+\path{apache2.conf} or \path{httpd.conf} file (often found in
+\path{/etc/httpd} or \path{/private/etc/apache2/httpd.conf} on Mac OS X):
+\begin{verbatim}
+LoadModule R_module /usr/lib/apache2/modules/mod_R.so
+## On Mac OS X more likely to be:
+## LoadModule R_module libexec/apache2/mod_R.so
+ROutputErrors
+RSourceOnStartup "/var/www/rapache/R/startup.R"
+## On Mac OS X the www folder is often equivalent to:
+## /Library/WebServer/Documents/
+\end{verbatim}
+The first line loads the R module when the Apache web server is
+started, the second line deals with error handling, while
+the \path{startup.R} file is suitable for initial
+set ups, e.g. libraries and global variables:
+\begin{verbatim}
+## Ensure the packages are installed so that mod_R 
+## has access to them, e.g. not in your home folder
+library{googleVis} 
+library{lattice}
+library{Cairo}
+MyGlobalVar <- 42
+\end{verbatim}
+
+To test that \rapache is working open
+\href{http://localhost/RApacheInfo}{http://\-localhost/\-RApacheInfo} and
+you should find details about your system, an example can be found on
+the \rapache site:
+\href{http://biostat.mc.vanderbilt.edu/rapache/files/RApacheInfo.html}{http://\-biostat.\-mc.\-vanderbilt.\-edu/\-rapache/\-files/\-RApacheInfo\-.html} 
+
+The next step is to install the \brew R package in the usual way:
+<<eval=FALSE>>=
+install.packages('brew')
+@
+Following this we have to tell Apache that files in a specific folder
+should be parsed by \textbf{\texttt{brew}}. Again we edit the \path{apache2.conf} or
+\path{httpd.conf}  and add the connection of the RHandler with the function \path{brew}:
+\begin{verbatim}
+<Directory /var/www/rapache/brew>
+## On Mac OS more likely to be something like:
+## <Directory /Library/WebServer/Documents/rapache/brew>
+      SetHandler r-script
+      RHandler brew::brew
+</Directory>
+\end{verbatim}
+
+That's all. Restart the HTTP daemon and you can start placing files in
+the \brew directory and access them via
+\path{http://localhost/rapache/brew/filename}, e.g. a file containing:  
+\begin{verbatim}
+<html>
+<body>
+<h1>Fruits</h1>
+<% library(googleVis)%>
+<% M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year") %>
+<%= M$html$chart %>
+</body>
+</html>
+\end{verbatim}
+
+You will notice that the  \brew syntax is very similar to \texttt{rsp}.
+For more information read the documentation of the \rapache
+module and \brew package. 
+You find two simple examples of brew files in the \googleVis
+package. Again the following R command shows you the 
+folder path:
+<<eval=FALSE>>=
+system.file("brew", package = "googleVis")
+@ 
+
 
 \section{Contact}
 \subsection{Collaboration} 
@@ -447,7 +593,7 @@ Please contact us if you would like to discuss tailored training or
 consultancy: \href{mailto:rvisualisation@gmail.com?subject=Training-and-consultancy}{rvisualisation@gmail.com} 
 
 
-\clearpage
+%%\clearpage
 
 \bibliographystyle{alpha}
 \bibliography{googleVis}

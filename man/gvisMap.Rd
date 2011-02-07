@@ -12,7 +12,7 @@
 }
 \usage{
 gvisMap(data, locationvar='', tipvar='',
-           options = list())
+           options = list(), chartid)
 }
 \arguments{
   \item{data}{
@@ -73,6 +73,9 @@ gvisMap(data, locationvar='', tipvar='',
 	}
       }
     }
+    \item{chartid}{character. If missing (default) a random chart id will be generated based on
+      chart type and \code{\link{tempfile}}
+    }
   }
   
   %%\details{
@@ -83,26 +86,48 @@ gvisMap(data, locationvar='', tipvar='',
   
   An object of class "\code{gvis}" is a list containing at least the following components:
   \item{\code{type}}{Google visualisation type, here 'Map'}
-  \item{\code{chartid}}{character id of the chart object. The string is build
-    at run time from chart type and date/time when the function is
-    executed. Unique chart ids are required to place several charts on
-    the same page.
+  \item{\code{chartid}}{character id of the chart object. Unique chart
+    ids are required to place several charts on the same page.
   }
   \item{\code{html}}{a list with the building blocks for a page
     \describe{
       \item{\code{header}}{a character string of a html page header:
 	\code{<html>...<body>},}
-      \item{\code{chart}}{a character string of the chart object with
-	reference to the Google API. Only this string is needed to embed the
-	chart into pages, see also the examples in the \code{googleVis} demo,}
-      \item{\code{caption}}{a character string of a standard caption,
-	including data set, chart id and R version used; further a link to Google's
-	Terms of Use,}
-      \item{\code{footer}}{a character string of a html page footer:
-	\code{</body>...</html>}.}
+      \item{\code{chart}}{a named character vector of the chart's building blocks:
+      	\describe{
+	  \item{\code{jsHeader}}{Opening \code{<script>} tag and
+	    reference to Google's JavaScript library.
+	  }
+	  \item{\code{jsData}}{JavaScript function defining the input
+	    \code{data} as a JSON object.
+	  } 
+	  \item{\code{jsDrawChart}}{JavaScript function
+	    combing the data with the visualisation API and user
+	    options.
+	  }
+	  \item{\code{jsDisplayChart}}{JavaScript function calling the
+	    handler to display the chart.
+	  }
+	  \item{\code{jsChart}}{Call of the \code{jsDisplayChart} 
+	    function.
+	  }
+	  \item{\code{jsFooter}}{End tag \code{</script>}.
+	  }
+	  \item{\code{divChart}}{\code{<div>} container to embed the chart
+	    into the page.
+	  }
+	}   
+      }
+      \item{\code{caption}}{character string of a standard caption,
+	including data name and chart id.
+      }	
+      \item{\code{footer}}{character string of a html page footer:
+	\code{</body>...</html>}, including the used R and googleVis version
+	and link to Google's Terms of Use.}
     }
   }
 }
+
 \note{
   The Lat-Long pairs option loads maps much faster, especially with
   large data. We recommend that you use this option for large data
@@ -141,29 +166,21 @@ Diego de Castillo \email{decastillo@gmail.com}
   } 
 }
 \examples{
-## Please note that by default the plot (better plot.gvis) command will
-## try to write the output into the rsp/myAnalysis folder of the
-## googleVis library. Further the plot command will open a
-## browser window and requires Flash and Internet connection to
-## display the visualisation.
-## Because of those requirements the plot commands are not executed
-## automatically as part of the example. 
-## Please copy and paste the plot commands manually
-## to see the visualisation output, see also ?plot.gvis for further
-## details.  
+## Please note that by default the plot (better plot.gvis) command
+## will open a browser window and requires Internet
+## connection to display the visualisation.
   
 ## Example with latitude and longitude information
 ## Plot Hurricane Andrew (1992) storm path:
 
 data(Andrew)
 
-M1 <- gvisMap(Andrew, "LatLong" , "Tip", 
-      	      options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
-		      mapType='terrain', useMapTypeControl=TRUE))
+M1 <- gvisMap(Andrew, "LatLong" , "Tip",
+              options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
+                           mapType='hybrid', useMapTypeControl=TRUE,
+                           width=800,height=400))
 
-\dontrun{
 plot(M1) 
-}
 
 
 ## Example with address, here UK post-code
@@ -175,9 +192,7 @@ M2 <- gvisMap(df, "Postcode", "Tip",
               options=list(showTip=TRUE, mapType='normal',
               enableScrollWheel=TRUE))
 
-\dontrun{
 plot(M2) 
-}
 
 }
 

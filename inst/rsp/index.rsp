@@ -41,24 +41,6 @@
       as part of the demo; to execute the demo type into the R
       console: <tt>demo(googleVis)</tt>.
     </p>
-    By default the output of the <tt>googleVis</tt> functions will be stored in the following directory: 
-    <ul>
-      <li><%=system.file(file.path("rsp", "myAnalysis"), package="googleVis")%>.
-    </ul>
-    However, the pages will be hosted here:
-    <ul>
-      <li> <a href="myAnalysis/index.rsp">myAnalysis</a>.
-    </ul>
-    For example the following R commands
-    <pre>
-      library(googleVis)
-      M &lt;- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
-      plot(M)
-    </pre>
-    would generate the
-    file <tt>MotionChart_<%=format(Sys.time(),"%Y-%m-%d-%H-%M-%S")%>.rsp</tt>
-    in the directory above. 
-    Therefore you need write-access to that folder. 
     <h2>
       Embedding googleVis charts into your web page with <a href="/">R.rsp</a>
     </h2>
@@ -96,7 +78,7 @@ dataMode='regions'))$html$chart%&gt;
       <pre>
 &lt;%=gvisMap(Andrew, "LatLong" , "Tip", options=list(showTip=TRUE,
 showLine=TRUE, enableScrollWheel=TRUE,  mapType='terrain',
-useMapTypeControl=TRUE))$html$chart&gt;
+useMapTypeControl=TRUE))$html$chart%&gt;
      </pre> 
     </p>
     <p>
@@ -156,11 +138,9 @@ options=list(displayAnnotations=TRUE, width=600, height=350))$html$chart%&gt;
       Annotated Time Line API</a>  
     </p>
 
-
-
     <p>
       We hope these examples show you how you can generate content
-      with functions from the <tt>R.rsp</tt> and <tt>googleVis</tt>
+      with functions from the <!-- <tt>R.rsp</tt> and --> <tt>googleVis</tt>
       packages.
     </p>
     <p>

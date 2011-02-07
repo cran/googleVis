@@ -1,3 +1,48 @@
+Version 0.2.4 [2011-02-07]
+==========================
+
+Changes
+   
+   o plot.gvis no longer writes into the package folder. Instead
+     temporary files are created. This overcomes the need to install
+     the package into a directory with write access. Many thanks to
+     Ben Bolker for this suggestion and code contribution.  
+  
+   o plot.gvis no longer requires the web server provided by
+     the R.rsp package to display the visualisation output. Instead it
+     uses the internal R HTTP help server. Many thanks to John Verzani
+     for this suggestion and code contribution. 
+  
+   o R >= 2.11.0 is required to plot googleVis output, as it uses the
+     internal R HTTP help server.
+  
+   o Updated vignette with a section on how to use googleVis with
+     RApache and brew
+
+NEW FEATURES
+
+   o The plot function generates a web page which includes a link
+     to the HTML code of the chart. Many thanks to Henrik Bengtsson
+     for this suggestion.
+
+   o gvis visualisation functions have a new argument 'chart id', to
+     set the chart id of the exhibit manually. 	         
+
+   o gvis functions return more details about the visualisation chart
+     in a structured way. Suppose x is a 'gvis' object, than
+     x$html$chart is a named character vector of the chart's
+     JavaScript building blocks and html tags. 
+
+   o print.gvis has a new argument 'tag', which gives the user more
+     control about the output
+
+   o Brew example files in: 
+     system.file("brew", package = "googleVis")  
+
+BUG FIXES
+
+   o gvisTable did not accept datetime columns.
+
 Version 0.2.3 [2010-12-19]
 ==========================
 
@@ -9,8 +54,10 @@ NEW FEATURES
 
 BUG FIXES
 
-   o Google date objects expect the months Jan.- Dec. as 0 - 11 and not 1 - 12
-   o Fixed typo in the Andrew data set. The Pressure at 1992-08-24 12:00:00 was 951 and not 51 
+   o Google date objects expect the months Jan.- Dec. as 0 - 11 and
+     not 1 - 12 
+   o Fixed typo in the Andrew data set. The Pressure at 1992-08-24
+     12:00:00 was 951 and not 51  
 
 Version 0.2.2 [2010-12-12]
 ==========================
@@ -22,7 +69,8 @@ Changes
 NEW FEATURES
 
    o New function:
-     - createGoogleGadget which allows users to create Google Gadgets XML output 
+     - createGoogleGadget which allows users to create Google Gadgets
+       XML output  
 
 
 Version 0.2.1 [2010-11-30]
@@ -35,15 +83,16 @@ Changes
 NEW FEATURES
 
    o New function:
-     - gvisAnnotatedTimeLine to generate interactive annotated time line charts
+     - gvisAnnotatedTimeLine to generate interactive annotated time
+       line charts 
 
 Version 0.2.0 [2010-11-14]
 ==========================
 
 Changes
 
-   o The package has been renamed from GoogleMotionChart to googleVis to reflect 
-     a new more flexible implementation.
+   o The package has been renamed from GoogleMotionChart to googleVis 
+     to reflect a new more flexible implementation.
    o More functions of the Google Visualisation API are now available.
 
 USER-VISIBLE CHANGES
@@ -52,7 +101,8 @@ USER-VISIBLE CHANGES
    o Output is now of class 'gvis' with generic print and plot
      functions.
    o 'gvis' objects are list of lists, which allow the user to extract
-     the various parts of the visualisation output, e.g. the chart object.  
+     the various parts of the visualisation output, e.g. the chart
+     object.
   
 NEW FEATURES
 
@@ -63,7 +113,8 @@ NEW FEATURES
      - gvisTreeMap to generate tree maps
      - gvisTable to generate table output
      - print.gvis: generic function to print 'gvis' objects
-     - plot.gvis: generic function to display 'gvis' objects in a browser via the R.rsp package. 
+     - plot.gvis: generic function to display 'gvis' objects in a
+       browser via the R.rsp package.  
 
 
 Version 0.1.4 [2010-08-12]

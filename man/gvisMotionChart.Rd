@@ -3,7 +3,7 @@
 
 \title{ Google Motion Chart with R}
 \description{
-   The gvisMotionChart function reads a data.frame and
+  The gvisMotionChart function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
   included into a web page, or as a stand-alone page. The actual chart is
   rendered by the web browser in flash.
@@ -14,7 +14,7 @@
 \usage{
 gvisMotionChart(data, idvar = "id", timevar = "time", 
 		      date.format = "\%Y/\%m/\%d", 
-		      options = list())
+		      options = list(), chartid)
 }
 
 \arguments{
@@ -87,33 +87,59 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
       
     } 
   }
+  \item{chartid}{character. If missing (default) a random chart id will be generated based on
+    chart type and \code{\link{tempfile}}
+  }
 }
 %%\details{
 %%
 %%}
 
 \value{
-  \code{gvisMotionChart} returns list of \code{\link{class}} "\code{gvis}" and "\code{list}". 
+  \code{gvisMotionChart} returns list of \code{\link{class}}
+  "\code{gvis}" and "\code{list}".   
   
-  An object of class "\code{gvis}" is a list containing at least the following components:
+  An object of class "\code{gvis}" is a list containing at least the
+  following components:
   \item{\code{type}}{Google visualisation type, here 'MotionChart'}
-  \item{\code{chartid}}{character id of the chart object. The string is build
-    at run time from chart type and date/time when the function is
-    executed. Unique chart ids are required to place several charts on
-    the same page.
+  \item{\code{chartid}}{character id of the chart object. Unique chart
+    ids are required to place several charts on the same page.
   }
   \item{\code{html}}{a list with the building blocks for a page
     \describe{
       \item{\code{header}}{a character string of a html page header:
 	\code{<html>...<body>},}
-      \item{\code{chart}}{a character string of the chart object with
-	reference to the Google API. Only this string is needed to embed the
-	chart into pages, see also the examples in the \code{googleVis} demo,}
-      \item{\code{caption}}{a character string of a standard caption,
-	including data set, chart id and R version used; further a link to Google's
-	Terms of Use,}
-      \item{\code{footer}}{a character string of a html page footer:
-	\code{</body>...</html>}.}
+      \item{\code{chart}}{a named character vector of the chart's building blocks:
+      	\describe{
+	  \item{\code{jsHeader}}{Opening \code{<script>} tag and
+	    reference to Google's JavaScript library.
+	  }
+	  \item{\code{jsData}}{JavaScript function defining the input
+	    \code{data} as a JSON object.
+	  } 
+	  \item{\code{jsDrawChart}}{JavaScript function
+	    combing the data with the visualisation API and user
+	    options.
+	  }
+	  \item{\code{jsDisplayChart}}{JavaScript function calling the
+	    handler to display the chart.
+	  }
+	  \item{\code{jsChart}}{Call of the \code{jsDisplayChart} 
+	    function.
+	  }
+	  \item{\code{jsFooter}}{End tag \code{</script>}.
+	  }
+	  \item{\code{divChart}}{\code{<div>} container to embed the chart
+	    into the page.
+	  }
+	}   
+      }
+      \item{\code{caption}}{character string of a standard caption,
+	including data name and chart id.
+      }	
+      \item{\code{footer}}{character string of a html page footer:
+	\code{</body>...</html>}, including the used R and googleVis version
+	and link to Google's Terms of Use.}
     }
   }
 }
@@ -134,7 +160,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
   about social and economic developments in  the world over the last 50
   years, which challenged the views and perceptions of many
-  listeners. Rosling had used extensive data analysis to come to his
+  listeners. Rosling had used extensive data analysis to reach his
   conclusions.  To visualise his talk, he and his team at
   Gapminder \url{http://www.gapminder.org} had developed animated bubble charts, aka
   motion charts.
@@ -162,21 +188,14 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 \seealso{
   See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
-  printing and plotting methods, further \code{\link{browseRsp}}, and also the
+  printing and plotting methods, and also the
   \code{animation-package} and its function \code{Rosling.bubbles}.
 }
 
 \examples{
-## Please note that by default the plot (better plot.gvis) command will
-## try to write the output into the rsp/myAnalysis folder of the
-## googleVis library. Further the plot command will open a
-## browser window and requires Flash and Internet connection to
-## display the visualisation.
-## Because of those requirements the plot commands are not executed
-## automatically as part of the example. 
-## Please copy and paste the plot commands manually
-## to see the visualisation output, see also ?plot.gvis for further
-## details.  
+## Please note that by default the plot (better plot.gvis) command
+## will open a browser window and requires Flash and Internet
+## connection to display the visualisation.
 
 Fruits	
 ## timevar Year
@@ -185,29 +204,20 @@ str(M1)
 ## print.gvis, will concatenate the list into a one long string
 M1
 
-## plot.gvis will create a file and open it in your browser.
-\dontrun{
 plot(M1)
-}
-
 \dontrun{
 ## Usage of date variable
 M2 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date",
                                date.format = "/%Y/%m/%d") 
 plot(M2)
-}
 ## Options: no side panel on the right
 M3 <- gvisMotionChart(Fruits,"Fruit","Year",
                  options=list(showSidePanel=FALSE))
-\dontrun{
 plot(M3)
-}
-
 ## Options: trails un-ticked
 M4 <- gvisMotionChart(Fruits, "Fruit", "Year",
                  options=list(state='{\"showTrails\":false};'))
 
-\dontrun{
 plot(M4)
 }
 }

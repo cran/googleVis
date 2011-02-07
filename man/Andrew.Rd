@@ -33,23 +33,34 @@
 \examples{
 data(Andrew)
 
-Map <- gvisMap(Andrew, "LatLong" , "Tip", 
-      	      options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
-		      mapType='terrain', useMapTypeControl=TRUE))
+AndrewGeoMap <- gvisGeoMap(Andrew, locationvar='LatLong', numvar='Speed_kt',
+                          hovervar='Category',
+                          options=list(width=800,height=400, region='US'))
 
+AndrewMap <- gvisMap(Andrew, 'LatLong' , 'Tip',
+                           options=list(showTip=TRUE, showLine=TRUE,
+                           enableScrollWheel=TRUE,
+                           mapType='hybrid', useMapTypeControl=TRUE,
+			   width=800,height=400))
 
-\dontrun{
-plot(Map) 
-}
+AndrewTable <- gvisTable(Andrew,options=list(width=800))
 
-## Show Hurricane Andrew (1992) storm track with Geo Map
-Geo <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt", 
-      			 hovervar="Category", 
-      		         options=list(height=350, region="US"))
+## Combine the outputs into one page:
 
-\dontrun{
-plot(Geo) 
-}
+AndrewVis <- list(type='GeoMapTable',
+		chartid='Hurricane-Andrew', 
+		 html=list(header=AndrewGeoMap$html$header,
+		      chart=list(AndrewGeoMap$html$chart,
+			         AndrewMap$html$chart, 
+			         AndrewTable$html$chart
+				),
+                 caption="Combination of various googleVis outputs <BR />", 
+                 footer=AndrewGeoMap$html$footer)
+            )
+		
+class(AndrewVis) <- list('gvis',class(AndrewVis))
+
+plot(AndrewVis)
 
 }
 \keyword{datasets}
