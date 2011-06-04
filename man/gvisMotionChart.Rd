@@ -1,7 +1,7 @@
 \name{gvisMotionChart}
 \alias{gvisMotionChart}
 
-\title{ Google Motion Chart with R}
+\title{Google Motion Chart with R}
 \description{
   The gvisMotionChart function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
@@ -147,15 +147,8 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   Google Motion Chart API:
   \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html} 
 
-  Follow the link also for Google's Data Policy.
-}
-\author{
-  Markus Gesmann \email{markus.gesmann@gmail.com},
-  
-  Diego de Castillo \email{decastillo@gmail.com}
-}
-\note{
-  
+  Follow the link for Google's data policy.
+
   In 2006 Hans Rosling gave an inspiring talk at TED
   \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
   about social and economic developments in  the world over the last 50
@@ -182,6 +175,17 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   Stephen Thompson at Lloyd's developed an Excel version that mimics
   much of the functionality of the Google motion charts: 	  
   \url{http://www.lloyds.com/The-Market/Tools-and-Resources/Resources/Statistics-Relating-to-Lloyds/Visualisation}
+
+}
+\author{
+  Markus Gesmann \email{markus.gesmann@gmail.com},
+  
+  Diego de Castillo \email{decastillo@gmail.com}
+}
+\note{
+  Please note that a \code{timevar} with values less than 100 will be
+  shown as years 19xx.
+
   
 }
 
@@ -193,7 +197,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 }
 
 \examples{
-## Please note that by default the plot (better plot.gvis) command
+## Please note that by default the googleVis plot command
 ## will open a browser window and requires Flash and Internet
 ## connection to display the visualisation.
 
@@ -208,17 +212,41 @@ plot(M1)
 \dontrun{
 ## Usage of date variable
 M2 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date",
-                               date.format = "/%Y/%m/%d") 
+                               date.format = "\%Y\%m\%d") 
 plot(M2)
+}
 ## Options: no side panel on the right
 M3 <- gvisMotionChart(Fruits,"Fruit","Year",
                  options=list(showSidePanel=FALSE))
 plot(M3)
 ## Options: trails un-ticked
 M4 <- gvisMotionChart(Fruits, "Fruit", "Year",
-                 options=list(state='{\"showTrails\":false};'))
+                 options=list(state='{"showTrails":false};'))
 
 plot(M4)
-}
+
+## Using information from the advanced state settings
+##
+## In the browser window you can change some of displaying settings,
+## e.g. the level of opacity of not selected items.
+## Copy and paste the state string from the 'Advanced' tab into R
+## and you can add it to your list of options:
+
+myStateSettings <-'
+{"xZoomedDataMax":111,"dimensions":{"iconDimensions":["dim0"]},
+"colorOption":"2","xZoomedIn":false,"yZoomedDataMax":91,
+"sizeOption":"5","yZoomedIn":false,"xLambda":1,"time":"2008",
+"yZoomedDataMin":71,"iconType":"BUBBLE","showTrails":true,
+"xAxisOption":"3","duration":{"timeUnit":"Y","multiplier":1},
+"playDuration":15000,"nonSelectedAlpha":0,"iconKeySettings":[],
+"orderedByY":false,"uniColorForNonSelected":false,"orderedByX":false,
+"xZoomedDataMin":81,"yLambda":1,"yAxisOption":"4"}
+'
+
+M5 <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(state=myStateSettings))
+plot(M5)
+## For more information see:
+## http://code.google.com/apis/chart/interactive/docs/gallery/motionchart.html#Motion_Chart_initial_state
+
 }
 \keyword{ hplot }

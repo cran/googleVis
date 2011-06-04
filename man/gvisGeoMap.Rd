@@ -7,13 +7,14 @@
   The gvisGeoMap function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
   included into a web page, or as a stand-alone page.
-  
-  A Geo map is a map of a country, continent, or region map, with colors
-  and values assigned to specific regions. Values are displayed as a color
+ 
+  A Geo map is a map of a country, continent, or region map, with colours
+  and values assigned to specific regions. Values are displayed as a colour
   scale, and you can specify optional hover-text for regions. The map is
   rendered in the browser. Note that the
   map is not scroll-able or drag-gable, but can be configured to allow
   zooming.
+
 }
 \usage{
 gvisGeoMap(data, locationvar='', numvar='', hovervar='',
@@ -60,7 +61,7 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
     \url{http://code.google.com/apis/visualization/documentation/gallery/geomap.html#Configuration_Options}:
   
     \describe{
-      \item{region}{string, default \code{'world'}.	
+      \item{\code{region}}{string, default \code{'world'}.	
 	The area to display on the map. (Surrounding areas will be
 	displayed as well.) Can be either a country code (in uppercase
 	ISO-3166 format), or a one of the following strings
@@ -188,7 +189,7 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
 \references{
   Google Geo Map  API: \url{http://code.google.com/apis/visualization/documentation/gallery/geomap.html}
 
-  Follow the link also for Google's Data Policy.
+  Follow the link for Google's data policy.
 
 }
 \author{
@@ -210,12 +211,12 @@ Diego de Castillo \email{decastillo@gmail.com}
 \seealso{
 
   See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
-  printing and plotting methods, \code{\link{gvisMap}} for an
+  printing and plotting methods, \code{\link{gvisMap}} and \code{\link{gvisIntensityMap}} for an
   alternative to \code{gvisGeoMap}.  
   
 }
 \examples{
-## Please note that by default the plot (better plot.gvis) command
+## Please note that by default the googleVis plot command
 ## will open a browser window and requires Internet
 ## connection to display the visualisation.
 
@@ -257,7 +258,24 @@ G4 <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt",
       		         options=list(height=350, region="US"))
 
 plot(G4) 
+\dontrun{
+library(XML)
+## Get earthquake data of the last 30 days
+eq=readHTMLTable("http://www.iris.edu/seismon/last30.html")
+eq <- eq[[2]] ## extract the eq table
+eq$loc=paste(eq$LAT, eq$LON, sep=":") ## create a lat:long location variable
+plot(gvisGeoMap(eq, "loc", "MAG","DATE"))
 
+
+## The demo 'AnimatedGeoMap' shows how a Geo Map can be animated
+## with additional JavaScript. 
+## Thanks to Manoj Ananthapadmanabhan and Anand Ramalingam, who
+## provided the idea and initial code.
+## Please note: This demo requires the package 'pscl' for its data set
+## 'presidentalElections'.
+
+demo(AnimatedGeoMap)
+}
 
 }
 

@@ -1,3 +1,29 @@
+Version 0.2.5 [2011-06-04]
+==========================
+
+NEW FEATURES
+
+   o New interfaces to more interactive Google charts:
+     - gvisLineChart
+     - gvisBarChart
+     - gvisColumnChart
+     - gvisAreaChart
+     - gvisScatterChart
+     - gvisPieChart
+     - gvisGauge
+     - gvisOrgChart
+     - gvisIntensityMap 
+
+   o New demo 'AnimatedGeoMap'. The demo shows how a Geo Map can be animated
+     with additional JavaScript. 
+     Thanks to Manoj Ananthapadmanabhan and Anand Ramalingam, who
+     provided the idea and initial code.
+     
+BUG FIXES
+
+   o The way RJSONIO treats backslashes changed in version 0.7.1 and
+     as a result some Google charts were no longer displayed.
+
 Version 0.2.4 [2011-02-07]
 ==========================
 
@@ -34,7 +60,7 @@ NEW FEATURES
      JavaScript building blocks and html tags. 
 
    o print.gvis has a new argument 'tag', which gives the user more
-     control about the output
+     control over the output
 
    o Brew example files in: 
      system.file("brew", package = "googleVis")  

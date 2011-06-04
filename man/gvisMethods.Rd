@@ -143,15 +143,16 @@ plot(M)
   ## Now you have a new set of data, but you would like to avoid
   ## touching the html file again.
   ## The idea is to write the data and JavaScript functions into separate
-  ## files and to have references to these files in the html page.
+  ## files and to refer to these in the html page.
 
   ## In this example we call the chart id "mtnc"
   ## To display the example we use the R HTTP server again, and
   ## write the files into a temp directory
 
   myChartID <- "mtnc"
+  ## baseURL should reflect your web address, e.g. http://myHomePage.com
   baseURL <- sprintf("http://127.0.0.1:\%s/custom/googleVis", tools:::httpdPort)
-  wwwdir <- tempdir()
+  wwwdir <- tempdir() ## the www repository on you computer
 
   
   ## Create a motion chart
@@ -163,7 +164,7 @@ plot(M)
   ## Write the data and functions into separate files:
   cat(M$html$chart['jsData'], file=file.path(wwwdir, "gvisData.js"))
   cat(M$html$chart[c('jsDrawChart', 'jsDisplayChart', 'jsChart')], 
-  				    file=file.path(dr, "gvisFunctions.js"))
+  				    file=file.path(wwwdir, "gvisFunctions.js"))
 
   
   ## Create a html page with reference to the above

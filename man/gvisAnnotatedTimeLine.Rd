@@ -388,7 +388,7 @@ described by a set of one to three columns.
   Google Annotated Time Line API:
   \url{http://code.google.com/apis/visualization/documentation/gallery/annotatedtimeline.html}
 
-  Follow the link also for Google's Data Policy.  
+  Follow the link for Google's data policy.  
 }
 \author{
   Markus Gesmann \email{markus.gesmann@gmail.com},
@@ -408,7 +408,7 @@ described by a set of one to three columns.
   
 }
 \examples{
-## Please note that by default the plot (better plot.gvis) command
+## Please note that by default the googleVis plot command
 ## will open a browser window and requires Flash and Internet
 ## connection to display the visualisation.
 
@@ -473,17 +473,18 @@ month <- ifelse(month < 10, paste("0",month, sep=""), m)
 
 ## Get weekly stock prices from Apple Inc.
 tckr <- 'AAPL'
-fn <- sprintf('http://ichart.finance.yahoo.com/table.csv?s=\%s&a=08&b=7&c=1984&d=%s&e=%s&f=%s&g=w&ignore=.csv',
+fn <- sprintf('http://ichart.finance.yahoo.com/table.csv?s=\%s&a=08&b=7&c=1984&d=\%s&e=\%s&f=\%s&g=w&ignore=.csv',
       tckr, month, current.day, current.year)
 
 ## Get data from Yahoo! Finance
 data <- read.csv(fn, colClasses=c("Date", rep("numeric",6)))
 
-AAPL <- reshape(data[,c("Date", "Close", "Volume")], idvar="Date", times=c("Close", "Volume"), 
-                  timevar="Type",
-                  varying=list(c("Close", "Volume")),
-                  v.names="Value", "Type",
-                   direction="long")
+AAPL <- reshape(data[,c("Date", "Close", "Volume")], idvar="Date", 
+     		times=c("Close", "Volume"), 
+                timevar="Type",
+                varying=list(c("Close", "Volume")),
+                v.names="Value", "Type",
+                direction="long")
 
 ## Calculate last year for zoom start time
 lyd <- as.POSIXlt(as.Date(d))
