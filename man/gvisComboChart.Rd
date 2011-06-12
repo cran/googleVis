@@ -1,28 +1,38 @@
-\name{gvisScatterChart}
-\alias{gvisScatterChart}
-%- Also NEED an '\alias' for EACH other topic documented here.
+\name{gvisComboChart}
+\alias{gvisComboChart}
 \title{
-  Google Scatter Chart with R
+  Google Combo Chart with R
 }
 \description{
-  The gvisScatterChart function reads a data.frame and
+  A chart that lets you render each series as a different marker type
+  from the following list: columns, lines, and area lines.
+
+  The gvisComboChart function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
   included into a web page, or as a stand-alone page. The actual chart is
   rendered by the web browser using SVG or
-  VML. }
-\usage{
-gvisScatterChart(data, options = list(), chartid)
+  VML. 
+
 }
+\usage{
+gvisComboChart(data, xvar = "", yvar = "", options = list(), chartid)
+}
+%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{data}{a \code{\link{data.frame}} to be displayed as a scatter
-    chart. Two or more columns are required, all must be numeric. The
-    values in the first column are used for the X-axis. The values in
-    following columns are used for the Y-axis. Each column is displayed
-    with a separate color.
+  \item{data}{a \code{\link{data.frame}} to be displayed as a columns,
+    line and area chart.
   }
-  \item{options}{list of configuration options for Google Scatter Chart.
+  \item{xvar}{
+    name of the character column which contains the category labels for
+    the x-axes.
+  }
+  \item{yvar}{a vector of column names of the numerical variables to be
+    plotted. 
+    Each column is displayed as a separate column, line or area series.
+  }
+  \item{options}{list of configuration options for Google Combo Chart.
     The possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/scatterchart.html#Configuration_Options}:
+    \url{http://code.google.com/apis/visualization/documentation/gallery/combochart.html#Configuration_Options}:
     \describe{
       \item{\code{axisTitlesPosition}}{a string. Default 'out'. Where to place
 	the axis titles, compared to the chart area. Supported values:
@@ -71,7 +81,7 @@ gvisScatterChart(data, options = list(), chartid)
 	use for the chart elements. An array of strings, where each element is
 	an HTML color string, for example: \code{colors:['red','#004411']}.
       }
-      \item{\code{curveType}}{a string. Default \code{'none'}. Controls the curve of the
+      \item{\code{curveType}}{[Line and area series only] a string. Default \code{'none'}. Controls the curve of the
 	lines. Can be one of the following:      
 	\describe{
 	  \item{\code{'none'}}{Straight lines without curve.}
@@ -90,8 +100,7 @@ gvisScatterChart(data, options = list(), chartid)
 	gridlines inside the chart area. Specify a valid HTML color
 	string.
       }
-      \item{\code{hAxis}}{a json object. Default \code{'null'}. An
-	object with members to configure	
+      \item{\code{hAxis}}{a json object. Default \code{'null'}. An object with members to configure
 	various horizontal axis elements. To specify properties of this
 	object, you can use object literal notation, as shown here:
 	%\describe{
@@ -100,64 +109,72 @@ gvisScatterChart(data, options = list(), chartid)
 	%}
 	%}
       }
-      \item{\code{hAxis.baseline}}{a number. Default automatic.
-	\code{hAxis} property that specifies the baseline for the
-	horizontal axis. If the baseline is smaller than the highest grid
-	line or smaller than the lowest grid line, it will be rounded to
-	the closest gridline.
-      }
-      \item{\code{hAxis.baselineColor}}{a string. Default
-	'black'. \code{hAxis} property that specifies the color of the
-	baseline for the horizontal axis. Can be any HTML color string, for
-	example: \code{'red'} or \code{'#00cc00'}.
-      }
       \item{\code{hAxis.direction}}{1 or -1. Default 1. The direction in which the
 	values along the horizontal axis grow. Specify -1 to reverse the
 	order of the values.
       }
-      \item{\code{hAxis.format}}{a string. Default auto. a format string for
+      \item{\code{hAxis.baseline}}{a number. Default automatic. \code{hAxis} property
+	that specifies the baseline for the vertical axis. If the
+	baseline is smaller than the highest grid line or smaller than
+	the lowest grid line, it will be rounded tothe closest gridline.
+      }
+      \item{\code{hAxis.baselineColor}}{a string. Default \code{'black'}. \code{hAxis} property
+	that specifies the color of the baseline for the vertical axis. Can be
+	any HTML color string, for example: \code{'red'} or \code{'#00cc00'}.
+      }
+      \item{\code{hAxis.direction}}{1 or -1. Default 1. The direction in which the
+	values along the vertical axis grow. Specify -1 to reverse the
+	order of the values.
+      }
+      \item{\code{hAxis.format}}{a string. Default auto. A format string for
 	numeric axis labels. This is a subset of the ICU pattern set. For
 	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
 	and 50\% for values 10, 7.5, and 0.5.
       }
-      \item{\code{hAxis.logScale}}{Boolean. Default \code{FALSE}. \code{vAxis} property that
+      \item{\code{hAxis.logScale}}{Boolean. Default \code{FALSE}. \code{hAxis} property that
 	makes the vertical axis a logarithmic scale (requires all values to
 	be positive). Set to \code{TRUE} for yes.
       }
-      \item{\code{hAxis.textPosition}}{a string. Default \code{'out'} Position of the
-	horizontal axis text, relative to the chart area. Supported values:
+      \item{\code{hAxis.textPosition}}{a string. Default \code{'out'}. Position of the
+	vertical axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
       }
-      \item{\code{hAxis.textStyle}}{a json object. Default \code{\{color: 'black',
-	fontName: <global-font-name>, fontSize: <global-font-size>\}}
-	An object that specifies the horizontal axis text style. The object has this format:
+      \item{\code{hAxis.textStyle}}{a json object. Default
+	\code{\{color: 'black',fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
+	object that specifies the vertical axis text style. The object has
+	this format:
 	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{hAxis.title}}{a string. Default \code{'null'}. \code{hAxis} property that
-	specifies the title of the horizontal axis.
+      \item{\code{hAxis.title}}{a string. Default no title. \code{hAxis} property that
+	specifies a title for the vertical axis.
       }
       \item{\code{hAxis.titleTextStyle}}{a json object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
-	object that specifies the horizontal axis title text style. The object
-	has this format:
+	object that specifies the vertical axis title text style. The
+	object has this format:
 	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{hAxis.maxValue}}{a number. Default automatic. \code{hAxis} property
-	that specifies the highest vertical axis grid line. The actual grid
+      \item{\code{hAxis.maxValue}}{a number. Default automatic. hAxis property
+	that specifies the highest horizontal axis grid line. The actual grid
 	line will be the greater of two values: the maxValue option value,
 	or the highest data value, rounded up to the next higher grid mark.
       }
       \item{\code{hAxis.minValue}}{a number. Default automatic. \code{hAxis} property that
-	specifies the lowest vertical axis grid line. The actual grid line
+	specifies the lowest horizontal axis grid line. The actual grid line
 	will be the lower of two values: the minValue option value, or the
 	lowest data value, rounded down to the next lower grid mark.
-      }
+      }     
       \item{\code{height}}{a number. Default height of the containing
 	element. Height of the chart, in pixels.
+      }
+      \item{\code{interpolateNulls}}{Boolean. Default \code{FALSE}. Whether to guess the
+	value of missing points. If true, it will guess the value of any
+	missing data based on neighboring points. If false, it will leave a
+	break in the line at the unknown point.
       }
       \item{\code{legend}}{a string. Default \code{'right'}. Position of the legend. Can
 	be one of the following:
@@ -180,11 +197,57 @@ gvisScatterChart(data, options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{lineWidth}}{a number. Default 2. Line width in pixels. Use zero to
-	hide all lines and show only the points.
+      \item{\code{reverseCategories}}{Boolean. Default \code{FALSE}. If set to true, will
+	draw series from right to left. The default is to draw
+	left-to-right.
       }
-      \item{\code{pointSize}}{a number. Default 0. Diameter of data points, in pixels. Use
-	zero to hide all points.
+      \item{\code{series}}{A json array of objects, or object with
+	nested objects. Default \code{'{}'}. An array of objects, each
+	describing the format of the corresponding series in the
+	chart. To use default values for a series, specify an empty
+	object {}. If a series or a value is not specified, the default
+	value will be used. Each object supports the following
+	properties:
+	\describe{
+	  \item{\code{type}}{The type of marker for this series. Valid
+	    values are \code{'line', 'bars'}, and \code{'area'}. Note that bars are
+	    actually vertical bars (columns). The default value is specified
+	    by the chart's seriesType option.
+	  }
+	  \item{\code{color}}{A valid HTML color string.
+	  }
+	  \item{\code{pointSize}}{[line and area series only] The size
+	    of the circle on each data point, in pixels.
+	  }
+	  \item{\code{lineWidth}}{[line and area series only] The width
+	    of the line, in pixels.
+	  }
+	}
+	You can either specify an array of objects, each
+	of which applies to the series in the order given, or you can
+	specify an object where each child has a numeric key indicating
+	which series it applies to. For example, the following two
+	declarations are identical, and apply to the first and fourth
+	series:
+	
+	\code{series:[\{color: 'black', type:
+	  'bars'\},\{\}, \{\}, \{color: 'teal', lineWidth: 7\}]
+	}
+	\code{series:\{0:\{color: 'black', type: 'bars'\},
+	  3:\{color: 'teal', lineWidth: 7\}\}
+	}
+	The following example sets the first series to a black line with
+	3 pixel points, the fourth series to a teal, seven pixel wide
+	area line, and all other series are default values:
+	
+	\code{series: [\{type: 'line', color: 'black',
+	  pointSize:3\},\{\}, \{\}, \{type:'area', color: 'teal',
+	  lineWidth: 7\}]
+	}
+      }
+      \item{\code{seriesType}}{a string. Default \code{'line'}. The
+	default line type for any series not specified in the series
+	property. Available values are \code{'line', 'bars'}, and \code{'area'}.
       }
       \item{\code{title}}{a string. Default no title. Text to display above the chart.
       }
@@ -221,27 +284,9 @@ gvisScatterChart(data, options = list(), chartid)
 	literal notation, as shown here:
 	\code{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
 	}
-      \item{\code{vAxis.baseline}}{a number. Default automatic. \code{vAxis} property
-	that specifies the baseline for the vertical axis. If the
-	baseline is smaller than the highest grid line or smaller than
-	the lowest grid line, it will be rounded tothe closest gridline.
-      }
-      \item{\code{vAxis.baselineColor}}{a string. Default \code{'black'}. \code{vAxis} property
-	that specifies the color of the baseline for the vertical axis. Can be
-	any HTML color string, for example: \code{'red'} or \code{'#00cc00'}.
-      }
       \item{\code{vAxis.direction}}{1 or -1. Default 1. The direction in which the
 	values along the vertical axis grow. Specify -1 to reverse the
 	order of the values.
-      }
-      \item{\code{vAxis.format}}{a string. Default auto. A format string for
-	numeric axis labels. This is a subset of the ICU pattern set. For
-	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
-	and 50\% for values 10, 7.5, and 0.5.
-      }
-      \item{\code{vAxis.logScale}}{Boolean. Default \code{FALSE}. \code{vAxis} property that
-	makes the vertical axis a logarithmic scale (requires all values to
-	be positive). Set to \code{TRUE} for yes.
       }
       \item{\code{vAxis.textPosition}}{a string. Default \code{'out'}. Position of the
 	vertical axis text, relative to the chart area. Supported values:
@@ -266,16 +311,6 @@ gvisScatterChart(data, options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{vAxis.maxValue}}{a number. Default automatic. vAxis property
-	that specifies the highest vertical axis grid line. The actual grid
-	line will be the greater of two values: the maxValue option value,
-	or the highest data value, rounded up to the next higher grid mark.
-      }
-      \item{\code{vAxis.minValue}}{a number. Default automatic. \code{vAxis} property that
-	specifies the lowest vertical axis grid line. The actual grid line
-	will be the lower of two values: the minValue option value, or the
-	lowest data value, rounded down to the next lower grid mark.
-      }
       \item{\code{width}}{a number. Default width of the containing element. Width of the chart, in
 	pixels.
       }
@@ -289,12 +324,12 @@ gvisScatterChart(data, options = list(), chartid)
 %%  ~~ If necessary, more details than the description above ~~
 %%}
 \value{
-  \code{gvisScatterChart} returns list of \code{\link{class}}
+  \code{gvisComboChart} returns list of \code{\link{class}}
   "\code{gvis}" and "\code{list}".   
   
   An object of class "\code{gvis}" is a list containing at least the
   following components:
-  \item{\code{type}}{Google visualisation type, here 'ScatterChart'}
+  \item{\code{type}}{Google visualisation type, here 'ComboChart'}
   \item{\code{chartid}}{character id of the chart object. Unique chart
     ids are required to place several charts on the same page.
   }
@@ -337,8 +372,8 @@ gvisScatterChart(data, options = list(), chartid)
   }
 }
 \references{
-  Google Scatter Chart API:
-  \url{http://code.google.com/apis/chart/interactive/docs/gallery/scatterchart.html} 
+  Google Line Chart API:
+  \url{http://code.google.com/apis/chart/interactive/docs/gallery/combochart.html} 
 
   Follow the link for Google's data policy.
 
@@ -347,10 +382,6 @@ gvisScatterChart(data, options = list(), chartid)
   Markus Gesmann \email{markus.gesmann@gmail.com},
   
   Diego de Castillo \email{decastillo@gmail.com}
-}
-\section{Warning}{
-  Google Visualisation API: You cannot load both scatterchart and corechart
-  packages at the same time on the same page.
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -364,32 +395,16 @@ gvisScatterChart(data, options = list(), chartid)
 ## will open a browser window and requires an internet
 ## connection to display the visualisation.
 
+CityPopularity
+## Add the mean
+CityPopularity$Mean=mean(CityPopularity$Popularity)
 
-## Scatter chart
-Scatter1 <- gvisScatterChart(women)
-plot(Scatter1)
-
-## Using optional arguments
-Scatter2 <- gvisScatterChart(women, options=list(legend="none",
-                 lineWidth=2, pointSize=0, hAxis.title="weight",
-                 title="Women", vAxis="{title:'height'}",
-                 hAxis="{title:'weight'}")
-                 )
-
-plot(Scatter2)
-
-
-df=data.frame(x=sin(1:100/3), 
-              Circle=cos(1:100/3), 
- 	      Ellipse=cos(1:100/3)*0.5)
-
-## Plot several variables as smooth curves
-Scatter3 <- gvisScatterChart(df, 
-	    		options=list(curveType='function', 
-				     pointSize=0, 
-				     lineWidth=2))
-plot(Scatter3)
+C1 <- gvisComboChart(CityPopularity, xvar="City",
+                                     yvar=c("Mean", "Popularity"),
+                                   options=list(seriesType="bars",
+                                                title="City Popularity",
+                                                series='{0: {type:"line"}}'))
+plot(C1)
 
 }
-
 \keyword{ iplot }

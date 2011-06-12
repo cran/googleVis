@@ -1,6 +1,6 @@
 ### File R/gvis.R
 ### Part of the R package googleVis
-### Copyright 2010 Markus Gesmann, Diego de Castillo
+### Copyright 2010, 2011 Markus Gesmann, Diego de Castillo
 ### Distributed under GPL 2 or later
 
 ### It is made available under the terms of the GNU General Public
@@ -27,15 +27,15 @@ gvisChart <- function(type, checked.data, options, chartid, package){
   
   htmlScaffold <- gvisHtmlWrapper(title="", chartid=chartid, dataName=options$dataName)
   
-  output <- list(type=Chart$type,
-                 chartid=Chart$chartid,
-                 html=list(header=htmlScaffold[["htmlHeader"]],
-                   chart=unlist(htmlChart),
-                   caption=htmlScaffold[["htmlCaption"]],
-                   footer=htmlScaffold[["htmlFooter"]]
-                   ))
-  
-  class(output) <- c("gvis", class(output))
+  output <- structure(
+                      list(type=Chart$type,
+                           chartid=Chart$chartid,
+                           html=list(header=htmlScaffold[["htmlHeader"]],
+                             chart=unlist(htmlChart),
+                             caption=htmlScaffold[["htmlCaption"]],
+                             footer=htmlScaffold[["htmlFooter"]])),
+                      class=c("gvis", "list")
+                      )
   
   return(output)
 }

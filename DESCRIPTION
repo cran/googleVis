@@ -1,8 +1,8 @@
 Package: googleVis
 Type: Package
 Title: Using the Google Visualisation API with R
-Version: 0.2.5
-Date: 2011-06-04
+Version: 0.2.6
+Date: 2011-06-12
 Author: Markus Gesmann, Diego de Castillo
 Maintainer: Markus Gesmann <markus.gesmann@gmail.com>
 Description: googleVis provides an interface between R and the Google
@@ -21,6 +21,6 @@ License: GPL (>= 2)
 URL: http://code.google.com/p/google-motion-charts-with-r/
 LazyLoad: yes
 LazyData: yes
-Packaged: 2011-06-06 21:17:35 UTC; Markus
+Packaged: 2011-06-12 18:08:41 UTC; Markus
 Repository: CRAN
-Date/Publication: 2011-06-07 06:35:48
+Date/Publication: 2011-06-15 18:02:00

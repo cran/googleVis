@@ -1,6 +1,6 @@
 ### File R/gvisMethods.R
 ### Part of the R package googleVis
-### Copyright 2010 Markus Gesmann, Diego de Castillo
+### Copyright 2010, 2011 Markus Gesmann, Diego de Castillo
 ### Distributed under GPL 2 or later
 
 ### It is made available under the terms of the GNU General Public
@@ -79,8 +79,8 @@ plot.gvis <- function(x,...){
 </head>
 <body>
 <p>
-  You find below the HTML code of the visualisation.
-  You can copy and paste the code into an existing HTML page.
+  You find below the HTML code of the visualisation.<br />
+  You can copy and paste the code into an existing HTML page.<br />
   For more information see also <a href="/library/googleVis/html/gvisMethods.html">?print.gvis</a></p>
 <p><textarea rows="50" name="html" cols="80">
 %s
@@ -106,3 +106,45 @@ plot.gvis <- function(x,...){
   invisible(file)
 }
   
+gvisMerge <- function(x, y, horizontal=FALSE, tableOptions='border="0"',
+                      chartid){
+
+  type="gvisMerge"
+
+  if(any(c(missing(x), missing(y))))
+    stop("Please provide two gvis-objects as input parameters.\n")
+     
+  ## test x and y are givs objects
+  if(!any(c(inherits(x, "gvis"),   inherits(y, "gvis"))))
+    stop("x and y have to be gvis objects\n")
+  
+  if(missing(chartid)){   
+    chartid <- paste(type, basename(tempfile(pattern="")),sep="ID")
+  }
+
+  htmlScaffold <- gvisHtmlWrapper(title="", chartid=chartid, dataName="various")
+  
+  output <- structure(
+                 list(type=type,
+                      chartid=chartid, 
+                      html=list(header=htmlScaffold[["htmlHeader"]],
+                        chart=c(jsHeader=paste(x$html$chart["jsHeader"]),
+                          jsData=paste(x$html$chart["jsData"], y$html$chart["jsData"], sep="\n"),
+                          jsDrawChart=paste(x$html$chart["jsDrawChart"], y$html$chart["jsDrawChart"], sep="\n"),
+                          jsDisplayChart=paste(x$html$chart["jsDisplayChart"], y$html$chart["jsDisplayChart"], sep="\n"),
+                          jsChart=paste(x$html$chart["jsChart"], y$html$chart["jsChart"], sep="\n"),
+                          jsFooter=paste(x$html$chart["jsFooter"]),
+                          divChart= paste("\n<table ", tableOptions, ">\n<tr>\n<td>\n", x$html$chart["divChart"], "\n</td>\n",                            
+                            ifelse(horizontal,"<td>\n","</tr>\n<tr>\n<td>\n"), y$html$chart["divChart"],
+                            "\n</td>\n</tr>\n</table>\n", sep="")
+                          ),
+                        caption=htmlScaffold[["htmlCaption"]],
+                        footer=htmlScaffold[["htmlFooter"]]
+                        )
+                      ),
+                      class=c("gvis", "list")
+                      )
+  return(output) 
+}
+
+

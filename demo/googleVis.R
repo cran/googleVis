@@ -1,12 +1,11 @@
 ## googleVis demo
-
 pause <- function(){  
   invisible(readline("\nPress <return> to continue: ")) 
 }
 
 ## For the demo a web browser with internet connection and Flash is required.
 
-df=data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
+df=data.frame(country=c("US", "GB", "BR"), val1=c(10,13,14), val2=c(23,12,32))
 
 ## Line chart
 Line <- gvisLineChart(df)
@@ -28,6 +27,14 @@ Area <- gvisAreaChart(df)
 plot(Area)
 pause()
 
+## Combo chart
+Combo <- gvisComboChart(df, xvar="country",
+                                     yvar=c("val1", "val2"),
+                                   options=list(seriesType="bars",
+                                                series='{1: {type:"line"}}'))
+plot(Combo)
+pause()
+
 ## Scatter chart
 Scatter <- gvisScatterChart(women, options=list(legend="none",
                  lineWidth=2, pointSize=0, hAxis.title="weight",
@@ -35,6 +42,11 @@ Scatter <- gvisScatterChart(women, options=list(legend="none",
                  hAxis="{title:'weight'}")
                  )
 plot(Scatter)
+pause()
+
+## Candlestick chart
+Candle <- gvisCandlestickChart(OpenClose, options=list(legend='none'))
+plot(Candle)
 pause()
 
 ## Pie chart
@@ -45,8 +57,19 @@ pause()
 ## Gauge
 Gauge <-  gvisGauge(CityPopularity, options=list(min=0, max=800, greenFrom=500,
                                       greenTo=800, yellowFrom=300, yellowTo=500,
-                                      redFrom=0, redTo=300))
+                                      redFrom=0, redTo=300, width=400, height=300))
 plot(Gauge)
+pause()
+
+## Org chart
+Org <- gvisOrgChart(Regions, options=list(width=600, height=250,
+                               size='large', allowCollapse=TRUE))
+plot(Org)
+pause()
+
+## Motion chart, requires Flash
+Motion=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
+plot(Motion)
 pause()
 
 ## Intensity Map
@@ -54,18 +77,13 @@ Intensity <- gvisIntensityMap(df)
 plot(Intensity)
 pause()
 
-## Org chart
-Org <- gvisOrgChart(Regions, options=list(width=600, height=400,
-                               size='large', allowCollapse=TRUE))
-plot(Org)
+
+## Geo chart
+Geo=gvisGeoChart(Exports, locationvar="Country", numvar="Profit")
+plot(Geo)
 pause()
 
-## Motion Chart
-Motion=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
-plot(Motion)
-pause()
-
-## Geo Map with coloured regions
+## Geo Map, requires Flash
 Geo=gvisGeoMap(Exports, locationvar="Country", numvar="Profit",
                        options=list(height=350, dataMode='regions'))
 plot(Geo)
@@ -88,7 +106,7 @@ plot(AndrewMap)
 pause()
 
 
-## Table. Click on the column header to sort the rows 
+## Table, click on the column header to sort the rows 
 Table <- gvisTable(Exports, options=list(width=400, height=300))
 plot(Table)
 pause()
@@ -103,7 +121,7 @@ Tree <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(fon
 plot(Tree)
 pause()
 
-## Annotated Time Line Chart
+## Annotated time line chart, requires Flash
 AnnoTimeLine  <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                            numvar="Value", idvar="Device",
                            titlevar="Title", annotationvar="Annotation",
@@ -114,22 +132,22 @@ plot(AnnoTimeLine)
 pause()
 
 
-## Several charts on one page
-Page <- list(type="MotionGeoTableTree", 
-             chartid=format(Sys.time(), "MotionGeoTableTree-%Y-%m-%d-%H-%M-%S"), 
-             html=list(header=Motion$html$header,
-               chart=list(Motion$html$chart,
-                 Geo$html$chart, 
-                 Table$html$chart,
-                 Tree$html$chart, 
-                 AndrewMap$html$chart, 
-                 AnnoTimeLine$html$chart),
-               footer=Tree$html$footer)
-             )
-		
+## gvisMerge: multiple charts on one page
+G <- gvisGeoChart(Exports, "Country", "Profit", 
+                  options=list(width=200, height=100))
+T <- gvisTable(Exports, 
+                  options=list(width=200, height=260))
 
-class(Page) <- list("gvis", class(Page))
-plot(Page)
+GT <- gvisMerge(G,T, horizontal=FALSE) 
+plot(GT)
+pause()
+
+M <- gvisMotionChart(Fruits, "Fruit", "Year",
+                     options=list(width=400, height=360))
+GTM <- gvisMerge(GT, M, horizontal=TRUE,
+                 tableOptions="bgcolor=\"#CCCCCC\" cellspacing=10")
+plot(GTM)
+
 pause()
 
 ## See how googleVis functions can be integrated into rsp-files:

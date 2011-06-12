@@ -22,7 +22,7 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
 }
 \arguments{
   \item{data}{
-    a \code{data.frame}. The data has to have at least three
+    a \code{data.frame}. The data has to have at least two
     columns with location name (\code{locationvar}), value to be mapped
     to location (\code{numvar}) and an optional variable to display any
     text while the mouse hovers over the location (\code{hovervar}).
@@ -211,8 +211,8 @@ Diego de Castillo \email{decastillo@gmail.com}
 \seealso{
 
   See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
-  printing and plotting methods, \code{\link{gvisMap}} and \code{\link{gvisIntensityMap}} for an
-  alternative to \code{gvisGeoMap}.  
+  printing and plotting methods, \code{\link{gvisGeoChart}} and
+  \code{\link{gvisIntensityMap}} for an alternative to \code{gvisGeoMap}.  
   
 }
 \examples{
@@ -258,6 +258,16 @@ G4 <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt",
       		         options=list(height=350, region="US"))
 
 plot(G4) 
+
+## World population
+WorldPopulation=data.frame(Country=Population$Country, 
+			   Population.in.millions=round(Population$Population/1e6,0),
+			   Rank=paste(Population$Country, "Rank:", Population$Rank))
+
+G5 <- gvisGeoMap(WorldPopulation, "Country", "Population.in.millions", "Rank", 
+      		      options=list(dataMode="Regions", width=600, height=300))
+plot(G5)
+
 \dontrun{
 library(XML)
 ## Get earthquake data of the last 30 days
@@ -279,4 +289,4 @@ demo(AnimatedGeoMap)
 
 }
 
-\keyword{ hplot }
+\keyword{ iplot }

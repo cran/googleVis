@@ -1,3 +1,20 @@
+Version 0.2.6 [2011-06-11]
+==========================
+
+Changes
+
+   o Updated demos
+
+NEW FEATURES
+
+   o New interfaces to two more interactive Google charts:
+     - gvisComboChart
+     - gvisGeoChart
+     - gvisCandlestickChart
+
+   o New function 'gvisMerge' to align two charts next to each other
+
+
 Version 0.2.5 [2011-06-04]
 ==========================
 
