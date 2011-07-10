@@ -37,10 +37,10 @@ pause()
 
 ## Scatter chart
 Scatter <- gvisScatterChart(women, options=list(legend="none",
-                 lineWidth=2, pointSize=0, hAxis.title="weight",
-                 title="Women", vAxis="{title:'height'}",
-                 hAxis="{title:'weight'}")
-                 )
+                 lineWidth=2, pointSize=0,
+                 title="Women", vAxis="{title:'weight (lbs)'}",
+                 hAxis="{title:'height (in)'}", width=300, height=300))
+                 
 plot(Scatter)
 pause()
 
@@ -93,7 +93,7 @@ pause()
 ## Show Hurricane Andrew (1992) storm track with Geo Map
 AndrewGeo <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt", 
       			 hovervar="Category", 
-      		         options=list(height=350, region="US"))
+      		         options=list(height=350, region="US", dataMode="markers"))
 
 plot(AndrewGeo)
 pause()
@@ -153,3 +153,5 @@ pause()
 ## See how googleVis functions can be integrated into rsp-files:
 if(require(R.rsp))
   browseRsp() ## Click on googleVis in the Package section.
+
+## See demo(package='googleVis') for other available demos.

@@ -25,6 +25,7 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \setlength{\parskip}{2mm}
 
 \newcommand{\googleVis}{\textbf{\texttt{googleVis}} }
+\newcommand{\googleVisVersion}{0.2.7}
 \newcommand{\rsp}{\textbf{\texttt{R.rsp }}}
 \newcommand{\brew}{\textbf{\texttt{brew }}}
 \newcommand{\rapache}{\emph{{RApache }}}
@@ -75,7 +76,7 @@ even the obvious.
 
 In 2006 Hans Rosling gave an inspiring talk at
 TED~\cite{HansRoslingTedTalk} about social and economic developments
-in the world over the last 50 years, which challenged the views and
+in the world over the past 50 years, which challenged the views and
 perceptions of many listeners. Rosling had used extensive data analysis
 to reach his conclusions.  To visualise his talk, he and his team at
 Gapminder~\cite{Gapminder} had developed animated bubble charts, aka
@@ -93,10 +94,10 @@ years. The data blogs of the
  Germany)} have brought data analysis and data visualisation to a wider
 audience. 
 
-In  2010 Sebasti\'{a}n P\'{e}rez Saaibi~\cite{Saaibi2010} presented at
-the R/Rmetrics Workshop on  Computational Finance and Financial
-Engineering the idea to link Google motion charts with R  using the
-\rsp package~\cite{Rsp}. 
+In 2010 Sebasti\'{a}n P\'{e}rez Saaibi~\cite{Saaibi2010} presented at the 
+R/Rmetrics Workshop on  Computational Finance and Financial
+Engineering, the idea to use Google motion charts to visualise R
+output with the \rsp package~\cite{Rsp}. 
 
 Inspired by those talks and the desire to use interactive data
 visualisation tools to foster the dialogue between data analysts and
@@ -149,90 +150,103 @@ As an example we shall look at the html-code of a motion chart from
 Google's visualisation gallery~\cite{GoogleMotionChart}, which
 generates output similar to Figure~\ref{MotionChartGUI}:
 
+\begin{small}
 \begin{verbatim}
-<html>
-  <head>
-    <script type="text/javascript" src="http://www.google.com/jsapi">
-    </script>
-    <script type="text/javascript">
-      google.load('visualization', '1', {'packages':['motionchart']});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Fruit');
-        data.addColumn('date', 'Date');
-        data.addColumn('number', 'Sales');
-        data.addColumn('number', 'Expenses');
-        data.addColumn('string', 'Location');
-        data.addRows([
-          ['Apples',new Date (1988,0,1),1000,300,'East'],
-          ['Oranges',new Date (1988,0,1),1150,200,'West'],
-          ['Bananas',new Date (1988,0,1),300,250,'West'],
-          ['Apples',new Date (1989,6,1),1200,400,'East'],
-          ['Oranges',new Date (1989,6,1),750,150,'West'],
-          ['Bananas',new Date (1989,6,1),788,617,'West']
-          ]);
-        var chart = new google.visualization.MotionChart(
-                     document.getElementById('chart_div'));
-        chart.draw(data, {width: 600, height:300});
-      }
-    </script>
-  </head>
-
-  <body>
-    <div id="chart_div" style="width: 600px; height: 300px;"></div>
-  </body>
-</html>
+ 1 <html>
+ 2  <head>
+ 3   <script type="text/javascript" 
+ 4     src="http://www.google.com/jsapi">
+ 5   </script>
+ 6   <script type="text/javascript">
+ 7     google.load('visualization', '1', 
+ 8      {'packages':['motionchart']});
+ 9    google.setOnLoadCallback(drawChart);
+10    function drawChart() {
+11    var data=new google.visualization.DataTable();
+12    data.addColumn('string', 'Fruit');
+13    data.addColumn('date', 'Date');
+14    data.addColumn('number', 'Sales');
+15    data.addColumn('number', 'Expenses');
+16    data.addColumn('string', 'Location');
+17    data.addRows([
+18    ['Apples',new Date(1988,0,1),1000,300,'East'],
+19    ['Oranges',new Date(1988,0,1),1150,200,'West'],
+20    ['Bananas',new Date(1988,0,1),300,250,'West'],
+21    ['Apples',new Date(1989,6,1),1200,400,'East'],
+22    ['Oranges',new Date(1989,6,1),750,150,'West'],
+23    ['Bananas',new Date(1989,6,1),788,617,'West']
+24    ]);
+25    var chart=new google.visualization.MotionChart(
+26      document.getElementById('chart_div'));
+27    chart.draw(data, {width: 600, height:300});
+28   }
+29   </script>
+30  </head>
+31  <body>
+32   <div id="chart_div" 
+33        style="width:600px; height:300px;">
+34   </div>
+35  </body>
+36 </html>
 \end{verbatim}
-You will notice that the above html code has three generic parts:
+\end{small}
+You will notice that the above html code has five generic
+parts\footnote{For more details see
+\url{http://code.google.com/apis/chart/interactive/docs/adding\_charts.html}}:
 \begin{itemize}
-\item references to JavaScript functions provided by Google.
+\item references to Google's AJAX (l. 4) and Visualisation
+  API (ll. 7 -- 8),
+%%shown here as \verb=jsapi= and \verb='motionchart'=,
 
-\item data to visualise as a \texttt{DataTable}, 
+\item data to visualise as a \verb=DataTable= (ll. 11 -- 24),
 
-\item chart with chart id (\texttt{'chart\_div'}) and options, shown
-  here as width and height. 
+\item an instance call to create the chart (ll. 25 -- 26),
+
+\item a method call to draw the chart including options, shown
+  here as width and height (l. 27),
+ 
+\item an HTML \verb=<div>= element to add the chart to the page (ll.
+  32 -- 34).
 \end{itemize}
-
 These principles hold true for most of the interactive charts of the
 Google Visualisation API, see the examples in Figure~\ref{demos}.
 
 \section{The \googleVis package}
 
+
 The \googleVis package provides an interface between R and the Google
 Visualisation API.  The functions of the package allow the user to
-visualise data stored in R data frames with the Google  Visualisation
-API. 
+visualise data stored in R data frames with the Google Visualisation
+API. Version (\googleVisVersion) of the package
+provides interfaces to  Motion Charts, Annotated Time Lines, 
+Geo Maps, Maps, Geo Charts, Intensity Maps, Tables, Gauges, 
+Tree Maps, further Line-, Bar-, Column-, Area-, Combo-, Scatter-, Candlestick-,
+Pie- and Org Charts; see Figure~\ref{demos} for some examples
+for more see the  \href{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}{project
+  site}\footnote{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}.
 
 The output of a \googleVis function is html code that contains the
-data and references to JavaScript functions hosted by Google. To view
-the output a browser with Flash and Internet connection is required,
-the actual chart is rendered in the browser; it may not work when
-loaded as a local file. For more details see the Google Visualisation
-API documentation~\cite{GoogleMotionChart}. 
+data and references to JavaScript functions hosted by Google. A
+browser with an Internet connection is required to view
+the output, and for Motion Charts, Geo Maps and Annotated Time Lines
+also Flash. The actual chart is rendered in the browser. 
 
+Please note that Flash charts may not not
+work when loaded as a local file due to security settings, and
+therefore require to be displayed via a web server. 
+%% For more details see the Google Visualisation API documentation. 
 Fortunately, R comes with an internal HTTP server which 
 allows the \googleVis package to display pages locally. 
 
-Currently the package provides interfaces to
-motion chart, line chart, bar chart, column chart, area chart,
-scatter chart, combo chart, pie chart, geo chart, candlestick chart,
-and org chart, further annotated time line, map,
-geo map, table, tree map, intensity map, and
-gauge~\cite{GoogleVisApi}. See Figure~\ref{demos} for some examples,
-for more see the  
-\href{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}{project
-  site}\footnote{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}.
  
-  
 \begin{figure}%%[!ht]
 \begin{center}
 \includegraphics[width=\textwidth]{googleVisDemoPlots2.pdf}
 \caption{
-  Screenshot of some of the outputs of \texttt{demo(googleVis)}, with
-  \texttt{gvisMotionChart, gvisAnnotatedTimeLine,  gvisMap,     
-    gvisGeoMap,  gvisTable and gvisTreeMap} from top left to bottom
-  right.   
+  Screenshot of some of the outputs of \texttt{demo(googleVis)}.
+  Clockwise from top left:
+  \texttt{gvisMotionChart}, \texttt{gvisAnnotatedTimeLine}, 
+  \texttt{gvisGeoMap}, \texttt{gvisTreeMap}, \texttt{gvisTable}, and \texttt{gvisMap}.
 }\label{demos}
 \end{center}
 \end{figure}
@@ -395,7 +409,7 @@ cat(paste(substring( capture.output( cat(M$html$footer) ) , 0, 66), sep="\n", co
 
 To display the page locally, type:
 <<eval=FALSE>>=
-plot(M)
+plot(M)  # returns invisibly the file name
 @
 
 The plot method for \texttt{gvis}-objects creates html files in a temporary folder using
@@ -410,12 +424,9 @@ per-session temporary directory, in which the files were written.
 
 \subsection{Combing charts with \texttt{gvisMerge}}
 
-Suppose you would like to show more than one interactive chart on the 
-same page. 
-
 The function \texttt{gvisMerge} takes two \texttt{gvis}-objects 
-and merges the underlying components into one to align the charts either 
-horizontally or vertically next to each other in an HTML table. 
+and merges the underlying components into one page. The charts are
+aligned either horizontally or vertically next to each other in an HTML table. 
 
 The output of \texttt{gvisMerge} is a \texttt{gvis}-object again.
 This allows us to apply the same function iteratively to create more complex
@@ -463,6 +474,42 @@ print(M, 'chart', file='myfilename')
 @
 and process it from there.
 
+\subsection{Using \googleVis output with WordPress}
+
+\href{http://wordpress.org/}{WordPress} is a popular web software for
+creating websites and blogs. Here we give some tips about the
+usage with \googleVis output.  
+
+By default WordPress does not allow JavaScript code (and hence \googleVis
+output) to be inserted into a page. However, additional plugins
+allow us to extend the functions of WordPress.
+
+One option of embedding JavaScript code inside a WordPress post is to use
+the ``custom fields shortcode''
+plugin\footnote{\url{http://wordpress.org/extend/plugins/custom-fields-shortcode}}. 
+The plugin allows you to create a custom field for the \googleVis
+code, which can be referred to in your article.
+
+Suppose you created a motion chart in R:
+<<eval=FALSE>>=
+M <- gvisMotionChart(Fruits, "Fruit", "Year",
+		     options=list(width=400, height=370))
+@
+Copy the chart code, e.g. from
+<<eval=FALSE>>=
+print(M, 'chart')
+@ 
+and paste it into the value text area of a custom field in WordPress, e.g.
+with instance name \texttt{Fruits}.  To include the motion chart into your article add
+\texttt{[cf]Fruits[/cf]} into the post, see Figure~\ref{wordpress} for
+an illustration.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{CreatePost.png}
+  \caption{Including \googleVis output in a WordPress blog entry.}
+  \label{wordpress}
+\end{figure}
 
 \subsection{Embedding \googleVis in web sites dynamically}
 
@@ -601,7 +648,70 @@ folder path:
 system.file("brew", package = "googleVis")
 @ 
 
+\section{Beyond R}
+In this section we present ideas which go beyond the usual coding in
+R and are somewhat experimental.
 
+\subsection{Registering to catch events}
+
+Google visualisations can fire and receive
+events~\footnote{\url{http://code.google.com/apis/chart/interactive/docs/reference.html\#addlistener}}. 
+It exposes the following two JavaScript methods: 
+\begin{itemize}
+\item \texttt{google.visualization.events.trigger()} fires an event,
+\item \texttt{google.visualization.events.addListener()} listens for events.
+\end{itemize}
+
+Here is an example of registering to receive the selection event from
+the Google documentation:
+\begin{verbatim}
+var table = new google.visualization.Table(document.getElementById('table_div'));
+table.draw(data, options);
+google.visualization.events.addListener(table, 'select', selectHandler);
+
+function selectHandler() {
+  alert('A table row was selected');
+}
+\end{verbatim}
+
+We will only deal with this special case of a 'select' event of the
+'addListner' method. This event is available for most visualisations
+and acts on user interactions, e.g. user selection clicks.
+
+The 'addListner' method expects JavaScript code, which can be embedded
+into a gvis-object via \texttt{options} as (undocumented) parameter
+\texttt{gvis.listener.jscode}. 
+
+Here are some examples:
+
+Look up the selected item in Wikipedia:
+<<eval=FALSE>>=
+jscode <- "window.open('http://en.wikipedia.org/wiki/' 
+                  + data.getValue(chart.getSelection()[0].row,0)); "
+
+J1 <- gvisGeoMap(Exports, locationvar='Country', numvar='Profit',
+                 options=list(dataMode="regions", gvis.listener.jscode=jscode))
+plot(J1)
+@ 
+In the same way we can use the code in other charts, e.g. org- or line chart:                 
+<<eval=FALSE>>=
+plot(gvisOrgChart(Regions,  options=list(gvis.listener.jscode=jscode)))
+plot(gvisLineChart(Regions[,c(1,3)], options=list(gvis.listener.jscode=jscode)))
+@
+In the following more advanced example the selected value of a table is
+displayed in a message box:
+<<eval=FALSE>>=
+jscode <- "
+       var sel = chart.getSelection();
+       var row = sel[0].row;
+       var text = data.getValue(row,1);
+       alert(text);
+"
+J2 <- gvisTable(Population, options=list(gvis.listener.jscode=jscode))
+plot(J2)
+@ 
+For more details see the \texttt{demo(EventListner)} and \href{http://code.google.com/apis/chart/interactive/docs/reference.html}{Google Visualisation API Reference}.
+ 
 \section{Contact}
 \subsection{Collaboration} 
 Obviously, the package is work in progress and there are many other functions of the Google

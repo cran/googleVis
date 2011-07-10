@@ -128,7 +128,17 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
 	}
 	\item{\code{zoomOutLabel}}{string, default 'Zoom Out'. Label for
 	  the zoom button. 
-	}	            
+	}	                  
+	\item{\code{gvis.listener.jscode}}{ character string which will be
+	  placed inside select event. A valid value is
+	  \code{alert('a region was selected');}.
+	  You may also use the method \code{getSelection}.
+	}      
+	%%	\item{\code{gvis.listener.jscode}}{ character string which will be
+	%%	  placed inside select event. A valid value is
+	%%	  \code{alert('a table row was selected');}.
+	%%	  You may also use the method \code{getSelection}.
+	%%	}
       }
     }
     \item{chartid}{character. If missing (default) a random chart id will be generated based on
@@ -206,7 +216,16 @@ Diego de Castillo \email{decastillo@gmail.com}
   address. 
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
+\section{Warnings}{
+
+  Because of Flash security settings the chart might not work correctly when accessed from a file
+  location in the browser (e.g., file:///c:/webhost/myhost/myviz.html)
+  rather than from a web server URL
+  (e.g. http://www.myhost.com/myviz.html). See the Macromedia web 
+  site (\url{http://www.macromedia.com/support/documentation/en/flashplayer/help/})
+  for more details.
+
+}
 
 \seealso{
 
@@ -255,7 +274,7 @@ plot(G3)
 ## Show Hurricane Andrew (1992) storm track
 G4 <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt", 
       			 hovervar="Category", 
-      		         options=list(height=350, region="US"))
+      		         options=list(height=350, region="US", dataMode="markers"))
 
 plot(G4) 
 
@@ -265,7 +284,7 @@ WorldPopulation=data.frame(Country=Population$Country,
 			   Rank=paste(Population$Country, "Rank:", Population$Rank))
 
 G5 <- gvisGeoMap(WorldPopulation, "Country", "Population.in.millions", "Rank", 
-      		      options=list(dataMode="Regions", width=600, height=300))
+      		      options=list(dataMode="regions", width=600, height=300))
 plot(G5)
 
 \dontrun{

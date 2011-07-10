@@ -24,6 +24,11 @@ AndrewMap <- gvisMap(Andrew, "LatLong" , "Tip",
 
 cat(createGoogleGadget(AndrewMap), file="andrewmap.xml")
 
+## Geo Chart
+GeoChart <- gvisGeoChart(Exports, "Country", "Profit",
+                         options=list(region="150"))
+cat(createGoogleGadget(GeoChart), file="geochart.xml")
+
 
 ## Table. Click on the column header to sort the rows 
 Table <- gvisTable(Exports, options=list(width=400, height=270))
@@ -108,9 +113,9 @@ cat(createGoogleGadget(Area), file="areachart.xml")
 
 ## Scatter chart
 Scatter <- gvisScatterChart(women, options=list(legend="none",
-                 lineWidth=2, pointSize=0, hAxis.title="weight",
-                 title="Women", vAxis="{title:'height'}",
-                 hAxis="{title:'weight'}", width=300, height=300))
+                 lineWidth=2, pointSize=0, 
+                 title="Women", vAxis="{title:'weight (lbs)'}",
+                 hAxis="{title:'height (in)'}", width=300, height=300))
                  
 cat(createGoogleGadget(Scatter), file="scatterchart.xml")
 
