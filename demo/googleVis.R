@@ -12,6 +12,40 @@ Line <- gvisLineChart(df)
 plot(Line)
 pause()
 
+## Line chart with two axis
+Line2 <- gvisLineChart(df, "country", c("val1","val2"),
+                        options=list(series="[{targetAxisIndex: 0},
+                                                    {targetAxisIndex:1}]",
+                          vAxes="[{title:'val1'}, {title:'val2'}]"
+                          ))
+plot(Line2)
+pause()
+
+## Setting options, it works similar for other charts
+Line3 <-  gvisLineChart(df, "country", c("val1","val2"),
+                        options=list(
+                          title="Hello World",
+                          titleTextStyle="{color:'red', fontName:'Courier', 
+                                                 fontSize:16}",                         
+                          backgroundColor="#D3D3D3",                          
+                          vAxis="{gridlineColor:'#FFFFFF'}",
+                          hAxis="{title:'Country', titleTextStyle:{color:'blue'}}",
+                          series="[{targetAxisIndex: 0},
+                                       {targetAxisIndex:1}]",
+                          vAxes="[{title:'val1'}, {title:'val2'}]",
+                          legend="bottom",
+                          curveType='function',
+                          width=500,
+                          height=300                         
+                          ))
+plot(Line3)
+
+## Add edit button for on the fly customisation
+## The same option is available for all other charts
+Line4 <-  gvisLineChart(df, "country", c("val1","val2"),
+                        options=list(gvis.editor="Edit me!"))
+plot(Line4)
+
 ## Bar chart
 Bar <- gvisBarChart(df)
 plot(Bar)

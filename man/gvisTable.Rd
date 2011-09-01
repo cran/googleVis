@@ -25,7 +25,14 @@ gvisTable(data, options = list(), chartid)
   \item{data}{a \code{\link{data.frame}} to be displayed as a table
   }
   \item{options}{list of configuration options for Google Table.
-     The possible components are, taken from
+         \describe{
+\item{\code{gvis.editor}}{a character label for an
+ on-page button which opens an in-page dialog box that enables
+users to edit, change and customise the chart. By default no
+value is given and therefore no button is displayed. 
+      }
+    }
+    Further possible components are, taken from
     \url{http://code.google.com/apis/visualization/documentation/gallery/table.html#Configuration_Options}:
   
     \describe{
@@ -145,7 +152,8 @@ gvisTable(data, options = list(), chartid)
       }
       
       \item{\code{sortAscending}}{boolean. Default \code{TRUE}. The order in
-	which the initial sort column is sorted. True for ascending, false for descending. Ignored if
+	which the initial sort column is sorted. True for ascending,
+	false for descending. Ignored if 
 	\code{sortColumn} is not specified.
       }
       \item{\code{sortColumn}}{number. Default -1.	An index of a column in

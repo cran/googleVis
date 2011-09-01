@@ -49,7 +49,14 @@ gvisTreeMap(data,
     \code{maxColor}.
   }
   \item{options}{list of configuration options for Google Tree Map.
-    The possible components are, taken from
+        \describe{
+\item{\code{gvis.editor}}{a character label for an
+ on-page button which opens an in-page dialog box that enables
+users to edit, change and customise the chart. By default no
+value is given and therefore no button is displayed. 
+      }
+    }
+    Further possible components are, taken from
     \url{http://code.google.com/apis/visualization/documentation/gallery/treemap.html#Configuration_Options}: 
     \describe{
       \item{\code{headerColor}}{string, default	'#988f86'. The color of
@@ -225,6 +232,14 @@ Diego de Castillo \email{decastillo@gmail.com}
 %%}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
+\section{Warning }{
+
+  Tree maps display a tree like structure where every child has to have a unique parent.
+
+  Values in column \code{sizevar} should be greater than zero and
+  finite.
+
+}
 
 \seealso{
 

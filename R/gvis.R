@@ -57,7 +57,6 @@ gvis <- function(type="", data, options, chartid, package){
   if(missing(package)){
     package <- type
   }
-
   
   output <- gvisFormat(data)
   data.type <- output$data.type
@@ -98,7 +97,7 @@ return(data);
                      data.json,
                      paste(paste("data.addColumn('", data.type, "','",
                                  names(data.type), "');", sep=""), collapse="\n"))
-  
+    
   jsDisplayChart <- '
 // jsDisplayChart 
 function displayChart%s()
@@ -108,30 +107,31 @@ function displayChart%s()
 }
 '
   jsDisplayChart <- sprintf(jsDisplayChart, chartid,
-                     tolower(package),
+                     ifelse(!is.null(options$gvis$gvis.editor),'charteditor',
+                            tolower(package)),
                      ifelse(!is.null(options$gvis$gvis.language),
                             paste(",'language':'",
                                   options$gvis$gvis.language, "'", sep=""), ''),
                      chartid
                      )
 
-
+  
   jsDrawChart <- '
 // jsDrawChart
 function drawChart%s() {
-  var data = gvisData%s()
-  var chart = new google.visualization.%s(
-   document.getElementById(\'%s\')
-  );
-  var options ={};
+  var data = gvisData%s();
+  var options = {};
 %s
-  chart.draw(data,options);
-  %s
+%s
+%s
 }
+%s  
 '
-  jsDrawChart <- sprintf(jsDrawChart, chartid,  chartid, type, chartid,
+  jsDrawChart <- sprintf(jsDrawChart, chartid,  chartid,
                      paste(gvisOptions(options), collapse="\n"),
-                     gvisListener(chartid, type, options)
+                     gvisNewChart(chartid,type,options),
+                     gvisListener(chartid, type, options),
+                     gvisEditor(chartid,type,options)
                      )
 
 
@@ -147,15 +147,19 @@ displayChart%s()
 //-->
 </script>
 '
-
+  
 divChart <- '
 <!-- divChart -->
+%s  
 <div id="%s"
   style="width: %spx; height: %spx;">
 </div>
 '
-  divChart <- sprintf(divChart, 
-		     chartid,
+  divChart <- sprintf(divChart,
+                     ifelse(!is.null(options$gvis$gvis.editor),
+                     sprintf("<input type='button' onclick='openEditor%s()' value='%s'>",
+                           chartid,as.character(options$gvis$gvis.editor)),''),
+		                 chartid,
                      ifelse(!(is.null(options$gvis$width) || (options$gvis$width == "")),options$gvis$width,600),
                      ifelse(!(is.null(options$gvis$height) || (options$gvis$height == "")),options$gvis$height,500)
                      )
@@ -215,7 +219,7 @@ gvisFormat <- function(data){
   
   output <- list(
                  data.type = unlist(varTypes),
-                 json = toJSON(x.array)
+                 json = toJSON(x.array, digits = 10)
                  )
 
   output$json <-fixBackslash(output$json)
@@ -312,10 +316,54 @@ gvisCheckData <- function(data="", options=list(), data.structure=list()){
          function(.x){ 
            .x <- as.character(.x)
            y <- x[[as.character(options$data[.x])]];
+           # is <<- really necessary?
            x[[as.character(options$data[.x])]] <<- data.structure[[.x]]$FUN(y);
          })
   
   return(x)
+}
+
+gvisEditor <- function(chartid,type,options){
+  if(is.null(options$gvis$gvis.editor))
+    return('')
+  jseditor <- "
+  function openEditor%s() {
+      var editor = new google.visualization.ChartEditor();
+      google.visualization.events.addListener(editor, 'ok',
+        function() { 
+          chart%s = editor.getChartWrapper();  
+          chart%s.draw(document.getElementById('%s')); 
+      }); 
+      editor.openDialog(chart%s);
+  }
+  "
+  sprintf(jseditor,chartid,chartid,chartid,chartid,chartid)
+}
+
+gvisNewChart <- function(chartid,type,options){
+  ret <- ""
+  if(is.null(options$gvis$gvis.editor)){
+    jsnewchart <- "
+     var chart = new google.visualization.%s(
+       document.getElementById(\'%s\')
+     );
+     chart.draw(data,options);
+    "
+    ret <- sprintf(jsnewchart,type,chartid)  
+
+  } else {
+    jsnewchart <- "
+    chart%s = new google.visualization.ChartWrapper({
+         dataTable: data,       
+         chartType: '%s',
+         containerId: '%s',
+         options: options
+    });
+    chart%s.draw();
+    "
+    ret <- sprintf(jsnewchart,chartid,type,chartid,chartid)
+  }
+  ret
 }
 
 gvisListener <- function(chartid, type, options=list(gvis=list(gvis.listener.jscode = NULL))){

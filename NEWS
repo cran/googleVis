@@ -1,3 +1,34 @@
+Version 0.2.9 [2011-09-01]
+==========================
+
+Changes
+
+   o The documentation of googleVis has been update to reflect a new
+     version of the Google Visualisation API which was published on 
+     13 July, see
+     http://code.google.com/apis/chart/interactive/docs/release_notes.html#72011. 
+     Here are some of the most interesting features:   
+     - Support for dual Y axes
+     - Ability to crop and zoom chart area to specific ranges
+     - Ability to set different properties for each series
+     - Ability to enable or disable chart interactivity
+     - Performance improvements in GeoChart
+
+   o Updated vignette with new sections on
+     - Setting options
+     - How to use the on-page chart editor
+     - Using googleVis with other Google products such as
+       Blogger and Google Sites 
+
+   o Updated warning section for gvisTreeMap
+
+NEW FEATURES
+ 
+    o New gvis.editor argument in options, which adds an edit
+      button to the page, allowing the user to edit, change and
+      customise the chart on the fly.
+
+
 Version 0.2.8 [2011-07-31]
 ==========================
 
