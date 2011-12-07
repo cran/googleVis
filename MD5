@@ -1,7 +1,7 @@
-fa86eb0623b15379cf8f7ea1823084c3 *DESCRIPTION
+5600e2d97a9a0f174cf246f3ac793b27 *DESCRIPTION
 9eef91148a9b14ec7f9df333daebc746 *LICENSE
 2e52b9e3f7e934cd423221f5285e0576 *NAMESPACE
-41e96c1824a4ba18a44cb82a96cc2465 *NEWS
+c164ffb5ac70d924dee3561e195556aa *NEWS
 e3be3e4cf3c043e4fe8ba406b5f0b3a7 *R/gadget.R
 148522201d2ec9edb79e71ad892b0ae8 *R/gvis.R
 f82e90af09f1e1d2ffa5e75c257dfa7c *R/gvisAnnotatedTimeLine.R
@@ -12,13 +12,13 @@ a6b18d02b47f3f5161241ec9b1cf360f *R/gvisGeoChart.R
 0d073dad749c794d1aea15d7fcc242c2 *R/gvisIntensityMap.R
 d426dadbf6f9c9493f177df411353aea *R/gvisMap.R
 7f39acde30fd326cf604f6c2ff30aafc *R/gvisMethods.R
-4a8d0257cdccd68a86d0795100ded8f0 *R/gvisMotionChart.R
+1d01736bcd2c849e36071095d4f8ef3d *R/gvisMotionChart.R
 53be3abfd5d5c25e35fa36e0ae43f656 *R/gvisOrgChart.R
 39ab0a63b335d3634c04da5a5134bd95 *R/gvisPieGaugeChart.R
 3dc3f3a3f00d6c886d8432b94798d8e9 *R/gvisTable.R
 19f8f708404e3299a6142d837387950e *R/gvisTreeMap.R
-6a2c0eee4b02b30edc68da25443175fb *R/zzz.R
-3c3f19458a91730bcba2cb1a36b3b430 *THANKS
+33b0264e26ba6f04d9ce3820ace7fa08 *R/zzz.R
+c1d35bc5fe3c2c0aa5c30a13531cfdf1 *THANKS
 435af68b88eaa5970cf678ffa98cc2fa *data/Andrew.RData
 9ede3722aaebc936f558114245a773a3 *data/CityPopularity.RData
 3ae1178e0a0eecd025b0f4354a33a577 *data/Exports.RData
@@ -40,7 +40,7 @@ f425109390324bde6a2bfc3236252cf1 *demo/WorldBank.R
 95639efef1833b8beca49e709b9b8e6d *inst/doc/Options.pdf
 b34f3648bb7a22cfe4f6e99ed9903840 *inst/doc/googleVis.Rnw
 a74d67f922371bf1fc3191cc1c9feb5e *inst/doc/googleVis.bib
-cc5cf0b1893c8cd603dceedb18aa0736 *inst/doc/googleVis.pdf
+1c12c677a95e6d09991366a87dd8d4a6 *inst/doc/googleVis.pdf
 050c62ea4bcef03ace5fab43befb78e8 *inst/doc/googleVisDemoPlots2.pdf
 9610e84aa8774d2a12d4c5d80bd43af5 *inst/doc/gvisMerge.pdf
 509e414bd6a9b3c9f2ccd03c81ad43aa *inst/doc/gvisObject.pdf
@@ -59,7 +59,7 @@ bc2c03dfa42c10ef292829b749ead3d4 *man/Andrew.Rd
 29f086889764fe20a10eb1162a6c1849 *man/Regions.Rd
 73f2b578d46b63921b357dd0f9de1b30 *man/Stock.Rd
 cb50f51782e52d2e043c8434f522d550 *man/createGoogleGadget.Rd
-8c5dca59799dd2d5c36160c80d84d3e9 *man/googleVis-package.Rd
+ae00ca44434cd91d95a97e76372aea77 *man/googleVis-package.Rd
 7a8939913b1fb165fc9002ed0fb61f2b *man/gvisAnnotatedTimeLine.Rd
 7bfabb14eb6dfab9a3748f7c3e5dcfd7 *man/gvisAreaChart.Rd
 690285d786fcf97ea1628ed922218b1f *man/gvisBarChart.Rd
