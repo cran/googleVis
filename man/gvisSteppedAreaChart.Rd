@@ -1,50 +1,32 @@
-\name{gvisCandlestickChart}
-\alias{gvisCandlestickChart}
+\name{gvisSteppedAreaChart}
+\alias{gvisSteppedAreaChart}
 \title{
-  Google Candlestick chart with R
+Google Stepped Area Chart with R
 }
 \description{
 
-  An interactive candlestick chart.
-  
-  The gvisCandlestickChart function reads a data.frame and
+  The gvisSteppedAreaChart function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
-  included into a web page, or as a stand-alone page. The actual chart is
-  rendered by the web browser using SVG or
-  VML. 
-
+  included into a web page, or as a stand-alone page.
+  
+  The stepped area chart is rendered within the browser using SVG or VML and
+  displays tips when hovering over points.
 }
-
 \usage{
-gvisCandlestickChart(data, xvar = "", low = "", open = "",
-                           close = "", high = "",
-                           options = list(), chartid)
+gvisSteppedAreaChart(data, xvar = "", yvar = "", options = list(), chartid)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{data}{a \code{\link{data.frame}} to be displayed as a
-    candlestick chart. The data has to have at least 5 columns.
+  \item{data}{a \code{\link{data.frame}} to be displayed as a line chart
   }
-  \item{xvar}{name of the character column which contains the category
-    labels for the x-axes.
+  \item{xvar}{
+    name of the character column which contains the category labels for
+    the x-axes.
   }
-  \item{low}{name of the numeric column specifying the low/minimum value
-    of this marker. This is the base of the candle's center line.    
+  \item{yvar}{a vector of column names of the numerical variables to be
+    plotted. 
+    Each column is displayed as a separate line.
   }
-  \item{open}{name of the numeric column specifying the opening/initial
-    value of this marker. This is one vertical border of the candle. If
-    less than the \code{close} value, the candle will be filled; otherwise
-    it will be hollow.
-  }
-  \item{close}{name of the numeric column specifying the closing/final
-    value of this marker. This is the second vertical border of the
-    candle. If less than the \code{open} value, the candle will
-    be hollow; otherwise it will be filled.    
-  }
-  \item{high}{name of the numeric column specifying the high/maximum
-    value of this marker. This is the top of the candle's center line.    
-  }
-  \item{options}{list of configuration options for Google Combo Chart.
+  \item{options}{list of configuration options for Google Stepped Area Chart.
         \describe{
 \item{\code{gvis.editor}}{a character label for an
  on-page button which opens an in-page dialog box that enables
@@ -53,8 +35,16 @@ value is given and therefore no button is displayed.
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/candlestickchart.html#Configuration_Options}:
+    \url{http://code.google.com/apis/visualization/documentation/gallery/steppedareachart.html#Configuration_Options}:
     \describe{
+
+     \item{\code{areaOpacity}}{a number between 0.0 - 1.0. Default
+       0.3. The default 
+       opacity of the colored area under an area chart series, where 0.0
+       is fully transparent and 1.0 is fully opaque. To specify opacity
+       for an individual series, set the areaOpacity value in the series
+       property.
+     }
       \item{\code{axisTitlesPosition}}{a string. Default 'out'. Where to place
 	the axis titles, compared to the chart area. Supported values:
 	\describe{      
@@ -63,9 +53,9 @@ value is given and therefore no button is displayed.
 	  \item{\code{'none'}}{Omit the axis titles.}
 	}
       }
-      \item{\code{backgroundColor}}{a string or object. Default \code{'white'}. The
-	background color for the main area of the chart. Can be either a
-	simple HTML color string, for example: \code{'red'} or
+      \item{\code{backgroundColor}}{a string or object. Default
+       \code{'white'}. The background color for the main area of the
+       chart. Can be either a simple HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}, or an
 	object with the following properties.
       }
@@ -79,13 +69,16 @@ value is given and therefore no button is displayed.
 	fill color, as an HTML color string.
       }
       \item{\code{chartArea}}{a string. Default \code{'null'}. An object
-	with members to configure the 
+	with members to configure the
 	placement and size of the chart area (where the chart itself is drawn,
 	excluding axis and legends). Two formats are supported: a number, or a
 	number followed by \code{\%}. A simple number is a value in pixels; a number
 	followed by \code{\%} is a percentage. Example:
-	
+
 	\code{\{left:20,top:0,width:\"50\%\",height:\"75\%\"\}}
+      }
+      \item{\code{chartArea.height}}{a number or string. Default auto.	Chart
+	area height.
       }
       \item{\code{chartArea.left}}{a number or string. Default auto. How far to draw
 	the chart from the left border.
@@ -96,19 +89,36 @@ value is given and therefore no button is displayed.
       \item{\code{chartArea.width}}{a number or string. Default auto.	Chart
 	area width.
       }
-      \item{\code{chartArea.height}}{a number or string. Default auto.	Chart
-	area height.
-      }
-      \item{\code{colors}}{a JSON array of strings. Default 'colors'. The colors to
+      \item{\code{colors}}{an array of strings. Default 'colors'. The colors to
 	use for the chart elements. An array of strings, where each element is
-	an HTML color string, for example: \code{colors:['red','#004411']}.
+	an HTML color string, for example: \code{colors:[red','#004411']}.
+      }
+      \item{\code{connectSteps}}{boolean. Default \code{TRUE}. If set to
+	\code{TRUE}, will connect the steps to form a stepped
+	line. Otherwise, only a top line appears. The default is to
+	connect the steps. 
       }
       \item{\code{enableInteractivity}}{boolean. Default \code{TRUE}. Whether
 	the chart throws user-based events or reacts to user interaction. If
 	false, the chart will not throw 'select' or other interaction-based
 	events (but will throw ready or error events), and will not display
 	hovertext or otherwise change depending on user input.
-      }        
+      }
+      \item{\code{focusTarget}}{a string. Default 'datum'. The type of
+	the entity that receives focus on mouse hover. Also affects which
+	entity is selected by mouse click, and which data table element is
+	associated with events. Can be one of the following:
+
+	\code{'datum'} Focus on a single data point. Correlates to a
+	cell in the data table.
+	
+	\code{'category'} Focus on a grouping of all data points along
+	the major axis. Correlates to a row in the data table.
+	
+	In focusTarget \code{'category'} the tooltip displays all the
+	category values. This may be useful for comparing values of
+	different series.
+	}
       \item{\code{fontSize}}{a number. Default automatic. The default font
 	size, in pixels, of all text in the chart. You can override this
 	using properties for specific chart elements.
@@ -117,10 +127,10 @@ value is given and therefore no button is displayed.
 	all text in the chart. You can override this using properties for
 	specific chart elements.
       }
-      \item{\code{gridlineColor}}{a string. Default \code{'#CCC'}. The color of the
-	gridlines inside the chart area. Specify a valid HTML color
-	string.
-      }
+      %%\item{\code{gridlineColor}}{a string. Default \code{'#CCC'}. The color of the
+      %% gridlines inside the chart area. Specify a valid HTML color
+      %%string.
+      %%}
       \item{\code{hAxis}}{a JSON object. Default \code{'null'}. An
 	object with members to configure 
 	various horizontal axis elements. To specify properties of this
@@ -135,6 +145,7 @@ value is given and therefore no button is displayed.
 	values along the horizontal axis grow. Specify -1 to reverse the
 	order of the values.
       }
+      
       \item{\code{hAxis.textPosition}}{a string. Default \code{'out'} Position of the
 	horizontal axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
@@ -179,20 +190,11 @@ value is given and therefore no button is displayed.
 	means show every other label, and so on. Default is to try to
 	show as many labels as possible without overlapping.
       }
-      %%      \item{\code{hAxis.maxValue}}{a number. Default automatic. hAxis property
-      %%	that specifies the highest horizontal axis grid line. The actual grid
-      %%	line will be the greater of two values: the maxValue option value,
-      %%	or the highest data value, rounded up to the next higher grid mark.
-      %%      }
-      %%      \item{\code{hAxis.minValue}}{a number. Default
-      %%      automatic. \code{hAxis} 
-      %%      property that
-      %%        specifies the lowest horizontal axis grid line. The actual grid line
-      %%	will be the lower of two values: the minValue option value, or the
-      %%	lowest data value, rounded down to the next lower grid mark.
-      %%      }     
       \item{\code{height}}{a number. Default height of the containing
 	element. Height of the chart, in pixels.
+      }
+      \item{\code{isStacked}}{boolean. Default \code{FALSE}. If set to
+	\code{TRUE}, bar values are stacked (accumulated).
       }
       \item{\code{legend}}{a string. Default \code{'right'}. Position of the legend. Can
 	be one of the following:
@@ -215,11 +217,17 @@ value is given and therefore no button is displayed.
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{reverseCategories}}{boolean. Default \code{FALSE}. If set to true, will
+      \item{\code{lineWidth}}{a number. Default 2. Line width in pixels. Use zero to
+	hide all lines and show only the points.
+      }
+      \item{\code{pointSize}}{a number. Default 0. Diameter of data points, in pixels. Use
+	zero to hide all points.
+      }
+      \item{\code{reverseCategories}}{Boolean. Default \code{FALSE}. If set to true, will
 	draw series from right to left. The default is to draw
 	left-to-right.
       }
-    \item{\code{series}}{a JSON array of objects, or object with nested
+      \item{\code{series}}{an array of objects, or object with nested
 	objects. Default \{\}.	
 	An array of objects, each describing the format of the
 	corresponding series in the chart. To use default values for a
@@ -295,9 +303,8 @@ value is given and therefore no button is displayed.
 	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
-      }
-
-      \item{\code{vAxes}}{a JSON array of objects, or object with child objects
+      }   
+      \item{\code{vAxes}}{Array of object, or object with child objects
 	null. Specifies properties for individual vertical axes, if the
 	chart has multiple vertical axes. Each child object is a \code{vAxis}
 	object, and can contain all the properties supported by
@@ -355,7 +362,7 @@ value is given and therefore no button is displayed.
 	chart area. Specify a valid HTML color string.
       }
   
-      \item{\code{vAxis.logScale}}{boolean. Default \code{FALSE}. \code{vAxis} property that
+      \item{\code{vAxis.logScale}}{Boolean. Default \code{FALSE}. \code{vAxis} property that
 	makes the vertical axis a logarithmic scale (requires all values to
 	be positive). Set to \code{TRUE} for yes.
       }
@@ -424,32 +431,26 @@ value is given and therefore no button is displayed.
       \item{\code{vAxis.viewWindow.min}}{A number. Default 0. The
 	minimum vertical data value to render.
       }
+
       \item{\code{width}}{a number. Default width of the containing
-	element. Width of the chart, in pixels.
-      } 
-    }    
-  }
+	element. Width of the chart, in	pixels.
+      }
+    }
+  } 
   \item{chartid}{character. If missing (default) a random chart id will be generated based on
     chart type and \code{\link{tempfile}}
   }
 }
-\details{
-  From \url{http://code.google.com/apis/chart/interactive/docs/gallery/candlestickchart.html#Overview}:	
-	
-  A candlestick chart is used to show an opening and closing value
-  overlaid on top of a total variance. Candlestick charts are often used
-  to show stock value behavior. In this chart, items where the opening
-  value is less than the closing value (a gain) are drawn as filled boxes,
-  and items where the opening value is more than the closing value (a
-  loss) are drawn as hollow boxes.
-}
+%%\details{
+%%  ~~ If necessary, more details than the description above ~~
+%%}
 \value{
-  \code{gvisCandlestickChart} returns list of \code{\link{class}}
+  \code{gvisSteppedAreaChart} returns list of \code{\link{class}}
   "\code{gvis}" and "\code{list}".   
   
   An object of class "\code{gvis}" is a list containing at least the
   following components:
-  \item{\code{type}}{Google visualisation type, here 'CandlestickChart'}
+  \item{\code{type}}{Google visualisation type, here 'SteppedAreaChart'}
   \item{\code{chartid}}{character id of the chart object. Unique chart
     ids are required to place several charts on the same page.
   }
@@ -492,16 +493,23 @@ value is given and therefore no button is displayed.
   }
 }
 \references{
-  Google Candlestick Chart API:
-  \url{http://code.google.com/apis/chart/interactive/docs/gallery/candlestickchart.html} 
+  Google Stepped Area Chart API:
+  \url{http://code.google.com/apis/chart/interactive/docs/gallery/steppedareachart.html} 
 
   Follow the link for Google's data policy.
+
 }
 \author{
   Markus Gesmann \email{markus.gesmann@gmail.com},
   
   Diego de Castillo \email{decastillo@gmail.com}
 }
+\section{Warning}{
+  Google Visualisation API: You cannot load both steppedareachart and corechart
+  packages at the same time on the same page.
+}
+
+%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
   See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
@@ -512,15 +520,29 @@ value is given and therefore no button is displayed.
 ## will open a browser window and requires an internet
 ## connection to display the visualisation.
 
-## Example data set
-OpenClose
+df=data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
 
-C1 <- gvisCandlestickChart(OpenClose, xvar="Weekday", low="Low",
-                                      open="Open", close="Close",
-                                      high="High",
-                                      options=list(legend='none'))
+## Stepped Area chart
+SteppedArea1 <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"))
+plot(SteppedArea1)
 
-plot(C1)
+## Stacked chart
+SteppedArea2 <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"),
+      options=list(isStacked=TRUE))
+plot(SteppedArea2)
 
+
+## Add a customised title
+SteppedArea3 <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"),
+             options=list(title="Hello World",
+                          titleTextStyle="{color:'red',fontName:'Courier',fontSize:16}"))
+plot(SteppedArea3)
+
+\dontrun{
+## Change y-axis to percentages
+SteppedArea3 <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"),
+                       options=list(vAxis="{format:'#,###\%'}"))
+plot(SteppedArea3)
+}
 }
 \keyword{ iplot }
