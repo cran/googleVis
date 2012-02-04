@@ -85,7 +85,7 @@ gvisCheckCandestickChartData <- function(data){
 
 gvisCheckScatterChartData <- function(data){
   
-                                        # nothing to check at the moment here
+  ## nothing to check at the moment here
   return(data)
 }
 
@@ -115,6 +115,8 @@ gvisCheckCoreChartData <- function(data, xvar, yvar){
   if(!is.data.frame(data)){
     stop("Error: data has to be a data.frame.")
   }
+
+  
   if(xvar=="")
     xvar <- names(data)[1]
   data[,xvar] <- as.character(data[,xvar])
@@ -128,6 +130,8 @@ gvisCheckCoreChartData <- function(data, xvar, yvar){
   if(!any(sapply(data, is.numeric))){
     stop("Error: Your data has to have at least one numerical column.")
   }
+
+  
   return(data)
 }
 

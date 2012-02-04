@@ -1,6 +1,6 @@
 ### File R/zzz.R
 ### Part of the R package googleVis
-### Copyright 2010, 2011 Markus Gesmann, Diego de Castillo
+### Copyright 2010, 2011, 2012 Markus Gesmann, Diego de Castillo
 
 ### It is made available under the terms of the GNU General Public
 ### License, version 2, or at your option, any later version,
@@ -68,14 +68,13 @@ gvisWelcomeMessage <- function(){
   paste("\n",     
         "Welcome to googleVis version ", packageDescription("googleVis")$Version, "\n",
         "\n",
-        "Please read the Google Visualisation & Maps API Terms of Use\n",
+        "Please read the Google API Terms of Use\n",
         "before you use the package:\n",
-        "http://code.google.com/apis/visualization/terms.html,\n",
-        "http://code.google.com/apis/maps/terms.html.\n" ,
+        "http://code.google.com/apis/terms/index.html\n",
         "\n",
         "Type ?googleVis to access the overall documentation and\n",
         "vignette('googleVis') for the package vignette.\n",
-        "You can execute the demo of the package via: demo(googleVis)\n",
+        "You can execute a demo of the package via: demo(googleVis)\n",
         "\n",  
         "More information is available on the googleVis project web-site:\n",
         "http://code.google.com/p/google-motion-charts-with-r/\n",

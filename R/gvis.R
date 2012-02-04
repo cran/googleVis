@@ -1,6 +1,6 @@
 ### File R/gvis.R
 ### Part of the R package googleVis
-### Copyright 2010, 2011 Markus Gesmann, Diego de Castillo
+### Copyright 2010, 2011, 2012 Markus Gesmann, Diego de Castillo
 ### Distributed under GPL 2 or later
 
 ### It is made available under the terms of the GNU General Public
@@ -436,7 +436,7 @@ gvisHtmlWrapper <- function(title, dataName, chartid, type){
 <!-- htmlFooter -->
 <span> 
 %s &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-%s</a>
-&#8226; <a href="http://code.google.com/apis/visualization/terms.html">Google Terms of Use</a> &#8226; %s
+&#8226; <a href="http://code.google.com/apis/terms/index.html">Google Terms of Use</a> &#8226; %s
 </span></div>
 </body>
 </html>

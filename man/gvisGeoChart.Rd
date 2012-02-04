@@ -5,15 +5,15 @@
 }
 \description{
   The gvisGeoChart function reads a data.frame and
-  creates text output referring to the Google Visualisation API which can be
+  creates text output referring to the Google Visualisation API, which can be
   included into a web page, or as a stand-alone page.
   
-  A Geochart is a map of a country, a continent, or a region with two modes:
+  A geo chart is a map of a country, a continent, or a region with two modes:
   The region mode colorizes whole regions, such as countries, provinces,
   or states. The marker mode marks designated regions using bubbles that
   are scaled according to a value that you specify.
 
-  A Geochart is rendered within the browser using
+  A geo chart is rendered within the browser using
   SVG or VML. Note that the map is not scrollable or draggable.
 }
 \usage{
@@ -92,74 +92,74 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 	specify properties of this object, you can use object literal
 	notation, as shown here:
 	
-	\code{\{minValue: 0,  colors: ['#FF0000', '#00FF00']\}}
-	}
-	\item{\code{colorAxis.minValue}}{a number. Default minimum value
+	\preformatted{\{minValue: 0,  colors: ['#FF0000', '#00FF00']\}}
+      }
+      \item{\code{colorAxis.minValue}}{a number. Default minimum value
 	of color column in chart data.	If present, specifies a minimum
 	value for chart color data. Color data values of this value and
 	lower will be rendered as the first color in the
 	\code{colorAxis.colors} range.
-	}
-	\item{\code{colorAxis.maxValue}}{a number. Default maximum value
+      }
+      \item{\code{colorAxis.maxValue}}{a number. Default maximum value
 	of color column in chart data	If present, specifies a maximum
 	value for chart color data. Color data values of this value and
 	higher will be rendered as the last color in the
 	\code{colorAxis.colors} range.
-	}
-	\item{\code{colorAxis.values}}{a JSON array of numbers. Default
+      }
+      \item{\code{colorAxis.values}}{a JSON array of numbers. Default
 	\code{'null'}. Controls how values are associated with
 	colors. Each value is associated with the corresponding color in
 	the \code{colorAxis.colors} array. These values apply to the color
 	value for a region or marker. Regions are colored according to a
 	gradient of the values specified here. Not specifying a value
 	for this option is equivalent to specifying \code{[minValue,
-	maxValue]}.
-	}
-	\item{\code{colorAxis.colors}}{a JSON array of color
+	  maxValue]}.
+      }
+      \item{\code{colorAxis.colors}}{a JSON array of color
 	strings. Default \code{'null'}.	Colors to assign to values in
 	the visualization. An array of strings, where each element is an
 	HTML color string, for example: colorAxis:
-	\code{\{colors:['red','#004411']\}}. You must have at least two values;
+	\preformatted{\{colors:['red','#004411']\}.} You must have at least two values;
 	the gradient will include all your values, plus calculated
 	intermediary values, with the first color as the smallest value,
 	and the last color as the highest.
-	}
-	\item{\code{datalessRegionColor}}{a string. Default
+      }
+      \item{\code{datalessRegionColor}}{a string. Default
 	\code{'F5F5F5'}. Colors to assign to regions with no associated
 	data.
-	}
-	\item{\code{displayMode}}{a string. Default \code{'auto'}. Which
-	  type of map this is. The DataTable format must match the value
-	  specified. The following values are supported:
-
-	  \code{'auto'}: Choose based on the format of the DataTable.
-	  \code{'regions'}: This is a region map
-	  \code{'markers'}: This is a marker map.
-	}
-
+      }
+      \item{\code{displayMode}}{a string. Default \code{'auto'}. Which
+	type of map this is. The DataTable format must match the value
+	specified. The following values are supported:
+	
+	\code{'auto'}: Choose based on the format of the DataTable.
+	\code{'regions'}: This is a region map
+	\code{'markers'}: This is a marker map.
+      }
+      
       \item{\code{height}}{number, default 347. Height of the
 	visualization. If no units are given, the default unit is
 	pixels. 
       }
-
+      
       \item{\code{legend}}{a JSON object / \code{'none'}. Default \code{'null'}.	
 	An object with members to configure various aspects of the legend, or
 	\code{'none'}, if no legend should appear. To specify properties of this
 	object, you can use object literal notation, as shown here:
 	
-	\code{\{textStyle: \{color: 'blue', fontSize: 16\}\}}
+	\preformatted{\{textStyle: \{color: 'blue', fontSize: 16\}\}}
       }
       \item{\code{legend.numberFormat}}{a string. Default
 	\code{'auto'}. A format string for numeric axis labels. This is
 	a subset of the ICU pattern set. For instance,
-	\code{\{numberFormat:'.##'\}} will display values "10.66", "10.6", and
+	\preformatted{\{numberFormat:'.##'\}.}will display values "10.66", "10.6", and
 	"10.0" for values 10.666, 10.6, and 10.
       }
-      \item{\code{legend.textStyle}}{a JSON object. Default \code{\{color:
+      \item{\code{legend.textStyle}}{a JSON object. Default \preformatted{\{color:
 	  'black', fontName: <global-font-name>, fontSize:
-	  <global-font-size>\}}.  An object that specifies the legend text
+	  <global-font-size>\}.}  An object that specifies the legend text
 	style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
@@ -187,6 +187,8 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 	  155 \tab (Western Europe)\cr
 	  039 \tab (Southern Europe)
 	}
+	For more information see:
+	\url{http://code.google.com/apis/chart/interactive/docs/gallery/geochart.html#Configuration_Options}	
       }
 
       \item{\code{resolution}}{a string. Default \code{'countries'}
@@ -207,7 +209,7 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 	size. To specify properties of this object, you can use object
 	literal notation, as shown here:
 	
-	\code{\{minValue: 0,  maxSize: 20\}}
+	\preformatted{\{minValue: 0,  maxSize: 20\}}
       }
       \item{\code{sizeAxis.maxSize}}{a number. Default 30. Maximum size
 	of the largest marker, in pixels.
@@ -229,14 +231,14 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 	shown here:
  
 
-	\code{\{textStyle: \{color: '#FF0000'\}, showColorCode: true\}}
+	\preformatted{\{textStyle: \{color: '#FF0000'\}, showColorCode: true\}}
       }
-      \item{\code{tooltip.textStyle}}{a JSON object. Default \code{\{color:
+      \item{\code{tooltip.textStyle}}{a JSON object. Default \preformatted{\{color:
 	  'black', fontName: <global-font-name>, fontSize:
 	  <global-font-size>\}}
 	An object that specifies the tooltip text style. The object has this format:
 	
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
     
 	The color can be any HTML color string, for example: \code{'red'} or \code{'#00cc00'}.
       }
@@ -303,7 +305,7 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 
 
 \references{
-  Google Geo Map  API: \url{http://code.google.com/apis/visualization/documentation/gallery/geochart.html}
+  Google Geo Chart  API: \url{http://code.google.com/apis/visualization/documentation/gallery/geochart.html}
 
   Follow the link for Google's data policy.
 
@@ -314,7 +316,7 @@ Markus Gesmann \email{markus.gesmann@gmail.com},
 Diego de Castillo \email{decastillo@gmail.com}
 }
 \note{
-  This is the new version of the GeoMap chart. 
+  This is the new version of the GeoChart chart. 
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~

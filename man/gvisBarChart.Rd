@@ -5,7 +5,7 @@ Google Bar Chart with R
 }
 \description{
   The gvisBarChart function reads a data.frame and
-  creates text output referring to the Google Visualisation API which can be
+  creates text output referring to the Google Visualisation API, which can be
   included into a web page, or as a stand-alone page. The actual chart is
   rendered by the web browser using SVG or
   VML. 
@@ -66,7 +66,7 @@ value is given and therefore no button is displayed.
 	number followed by \code{\%}. A simple number is a value in pixels; a number
 	followed by \code{\%} is a percentage. Example:
 	
-	\code{\{left:20,top:0,width:\"50\%\",height:\"75\%\"\}}
+	\preformatted{\{left:20,top:0,width:\"50\%\",height:\"75\%\"\}}
       }
       \item{\code{chartArea.height}}{a number or string. Default auto.	Chart
 	area height.
@@ -90,6 +90,23 @@ value is given and therefore no button is displayed.
 	events (but will throw ready or error events), and will not display
 	hovertext or otherwise change depending on user input.
       }
+      \item{\code{focusTarget}}{a string. Default \code{'datum'	}.
+	The type of the entity that receives focus on mouse hover. Also affects
+	which entity is selected by mouse click, and which data table
+	element is associated with events. Can be one of the following:
+	\describe{
+	  \item{\code{'datum'}}{Focus on a single data point. Correlates
+	    to a cell in the data.
+	  }
+	  \item{\code{'category'}}{Focus on a grouping of all data
+	    points along the major axis. Correlates to a row in the data
+	    table.
+	  }
+	}
+	In focusTarget \code{'category'} the tooltip displays all the
+	category values. This may be useful for comparing values of
+	different series.
+      }           
       \item{\code{fontSize}}{a number. Default automatic. The default font
 	size, in pixels, of all text in the chart. You can override this
 	using properties for specific chart elements.
@@ -114,7 +131,7 @@ value is given and therefore no button is displayed.
 	using \code{vAxes}. The following example assigns series 2 to the bottom
 	axis and specifies a custom title and text style for it:
 	
-	\code{ series:\{2:\{targetAxisIndex:1\}\},
+	\preformatted{series:\{2:\{targetAxisIndex:1\}\},
 	  vAxes:\{1:\{title:'Losses',textStyle:\{color: 'red'\}\}\}
 	  }
 	  This property can be either an object or an array: the object is a
@@ -124,7 +141,7 @@ value is given and therefore no button is displayed.
 	  example, the following array-style notation is identical to
 	  the \code{hAxis} object shown above:
 
-	  \code{
+	  \preformatted{
 	    hAxes:[
 	    \{\}, // Nothing specified for axis 0
 	    \{title:'Losses',textStyle:\{color: 'red'\}\} // Axis 1
@@ -137,7 +154,7 @@ value is given and therefore no button is displayed.
 	object, you can use object literal notation, as shown here:
 	%\describe{
 	%\item{
-	\code{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
+	\preformatted{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
 	%}
 	%}
       }
@@ -158,13 +175,25 @@ value is given and therefore no button is displayed.
       }
       \item{\code{hAxis.format}}{a string. Default auto. A format string for
 	numeric axis labels. This is a subset of the ICU pattern set. For
-	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
+	instance, \preformatted{\{format:'#,###\%'\}.}will display values 1,000\%, 750\%,
 	and 50\% for values 10, 7.5, and 0.5.
       }
-      \item{\code{hAxis.gridlineColor}}{a string. Default
+      \item{\code{hAxis.gridlines}}{a JSON object. Default
+	\code{NULL}.
+	An object with members to configure the gridlines on the
+	vertical axis. To specify properties of this object, you can use
+	object literal notation, as shown here:
+	\preformatted{
+	  \{color: '#333', count: 4\}
+	}
+      }          
+      \item{\code{hAxis.gridlines.color}}{a string. Default
 	\code{'#CCC'}. The color of the horizontal gridlines inside the
 	chart area. Specify a valid HTML color string.
       }
+      \item{\code{hAxis.gridlines.count}}{a number. Default 5.The number
+       of vertical gridlines inside the chart area. Minimum value is 2.       
+      }      
       \item{\code{hAxis.logScale}}{boolean. Default \code{FALSE}. \code{vAxis} property that
 	makes the vertical axis a logarithmic scale (requires all values to
 	be positive). Set to \code{TRUE} for yes.
@@ -174,21 +203,21 @@ value is given and therefore no button is displayed.
 	horizontal axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
       }
-      \item{\code{hAxis.textStyle}}{a JSON object. Default \code{\{color: 'black',
+      \item{\code{hAxis.textStyle}}{a JSON object. Default \preformatted{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the horizontal axis text style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
       \item{\code{hAxis.title}}{a string. Default \code{'null'}. \code{hAxis} property that
 	specifies the title of the horizontal axis.
       }
-      \item{\code{hAxis.titleTextStyle}}{a JSON object. Default \code{\{color: 'black',
-	fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
+      \item{\code{hAxis.titleTextStyle}}{a JSON object. Default \preformatted{\{color: 'black',
+	fontName: <global-font-name>, fontSize: <global-font-size>\}.} An
 	object that specifies the horizontal axis title text style. The object
 	has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
@@ -217,9 +246,9 @@ value is given and therefore no button is displayed.
 	    the maximum and minimum data values touch the left and right of
 	    the chart area.
 	  }
-	  \item{code{'explicit'}}{Specify the left and right scale
+	  \item{\code{'explicit'}}{Specify the left and right scale
 	    values of the chart area. Data values outside these values will
-	    be cropped. You must specify a \code{hAxis.viewWindow} object
+	    be cropped. You must specify a \preformatted{hAxis.viewWindow} object
 	    describing the maximum and minimum values to show.
 	  }
 	}
@@ -227,7 +256,7 @@ value is given and therefore no button is displayed.
       \item{\code{hAxis.viewWindow}}{JSON object. Default
 	\code{NULL}. Specifies the maximum and minimum data values to
 	show on the horizontal axis. Present only if
-	\code{vAxis.viewWindowMode='explicit'}
+	\preformatted{vAxis.viewWindowMode = 'explicit'}
       }
       \item{\code{hAxis.viewWindow.max}}{number. Default 0.	The
 	maximum vertical data value to render.
@@ -241,7 +270,14 @@ value is given and therefore no button is displayed.
       \item{\code{isStacked}}{boolean. Default \code{FALSE}. If set to
 	\code{TRUE}, bar values are stacked (accumulated).
       }
-      \item{\code{legend}}{string. Default \code{'right'}. Position of the legend. Can
+      \item{\code{legend}}{a JSON object. Default \code{NULL}.
+	An object with members to configure various aspects of the
+	legend. To specify properties of this object, you can use object
+	literal notation, as shown here:
+	
+	\preformatted{\{position: 'top', textStyle: \{color: 'blue', fontSize: 16\}\}}
+      }
+      \item{\code{legend.position}}{a string. Default \code{'right'}. Position of the legend. Can
 	be one of the following:
 	\describe{
 	  \item{\code{'right'}}{To the right of the chart.
@@ -254,15 +290,15 @@ value is given and therefore no button is displayed.
 	  }
 	}
       }
-      \item{\code{legendTextStyle}}{a JSON object. Default \code{\{color: 'black',
-	fontName: <global-font-name>, fontSize: <global-font-size>\}}
+      \item{\code{legend.textStyle}}{a JSON object. Default \preformatted{\{color: 'black',
+	  fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the legend text style. The object has this format:
-	  \code{\{color: <string>, fontName: <string>, fontSize:
-	    <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize:
+	  <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
-      }
-      \item{\code{reverseCategories}}{boolean. Default \code{FALSE}. If set to true, will
+      }      
+            \item{\code{reverseCategories}}{boolean. Default \code{FALSE}. If set to true, will
 	draw series from right to left. The default is to draw
 	left-to-right.
       }
@@ -304,18 +340,33 @@ value is given and therefore no button is displayed.
 	  identical, and declare the first series as black and absent from
 	  the legend, and the fourth as red and absent from the legend:
 	  
-	  \code{
-	    series: [\{color: 'black', visibleInLegend: false\},\{\}, \{\}, \{color:
-	    'red', visibleInLegend: false\}]
+	  \preformatted{
+	    series: [\{color: 'black', visibleInLegend: false\},\{\},
+	    \{\}, \{color: 'red', visibleInLegend: false\}]
 	  }
-
-	  \code{
-	    series: \{0:\{color: 'black', visibleInLegend: false\}, 3:\{color: 'red',
-	    visibleInLegend: false\}\}
+	  \preformatted{
+	    series: \{0:\{color: 'black', visibleInLegend: false\},
+	    3:\{color: 'red', visibleInLegend: false\}\}
 	  }
 	}
 
-      
+        \item{\code{theme}}{a string. Default \code{NULL}.
+	  A theme is a set of predefined option values that work together
+	  to achieve a specific chart behavior or visual effect. Currently
+	  only one theme is available:
+	  \describe{
+	    \item{\code{maximized}}{Maximizes the area of the chart, and
+	      draws the legend and all of the labels inside the chart area. Sets
+	      the following options:	    
+	      \preformatted{
+		chartArea: \{width: '100\%', height: '100\%'\},
+		legend: \{position: 'in'\},
+		titlePosition: 'in', axisTitlesPosition: 'in',
+		hAxis: \{textPosition: 'in'\}, vAxis: \{textPosition: 'in'\}
+	      }
+	    }
+	  }
+	}      		
       \item{\code{title}}{a string. Default no title. Text to display above the chart.
       }
       \item{\code{titlePosition}}{a string. Default \code{'out'}.
@@ -331,25 +382,51 @@ value is given and therefore no button is displayed.
 	}
       }
       \item{\code{titleTextStyle}}{a JSON object. Default
-	\code{\{color:'black',fontName:<global-font-name>,fontSize:<global-font-size>\}}. An
+	\preformatted{\{color:'black',
+	  fontName:<global-font-name>,fontSize:<global-font-size>\}.} An
 	object that specifies the title text
 	style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize:
+	  <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{tooltipTextStyle}}{a JSON object. Default \code{\{color: 'black',
-	fontName: <global-font-name>, fontSize: <global-font-size>\}}
+      \item{\code{tooltip}}{a JSON object. Default \code{NULL}.
+	An object with members to configure various tooltip elements. To
+	specify properties of this object, you can use object
+	literal notation, as shown here:
+	
+	\preformatted{\{textStyle: {color: '#FF0000'}, showColorCode: true\}}
+      }
+      
+      \item{\code{tooltip.showColorCode}}{boolean. Default automatic.
+	If true, show colored squares next to the series information in
+	the tooltip. The default is true when \code{focusTarget} is set to
+	\code{'category'}, otherwise the default is \code{FALSE}.
+      }
+      \item{\code{tooltip.TextStyle}}{a JSON object. Default
+	\preformatted{\{color: 'black',
+	  fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the tooltip text style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize:
+	  <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
+      }
+      \item{\code{tooltip.trigger}}{
+	The user interaction that causes the tooltip to be displayed:
+	\describe{
+	  \item{\code{'hover'}}{ The tooltip will be displayed when the user hovers over an element.
+	  }
+	  \item{\code{'none'}}{The tooltip will not be displayed.
+	  }	  
+	}
       }
       \item{\code{vAxis}}{a JSON object. Default \code{'null'}.
 	An object with members to configure various vertical axis
 	elements. To specify properties of this object, you can use object
 	literal notation, as shown here:
-	\code{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
+	\preformatted{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
 	}
       \item{\code{vAxis.direction}}{1 or -1. Default 1. The direction in which the
 	values along the vertical axis grow. Specify -1 to reverse the
@@ -360,21 +437,21 @@ value is given and therefore no button is displayed.
 	\code{'out', 'in', 'none'}.
       }
       \item{\code{vAxis.textStyle}}{a JSON object. Default
-	\code{\{color: 'black',fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
-	object that specifies the vertical axis text style. The object has
-	this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
-	The color can be any HTML color string, for example: \code{'red'} or
+	\preformatted{\{color: 'black', fontName: <global-font-name>,
+	  fontSize: <global-font-size>\}.} An object that specifies the
+	vertical axis text style. The object has this format:
+	\preformatted{\{color: <string>, fontName: <string>, fontSize:
+	  <number>\}} The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
       \item{\code{vAxis.title}}{a string. Default no title. \code{vAxis} property that
 	specifies a title for the vertical axis.
       }
-      \item{\code{vAxis.titleTextStyle}}{a JSON object. Default \code{\{color: 'black',
-	fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
+      \item{\code{vAxis.titleTextStyle}}{a JSON object. Default \preformatted{\{color: 'black',
+	fontName: <global-font-name>, fontSize: <global-font-size>\}.} An
 	object that specifies the vertical axis title text style. The
 	object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
