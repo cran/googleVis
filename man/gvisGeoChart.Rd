@@ -68,7 +68,7 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/geochart.html#Configuration_Options}:
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/geochart.html#Configuration_Options}:
     
     \describe{
       
@@ -335,7 +335,7 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 
 
 \references{
-  Google Geo Chart  API: \url{http://code.google.com/apis/visualization/documentation/gallery/geochart.html}
+  Google Geo Chart  API: \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/geochart.html}
 
   Follow the link for Google's data policy.
 
@@ -393,8 +393,10 @@ plot(G3)
 G4 <- gvisGeoChart(CityPopularity, locationvar='City', colorvar='Popularity',
                       options=list(region='US', height=350, 
                                    displayMode='markers',
-				   colorAxis="{colors: ['orange','blue']}") )
-plot(G4) 
+				   colorAxis="{values:[200,400,600,800],
+                                   colors:[\'red', \'pink\', \'orange',\'green']}")
+                      ) 
+plot(G4)
 
 G5 <- gvisGeoChart(Andrew, "LatLong", colorvar='Speed_kt',
                    options=list(region="US"))
@@ -404,6 +406,22 @@ plot(G5)
 G6 <- gvisGeoChart(Andrew, "LatLong", sizevar='Speed_kt',
                    colorvar="Pressure_mb", options=list(region="US"))
 plot(G6)
+
+## Create lat:long values and plot a map of Oceania
+## Set background colour to light-blue
+
+require(stats)
+data(quakes)
+head(quakes)
+quakes$latlong<-paste(quakes$lat, quakes$long, sep=":")
+
+G7 <- gvisGeoChart(quakes, "latlong", "depth", "mag",
+                   options=list(displayMode="Markers", region="009",
+                   colorAxis="{colors:['red', 'grey']}",
+                   backgroundColor="lightblue"))
+
+plot(G7)
+
 
 }
 \keyword{ iplot }

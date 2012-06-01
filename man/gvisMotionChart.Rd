@@ -30,7 +30,9 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   }
   \item{timevar}{
     column name of \code{data} which shows the time dimension. The
-    information has to be either numeric or of class \code{\link{Date}}.
+    information has to be either numeric, of class \code{\link{Date}} or
+    a character which follows the pattern  'YYYYWww' (e.g. '2010W04' for
+    weekly data) or 'YYYYQq' (e.g. '2010Q1' for quarterly data).
   }
   \item{date.format}{
     if \code{timevar} is of class \code{\link{Date}} then this argument
@@ -49,7 +51,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
       }   
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html#Configuration_Options}: 
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/motionchart.html#Configuration_Options}: 
     \describe{
       \item{\code{height}}{height of the chart in pixels.
       }
@@ -59,7 +61,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 	is a serialised JSON object that describes zoom level, selected
 	dimensions, selected bubbles/entities, and other state
 	descriptions. For more details see
-	\url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html#Motion_Chart_initial_state}
+	\url{https://google-developers.appspot.com/chart/interactive/docs/gallery/motionchart.html#Motion_Chart_initial_state}
       }
       \item{\code{showChartButtons}}{logical, default=\code{TRUE}.
 	\code{FALSE} hides the buttons that control the chart type (bubbles /
@@ -152,7 +154,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 }
 \references{
   Google Motion Chart API:
-  \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html} 
+  \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/motionchart.html} 
 
   Follow the link for Google's data policy.
 

@@ -20,8 +20,8 @@ Using the Google Visualisation API with R
 \tabular{ll}{
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
-	Version: \tab 0.2.15\cr
-	Date: \tab 2012-03-04\cr
+	Version: \tab 0.2.16\cr
+	Date: \tab 2012-06-01\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}
@@ -51,7 +51,6 @@ Using the Google Visualisation API with R
   Other R packages of interest to you might be:
   \itemize{
     \item plotGoogleMaps: Plot HTML output with Google Maps API and your own data. \url{http://cran.r-project.org/web/packages/plotGoogleMaps/}
-    \item R2GoogleMaps: Provides a mechanism to generate JavaScript code from R that displays data using Google Maps. \url{http://www.omegahat.org/R2GoogleMaps/}
     \item RgoogleMaps: Overlays on Google map tiles in R. \url{http://cran.r-project.org/web/packages/RgoogleMaps/index.html}
     \item animation: A Gallery of Animations in Statistics and Utilities to Create Animations. \url{http://cran.r-project.org/web/packages/animation/}
     \item gridSVG: Export grid graphics as SVG/ \url{http://cran.r-project.org/web/packages/gridSVG/}
@@ -63,9 +62,9 @@ Using the Google Visualisation API with R
 \references{
   \itemize{
 	\item googleVis project site: \url{http://code.google.com/p/google-motion-charts-with-r/}
-	\item Google Visualisation API: \url{http://code.google.com/apis/visualization/interactive_charts.html}
-	\item Google Terms of Use: \url{http://code.google.com/apis/chart/interactive/terms.html}
-	\item Google Maps API Terms of Service: \url{http://code.google.com/apis/maps/terms.html}
+	\item Google Chart Tools API: \url{https://developers.google.com/chart/}
+	\item Google Terms of Use: \url{https://developers.google.com/terms/}
+	\item Google Maps API Terms of Service: \url{https://developers.google.com/maps/terms}
       }
 }
 \examples{
