@@ -29,9 +29,11 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \setlength{\parskip}{2mm}
 
 \newcommand{\googleVis}{\textbf{\texttt{googleVis}} }
+\newcommand{\knitr}{\textbf{\texttt{knitr}} }
 \newcommand{\rsp}{\textbf{\texttt{R.rsp }}}
 \newcommand{\brew}{\textbf{\texttt{brew }}}
 \newcommand{\rapache}{\emph{{RApache }}}
+\newcommand{\Rook}{\emph{{Rook }}}
 \newcommand{\rjsonio}{\textbf{\texttt{RJSONIO }}}
 
 \renewcommand{\familydefault}{\sfdefault}
@@ -112,7 +114,8 @@ others the authors of this vignette started the development of the
 \googleVis package~\cite{googleVis}, \cite{RJournal:2011-2:GesmannCastillo}. 
 
 Of course there are many other alternative visualisation toolkits out
-there, e.g.  
+there, e.g. 
+\href{http://d3js.org}{d3js} \cite{d3js}, 
 \href{http://services.alphaworks.ibm.com/manyeyes/page/Create_a_Visualization.html}{Many
   Eyes} \cite{ManyEyes},
 \href{http://teethgrinder.co.uk/open-flash-chart/}{Open Flash Chart
@@ -788,7 +791,7 @@ currently the \rapache module only runs on UNIX/Linux and Mac OS X.
 
 \subsubsection{Using \googleVis with \rsp}\label{rspexample}
 The \rsp package allows the user to integrate R code into html code.
-The R code is filtered by the \rsp web server and executed
+The R code is parsed by the \rsp web server and executed
 at run time. 
 
 As an example, we embed a motion chart into a rsp-page: 
@@ -913,12 +916,99 @@ folder path:
 system.file("brew", package = "googleVis")
 @ 
 
+\subsubsection{Using \googleVis with \Rook}
+
+\Rook~\cite{Rook} is a web server interface for R, written by Jeffrey Horner, the author 
+of rApache and brew. Compared to other web frameworks \Rook appears incredible lightweight.
+\Rook doesn't need any configuration. It is an R package, which works out of the box with the R HTTP 
+server. That means no configuration files are needed. No files have to be placed 
+in particular folders. Instead, \Rook web applications can be run on a local desktop. 
+However, \Rook requires some knowledge of the HTTP protocol. 
+
+Here is a \Rook app example with \texttt{googleVis}. It displays a little R data frame in a 
+\googleVis table by default. 
+The user can change the visualisation by clicking on the \emph{Edit me!} button 
+and upload her/his own CSV-file, see , see Figure~\ref{fig:Rook}. 
+
+<<eval=FALSE>>=
+require(Rook)
+require(googleVis)
+s <- Rhttpd$new()
+s$start(listen='127.0.0.1')
+
+my.app <- function(env){
+ ## Start with a table and allow the user to upload a CSV-file
+  req <- Request$new(env)
+  res <- Response$new()
+
+  ## Provide some data to start with
+  ## Exports is a sample data set of googleVis
+  data <- Exports[,1:2] 
+  ## Add functionality to upload CSV-file
+  if (!is.null(req$POST())) {
+    ## Read data from uploaded CSV-file
+   data <- req$POST()[["data"]]
+   data <- read.csv(data$tempfile)
+  }
+  ## Create table with googleVis
+  tbl <- gvisTable(data, 
+                   options=list(gvis.editor="Edit me!",
+                                height=350),
+                                chartid="myInitialView")
+  ## Write the HTML output and
+  ## make use of the googleVis HTML output.
+  ## See vignette('googleVis') for more details
+  res$write(tbl$html$header) 
+  res$write("<h1>My first Rook app with googleVis</h1>")
+  res$write(tbl$html$chart)
+  res$write('
+Read CSV file:<form method="POST" enctype="multipart/form-data">
+<input type="file" name="data">
+<input type="submit" name="Go">\n</form>')            
+  res$write(tbl$html$footer)
+  res$finish()
+}
+s$add(app=my.app, name='googleVisTable')
+## Open a browser window and display the web app
+s$browse('googleVisTable')
+@
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{Rook.png}
+  \caption{Screen shot of a Rook app with \googleVis output.}
+  \label{fig:Rook}
+\end{figure}
+
+
+
+\section{Using \googleVis with \knitr}
+Using \googleVis with \knitr~\cite{knitr} is a convient way of creating
+interactive reproducible reports. The approach taken by
+\knitr is similar to Sweave, in that you can combine code with text, see
+the \knitr home page\footnote{\url{http://yihui.name/knitr/}} for more 
+details. However, \knitr can also export to HTML, which is required to 
+embed \googleVis charts.
+
+To include \googleVis output into a \knitr document you have 
+to set the chunk option results to \texttt{'asis'} and print the chart 
+element only, as demonstrated in the following example:
+\begin{verbatim}
+```{r results='asis'}
+M <- gvisMotionChart(Fruits, "Fruit", "Year",
+                     options=list(width=550, height=450))
+print(M, 'chart')
+```
+\end{verbatim}
+Further examples have been published in a blog post: 
+\url{http://lamages.blogspot.co.uk/2012/05/interactive-reports-in-r-with-knitr-and.html}
+
 \section{Using \googleVis in presentations}
 The Google Visualisation API is designed for web pages, so it should
-be no surprise that it can be difficult or impossible to embed \googleVis output in
-traditional presentation software like MS PowerPoint\footnote{For MS
-  PowerPoint on MS Windows the pulg-in
-  \href{http://skp.mvps.org/liveweb.htm}{liveweb} provides the
+be no surprise that it can be difficult or impossible to embed \googleVis 
+output in traditional presentation software like MS PowerPoint\footnote{For 
+MS PowerPoint on MS Windows the pulg-in
+\href{http://skp.mvps.org/liveweb.htm}{liveweb} provides the
   functionality to insert web pages into a PowerPoint slide and
   refresh the pages real-time during slide show.}, Google Docs,
 OpenOffice Impress or Apple Keynote. 
@@ -929,13 +1019,14 @@ between applications during her talk. This can be fun, but quite often
 it is not. 
 
 An alternative would be to build the presentation as a web page it
-self.  The JavaScript library deck.js~\cite{deck.js}, a j{Q}uery
+self.  
+
+The JavaScript library deck.js~\cite{deck.js}, a j{Q}uery
 framework for creating {HTML} presentations by Caleb  Troughton,
 provides an elegant way of combining the slide paradigm with web content 
 such as YouTube videos or \googleVis output. You find an example with
 \googleVis charts on mages's blog:
 \url{http://lamages.blogspot.com/2011/11/interactive-presentations.html} .
-
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.5\textwidth]{GettingStartedWithGoogleVis.png}
@@ -944,6 +1035,18 @@ such as YouTube videos or \googleVis output. You find an example with
   \label{fig:deck.js}
 \end{figure}
 
+An alternative to deck.js is 
+slidy\footnote{\url{http://www.w3.org/Talks/Tools/Slidy2/}} 
+in combination with \knitr and 
+pandoc\footnote{\url{http://johnmacfarlane.net/pandoc/}}, see the following blog post for more details:
+\url{http://lamages.blogspot.co.uk/2012/05/interactive-html-presentation-with-r.html}. The basic idea is that to create a Markdown file with \knitr and to post-process the output with pandoc into a slidy HTML presentation.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{CambR_googleVis_29_May_2012.png}
+  \caption{\googleVis presentation with slidy:
+    \url{http://lamages.blogspot.co.uk/2012/05/interactive-html-presentation-with-r.html}} 
+  \label{fig:slidy}
+\end{figure}
 
 \section{Beyond R}
 In this section we present ideas which go beyond the usual coding in
