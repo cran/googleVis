@@ -1,18 +1,55 @@
+googleVis 0.3.0 [2012-10-20]
+----------------------------
+
+NEW FEATURES
+
+* plot.gvis has a new argument 'browser'. The argument is passed on
+  to the function browseURL. The 'browser' argument is by default set
+  based on the output of interactive(). This prevents R CMD CHECK
+  trying to open browser windows during the package checking
+  process. See the help file of plot.gvis for more details.
+  Thanks to Henrik Bengtsson for his comments and suggestions.
+
+* gvisMotionChart has new arguments xvar, yvar, colorvar and
+  sizevar. Those arguments are optional and set the various dimensions 
+  of a motion chart, similar to those in gvisBubbleChart.
+  Thanks to Sebastian Kranz for the idea and initial code.
+
+* gvisGeoChart accepts tooltip.triggers following an update of the
+  Visualisation API by Google, 24 September 2012
+
+* R data frames are transformed into JSON objects using a new function 
+  provided by Sebastian Kranz and Wei Luo. The new function speeds up 
+  the googleVis functions.
+
+Changes
+
+* Changed the load mechanism for the Google API from http to https.
+  Thanks to Erik Bülow for pointing this out (Issue 19). 
+
+* Changed example in help file of gvisMap to show how to include html
+  code in tooltip. 
+
+Bug Fixes
+
+* Chart editor was not validated properly under XHMTL 1.0 Strict
+
+
 googleVis 0.2.17 [2012-08-02]
 ----------------------------
 
 Changes
 
- * Added section on knitr and Rook to vignette
+ * Added sections with information to 'knitr' and 'Rook' to vignette 
 
- * Added example to gvisMerge demonstrating the use of Reduce
+ * Added example to gvisMerge demonstrating the use of 'Reduce'
 
 Bug Fixes
 
  * Data frames with one row only were not displayed in a chart.
    Thanks to Oliver Jay and Wai Tung Ho for reporting this issue.
 
- * Fixed eqarth quake example, using data from 
+ * Fixed earth quake example, using data from 
    http://www.iris.edu/seismon/last30.html, 
    Mag was read as factor rather than numeric
 

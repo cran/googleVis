@@ -17,13 +17,33 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-
-gvisMotionChart <- function(data, idvar="id", timevar="time", date.format="%Y/%m/%d",
+gvisMotionChart <- function(data, idvar="id", timevar="time",
+                            xvar="", yvar="", colorvar="", sizevar="",
+                            date.format="%Y/%m/%d",
                             options=list(), chartid){
-
+  
+  
   my.type <- "MotionChart"
   dataName <- deparse(substitute(data))
 
+  ## Bring data frame in the right column order
+  other.vars <- c(idvar, timevar, xvar, yvar, colorvar, sizevar)
+  pos <- rep(NA, 6)
+  ## nms.data <- names(data)
+  for( i in 1:6){
+    if(other.vars[i] != ""){
+      pos[i] <- match(other.vars[i], names(data))	
+      if(is.na(pos[i]))
+        stop(paste("Column", other.vars[i], "does not exist."))
+      if(pos[i] != i){## Column needs to be moved
+        swap.cols <- c(pos[i], i)
+        nms <- names(data[, swap.cols ])
+        data[, rev(swap.cols)] <- data[, swap.cols]
+        names(data)[rev(swap.cols)] <- nms
+      }		
+    }	 
+  }
+  
   ## Combine options for other generic functions
   my.options <- list(gvis=modifyList(list(width = 600, height=500), options),
                      dataName=dataName,
@@ -33,11 +53,12 @@ gvisMotionChart <- function(data, idvar="id", timevar="time", date.format="%Y/%m
                      )
   
   checked.data <- gvisCheckMotionChartData(data, my.options)
-   
+             
   output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options, chartid)
-
+  
   return(output)
 }
+
 
 gvisCheckMotionChartData <- function(data, options){
   
@@ -47,7 +68,7 @@ gvisCheckMotionChartData <- function(data, options){
   ## Google Motion Chart needs a 'string' in the id variable (first column)
   ## A number or date in the time variable (second column)
   ## Everything else has to be a number or string
-  
+
   ## Convert data.frame to list
   x <- as.list(data)
   varNames <- names(x)
@@ -61,7 +82,7 @@ gvisCheckMotionChartData <- function(data, options){
   if(sum(!is.na(idvar.timevar.pos)) < 2){
     stop("There is a missmatch between the idvar and timevar specified and the colnames of your data.")
   }
-
+  
 
   typeMotionChart[[options$data$timevar]] <-
     testTimevar(x[[options$data$timevar]], options$data$date.format)
@@ -79,8 +100,10 @@ gvisCheckMotionChartData <- function(data, options){
     x[[options$data$idvar]] <- as.character(x[[options$data$idvar]])
   }
   typeMotionChart[[options$data$idvar]] <- "string"
+
+  varOthers <- varNames[ -idvar.timevar.pos  ]  
+                        
   
-  varOthers <- varNames[ -idvar.timevar.pos  ]
   varOrder <- c(options$data$idvar, options$data$timevar, varOthers)
   x <- x[varOrder]
   
@@ -107,6 +130,7 @@ gvisCheckMotionChartData <- function(data, options){
 
   X <- data.frame(x)
   names(X) <- varNames
+
   return(X)
 }
 

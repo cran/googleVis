@@ -13,7 +13,6 @@
 ## Markus Gesmann, 24 September 2011
 ## Distributed under GPL 2 or later
 
-
 getWorldBankData <- function(id='SP.POP.TOTL', date='1960:2010',
                              value="value", per.page=12000){ 
   require(RJSONIO)
@@ -86,6 +85,8 @@ subData <- subset(wbData, !region.value %in% "Aggregates" , select=
 
 ## Create a motion chart
 M <- gvisMotionChart(subData, idvar="country.name", timevar="year",
+                     xvar="life.expectancy", yvar="fertility.rate", colorvar="region.value",
+                     sizevar="population",
                      options=list(width=600, height=500), chartid="WorldBankMotionChart")
 
 ## Display the chart in your browser
