@@ -1,8 +1,8 @@
 Package: googleVis
 Type: Package
 Title: Interface between R and the Google Chart Tools
-Version: 0.3.0
-Date: 2012-10-20
+Version: 0.3.3
+Date: 2012-10-31
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"), email
         = "markus.gesmann@gmail.com"), person("Diego", "de Castillo",
         role = "aut", email = "decastillo@gmail.com"))
@@ -23,6 +23,6 @@ License: GPL (>= 2)
 URL: http://code.google.com/p/google-motion-charts-with-r/
 LazyLoad: yes
 LazyData: yes
-Packaged: 2012-10-20 08:52:44 UTC; Markus
+Packaged: 2012-11-02 16:55:38 UTC; markusgesmann
 Repository: CRAN
-Date/Publication: 2012-10-20 13:57:40
+Date/Publication: 2012-11-02 17:12:06
