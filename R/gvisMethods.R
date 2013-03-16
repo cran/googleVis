@@ -1,6 +1,6 @@
 ### File R/gvisMethods.R
 ### Part of the R package googleVis
-### Copyright 2010, 2011, 2012 Markus Gesmann, Diego de Castillo
+### Copyright 2010, 2011, 2012, 2013 Markus Gesmann, Diego de Castillo
 ### Distributed under GPL 2 or later
 
 ### It is made available under the terms of the GNU General Public
@@ -158,8 +158,8 @@ gvisMerge <- function(x, y, horizontal=FALSE, tableOptions='border="0"',
                           jsData=paste(x$html$chart["jsData"], y$html$chart["jsData"], sep="\n"),
                           jsDrawChart=paste(x$html$chart["jsDrawChart"], y$html$chart["jsDrawChart"], sep="\n"),
                           jsDisplayChart=paste(x$html$chart["jsDisplayChart"], y$html$chart["jsDisplayChart"], sep="\n"),
-                          jsChart=paste(x$html$chart["jsChart"], y$html$chart["jsChart"], sep="\n"),
                           jsFooter=paste(x$html$chart["jsFooter"]),
+                          jsChart=paste(x$html$chart["jsChart"], y$html$chart["jsChart"], sep="\n"),
                           divChart= paste("\n<table ", tableOptions, ">\n<tr>\n<td>\n", x$html$chart["divChart"], "\n</td>\n",                            
                             ifelse(horizontal,"<td>\n","</tr>\n<tr>\n<td>\n"), y$html$chart["divChart"],
                             "\n</td>\n</tr>\n</table>\n", sep="")

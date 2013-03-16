@@ -1,11 +1,78 @@
+googleVis 0.4.2 [2013-03-16]
+----------------------------
+
+NEW FEATURES
+
+ * The core charts (e.g. line, area, bar, column and combo charts)
+   accept now also date variables for the x-axis. Thanks to Sebastian
+   Campbell for pointing this out.
+
+Changes 
+
+ * The WorldBank demo uses now the WDI package.
+   Thanks to John Maindonald for providing the code.
+
+Bug Fixes
+
+ * Fixed typos in Stock and Andrew example data. 
+   Thanks to Sebastian Campbell for reporting this issue. 
+
+
+googleVis 0.4.0 [2013-02-24]
+----------------------------
+
+NEW FEATURES
+ 
+ * New function renderGvis to support shiny.
+   This function allows user to insert googleVis output into shiny
+   apps, similar to renderText and renderPlot. See the help page for
+   more details. Many thanks to Joe Cheng for his support and help.
+
+Changes
+
+ * In order to support shiny the order of the elements of the
+   gvis*()$html$chart vector changed. The positions of jsChart and
+   jsFooter have been swapped.
+
+ * The load mechanism for the Google API changed from http to https
+   again. Thanks to Jacques Philip. 
+
+ * The package dependencies changed to imports statements in DESCRIPTION. 
+   Thanks to Suraj Gupta for pointing this out.
+
+ * The R.rsp example in demo googleVis has been moved into its own
+   demo Rrsp. 
+
+ * A FAQ and shiny section has been added to the vignette.
+
+Bug Fixes
+
+ * jsDisplayChart didn't check if the google visualization function is already
+   loaded. Many thanks to Mark Melling for reporting the issue and
+   providing a solution.
+
+ * The demo WorldBank didn't download all data but only the first
+   12000 records. Many thanks to John Maindonald reported this issue. 
+
+
+googleVis 0.3.3 [2012-11-12]
+----------------------------
+
+Changes
+
+ * Clarified the usage of the argument state in the help file of
+   gvisMotionChart. Thanks to Leonardo Trabuco 
+
+
 googleVis 0.3.3 [2012-10-31]
 ----------------------------
 
 Bug Fixes
 
  * plot.gvis didn't open a browser window when options(gvis.plot.tag)
-   was not set to NULL, but the user explicitly called plot.gvis with tag
-   NULL. Thanks to Sebastian Kranz for reporting this bug. 
+   was not set to NULL, but the user explicitly called plot.gvis with
+   tag NULL. Thanks to Sebastian Kranz for reporting this bug. 
+
 
 googleVis 0.3.2 [2012-10-28]
 ----------------------------

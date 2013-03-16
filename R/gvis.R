@@ -1,6 +1,6 @@
 ### File R/gvis.R
 ### Part of the R package googleVis
-### Copyright 2010, 2011, 2012 Markus Gesmann, Diego de Castillo
+### Copyright 2010, 2011, 2012, 2013 Markus Gesmann, Diego de Castillo
 ### Distributed under GPL 2 or later
 
 ### It is made available under the terms of the GNU General Public
@@ -75,16 +75,13 @@ gvis <- function(type="", data, options, chartid, package){
 
   jsHeader <- '
 <!-- jsHeader -->
-<script type="text/javascript\" src="http://www.google.com/jsapi">
-</script>
 <script type="text/javascript">
 '
   jsHeader  <- paste(infoString(type),   jsHeader , sep="\n")
 
  jsData <- '
 // jsData 
-function gvisData%s ()
-{
+function gvisData%s () {
   var data = new google.visualization.DataTable();
   var datajson =
 %s;
@@ -98,24 +95,56 @@ return(data);
                      paste(paste("data.addColumn('", data.type, "','",
                                  names(data.type), "');", sep=""), collapse="\n"))
     
-  jsDisplayChart <- '
-// jsDisplayChart 
-function displayChart%s()
-{
-  google.load("visualization", "1", { packages:["%s"] %s}); 
-  google.setOnLoadCallback(drawChart%s);
+ jsDisplayChart <- '
+// jsDisplayChart
+(function() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  var chartid = "%s";
+
+  // Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+  var i, newPackage = true;
+  for (i = 0; newPackage && i < pkgs.length; i++) {
+    if (pkgs[i] === chartid)
+      newPackage = false;
+  }
+  if (newPackage)
+    pkgs.push(chartid);
+
+  // Add the drawChart function to the global list of callbacks
+  callbacks.push(drawChart%s);
+})();
+function displayChart%s() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+    var pkgCount = pkgs.length;
+    google.load("visualization", "1", { packages:pkgs, callback: function() {
+      if (pkgCount != pkgs.length) {
+        // Race condition where another setTimeout call snuck in after us; if
+        // that call added a package, we must not shift its callback
+        return;
+      }
+      while (callbacks.length > 0)
+        callbacks.shift()();
+    } %s});
+  }, 100);
 }
 '
-  jsDisplayChart <- sprintf(jsDisplayChart, chartid,
-                     ifelse(!is.null(options$gvis$gvis.editor),'charteditor',
-                            tolower(package)),
-                     ifelse(!is.null(options$gvis$gvis.language),
-                            paste(",'language':'",
-                                  options$gvis$gvis.language, "'", sep=""), ''),
-                     chartid
-                     )
+ jsDisplayChart <- sprintf(jsDisplayChart,
+                    ifelse(!is.null(options$gvis$gvis.editor), 'charteditor',
+                           tolower(package)),
+                    chartid, chartid,
+                    ifelse(!is.null(options$gvis$gvis.language),
+                           paste(",'language':'",
+                                 options$gvis$gvis.language, "'", sep=""), '')
+                    )
 
-  
+#########
+
   jsDrawChart <- '
 // jsDrawChart
 function drawChart%s() {
@@ -134,20 +163,18 @@ function drawChart%s() {
                      gvisEditor(chartid,type,options)
                      )
 
-
-
-  jsChart <- '
-// jsChart 
-displayChart%s()
+jsFooter  <- '
+// jsFooter
+ </script>
 '
-   jsChart <- sprintf(jsChart, chartid )
 
-  jsFooter <- '
-<!-- jsFooter -->  
-//-->
-</script>
+jsChart <- '
+<!-- jsChart -->  
+<script type="text/javascript\" src="https://www.google.com/jsapi?callback=displayChart%s"></script>
 '
-  
+jsChart  <- sprintf(jsChart, chartid)
+
+ 
 divChart <- '
 <!-- divChart -->
 %s  
@@ -168,8 +195,8 @@ divChart <- '
                                    jsData=jsData,
                                    jsDrawChart=jsDrawChart,
                                    jsDisplayChart=jsDisplayChart,
-                                   jsChart=jsChart,
                                    jsFooter=jsFooter,
+                                   jsChart=jsChart,
                                    divChart=divChart),
                      type=type, chartid=chartid)
   return(output)

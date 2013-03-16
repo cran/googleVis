@@ -1,6 +1,6 @@
 ### File R/gvisCoreCharts.R
 ### Part of the R package googleVis
-### Copyright 2011 Markus Gesmann, Diego de Castillo
+### Copyright 2011, 2012, 2013 Markus Gesmann, Diego de Castillo
 
 ### It is made available under the terms of the GNU General Public
 ### License, version 2, or at your option, any later version,
@@ -97,7 +97,7 @@ gvisCoreChart <- function(data, xvar="", yvar="", options=list(), chartid, chart
   
   my.options <- list(gvis=modifyList(list(allowHtml=TRUE),options), dataName=dataName,
                      data=list(xvar=xvar, yvar=yvar,
-                       allowed=c("string", "number"))
+                       allowed=c("string", "number", "date", "datetime"))
                      )
   
   
@@ -119,7 +119,9 @@ gvisCheckCoreChartData <- function(data, xvar, yvar){
   
   if(xvar=="")
     xvar <- names(data)[1]
-  data[,xvar] <- as.character(data[,xvar])
+
+  if("integer" %in% class(data[,xvar]))
+    data[,xvar] <- as.character(data[,xvar])
   
   if("" %in% yvar){
     yvar <- sapply(data, is.numeric)

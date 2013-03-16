@@ -38,3 +38,15 @@ Thanks to:
   o Sebastian Kranz and Wei Luo for providing ideas and code to
     improve the transformation of R data frames into JSON code
   o Sebastian Kranz for reporting a bug in version 0.3.0
+  o Leonardo Trabuco for helping to clarify the usage of the
+    argument state in the help file of gvisMotionChart
+  o Mark Melling for reporting an issue with jsDisplayChart and
+    providing a solution
+  o Joe Cheng for code contribution to make googleVis work with shiny
+  o John Maindonald for reporting that the WorldBank demo didn't 
+    download all data, but only the first 12000 records.
+  o Sebastian Campbell for reporting a typo in the Andrew and Stock
+    data set and pointing out that the core charts, such as line
+    charts accept also date variables for the x-axis. 
+  o John Maindonald for providing a simplified version of the
+    WorldBank demo using the WDI package. 
