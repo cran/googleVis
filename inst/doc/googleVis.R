@@ -445,13 +445,28 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 48: googleVis.Rnw:1396-1397 (eval = FALSE)
+### code chunk number 48: googleVis.Rnw:1371-1381 (eval = FALSE)
+###################################################
+## library(googleVis)
+## dat <- data.frame(x=LETTERS[1:10], 
+##                   y=c(0, 4, -2, 2, 4, 3, 8, 15, 10, 4))
+## area1 <- gvisAreaChart(xvar="x", yvar="y", data=dat,
+##     	options=list(vAxes="[{viewWindowMode:'explicit',
+## 			viewWindow:{min:0, max:10}}]",
+##                         width=500, height=400, 
+##                         title="y-limits set from 0 to 10"),
+## 			chartid="area1ylim")
+## plot(area1)
+
+
+###################################################
+### code chunk number 49: googleVis.Rnw:1422-1423 (eval = FALSE)
 ###################################################
 ## citation("googleVis")
 
 
 ###################################################
-### code chunk number 49: googleVis.Rnw:1400-1401 (eval = FALSE)
+### code chunk number 50: googleVis.Rnw:1426-1427 (eval = FALSE)
 ###################################################
 ## citation()
 
