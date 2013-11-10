@@ -414,7 +414,7 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 45: googleVis.Rnw:1287-1293 (eval = FALSE)
+### code chunk number 45: googleVis.Rnw:1290-1296 (eval = FALSE)
 ###################################################
 ## jscode <- "window.open('http://en.wikipedia.org/wiki/' 
 ##                   + data.getValue(chart.getSelection()[0].row,0)); "
@@ -425,14 +425,14 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 46: googleVis.Rnw:1296-1298 (eval = FALSE)
+### code chunk number 46: googleVis.Rnw:1299-1301 (eval = FALSE)
 ###################################################
 ## plot(gvisOrgChart(Regions,  options=list(gvis.listener.jscode=jscode)))
 ## plot(gvisLineChart(Regions[,c(1,3)], options=list(gvis.listener.jscode=jscode)))
 
 
 ###################################################
-### code chunk number 47: googleVis.Rnw:1302-1310 (eval = FALSE)
+### code chunk number 47: googleVis.Rnw:1305-1313 (eval = FALSE)
 ###################################################
 ## jscode <- "
 ##        var sel = chart.getSelection();
@@ -445,7 +445,7 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 48: googleVis.Rnw:1371-1381 (eval = FALSE)
+### code chunk number 48: googleVis.Rnw:1374-1384 (eval = FALSE)
 ###################################################
 ## library(googleVis)
 ## dat <- data.frame(x=LETTERS[1:10], 
@@ -460,13 +460,13 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 49: googleVis.Rnw:1422-1423 (eval = FALSE)
+### code chunk number 49: googleVis.Rnw:1425-1426 (eval = FALSE)
 ###################################################
 ## citation("googleVis")
 
 
 ###################################################
-### code chunk number 50: googleVis.Rnw:1426-1427 (eval = FALSE)
+### code chunk number 50: googleVis.Rnw:1429-1430 (eval = FALSE)
 ###################################################
 ## citation()
 

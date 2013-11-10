@@ -1,3 +1,29 @@
+googleVis 0.4.7 [2013-11-10]
+----------------------------
+
+Changes
+
+* New option 'googleVis.viewer' which controls the default output of
+  the googleVis plot method. On package load it is set to 
+  getOption("viewer"). It you use RStudio, then its viewer pane will 
+  be used for displaying non-Flash charts. 
+  Set options("googleVis.viewer"=NULL) and the googleVis
+  plot function will open all output in the default browser again.
+
+* The package startup message makes the user aware of the default 
+  viewer option.
+
+
+googleVis 0.4.6 [2013-11-03]
+----------------------------
+
+Changes
+
+* googleVis will use the Viewer pane in RStudio (version >= 0.98.441) 
+  to display non-Flash charts by default. The setting is controlled
+  via the option viewer. Set options("viewer"=NULL) and the googleVis
+  plot function will open all output in the default browser again.
+
 googleVis 0.4.5 [2013-08-29]
 ----------------------------
 
