@@ -1,3 +1,36 @@
+googleVis 0.5.1 [2014-04-14]
+----------------------------
+NEW FEATURES
+
+* New functions gvisSankey, gvisAnnotationChart, gvisHistogram,
+  gvisCalendar and gvisTimeline to support the new Google charts 
+  of the same names (without 'gvis').
+
+* New demo Trendlines showing how trend-lines can be added to
+  Scatter-, Bar-, Column-, and Line Charts.
+
+* New demo Roles showing how different column roles can be used
+  in core charts to highlight data.
+
+* New vignettes written in R Markdown showcasing googleVis
+  examples and how the package works with knitr.
+
+Changes
+
+* The help files of gvis charts no longer show all their options,
+  instead a link to the online Google API documentation is given. 
+
+* Updated googleVis demo
+
+* All googleVis output will be displayed in your default browser. 
+  In previous versions of googleVis output could also be displayed 
+  in the preview pane of RStudio. All googleVis output will be displayed       
+  in your default browser. In previous versions of googleVis output could 
+  also be displayed in the preview pane of RStudio. This feature is no 
+  longer available with the current version of RStudio, but is likely to   
+  be introduced again with the release of RStudio version 0.99 or higher.
+
+
 googleVis 0.4.7 [2013-11-10]
 ----------------------------
 
@@ -10,8 +43,11 @@ Changes
   Set options("googleVis.viewer"=NULL) and the googleVis
   plot function will open all output in the default browser again.
 
-* The package startup message makes the user aware of the default 
+* The package start-up message makes the user aware of the default 
   viewer option.
+
+* Added example to gvisMap that illustrates how the icon can be 
+  changed.
 
 
 googleVis 0.4.6 [2013-11-03]

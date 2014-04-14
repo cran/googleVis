@@ -83,6 +83,12 @@
 }
 gvisWelcomeMessage <- function(){
   
+ # if(is.null(getOption("viewer")))
+    display <- "the standard browser to display its output.\n"
+#  else
+#    display <- paste("the RStudio Viewer pane to display its output.\n",
+#                     "Set options('googleVis.viewer'=NULL) to use your browser.\n",
+#                     sep="")
   paste("\n",     
         "Welcome to googleVis version ", packageDescription("googleVis")$Version, "\n",
         "\n",
@@ -91,10 +97,9 @@ gvisWelcomeMessage <- function(){
         "https://developers.google.com/terms/\n",
         "\n",
         "Note, the plot method of googleVis will by default use\n",
-        ifelse(is.null(getOption("viewer")), "the standard browser", 
-               "the RStudio Viewer pane"), " to display its output.\n",
+        display,
         "\n",
-        "See the googleVis package vignette for more details.\n",
+        "See the googleVis package vignettes for more details.\n",
         "\n",               
         "To suppress the this message use:\n",
         "suppressPackageStartupMessages(library(googleVis))\n",  

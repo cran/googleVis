@@ -233,11 +233,9 @@ Version (\Sexpr{packageDescription("googleVis")[['Version']]}) of the package
 provides interfaces to  Motion Charts, Annotated Time Lines, 
 Maps, Geo Maps, Geo Charts, Intensity Maps, Tables, Gauges, 
 Tree Maps, further Line, Bar, Bubble, Column, Area, Stepped Area, 
-Combo, Scatter, Candlestick, Pie and Org Charts; see 
-Figure~\ref{demos} for some examples. All available charts types are
-listed on the
-\href{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}{project
-  site}\footnote{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}. 
+Combo, Scatter, Candlestick, Pie, Sankey, Annotation, 
+Histogram, Timeline, Calendar and Org Charts; see 
+Figure~\ref{demos} for some examples. 
 
 The output of a \googleVis function is html code that contains the
 data and references to JavaScript functions hosted by Google. A
@@ -314,7 +312,7 @@ cat(googleVis:::gvisWelcomeMessage())
 \subsection{Using the  \googleVis package}\label{sec:UsingGoogleVis}
 
 The individual functions of the \googleVis package are documented in
-detail in the help pages. Here we will cover only the principles of
+the help pages. Here we will cover only the principles of
 the package.
 
 As an example we will show how to generate a motion chart as displayed in   
@@ -630,7 +628,47 @@ e.g. width=500, while the more complex options with sub-components are
 listed in curly brackets \{\}, and arrays, e.g. to define the two
 axes, use square brackets [ ].
 
-Here is another example setting the  colour axis of a geo chart, see Figure~\ref{geochart}:
+Generally the following rules apply:
+
+\begin{itemize}
+
+\item parameters with names that do not include a "." are set with a single 
+value, e.g. width and height. Those are set like one would do in R, that is
+\texttt{options=list(}\texttt{width=200,} \texttt{height=300)}. 
+Boolean arguments are set to 
+either \texttt{TRUE} or \texttt{FALSE}, using the R syntax.
+
+\item parameters with names that do not include a "." and are set with 
+multiple values, e.g. \texttt{color}, and are wrapped in "[ ]", e.g. 
+\texttt{options=list(} \texttt{colors="['\#cbb69d',} \texttt{'\#603913',}
+\texttt{'\#c69c6e']")}
+
+\item parameters with names that do include a "." present parameters with 
+several sub-options and have to be set as a string wrapped in "\{ \}".
+The values of those sub-options are set via parameter:value. Boolean values
+have to be stated as \texttt{'true'} or \texttt{'false'}. 
+For example the Google documentaion states the formating options for the 
+vertical axis and states the parameter as \texttt{vAxis.format}. 
+Then this paramter can be set in R as:
+\texttt{options=list(} \texttt{vAxis="\{format:'\#,\#\#\#\%'\}")}. 
+
+\item If several sub-options have to be set, e.g. 
+\texttt{titleTextStyle.color,} \texttt{title\-Text\-Style.\-fontName} and 
+\texttt{titleTextStyle.fontSize}, then those can be combined in one list item 
+such as:
+\texttt{options=list(} \texttt{titleTextStyle="\{color:'red',} 
+\texttt{fontName:'Courier',} \texttt{fontSize:16\}")}
+
+\item paramters that can have more than one value per sub-options are 
+wrapped in "[ ]". For example to set the labels for left and right axes use:
+\texttt{options=list(} \texttt{vAxes="[\{title:'val1'\},} 
+\texttt{\{title:'val2'\}]")}
+
+\end{itemize}
+
+
+The following example set the colour axis of a geo chart, 
+see Figure~\ref{geochart}:
 <<eval=FALSE>>=
 Geo <- gvisGeoChart(CityPopularity, locationvar='City', 
                     colorvar='Popularity',
@@ -1233,22 +1271,22 @@ tutorial given at the useR! conference in 2013, \cite{googleVisTutorial}.
 
 Slidify provides a choice of different layout frameworks and syntax highlighting options. Additionally, slidify slides can be published from R online, e.g. 
 on Dropbox or github.
-
-\section{Using \googleVis with RStudio}
-
-RStudio is popular a free and open source integrated development environment 
-for R. With verion 0.98.441 RStudio introduced a viewer pane that allows users 
-to display HTML files within RStudio's IDE.
-
-\googleVis will use the Viewer pane in RStudio (version >= 0.98.441) 
-to display non-Flash charts by default. Flash charts and merged gvis-objects are
-displayed in the default browser. The setting is controlled
-via the option \texttt{googleVis.viewer}. By default it will have
-the value of \texttt{getOption("viewer")}.
-
-Set \texttt{options("googleVis.viewer"=NULL)} and the googleVis
-plot function will open all output in the standard browser.
-
+% 
+% \section{Using \googleVis with RStudio}
+% 
+% RStudio is popular a free and open source integrated development environment 
+% for R. With verion 0.98.441 RStudio introduced a viewer pane that allows users 
+% to display HTML files within RStudio's IDE.
+% 
+% \googleVis will use the Viewer pane in RStudio (version >= 0.98.441) 
+% to display non-Flash charts by default. Flash charts and merged gvis-objects are
+% displayed in the default browser. The setting is controlled
+% via the option \texttt{googleVis.viewer}. By default it will have
+% the value of \texttt{getOption("viewer")}.
+% 
+% Set \texttt{options("googleVis.viewer"=NULL)} and the googleVis
+% plot function will open all output in the standard browser.
+% 
 
 \section{Beyond R}
 In this section we present ideas which go beyond the usual coding in
@@ -1327,6 +1365,10 @@ which covers how to use \googleVis in presentations.
 
 Note that this vignette uses screen shots to include
 examples of \googleVis charts.
+
+For further details see Google's online documentation on 
+\href{https://developers.google.com/chart/interactive/docs/printing}{printing 
+PNG charts}.
 
 \subsection{Can I change the colour of the bubbles in motion charts?}
 

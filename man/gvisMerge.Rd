@@ -97,39 +97,6 @@ gvisMerge(x, y, horizontal = FALSE,
 ## connection to display the visualisation.
 
 
-G <- gvisGeoChart(Exports, "Country", "Profit", 
-                  options=list(width=250, height=100))
-T <- gvisTable(Exports, 
-                  options=list(width=250, height=300))
-
-GT <- gvisMerge(G,T, horizontal=FALSE) 
-plot(GT)
-
-M <- gvisMotionChart(Fruits, "Fruit", "Year",
-                     options=list(width=400, height=410))
-
-GTM <- gvisMerge(GT, M, horizontal=TRUE,
-                     tableOptions="cellspacing=10")
-plot(GTM)
-
-
-line <- gvisLineChart(OpenClose, "Weekday", c("Open", "Close"), 
-	      options=list(legend='none', width=300, height=150))
-column <- gvisColumnChart(OpenClose, "Weekday", c("Open", "Close"),
-              options=list(legend='none', width=300, height=150))
-area <- gvisAreaChart(OpenClose, "Weekday", c("Open", "Close"),
-              options=list(legend='none', width=300, height=150))
-bar <- gvisBarChart(OpenClose, "Weekday", c("Open", "Close"),
-              options=list(legend='none', width=300, height=150))
-LBCA <- gvisMerge(gvisMerge(line, bar), gvisMerge(column, area),
-                  horizontal=TRUE, tableOptions="bgcolor=\"#AABBCC\"") 
-
-plot(LBCA)
-
-## Applying gvisMerge successively
-
-p <- Reduce(gvisMerge, list(line, column, area, bar))
-plot(p)
 
 }
 \keyword{ aplot }
