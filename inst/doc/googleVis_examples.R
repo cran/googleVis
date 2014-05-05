@@ -23,6 +23,9 @@ read_demo('googleVis', 'googleVis')
 ## ----SettingOptions, results='asis', tidy=FALSE--------------------------
 
 
+## ----CustomizingLines, results='asis', tidy=FALSE------------------------
+
+
 ## ----EditButton, results='asis', tidy=FALSE------------------------------
 
 
@@ -42,6 +45,9 @@ read_demo('googleVis', 'googleVis')
 
 
 ## ----ScatterChart, results='asis', tidy=FALSE----------------------------
+
+
+## ----ScatterChartPoints, results='asis', tidy=FALSE----------------------
 
 
 ## ----BubbleChart, results='asis', tidy=FALSE-----------------------------
