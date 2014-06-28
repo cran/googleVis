@@ -60,6 +60,7 @@ body, td {
 body {
   max-width: 800px;
   margin: auto;
+  padding: 1em;
   line-height: 20px;
 }
 
@@ -67,28 +68,28 @@ tt, code, pre {
    font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
 }
 
-h1 { 
-   font-size:2.2em; 
+h1 {
+   font-size:2.2em;
 }
 
-h2 { 
-   font-size:1.8em; 
+h2 {
+   font-size:1.8em;
 }
 
-h3 { 
-   font-size:1.4em; 
+h3 {
+   font-size:1.4em;
 }
 
-h4 { 
-   font-size:1.0em; 
+h4 {
+   font-size:1.0em;
 }
 
-h5 { 
-   font-size:0.9em; 
+h5 {
+   font-size:0.9em;
 }
 
-h6 { 
-   font-size:0.8em; 
+h6 {
+   font-size:0.8em;
 }
 
 a:visited {
@@ -132,54 +133,54 @@ hr {
 }
 
 @media print {
-   * { 
-      background: transparent !important; 
-      color: black !important; 
-      filter:none !important; 
-      -ms-filter: none !important; 
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
    }
 
-   body { 
-      font-size:12pt; 
-      max-width:100%; 
-   }
-       
-   a, a:visited { 
-      text-decoration: underline; 
+   body {
+      font-size:12pt;
+      max-width:100%;
    }
 
-   hr { 
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
       visibility: hidden;
       page-break-before: always;
    }
 
-   pre, blockquote { 
-      padding-right: 1em; 
-      page-break-inside: avoid; 
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
    }
 
-   tr, img { 
-      page-break-inside: avoid; 
+   tr, img {
+      page-break-inside: avoid;
    }
 
-   img { 
-      max-width: 100% !important; 
+   img {
+      max-width: 100% !important;
    }
 
-   @page :left { 
-      margin: 15mm 20mm 15mm 10mm; 
-   }
-     
-   @page :right { 
-      margin: 15mm 10mm 15mm 20mm; 
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
    }
 
-   p, h2, h3 { 
-      orphans: 3; widows: 3; 
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
    }
 
-   h2, h3 { 
-      page-break-after: avoid; 
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
    }
 }
 </style>
@@ -210,16 +211,16 @@ trendlines for Scatter Charts, Bar Charts, Column Charts and Line Charts.</p>
 )
 </code></pre>
 
-<!-- ScatterChart generated in R 3.1.0 by googleVis 0.5.2 package -->
+<!-- ScatterChart generated in R 3.1.0 by googleVis 0.5.3 package -->
 
-<!-- Mon May  5 12:49:33 2014 -->
+<!-- Sat Jun 28 09:38:10 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataScatterChartID1a9f7061c877 () {
+function gvisDataScatterChartID58f57d5050b5 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -291,14 +292,14 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartScatterChartID1a9f7061c877() {
-var data = gvisDataScatterChartID1a9f7061c877();
+function drawChartScatterChartID58f57d5050b5() {
+var data = gvisDataScatterChartID58f57d5050b5();
 var options = {};
 options["allowHtml"] = true;
 options["trendlines"] = "0";
 
     var chart = new google.visualization.ScatterChart(
-    document.getElementById('ScatterChartID1a9f7061c877')
+    document.getElementById('ScatterChartID58f57d5050b5')
     );
     chart.draw(data,options);
     
@@ -322,9 +323,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartScatterChartID1a9f7061c877);
+callbacks.push(drawChartScatterChartID58f57d5050b5);
 })();
-function displayChartScatterChartID1a9f7061c877() {
+function displayChartScatterChartID58f57d5050b5() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -350,17 +351,16 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartScatterChartID1a9f7061c877"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartScatterChartID58f57d5050b5"></script>
  
 
 <!-- divChart -->
 
-<div id="ScatterChartID1a9f7061c877"
-  style="width: 600px; height: 500px;">
+<div id="ScatterChartID58f57d5050b5" 
+  style="width: 500; height: automatic;">
 </div>
 
-<pre><code class="r">
-## Exponential trend line and show equation in legend
+<pre><code class="r">## Exponential trend line and show equation in legend
 </code></pre>
 
 <h2>Exponential trend line and show equation in legend</h2>
@@ -375,16 +375,16 @@ callbacks.shift()();
 )
 </code></pre>
 
-<!-- ScatterChart generated in R 3.1.0 by googleVis 0.5.2 package -->
+<!-- ScatterChart generated in R 3.1.0 by googleVis 0.5.3 package -->
 
-<!-- Mon May  5 12:49:33 2014 -->
+<!-- Sat Jun 28 09:38:10 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataScatterChartID1a9f23b03645 () {
+function gvisDataScatterChartID58f523e2db59 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -456,8 +456,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartScatterChartID1a9f23b03645() {
-var data = gvisDataScatterChartID1a9f23b03645();
+function drawChartScatterChartID58f523e2db59() {
+var data = gvisDataScatterChartID58f523e2db59();
 var options = {};
 options["allowHtml"] = true;
 options["trendlines"] = {0: { type: 'exponential',  
@@ -467,7 +467,7 @@ options["trendlines"] = {0: { type: 'exponential',
                      opacity: 0.5}};
 
     var chart = new google.visualization.ScatterChart(
-    document.getElementById('ScatterChartID1a9f23b03645')
+    document.getElementById('ScatterChartID58f523e2db59')
     );
     chart.draw(data,options);
     
@@ -491,9 +491,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartScatterChartID1a9f23b03645);
+callbacks.push(drawChartScatterChartID58f523e2db59);
 })();
-function displayChartScatterChartID1a9f23b03645() {
+function displayChartScatterChartID58f523e2db59() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -519,13 +519,13 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartScatterChartID1a9f23b03645"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartScatterChartID58f523e2db59"></script>
  
 
 <!-- divChart -->
 
-<div id="ScatterChartID1a9f23b03645"
-  style="width: 600px; height: 500px;">
+<div id="ScatterChartID58f523e2db59" 
+  style="width: 500; height: automatic;">
 </div>
 
 <h2>Add trend line to column chart</h2>
@@ -538,44 +538,51 @@ plot(
 )
 </code></pre>
 
-<!-- ColumnChart generated in R 3.1.0 by googleVis 0.5.2 package -->
+<!-- ColumnChart generated in R 3.1.0 by googleVis 0.5.3 package -->
 
-<!-- Mon May  5 12:49:33 2014 -->
+<!-- Sat Jun 28 09:38:10 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataColumnChartID1a9f5bafe51 () {
+function gvisDataColumnChartID58f52aec277 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
  [
  1,
+1,
 12 
 ],
 [
  3,
+3,
 23 
 ],
 [
  4,
+4,
 32 
 ],
 [
  5,
+5,
 40 
 ],
 [
  6,
+6,
 50 
 ],
 [
  8,
+8,
 55 
 ] 
 ];
+data.addColumn('number','val1');
 data.addColumn('number','val1');
 data.addColumn('number','val2');
 data.addRows(datajson);
@@ -583,14 +590,14 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartColumnChartID1a9f5bafe51() {
-var data = gvisDataColumnChartID1a9f5bafe51();
+function drawChartColumnChartID58f52aec277() {
+var data = gvisDataColumnChartID58f52aec277();
 var options = {};
 options["allowHtml"] = true;
 options["trendlines"] = {0: {}};
 
     var chart = new google.visualization.ColumnChart(
-    document.getElementById('ColumnChartID1a9f5bafe51')
+    document.getElementById('ColumnChartID58f52aec277')
     );
     chart.draw(data,options);
     
@@ -614,9 +621,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartColumnChartID1a9f5bafe51);
+callbacks.push(drawChartColumnChartID58f52aec277);
 })();
-function displayChartColumnChartID1a9f5bafe51() {
+function displayChartColumnChartID58f52aec277() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -642,13 +649,13 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartColumnChartID1a9f5bafe51"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartColumnChartID58f52aec277"></script>
  
 
 <!-- divChart -->
 
-<div id="ColumnChartID1a9f5bafe51"
-  style="width: 600px; height: 500px;">
+<div id="ColumnChartID58f52aec277" 
+  style="width: 500; height: automatic;">
 </div>
 
 <h2>Changing labels in legend</h2>
@@ -668,50 +675,57 @@ plot(
 )
 </code></pre>
 
-<!-- ColumnChart generated in R 3.1.0 by googleVis 0.5.2 package -->
+<!-- ColumnChart generated in R 3.1.0 by googleVis 0.5.3 package -->
 
-<!-- Mon May  5 12:49:33 2014 -->
+<!-- Sat Jun 28 09:38:10 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataColumnChartID1a9f378e7ac7 () {
+function gvisDataColumnChartID58f51f611401 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
  [
  1,
+1,
 12,
 5 
 ],
 [
  3,
+3,
 23,
 6 
 ],
 [
  4,
+4,
 32,
 10 
 ],
 [
  5,
+5,
 40,
 12 
 ],
 [
  6,
+6,
 50,
 15 
 ],
 [
  8,
+8,
 55,
 20 
 ] 
 ];
+data.addColumn('number','val1');
 data.addColumn('number','val1');
 data.addColumn('number','val2');
 data.addColumn('number','val3');
@@ -720,8 +734,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartColumnChartID1a9f378e7ac7() {
-var data = gvisDataColumnChartID1a9f378e7ac7();
+function drawChartColumnChartID58f51f611401() {
+var data = gvisDataColumnChartID58f51f611401();
 var options = {};
 options["allowHtml"] = true;
 options["trendlines"] = {
@@ -734,7 +748,7 @@ options["trendlines"] = {
                           };
 
     var chart = new google.visualization.ColumnChart(
-    document.getElementById('ColumnChartID1a9f378e7ac7')
+    document.getElementById('ColumnChartID58f51f611401')
     );
     chart.draw(data,options);
     
@@ -758,9 +772,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartColumnChartID1a9f378e7ac7);
+callbacks.push(drawChartColumnChartID58f51f611401);
 })();
-function displayChartColumnChartID1a9f378e7ac7() {
+function displayChartColumnChartID58f51f611401() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -786,13 +800,13 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartColumnChartID1a9f378e7ac7"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartColumnChartID58f51f611401"></script>
  
 
 <!-- divChart -->
 
-<div id="ColumnChartID1a9f378e7ac7"
-  style="width: 600px; height: 500px;">
+<div id="ColumnChartID58f51f611401" 
+  style="width: 500; height: automatic;">
 </div>
 
 </body>

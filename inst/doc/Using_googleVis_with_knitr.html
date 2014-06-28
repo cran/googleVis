@@ -60,6 +60,7 @@ body, td {
 body {
   max-width: 800px;
   margin: auto;
+  padding: 1em;
   line-height: 20px;
 }
 
@@ -67,28 +68,28 @@ tt, code, pre {
    font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
 }
 
-h1 { 
-   font-size:2.2em; 
+h1 {
+   font-size:2.2em;
 }
 
-h2 { 
-   font-size:1.8em; 
+h2 {
+   font-size:1.8em;
 }
 
-h3 { 
-   font-size:1.4em; 
+h3 {
+   font-size:1.4em;
 }
 
-h4 { 
-   font-size:1.0em; 
+h4 {
+   font-size:1.0em;
 }
 
-h5 { 
-   font-size:0.9em; 
+h5 {
+   font-size:0.9em;
 }
 
-h6 { 
-   font-size:0.8em; 
+h6 {
+   font-size:0.8em;
 }
 
 a:visited {
@@ -132,54 +133,54 @@ hr {
 }
 
 @media print {
-   * { 
-      background: transparent !important; 
-      color: black !important; 
-      filter:none !important; 
-      -ms-filter: none !important; 
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
    }
 
-   body { 
-      font-size:12pt; 
-      max-width:100%; 
-   }
-       
-   a, a:visited { 
-      text-decoration: underline; 
+   body {
+      font-size:12pt;
+      max-width:100%;
    }
 
-   hr { 
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
       visibility: hidden;
       page-break-before: always;
    }
 
-   pre, blockquote { 
-      padding-right: 1em; 
-      page-break-inside: avoid; 
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
    }
 
-   tr, img { 
-      page-break-inside: avoid; 
+   tr, img {
+      page-break-inside: avoid;
    }
 
-   img { 
-      max-width: 100% !important; 
+   img {
+      max-width: 100% !important;
    }
 
-   @page :left { 
-      margin: 15mm 20mm 15mm 10mm; 
-   }
-     
-   @page :right { 
-      margin: 15mm 10mm 15mm 20mm; 
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
    }
 
-   p, h2, h3 { 
-      orphans: 3; widows: 3; 
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
    }
 
-   h2, h3 { 
-      page-break-after: avoid; 
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
    }
 }
 </style>
@@ -203,7 +204,7 @@ Set the googleVis options first.
 In this case change the behaviour of plot.gvis</p>
 
 <pre><code class="r">library(googleVis)
-op &lt;- options(gvis.plot.tag = &quot;chart&quot;)
+op &lt;- options(gvis.plot.tag=&#39;chart&#39;)
 </code></pre>
 
 <p>The following plot statements will automatically return  the HTML
@@ -222,60 +223,60 @@ CC &lt;- gvisComboChart(CityPopularity, xvar=&#39;City&#39;,
 plot(CC)
 </code></pre>
 
-<!-- ComboChart generated in R 3.1.0 by googleVis 0.5.2 package -->
+<!-- ComboChart generated in R 3.1.0 by googleVis 0.5.3 package -->
 
-<!-- Mon May  5 12:49:33 2014 -->
+<!-- Sat Jun 28 09:38:10 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataComboChartID1a9f607f5b7d () {
+function gvisDataComboChartID58f555e2b631 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
  [
  "New York",
-200,
-450 
+450,
+200 
 ],
 [
  "Boston",
-300,
-450 
+450,
+300 
 ],
 [
  "Miami",
-400,
-450 
+450,
+400 
 ],
 [
  "Chicago",
-500,
-450 
+450,
+500 
 ],
 [
  "Los Angeles",
-600,
-450 
+450,
+600 
 ],
 [
  "Houston",
-700,
-450 
+450,
+700 
 ] 
 ];
 data.addColumn('string','City');
-data.addColumn('number','Popularity');
 data.addColumn('number','Mean');
+data.addColumn('number','Popularity');
 data.addRows(datajson);
 return(data);
 }
  
 // jsDrawChart
-function drawChartComboChartID1a9f607f5b7d() {
-var data = gvisDataComboChartID1a9f607f5b7d();
+function drawChartComboChartID58f555e2b631() {
+var data = gvisDataComboChartID58f555e2b631();
 var options = {};
 options["allowHtml"] = true;
 options["seriesType"] = "bars";
@@ -285,7 +286,7 @@ options["title"] = "City Popularity";
 options["series"] = {0: {type:"line"}};
 
     var chart = new google.visualization.ComboChart(
-    document.getElementById('ComboChartID1a9f607f5b7d')
+    document.getElementById('ComboChartID58f555e2b631')
     );
     chart.draw(data,options);
     
@@ -309,9 +310,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartComboChartID1a9f607f5b7d);
+callbacks.push(drawChartComboChartID58f555e2b631);
 })();
-function displayChartComboChartID1a9f607f5b7d() {
+function displayChartComboChartID58f555e2b631() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -337,29 +338,29 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartComboChartID1a9f607f5b7d"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartComboChartID58f555e2b631"></script>
  
 
 <!-- divChart -->
 
-<div id="ComboChartID1a9f607f5b7d"
-  style="width: 450px; height: 300px;">
+<div id="ComboChartID58f555e2b631" 
+  style="width: 450; height: 300;">
 </div>
 
 <p>Example of gvisComboChart with R code shown above.</p>
 
 <h2>Place two charts next to each other</h2>
 
-<!-- GeoChart generated in R 3.1.0 by googleVis 0.5.2 package -->
+<!-- GeoChart generated in R 3.1.0 by googleVis 0.5.3 package -->
 
-<!-- Mon May  5 12:49:33 2014 -->
+<!-- Sat Jun 28 09:38:10 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataGeoChartID1a9f494f9d09 () {
+function gvisDataGeoChartID58f517277704 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -412,7 +413,7 @@ return(data);
 
 
 // jsData 
-function gvisDataTableID1a9f9cedf79 () {
+function gvisDataTableID58f51ff6b37c () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -475,14 +476,14 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartGeoChartID1a9f494f9d09() {
-var data = gvisDataGeoChartID1a9f494f9d09();
+function drawChartGeoChartID58f517277704() {
+var data = gvisDataGeoChartID58f517277704();
 var options = {};
 options["width"] =    350;
 options["height"] =    300;
 
     var chart = new google.visualization.GeoChart(
-    document.getElementById('GeoChartID1a9f494f9d09')
+    document.getElementById('GeoChartID58f517277704')
     );
     chart.draw(data,options);
     
@@ -492,15 +493,15 @@ options["height"] =    300;
 
 
 // jsDrawChart
-function drawChartTableID1a9f9cedf79() {
-var data = gvisDataTableID1a9f9cedf79();
+function drawChartTableID58f51ff6b37c() {
+var data = gvisDataTableID58f51ff6b37c();
 var options = {};
 options["allowHtml"] = true;
 options["height"] =    300;
 options["width"] =    200;
 
     var chart = new google.visualization.Table(
-    document.getElementById('TableID1a9f9cedf79')
+    document.getElementById('TableID58f51ff6b37c')
     );
     chart.draw(data,options);
     
@@ -524,9 +525,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartGeoChartID1a9f494f9d09);
+callbacks.push(drawChartGeoChartID58f517277704);
 })();
-function displayChartGeoChartID1a9f494f9d09() {
+function displayChartGeoChartID58f517277704() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -563,9 +564,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartTableID1a9f9cedf79);
+callbacks.push(drawChartTableID58f51ff6b37c);
 })();
-function displayChartTableID1a9f9cedf79() {
+function displayChartTableID58f51ff6b37c() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -591,11 +592,11 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID1a9f494f9d09"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID58f517277704"></script>
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID1a9f9cedf79"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID58f51ff6b37c"></script>
  
 
 <table border="0">
@@ -604,8 +605,8 @@ callbacks.shift()();
 
 <!-- divChart -->
   
-<div id="GeoChartID1a9f494f9d09"
-  style="width: 350px; height: 300px;">
+<div id="GeoChartID58f517277704" 
+  style="width: 350; height: 300;">
 </div>
 
 </td>
@@ -613,8 +614,8 @@ callbacks.shift()();
 
 <!-- divChart -->
   
-<div id="TableID1a9f9cedf79"
-  style="width: 200px; height: 300px;">
+<div id="TableID58f51ff6b37c" 
+  style="width: 200; height: 300;">
 </div>
 
 </td>
@@ -630,16 +631,16 @@ callbacks.shift()();
 plot(M)
 </code></pre>
 
-<!-- MotionChart generated in R 3.1.0 by googleVis 0.5.2 package -->
+<!-- MotionChart generated in R 3.1.0 by googleVis 0.5.3 package -->
 
-<!-- Mon May  5 12:49:34 2014 -->
+<!-- Sat Jun 28 09:38:10 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataMotionChartID1a9f7ad21139 () {
+function gvisDataMotionChartID58f549c56557 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -737,14 +738,14 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartMotionChartID1a9f7ad21139() {
-var data = gvisDataMotionChartID1a9f7ad21139();
+function drawChartMotionChartID58f549c56557() {
+var data = gvisDataMotionChartID58f549c56557();
 var options = {};
 options["width"] =    400;
 options["height"] =    350;
 
     var chart = new google.visualization.MotionChart(
-    document.getElementById('MotionChartID1a9f7ad21139')
+    document.getElementById('MotionChartID58f549c56557')
     );
     chart.draw(data,options);
     
@@ -768,9 +769,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartMotionChartID1a9f7ad21139);
+callbacks.push(drawChartMotionChartID58f549c56557);
 })();
-function displayChartMotionChartID1a9f7ad21139() {
+function displayChartMotionChartID58f549c56557() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -796,13 +797,13 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID1a9f7ad21139"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID58f549c56557"></script>
  
 
 <!-- divChart -->
 
-<div id="MotionChartID1a9f7ad21139"
-  style="width: 400px; height: 350px;">
+<div id="MotionChartID58f549c56557" 
+  style="width: 400; height: 350;">
 </div>
 
 <p>Please note that the Motion Chart is only displayed when hosted on a
