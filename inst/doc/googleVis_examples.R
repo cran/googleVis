@@ -178,22 +178,17 @@ plot(AndrewMap)
 
 ## ----Table, results='asis', tidy=FALSE-----------------------------------
 Table <- gvisTable(Stock, 
-                   formats=list(Value="#,###"),
-                   options=list(width=500, 
-                                height=300))
+                   formats=list(Value="#,###"))
 plot(Table)
 
 ## ----TableWithPages, results='asis', tidy=FALSE--------------------------
 PopTable <- gvisTable(Population, 
                       formats=list(Population="#,###",
                                    '% of World Population'='#.#%'),
-                      options=list(width='automatic', 
-                                   height=300, 
-                                   page='enable'))
+                      options=list(page='enable'))
 plot(PopTable)
 
 ## ----OrgChart, results='asis', tidy=FALSE--------------------------------
-Regions
 Org <- gvisOrgChart(Regions, 
                     options=list(width=600, height=250,
                                  size='large', allowCollapse=TRUE))
@@ -281,42 +276,12 @@ plot(Timeline)
 
 ## ----gvisMerge, results='asis', tidy=FALSE-------------------------------
 G <- gvisGeoChart(Exports, "Country", "Profit", 
-                  options=list(width=220, height=100))
+                  options=list(width=300, height=300))
 T <- gvisTable(Exports, 
-               options=list(width=220, height=260))
+               options=list(width=220, height=300))
 
-GT <- gvisMerge(G,T, horizontal=FALSE) 
+GT <- gvisMerge(G,T, horizontal=TRUE) 
 plot(GT)
-
-## ----gvisMerge3, results='asis', tidy=FALSE------------------------------
-H <- gvisHistogram(datHist, options=list(width=400, height=360))
-GTH <- gvisMerge(GT, H, horizontal=TRUE,
-                 tableOptions="bgcolor=\"#CCCCCC\" cellspacing=10")
-plot(GTH)
-
-
-## Flash charts
-
-## ----GeoMap, results='asis', tidy=FALSE----------------------------------
-AndrewGeo <- gvisGeoMap(Andrew, 
-                        locationvar="LatLong", 
-                        numvar="Speed_kt", 
-                        hovervar="Category", 
-                        options=list(height=350, 
-                                     region="US", 
-                                     dataMode="markers"))
-plot(AndrewGeo)
-
-## ----AnnotatedTimeLine, results='asis', tidy=FALSE-----------------------
-AnnoTimeLine  <- gvisAnnotatedTimeLine(Stock, 
-                                       datevar="Date",
-                                       numvar="Value", 
-                                       idvar="Device",
-                                       titlevar="Title", 
-                                       annotationvar="Annotation",
-                                       options=list(displayAnnotations=TRUE,
-                                                    width="600px", height="350px"))
-plot(AnnoTimeLine)
 
 ## ----MotionChart, results='asis', tidy=FALSE-----------------------------
 Motion=gvisMotionChart(Fruits, 
@@ -342,4 +307,25 @@ plot(M)
 
 
 ## See demo(package='googleVis') for other available demos.
+
+## ----GeoMap, results='asis', tidy=FALSE----------------------------------
+AndrewGeo <- gvisGeoMap(Andrew, 
+                        locationvar="LatLong", 
+                        numvar="Speed_kt", 
+                        hovervar="Category", 
+                        options=list(height=350, 
+                                     region="US", 
+                                     dataMode="markers"))
+plot(AndrewGeo)
+
+## ----AnnotatedTimeLine, results='asis', tidy=FALSE-----------------------
+AnnoTimeLine  <- gvisAnnotatedTimeLine(Stock, 
+                                       datevar="Date",
+                                       numvar="Value", 
+                                       idvar="Device",
+                                       titlevar="Title", 
+                                       annotationvar="Annotation",
+                                       options=list(displayAnnotations=TRUE,
+                                                    width="600px", height="350px"))
+plot(AnnoTimeLine)
 

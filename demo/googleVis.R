@@ -240,9 +240,7 @@ pause()
 
 ## ---- Table ----
 Table <- gvisTable(Stock, 
-                   formats=list(Value="#,###"),
-                   options=list(width=500, 
-                                height=300))
+                   formats=list(Value="#,###"))
 plot(Table)
 
 ## ---- pause ----
@@ -252,16 +250,13 @@ pause()
 PopTable <- gvisTable(Population, 
                       formats=list(Population="#,###",
                                    '% of World Population'='#.#%'),
-                      options=list(width='automatic', 
-                                   height=300, 
-                                   page='enable'))
+                      options=list(page='enable'))
 plot(PopTable)
 
 ## ---- pause ----
 pause()
 
 ## ---- OrgChart ----
-Regions
 Org <- gvisOrgChart(Regions, 
                     options=list(width=600, height=250,
                                  size='large', allowCollapse=TRUE))
@@ -371,21 +366,15 @@ pause()
 
 ## ---- gvisMerge ----
 G <- gvisGeoChart(Exports, "Country", "Profit", 
-                  options=list(width=220, height=100))
+                  options=list(width=300, height=300))
 T <- gvisTable(Exports, 
-               options=list(width=220, height=260))
+               options=list(width=220, height=300))
 
-GT <- gvisMerge(G,T, horizontal=FALSE) 
+GT <- gvisMerge(G,T, horizontal=TRUE) 
 plot(GT)
 
 ## ---- pause ----
 pause()
-
-## ---- gvisMerge3 ----
-H <- gvisHistogram(datHist, options=list(width=400, height=360))
-GTH <- gvisMerge(GT, H, horizontal=TRUE,
-                 tableOptions="bgcolor=\"#CCCCCC\" cellspacing=10")
-plot(GTH)
 
 
 ## Flash charts
