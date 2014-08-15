@@ -26,42 +26,6 @@ Line2 <- gvisLineChart(df, "country", c("val1","val2"),
                        ))
 plot(Line2)
 
-## ----SettingOptions, results='asis', tidy=FALSE--------------------------
-Line3 <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),
-                        options=list(
-                          title="Hello World",
-                          titleTextStyle="{color:'red', 
-                                           fontName:'Courier', 
-                                           fontSize:16}",                         
-                          backgroundColor="#D3D3D3",                          
-                          vAxis="{gridlines:{color:'red', count:3}}",
-                          hAxis="{title:'Country', titleTextStyle:{color:'blue'}}",
-                          series="[{color:'green', targetAxisIndex: 0},	
-                                   {color: 'orange',targetAxisIndex:1}]",
-                          vAxes="[{title:'val1'}, {title:'val2'}]",
-                          legend="bottom",
-                          curveType="function",
-                          width=500,
-                          height=300                         
-                        ))
-plot(Line3)
-
-## ----CustomizingLines, results='asis', tidy=FALSE------------------------
-Dashed <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),
-                        options=list(
-                          series="[{color:'green', targetAxisIndex: 0, 
-                          lineWidth: 1, lineDashStyle: [2, 2, 20, 2, 20, 2]}, 
-                          {color: 'blue',targetAxisIndex: 1, 
-                          lineWidth: 2, lineDashStyle: [4, 1]}]",
-                          vAxes="[{title:'val1'}, {title:'val2'}]"
-                        ))
-plot(Dashed)
-
-## ----EditButton, results='asis', tidy=FALSE------------------------------
-Line4 <-  gvisLineChart(df, "country", c("val1","val2"),
-                        options=list(gvis.editor="Edit me!"))
-plot(Line4)
-
 ## ----BarChart, results='asis', tidy=FALSE--------------------------------
 Bar <- gvisBarChart(df)
 plot(Bar)
@@ -97,6 +61,25 @@ Scatter <- gvisScatterChart(women,
                               width=300, height=300))
 plot(Scatter)
 
+## ----BubbleChart, results='asis', tidy=FALSE-----------------------------
+Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", 
+                          xvar="Sales", yvar="Expenses",
+                          colorvar="Year", sizevar="Profit",
+                          options=list(
+                            hAxis='{minValue:75, maxValue:125}'))
+plot(Bubble)
+
+## ----CustomizingLines, results='asis', tidy=FALSE------------------------
+Dashed <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),
+                        options=list(
+                          series="[{color:'green', targetAxisIndex: 0, 
+                          lineWidth: 1, lineDashStyle: [2, 2, 20, 2, 20, 2]}, 
+                          {color: 'blue',targetAxisIndex: 1, 
+                          lineWidth: 2, lineDashStyle: [4, 1]}]",
+                          vAxes="[{title:'val1'}, {title:'val2'}]"
+                        ))
+plot(Dashed)
+
 ## ----ScatterChartPoints, results='asis', tidy=FALSE----------------------
 M <- matrix(nrow=6,ncol=6)
 M[col(M)==row(M)] <- 1:6
@@ -116,13 +99,30 @@ SC <- gvisScatterChart(dat,
                               }"))
 plot(SC)
 
-## ----BubbleChart, results='asis', tidy=FALSE-----------------------------
-Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", 
-                          xvar="Sales", yvar="Expenses",
-                          colorvar="Year", sizevar="Profit",
-                          options=list(
-                            hAxis='{minValue:75, maxValue:125}'))
-plot(Bubble)
+## ----EditButton, results='asis', tidy=FALSE------------------------------
+Line4 <-  gvisLineChart(df, "country", c("val1","val2"),
+                        options=list(gvis.editor="Edit me!"))
+plot(Line4)
+
+## ----SettingOptions, results='asis', tidy=FALSE--------------------------
+Line3 <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),
+                        options=list(
+                          title="Hello World",
+                          titleTextStyle="{color:'red', 
+                                           fontName:'Courier', 
+                                           fontSize:16}",                         
+                          backgroundColor="#D3D3D3",                          
+                          vAxis="{gridlines:{color:'red', count:3}}",
+                          hAxis="{title:'Country', titleTextStyle:{color:'blue'}}",
+                          series="[{color:'green', targetAxisIndex: 0},	
+                                   {color: 'orange',targetAxisIndex:1}]",
+                          vAxes="[{title:'val1'}, {title:'val2'}]",
+                          legend="bottom",
+                          curveType="function",
+                          width=500,
+                          height=300                         
+                        ))
+plot(Line3)
 
 ## ----CandlestickChart, results='asis', tidy=FALSE------------------------
 Candle <- gvisCandlestickChart(OpenClose, 
