@@ -3,7 +3,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>Examples from the googleVis package</title>
+<title>googleVis examples</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
 
 <!-- Styles for R syntax highlighter -->
 <style type="text/css">
@@ -96,7 +108,9 @@ a:visited {
 pre, img {
   max-width: 100%;
 }
-
+pre {
+  overflow-x: auto;
+}
 pre code {
    display: block; padding: 0.5em;
 }
@@ -192,7 +206,7 @@ hr {
 %\VignetteIndexEntry{Demonstartion of googleVis}
 -->
 
-<h1>Examples from the googleVis package</h1>
+<h1>googleVis examples</h1>
 
 <h1></h1>
 
@@ -221,16 +235,16 @@ helpfiles of the individual googleVis function and review the
 plot(Line)
 </code></pre>
 
-<!-- LineChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- LineChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataLineChartID160233caf66d () {
+function gvisDataLineChartID281735cd2207 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -258,13 +272,13 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartLineChartID160233caf66d() {
-var data = gvisDataLineChartID160233caf66d();
+function drawChartLineChartID281735cd2207() {
+var data = gvisDataLineChartID281735cd2207();
 var options = {};
 options["allowHtml"] = true;
 
     var chart = new google.visualization.LineChart(
-    document.getElementById('LineChartID160233caf66d')
+    document.getElementById('LineChartID281735cd2207')
     );
     chart.draw(data,options);
     
@@ -288,9 +302,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartLineChartID160233caf66d);
+callbacks.push(drawChartLineChartID281735cd2207);
 })();
-function displayChartLineChartID160233caf66d() {
+function displayChartLineChartID281735cd2207() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -316,12 +330,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID160233caf66d"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID281735cd2207"></script>
  
 
 <!-- divChart -->
 
-<div id="LineChartID160233caf66d" 
+<div id="LineChartID281735cd2207" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -336,16 +350,16 @@ callbacks.shift()();
 plot(Line2)
 </code></pre>
 
-<!-- LineChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- LineChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataLineChartID160251f888ab () {
+function gvisDataLineChartID28172e751529 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -373,8 +387,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartLineChartID160251f888ab() {
-var data = gvisDataLineChartID160251f888ab();
+function drawChartLineChartID28172e751529() {
+var data = gvisDataLineChartID28172e751529();
 var options = {};
 options["allowHtml"] = true;
 options["series"] = [{targetAxisIndex: 0},
@@ -382,7 +396,7 @@ options["series"] = [{targetAxisIndex: 0},
 options["vAxes"] = [{title:'val1'}, {title:'val2'}];
 
     var chart = new google.visualization.LineChart(
-    document.getElementById('LineChartID160251f888ab')
+    document.getElementById('LineChartID28172e751529')
     );
     chart.draw(data,options);
     
@@ -406,9 +420,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartLineChartID160251f888ab);
+callbacks.push(drawChartLineChartID28172e751529);
 })();
-function displayChartLineChartID160251f888ab() {
+function displayChartLineChartID28172e751529() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -434,12 +448,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID160251f888ab"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID28172e751529"></script>
  
 
 <!-- divChart -->
 
-<div id="LineChartID160251f888ab" 
+<div id="LineChartID28172e751529" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -449,16 +463,16 @@ callbacks.shift()();
 plot(Bar)
 </code></pre>
 
-<!-- BarChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- BarChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataBarChartID160213d4bc98 () {
+function gvisDataBarChartID28178c04e93 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -486,13 +500,13 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartBarChartID160213d4bc98() {
-var data = gvisDataBarChartID160213d4bc98();
+function drawChartBarChartID28178c04e93() {
+var data = gvisDataBarChartID28178c04e93();
 var options = {};
 options["allowHtml"] = true;
 
     var chart = new google.visualization.BarChart(
-    document.getElementById('BarChartID160213d4bc98')
+    document.getElementById('BarChartID28178c04e93')
     );
     chart.draw(data,options);
     
@@ -516,9 +530,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartBarChartID160213d4bc98);
+callbacks.push(drawChartBarChartID28178c04e93);
 })();
-function displayChartBarChartID160213d4bc98() {
+function displayChartBarChartID28178c04e93() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -544,12 +558,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartBarChartID160213d4bc98"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartBarChartID28178c04e93"></script>
  
 
 <!-- divChart -->
 
-<div id="BarChartID160213d4bc98" 
+<div id="BarChartID28178c04e93" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -559,16 +573,16 @@ callbacks.shift()();
 plot(Column)
 </code></pre>
 
-<!-- ColumnChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- ColumnChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataColumnChartID160273a9a953 () {
+function gvisDataColumnChartID28179669962 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -596,13 +610,13 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartColumnChartID160273a9a953() {
-var data = gvisDataColumnChartID160273a9a953();
+function drawChartColumnChartID28179669962() {
+var data = gvisDataColumnChartID28179669962();
 var options = {};
 options["allowHtml"] = true;
 
     var chart = new google.visualization.ColumnChart(
-    document.getElementById('ColumnChartID160273a9a953')
+    document.getElementById('ColumnChartID28179669962')
     );
     chart.draw(data,options);
     
@@ -626,9 +640,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartColumnChartID160273a9a953);
+callbacks.push(drawChartColumnChartID28179669962);
 })();
-function displayChartColumnChartID160273a9a953() {
+function displayChartColumnChartID28179669962() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -654,12 +668,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartColumnChartID160273a9a953"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartColumnChartID28179669962"></script>
  
 
 <!-- divChart -->
 
-<div id="ColumnChartID160273a9a953" 
+<div id="ColumnChartID28179669962" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -669,16 +683,16 @@ callbacks.shift()();
 plot(Area)
 </code></pre>
 
-<!-- AreaChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- AreaChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataAreaChartID16027abc378 () {
+function gvisDataAreaChartID28172edff5c0 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -706,13 +720,13 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartAreaChartID16027abc378() {
-var data = gvisDataAreaChartID16027abc378();
+function drawChartAreaChartID28172edff5c0() {
+var data = gvisDataAreaChartID28172edff5c0();
 var options = {};
 options["allowHtml"] = true;
 
     var chart = new google.visualization.AreaChart(
-    document.getElementById('AreaChartID16027abc378')
+    document.getElementById('AreaChartID28172edff5c0')
     );
     chart.draw(data,options);
     
@@ -736,9 +750,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartAreaChartID16027abc378);
+callbacks.push(drawChartAreaChartID28172edff5c0);
 })();
-function displayChartAreaChartID16027abc378() {
+function displayChartAreaChartID28172edff5c0() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -764,12 +778,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartAreaChartID16027abc378"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartAreaChartID28172edff5c0"></script>
  
 
 <!-- divChart -->
 
-<div id="AreaChartID16027abc378" 
+<div id="AreaChartID28172edff5c0" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -781,16 +795,16 @@ callbacks.shift()();
 plot(SteppedArea)
 </code></pre>
 
-<!-- SteppedAreaChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- SteppedAreaChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataSteppedAreaChartID16021dadff37 () {
+function gvisDataSteppedAreaChartID2817717f284a () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -818,14 +832,14 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartSteppedAreaChartID16021dadff37() {
-var data = gvisDataSteppedAreaChartID16021dadff37();
+function drawChartSteppedAreaChartID2817717f284a() {
+var data = gvisDataSteppedAreaChartID2817717f284a();
 var options = {};
 options["allowHtml"] = true;
 options["isStacked"] = true;
 
     var chart = new google.visualization.SteppedAreaChart(
-    document.getElementById('SteppedAreaChartID16021dadff37')
+    document.getElementById('SteppedAreaChartID2817717f284a')
     );
     chart.draw(data,options);
     
@@ -849,9 +863,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartSteppedAreaChartID16021dadff37);
+callbacks.push(drawChartSteppedAreaChartID2817717f284a);
 })();
-function displayChartSteppedAreaChartID16021dadff37() {
+function displayChartSteppedAreaChartID2817717f284a() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -877,12 +891,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartSteppedAreaChartID16021dadff37"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartSteppedAreaChartID2817717f284a"></script>
  
 
 <!-- divChart -->
 
-<div id="SteppedAreaChartID16021dadff37" 
+<div id="SteppedAreaChartID2817717f284a" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -895,16 +909,16 @@ callbacks.shift()();
 plot(Combo)
 </code></pre>
 
-<!-- ComboChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- ComboChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataComboChartID1602a4e831a () {
+function gvisDataComboChartID2817532e4c7c () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -932,15 +946,15 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartComboChartID1602a4e831a() {
-var data = gvisDataComboChartID1602a4e831a();
+function drawChartComboChartID2817532e4c7c() {
+var data = gvisDataComboChartID2817532e4c7c();
 var options = {};
 options["allowHtml"] = true;
 options["seriesType"] = "bars";
 options["series"] = {1: {type:"line"}};
 
     var chart = new google.visualization.ComboChart(
-    document.getElementById('ComboChartID1602a4e831a')
+    document.getElementById('ComboChartID2817532e4c7c')
     );
     chart.draw(data,options);
     
@@ -964,9 +978,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartComboChartID1602a4e831a);
+callbacks.push(drawChartComboChartID2817532e4c7c);
 })();
-function displayChartComboChartID1602a4e831a() {
+function displayChartComboChartID2817532e4c7c() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -992,12 +1006,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartComboChartID1602a4e831a"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartComboChartID2817532e4c7c"></script>
  
 
 <!-- divChart -->
 
-<div id="ComboChartID1602a4e831a" 
+<div id="ComboChartID2817532e4c7c" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -1013,16 +1027,16 @@ callbacks.shift()();
 plot(Scatter)
 </code></pre>
 
-<!-- ScatterChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- ScatterChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataScatterChartID16022881253f () {
+function gvisDataScatterChartID281749f8b8e () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -1094,8 +1108,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartScatterChartID16022881253f() {
-var data = gvisDataScatterChartID16022881253f();
+function drawChartScatterChartID281749f8b8e() {
+var data = gvisDataScatterChartID281749f8b8e();
 var options = {};
 options["allowHtml"] = true;
 options["legend"] = "none";
@@ -1108,7 +1122,7 @@ options["width"] =    300;
 options["height"] =    300;
 
     var chart = new google.visualization.ScatterChart(
-    document.getElementById('ScatterChartID16022881253f')
+    document.getElementById('ScatterChartID281749f8b8e')
     );
     chart.draw(data,options);
     
@@ -1132,9 +1146,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartScatterChartID16022881253f);
+callbacks.push(drawChartScatterChartID281749f8b8e);
 })();
-function displayChartScatterChartID16022881253f() {
+function displayChartScatterChartID281749f8b8e() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -1160,12 +1174,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartScatterChartID16022881253f"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartScatterChartID281749f8b8e"></script>
  
 
 <!-- divChart -->
 
-<div id="ScatterChartID16022881253f" 
+<div id="ScatterChartID281749f8b8e" 
   style="width: 300; height: 300;">
 </div>
 
@@ -1179,16 +1193,16 @@ callbacks.shift()();
 plot(Bubble)
 </code></pre>
 
-<!-- BubbleChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- BubbleChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataBubbleChartID160236b45fdf () {
+function gvisDataBubbleChartID28176831a01 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -1266,13 +1280,13 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartBubbleChartID160236b45fdf() {
-var data = gvisDataBubbleChartID160236b45fdf();
+function drawChartBubbleChartID28176831a01() {
+var data = gvisDataBubbleChartID28176831a01();
 var options = {};
 options["hAxis"] = {minValue:75, maxValue:125};
 
     var chart = new google.visualization.BubbleChart(
-    document.getElementById('BubbleChartID160236b45fdf')
+    document.getElementById('BubbleChartID28176831a01')
     );
     chart.draw(data,options);
     
@@ -1296,9 +1310,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartBubbleChartID160236b45fdf);
+callbacks.push(drawChartBubbleChartID28176831a01);
 })();
-function displayChartBubbleChartID160236b45fdf() {
+function displayChartBubbleChartID28176831a01() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -1324,12 +1338,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartBubbleChartID160236b45fdf"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartBubbleChartID28176831a01"></script>
  
 
 <!-- divChart -->
 
-<div id="BubbleChartID160236b45fdf" 
+<div id="BubbleChartID28176831a01" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -1346,16 +1360,16 @@ callbacks.shift()();
 plot(Dashed)
 </code></pre>
 
-<!-- LineChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- LineChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataLineChartID16027c024587 () {
+function gvisDataLineChartID28179203afe () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -1383,8 +1397,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartLineChartID16027c024587() {
-var data = gvisDataLineChartID16027c024587();
+function drawChartLineChartID28179203afe() {
+var data = gvisDataLineChartID28179203afe();
 var options = {};
 options["allowHtml"] = true;
 options["series"] = [{color:'green', targetAxisIndex: 0, 
@@ -1394,7 +1408,7 @@ options["series"] = [{color:'green', targetAxisIndex: 0,
 options["vAxes"] = [{title:'val1'}, {title:'val2'}];
 
     var chart = new google.visualization.LineChart(
-    document.getElementById('LineChartID16027c024587')
+    document.getElementById('LineChartID28179203afe')
     );
     chart.draw(data,options);
     
@@ -1418,9 +1432,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartLineChartID16027c024587);
+callbacks.push(drawChartLineChartID28179203afe);
 })();
-function displayChartLineChartID16027c024587() {
+function displayChartLineChartID28179203afe() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -1446,12 +1460,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID16027c024587"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID28179203afe"></script>
  
 
 <!-- divChart -->
 
-<div id="LineChartID16027c024587" 
+<div id="LineChartID28179203afe" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -1476,16 +1490,16 @@ SC &lt;- gvisScatterChart(dat,
 plot(SC)
 </code></pre>
 
-<!-- ScatterChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- ScatterChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataScatterChartID16027922e1ab () {
+function gvisDataScatterChartID28172300fe60 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -1556,8 +1570,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartScatterChartID16027922e1ab() {
-var data = gvisDataScatterChartID16027922e1ab();
+function drawChartScatterChartID28172300fe60() {
+var data = gvisDataScatterChartID28172300fe60();
 var options = {};
 options["allowHtml"] = true;
 options["title"] = "Customizing points";
@@ -1573,7 +1587,7 @@ options["series"] = {
                               };
 
     var chart = new google.visualization.ScatterChart(
-    document.getElementById('ScatterChartID16027922e1ab')
+    document.getElementById('ScatterChartID28172300fe60')
     );
     chart.draw(data,options);
     
@@ -1597,9 +1611,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartScatterChartID16027922e1ab);
+callbacks.push(drawChartScatterChartID28172300fe60);
 })();
-function displayChartScatterChartID16027922e1ab() {
+function displayChartScatterChartID28172300fe60() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -1625,12 +1639,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartScatterChartID16027922e1ab"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartScatterChartID28172300fe60"></script>
  
 
 <!-- divChart -->
 
-<div id="ScatterChartID16027922e1ab" 
+<div id="ScatterChartID28172300fe60" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -1641,16 +1655,16 @@ callbacks.shift()();
 plot(Line4)
 </code></pre>
 
-<!-- LineChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- LineChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataLineChartID1602610ddfae () {
+function gvisDataLineChartID2817163c6294 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -1678,30 +1692,30 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartLineChartID1602610ddfae() {
-var data = gvisDataLineChartID1602610ddfae();
+function drawChartLineChartID2817163c6294() {
+var data = gvisDataLineChartID2817163c6294();
 var options = {};
 options["allowHtml"] = true;
 
-    chartLineChartID1602610ddfae = new google.visualization.ChartWrapper({
+    chartLineChartID2817163c6294 = new google.visualization.ChartWrapper({
     dataTable: data,       
     chartType: 'LineChart',
-    containerId: 'LineChartID1602610ddfae',
+    containerId: 'LineChartID2817163c6294',
     options: options
     });
-    chartLineChartID1602610ddfae.draw();
+    chartLineChartID2817163c6294.draw();
     
 
 }
 
-  function openEditorLineChartID1602610ddfae() {
+  function openEditorLineChartID2817163c6294() {
   var editor = new google.visualization.ChartEditor();
   google.visualization.events.addListener(editor, 'ok',
   function() { 
-  chartLineChartID1602610ddfae = editor.getChartWrapper();  
-  chartLineChartID1602610ddfae.draw(document.getElementById('LineChartID1602610ddfae')); 
+  chartLineChartID2817163c6294 = editor.getChartWrapper();  
+  chartLineChartID2817163c6294.draw(document.getElementById('LineChartID2817163c6294')); 
   }); 
-  editor.openDialog(chartLineChartID1602610ddfae);
+  editor.openDialog(chartLineChartID2817163c6294);
   }
     
  
@@ -1721,9 +1735,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartLineChartID1602610ddfae);
+callbacks.push(drawChartLineChartID2817163c6294);
 })();
-function displayChartLineChartID1602610ddfae() {
+function displayChartLineChartID2817163c6294() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -1749,14 +1763,14 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID1602610ddfae"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID2817163c6294"></script>
  
 
 <!-- divChart -->
 
-<p><input type='button' onclick='openEditorLineChartID1602610ddfae()' value='Edit me!'/>  </p>
+<p><input type='button' onclick='openEditorLineChartID2817163c6294()' value='Edit me!'/>  </p>
 
-<div id="LineChartID1602610ddfae" 
+<div id="LineChartID2817163c6294" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -1784,16 +1798,16 @@ callbacks.shift()();
 plot(Line3)
 </code></pre>
 
-<!-- LineChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- LineChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataLineChartID160255d84a49 () {
+function gvisDataLineChartID2817566bedf3 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -1821,8 +1835,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartLineChartID160255d84a49() {
-var data = gvisDataLineChartID160255d84a49();
+function drawChartLineChartID2817566bedf3() {
+var data = gvisDataLineChartID2817566bedf3();
 var options = {};
 options["allowHtml"] = true;
 options["title"] = "Hello World";
@@ -1841,7 +1855,7 @@ options["width"] =    500;
 options["height"] =    300;
 
     var chart = new google.visualization.LineChart(
-    document.getElementById('LineChartID160255d84a49')
+    document.getElementById('LineChartID2817566bedf3')
     );
     chart.draw(data,options);
     
@@ -1865,9 +1879,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartLineChartID160255d84a49);
+callbacks.push(drawChartLineChartID2817566bedf3);
 })();
-function displayChartLineChartID160255d84a49() {
+function displayChartLineChartID2817566bedf3() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -1893,12 +1907,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID160255d84a49"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID2817566bedf3"></script>
  
 
 <!-- divChart -->
 
-<div id="LineChartID160255d84a49" 
+<div id="LineChartID2817566bedf3" 
   style="width: 500; height: 300;">
 </div>
 
@@ -1909,16 +1923,16 @@ callbacks.shift()();
 plot(Candle)
 </code></pre>
 
-<!-- CandlestickChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- CandlestickChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataCandlestickChartID16026af52aa6 () {
+function gvisDataCandlestickChartID281747d318d8 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -1968,14 +1982,14 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartCandlestickChartID16026af52aa6() {
-var data = gvisDataCandlestickChartID16026af52aa6();
+function drawChartCandlestickChartID281747d318d8() {
+var data = gvisDataCandlestickChartID281747d318d8();
 var options = {};
 options["allowHtml"] = true;
 options["legend"] = "none";
 
     var chart = new google.visualization.CandlestickChart(
-    document.getElementById('CandlestickChartID16026af52aa6')
+    document.getElementById('CandlestickChartID281747d318d8')
     );
     chart.draw(data,options);
     
@@ -1999,9 +2013,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartCandlestickChartID16026af52aa6);
+callbacks.push(drawChartCandlestickChartID281747d318d8);
 })();
-function displayChartCandlestickChartID16026af52aa6() {
+function displayChartCandlestickChartID281747d318d8() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -2027,12 +2041,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartCandlestickChartID16026af52aa6"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartCandlestickChartID281747d318d8"></script>
  
 
 <!-- divChart -->
 
-<div id="CandlestickChartID16026af52aa6" 
+<div id="CandlestickChartID281747d318d8" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -2042,16 +2056,16 @@ callbacks.shift()();
 plot(Pie)
 </code></pre>
 
-<!-- PieChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- PieChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:22 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataPieChartID16025c32f26 () {
+function gvisDataPieChartID2817740431be () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -2094,13 +2108,13 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartPieChartID16025c32f26() {
-var data = gvisDataPieChartID16025c32f26();
+function drawChartPieChartID2817740431be() {
+var data = gvisDataPieChartID2817740431be();
 var options = {};
 options["allowHtml"] = true;
 
     var chart = new google.visualization.PieChart(
-    document.getElementById('PieChartID16025c32f26')
+    document.getElementById('PieChartID2817740431be')
     );
     chart.draw(data,options);
     
@@ -2124,9 +2138,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartPieChartID16025c32f26);
+callbacks.push(drawChartPieChartID2817740431be);
 })();
-function displayChartPieChartID16025c32f26() {
+function displayChartPieChartID2817740431be() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -2152,12 +2166,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID16025c32f26"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID2817740431be"></script>
  
 
 <!-- divChart -->
 
-<div id="PieChartID16025c32f26" 
+<div id="PieChartID2817740431be" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -2170,16 +2184,16 @@ callbacks.shift()();
 plot(Gauge)
 </code></pre>
 
-<!-- Gauge generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- Gauge generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataGaugeID1602514c6abe () {
+function gvisDataGaugeID28173f5dec73 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -2222,8 +2236,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartGaugeID1602514c6abe() {
-var data = gvisDataGaugeID1602514c6abe();
+function drawChartGaugeID28173f5dec73() {
+var data = gvisDataGaugeID28173f5dec73();
 var options = {};
 options["allowHtml"] = true;
 options["min"] =      0;
@@ -2238,7 +2252,7 @@ options["width"] =    400;
 options["height"] =    300;
 
     var chart = new google.visualization.Gauge(
-    document.getElementById('GaugeID1602514c6abe')
+    document.getElementById('GaugeID28173f5dec73')
     );
     chart.draw(data,options);
     
@@ -2262,9 +2276,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartGaugeID1602514c6abe);
+callbacks.push(drawChartGaugeID28173f5dec73);
 })();
-function displayChartGaugeID1602514c6abe() {
+function displayChartGaugeID28173f5dec73() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -2290,12 +2304,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGaugeID1602514c6abe"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGaugeID28173f5dec73"></script>
  
 
 <!-- divChart -->
 
-<div id="GaugeID1602514c6abe" 
+<div id="GaugeID28173f5dec73" 
   style="width: 400; height: 300;">
 </div>
 
@@ -2305,16 +2319,16 @@ callbacks.shift()();
 plot(Intensity)
 </code></pre>
 
-<!-- IntensityMap generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- IntensityMap generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataIntensityMapID16026ff409a4 () {
+function gvisDataIntensityMapID28172f4e9285 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -2342,13 +2356,13 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartIntensityMapID16026ff409a4() {
-var data = gvisDataIntensityMapID16026ff409a4();
+function drawChartIntensityMapID28172f4e9285() {
+var data = gvisDataIntensityMapID28172f4e9285();
 var options = {};
 options["width"] =    600;
 
     var chart = new google.visualization.IntensityMap(
-    document.getElementById('IntensityMapID16026ff409a4')
+    document.getElementById('IntensityMapID28172f4e9285')
     );
     chart.draw(data,options);
     
@@ -2372,9 +2386,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartIntensityMapID16026ff409a4);
+callbacks.push(drawChartIntensityMapID28172f4e9285);
 })();
-function displayChartIntensityMapID16026ff409a4() {
+function displayChartIntensityMapID28172f4e9285() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -2400,12 +2414,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartIntensityMapID16026ff409a4"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartIntensityMapID28172f4e9285"></script>
  
 
 <!-- divChart -->
 
-<div id="IntensityMapID16026ff409a4" 
+<div id="IntensityMapID28172f4e9285" 
   style="width: 600; height: automatic;">
 </div>
 
@@ -2417,16 +2431,16 @@ callbacks.shift()();
 plot(Geo)
 </code></pre>
 
-<!-- GeoChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- GeoChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataGeoChartID16027ea52767 () {
+function gvisDataGeoChartID28174f757206 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -2478,15 +2492,15 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartGeoChartID16027ea52767() {
-var data = gvisDataGeoChartID16027ea52767();
+function drawChartGeoChartID28174f757206() {
+var data = gvisDataGeoChartID28174f757206();
 var options = {};
 options["width"] =    556;
 options["height"] =    347;
 options["projection"] = "kavrayskiy-vii";
 
     var chart = new google.visualization.GeoChart(
-    document.getElementById('GeoChartID16027ea52767')
+    document.getElementById('GeoChartID28174f757206')
     );
     chart.draw(data,options);
     
@@ -2510,9 +2524,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartGeoChartID16027ea52767);
+callbacks.push(drawChartGeoChartID28174f757206);
 })();
-function displayChartGeoChartID16027ea52767() {
+function displayChartGeoChartID28174f757206() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -2538,12 +2552,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID16027ea52767"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID28174f757206"></script>
  
 
 <!-- divChart -->
 
-<div id="GeoChartID16027ea52767" 
+<div id="GeoChartID28174f757206" 
   style="width: 556; height: 347;">
 </div>
 
@@ -2559,16 +2573,16 @@ GeoStates &lt;- gvisGeoChart(states, &quot;state.name&quot;, &quot;Illiteracy&qu
 plot(GeoStates)
 </code></pre>
 
-<!-- GeoChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- GeoChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataGeoChartID1602cbe1c26 () {
+function gvisDataGeoChartID2817279110ab () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -2780,8 +2794,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartGeoChartID1602cbe1c26() {
-var data = gvisDataGeoChartID1602cbe1c26();
+function drawChartGeoChartID2817279110ab() {
+var data = gvisDataGeoChartID2817279110ab();
 var options = {};
 options["width"] =    600;
 options["height"] =    400;
@@ -2790,7 +2804,7 @@ options["displayMode"] = "regions";
 options["resolution"] = "provinces";
 
     var chart = new google.visualization.GeoChart(
-    document.getElementById('GeoChartID1602cbe1c26')
+    document.getElementById('GeoChartID2817279110ab')
     );
     chart.draw(data,options);
     
@@ -2814,9 +2828,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartGeoChartID1602cbe1c26);
+callbacks.push(drawChartGeoChartID2817279110ab);
 })();
-function displayChartGeoChartID1602cbe1c26() {
+function displayChartGeoChartID2817279110ab() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -2842,12 +2856,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID1602cbe1c26"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID2817279110ab"></script>
  
 
 <!-- divChart -->
 
-<div id="GeoChartID1602cbe1c26" 
+<div id="GeoChartID2817279110ab" 
   style="width: 600; height: 400;">
 </div>
 
@@ -2860,16 +2874,16 @@ callbacks.shift()();
 plot(GeoMarker)
 </code></pre>
 
-<!-- GeoChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- GeoChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataGeoChartID1602152a0953 () {
+function gvisDataGeoChartID281724dd5ed8 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -3165,15 +3179,15 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartGeoChartID1602152a0953() {
-var data = gvisDataGeoChartID1602152a0953();
+function drawChartGeoChartID281724dd5ed8() {
+var data = gvisDataGeoChartID281724dd5ed8();
 var options = {};
 options["width"] =    556;
 options["height"] =    347;
 options["region"] = "US";
 
     var chart = new google.visualization.GeoChart(
-    document.getElementById('GeoChartID1602152a0953')
+    document.getElementById('GeoChartID281724dd5ed8')
     );
     chart.draw(data,options);
     
@@ -3197,9 +3211,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartGeoChartID1602152a0953);
+callbacks.push(drawChartGeoChartID281724dd5ed8);
 })();
-function displayChartGeoChartID1602152a0953() {
+function displayChartGeoChartID281724dd5ed8() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -3225,12 +3239,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID1602152a0953"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID281724dd5ed8"></script>
  
 
 <!-- divChart -->
 
-<div id="GeoChartID1602152a0953" 
+<div id="GeoChartID281724dd5ed8" 
   style="width: 556; height: 347;">
 </div>
 
@@ -3245,16 +3259,16 @@ callbacks.shift()();
 plot(AndrewMap)
 </code></pre>
 
-<!-- Map generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- Map generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataMapID16027aca32ff () {
+function gvisDataMapID2817417dc9d0 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -3502,8 +3516,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartMapID16027aca32ff() {
-var data = gvisDataMapID16027aca32ff();
+function drawChartMapID2817417dc9d0() {
+var data = gvisDataMapID2817417dc9d0();
 var options = {};
 options["showTip"] = true;
 options["showLine"] = true;
@@ -3512,7 +3526,7 @@ options["mapType"] = "terrain";
 options["useMapTypeControl"] = true;
 
     var chart = new google.visualization.Map(
-    document.getElementById('MapID16027aca32ff')
+    document.getElementById('MapID2817417dc9d0')
     );
     chart.draw(data,options);
     
@@ -3536,9 +3550,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartMapID16027aca32ff);
+callbacks.push(drawChartMapID2817417dc9d0);
 })();
-function displayChartMapID16027aca32ff() {
+function displayChartMapID2817417dc9d0() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -3564,12 +3578,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMapID16027aca32ff"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMapID2817417dc9d0"></script>
  
 
 <!-- divChart -->
 
-<div id="MapID16027aca32ff" 
+<div id="MapID2817417dc9d0" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -3580,16 +3594,16 @@ callbacks.shift()();
 plot(Table)
 </code></pre>
 
-<!-- Table generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- Table generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:15 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataTableID160270da4253 () {
+function gvisDataTableID2817294c9847 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -3688,8 +3702,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartTableID160270da4253() {
-var data = gvisDataTableID160270da4253();
+function drawChartTableID2817294c9847() {
+var data = gvisDataTableID2817294c9847();
 var options = {};
 options["allowHtml"] = true;
 
@@ -3697,7 +3711,7 @@ options["allowHtml"] = true;
   dataFormat1.format(data, 2);
 
     var chart = new google.visualization.Table(
-    document.getElementById('TableID160270da4253')
+    document.getElementById('TableID2817294c9847')
     );
     chart.draw(data,options);
     
@@ -3721,9 +3735,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartTableID160270da4253);
+callbacks.push(drawChartTableID2817294c9847);
 })();
-function displayChartTableID160270da4253() {
+function displayChartTableID2817294c9847() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -3749,12 +3763,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID160270da4253"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID2817294c9847"></script>
  
 
 <!-- divChart -->
 
-<div id="TableID160270da4253" 
+<div id="TableID2817294c9847" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -3769,16 +3783,16 @@ callbacks.shift()();
 plot(PopTable)
 </code></pre>
 
-<!-- Table generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- Table generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:16 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataTableID16029389107 () {
+function gvisDataTableID281763a1727f () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -3786,7 +3800,7 @@ var datajson =
  "1",
 "China",
 1339940000,
-19.5,
+0.195,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/22px-Flag_of_the_People%27s_Republic_of_China.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3795,7 +3809,7 @@ new Date(2010,9,9)
  "2",
 "India",
 1188650000,
-17.3,
+0.173,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/22px-Flag_of_India.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3804,7 +3818,7 @@ new Date(2010,9,9)
  "3",
 "United States",
 310438000,
-4.52,
+0.0452,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/22px-Flag_of_the_United_States.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3813,7 +3827,7 @@ new Date(2010,9,9)
  "4",
 "Indonesia",
 237556363,
-3.46,
+0.0346,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/22px-Flag_of_Indonesia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3822,7 +3836,7 @@ new Date(2010,9,9)
  "5",
 "Brazil",
 193626000,
-2.82,
+0.0282,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/22px-Flag_of_Brazil.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3831,7 +3845,7 @@ new Date(2010,9,9)
  "6",
 "Pakistan",
 170745000,
-2.48,
+0.0248,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Flag_of_Pakistan.svg/22px-Flag_of_Pakistan.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3840,7 +3854,7 @@ new Date(2010,9,9)
  "7",
 "Bangladesh",
 164425000,
-2.39,
+0.0239,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Flag_of_Bangladesh.svg/22px-Flag_of_Bangladesh.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3849,7 +3863,7 @@ new Date(2010,9,9)
  "8",
 "Nigeria",
 158259000,
-2.3,
+0.023,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/22px-Flag_of_Nigeria.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3858,7 +3872,7 @@ new Date(2010,9,9)
  "9",
 "Russia",
 141927297,
-2.06,
+0.0206,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/22px-Flag_of_Russia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3867,7 +3881,7 @@ new Date(2010,9,9)
  "10",
 "Japan",
 127390000,
-1.85,
+0.0185,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/22px-Flag_of_Japan.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3876,7 +3890,7 @@ new Date(2010,9,9)
  "11",
 "Mexico",
 108396211,
-1.58,
+0.0158,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/22px-Flag_of_Mexico.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3885,7 +3899,7 @@ new Date(2010,9,9)
  "12",
 "Philippines",
 94013200,
-1.37,
+0.0137,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_the_Philippines.svg/22px-Flag_of_the_Philippines.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3894,7 +3908,7 @@ new Date(2010,9,9)
  "13",
 "Vietnam",
 85846997,
-1.25,
+0.0125,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/22px-Flag_of_Vietnam.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3903,7 +3917,7 @@ new Date(2010,9,9)
  "14",
 "Ethiopia",
 84976000,
-1.24,
+0.0124,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Flag_of_Ethiopia.svg/22px-Flag_of_Ethiopia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3912,7 +3926,7 @@ new Date(2010,9,9)
  "15",
 "Germany",
 81802257,
-1.19,
+0.0119,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/22px-Flag_of_Germany.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3921,7 +3935,7 @@ new Date(2010,9,9)
  "16",
 "Egypt",
 79135000,
-1.15,
+0.0115,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/22px-Flag_of_Egypt.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3930,7 +3944,7 @@ new Date(2010,9,9)
  "17",
 "Iran",
 75078000,
-1.09,
+0.0109,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/22px-Flag_of_Iran.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3939,7 +3953,7 @@ new Date(2010,9,9)
  "18",
 "Turkey",
 72561312,
-1.06,
+0.0106,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/22px-Flag_of_Turkey.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3948,7 +3962,7 @@ new Date(2010,9,9)
  "19",
 "Dem. Rep. of Congo",
 67827000,
-0.99,
+0.0099,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Flag_of_the_Democratic_Republic_of_the_Congo.svg/22px-Flag_of_the_Democratic_Republic_of_the_Congo.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3957,7 +3971,7 @@ new Date(2010,9,9)
  "20",
 "Thailand",
 67070000,
-1,
+0.01,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/22px-Flag_of_Thailand.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3966,7 +3980,7 @@ new Date(2010,9,9)
  "21",
 "France",
 65447374,
-0.95,
+0.0095,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/22px-Flag_of_France.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3975,7 +3989,7 @@ new Date(2010,9,9)
  "22",
 "United Kingdom",
 62008049,
-0.9,
+0.009,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/22px-Flag_of_the_United_Kingdom.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3984,7 +3998,7 @@ new Date(2010,9,9)
  "23",
 "Italy",
 60402499,
-0.88,
+0.0088,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/22px-Flag_of_Italy.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -3993,7 +4007,7 @@ new Date(2010,9,9)
  "24",
 "Myanmar",
 50496000,
-0.73,
+0.0073,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Flag_of_Myanmar.svg/22px-Flag_of_Myanmar.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4002,7 +4016,7 @@ new Date(2010,9,9)
  "25",
 "South Africa",
 49991300,
-0.73,
+0.0073,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/22px-Flag_of_South_Africa.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4011,7 +4025,7 @@ new Date(2010,9,9)
  "26",
 "South Korea",
 49773145,
-0.72,
+0.0072,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/22px-Flag_of_South_Korea.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4020,7 +4034,7 @@ new Date(2010,9,9)
  "27",
 "Spain",
 46072834,
-0.67,
+0.0067,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/22px-Flag_of_Spain.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4029,7 +4043,7 @@ new Date(2010,9,9)
  "28",
 "Ukraine",
 45871738,
-0.67,
+0.0067,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/22px-Flag_of_Ukraine.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4038,7 +4052,7 @@ new Date(2010,9,9)
  "29",
 "Colombia",
 45655000,
-0.66,
+0.0066,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/22px-Flag_of_Colombia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4047,7 +4061,7 @@ new Date(2010,9,9)
  "30",
 "Tanzania",
 45040000,
-0.66,
+0.0066,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tanzania.svg/22px-Flag_of_Tanzania.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4056,7 +4070,7 @@ new Date(2010,9,9)
  "31",
 "Sudan",
 43192000,
-0.63,
+0.0063,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Flag_of_Sudan.svg/22px-Flag_of_Sudan.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4065,7 +4079,7 @@ new Date(2010,9,9)
  "32",
 "Argentina",
 40518951,
-0.59,
+0.0059,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/22px-Flag_of_Argentina.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4074,7 +4088,7 @@ new Date(2010,9,9)
  "33",
 "Kenya",
 38610097,
-0.56,
+0.0056,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Kenya.svg/22px-Flag_of_Kenya.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4083,7 +4097,7 @@ new Date(2010,9,9)
  "34",
 "Poland",
 38167329,
-0.56,
+0.0056,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Flag_of_Poland.svg/22px-Flag_of_Poland.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4092,7 +4106,7 @@ new Date(2010,9,9)
  "35",
 "Algeria",
 35423000,
-0.52,
+0.0052,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Algeria.svg/22px-Flag_of_Algeria.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4101,7 +4115,7 @@ new Date(2010,9,9)
  "36",
 "Canada",
 34272000,
-0.5,
+0.005,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/22px-Flag_of_Canada.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4110,7 +4124,7 @@ new Date(2010,9,9)
  "37",
 "Uganda",
 33796000,
-0.49,
+0.0049,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flag_of_Uganda.svg/22px-Flag_of_Uganda.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4119,7 +4133,7 @@ new Date(2010,9,9)
  "38",
 "Morocco",
 31944000,
-0.46,
+0.0046,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/22px-Flag_of_Morocco.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4128,7 +4142,7 @@ new Date(2010,9,9)
  "39",
 "Iraq",
 31467000,
-0.46,
+0.0046,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Flag_of_Iraq.svg/22px-Flag_of_Iraq.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4137,7 +4151,7 @@ new Date(2010,9,9)
  "40",
 "Nepal",
 29853000,
-0.43,
+0.0043,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Flag_of_Nepal.svg/16px-Flag_of_Nepal.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4146,7 +4160,7 @@ new Date(2010,9,9)
  "41",
 "Peru",
 29461933,
-0.43,
+0.0043,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/22px-Flag_of_Peru.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4155,7 +4169,7 @@ new Date(2010,9,9)
  "42",
 "Afghanistan",
 29117000,
-0.42,
+0.0042,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Afghanistan.svg/22px-Flag_of_Afghanistan.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4164,7 +4178,7 @@ new Date(2010,9,9)
  "43",
 "Venezuela",
 28958000,
-0.42,
+0.0042,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/22px-Flag_of_Venezuela.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4173,7 +4187,7 @@ new Date(2010,9,9)
  "44",
 "Malaysia",
 28250500,
-0.41,
+0.0041,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Flag_of_Malaysia.svg/22px-Flag_of_Malaysia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4182,7 +4196,7 @@ new Date(2010,9,9)
  "45",
 "Uzbekistan",
 27794000,
-0.4,
+0.004,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Uzbekistan.svg/22px-Flag_of_Uzbekistan.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4191,7 +4205,7 @@ new Date(2010,9,9)
  "46",
 "Saudi Arabia",
 27136977,
-0.39,
+0.0039,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/22px-Flag_of_Saudi_Arabia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4200,7 +4214,7 @@ new Date(2010,9,9)
  "47",
 "Ghana",
 24333000,
-0.35,
+0.0035,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/22px-Flag_of_Ghana.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4209,7 +4223,7 @@ new Date(2010,9,9)
  "48",
 "Yemen",
 24256000,
-0.35,
+0.0035,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Flag_of_Yemen.svg/22px-Flag_of_Yemen.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4218,7 +4232,7 @@ new Date(2010,9,9)
  "49",
 "North Korea",
 23991000,
-0.35,
+0.0035,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Flag_of_North_Korea.svg/22px-Flag_of_North_Korea.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4227,7 +4241,7 @@ new Date(2010,9,9)
  "50",
 "Mozambique",
 23406000,
-0.34,
+0.0034,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Mozambique.svg/22px-Flag_of_Mozambique.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4236,7 +4250,7 @@ new Date(2010,9,9)
  "52",
 "Syria",
 22505000,
-0.33,
+0.0033,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Flag_of_Syria.svg/22px-Flag_of_Syria.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4245,7 +4259,7 @@ new Date(2010,9,9)
  "53",
 "Australia",
 22483305,
-0.33,
+0.0033,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_Australia.svg/22px-Flag_of_Australia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4254,7 +4268,7 @@ new Date(2010,9,9)
  "54",
 "Cote d'Ivoire",
 21571000,
-0.31,
+0.0031,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Flag_of_Cote_d%27Ivoire.svg/22px-Flag_of_Cote_d%27Ivoire.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4263,7 +4277,7 @@ new Date(2010,9,9)
  "55",
 "Romania",
 21466174,
-0.31,
+0.0031,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Romania.svg/22px-Flag_of_Romania.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4272,7 +4286,7 @@ new Date(2010,9,9)
  "56",
 "Sri Lanka",
 20410000,
-0.3,
+0.003,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Flag_of_Sri_Lanka.svg/22px-Flag_of_Sri_Lanka.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4281,7 +4295,7 @@ new Date(2010,9,9)
  "57",
 "Madagascar",
 20146000,
-0.29,
+0.0029,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Madagascar.svg/22px-Flag_of_Madagascar.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4290,7 +4304,7 @@ new Date(2010,9,9)
  "58",
 "Cameroon",
 19958000,
-0.29,
+0.0029,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/22px-Flag_of_Cameroon.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4299,7 +4313,7 @@ new Date(2010,9,9)
  "59",
 "Angola",
 18993000,
-0.28,
+0.0028,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Flag_of_Angola.svg/22px-Flag_of_Angola.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4308,7 +4322,7 @@ new Date(2010,9,9)
  "60",
 "Chile",
 17140000,
-0.25,
+0.0025,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Flag_of_Chile.svg/22px-Flag_of_Chile.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4317,7 +4331,7 @@ new Date(2010,9,9)
  "61",
 "Netherlands",
 16619500,
-0.242,
+0.00242,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/22px-Flag_of_the_Netherlands.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4326,7 +4340,7 @@ new Date(2010,9,9)
  "62",
 "Burkina Faso",
 16287000,
-0.24,
+0.0024,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Burkina_Faso.svg/22px-Flag_of_Burkina_Faso.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4335,7 +4349,7 @@ new Date(2010,9,9)
  "63",
 "Kazakhstan",
 16197000,
-0.24,
+0.0024,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Flag_of_Kazakhstan.svg/22px-Flag_of_Kazakhstan.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4344,7 +4358,7 @@ new Date(2010,9,9)
  "64",
 "Niger",
 15891000,
-0.23,
+0.0023,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Flag_of_Niger.svg/22px-Flag_of_Niger.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4353,7 +4367,7 @@ new Date(2010,9,9)
  "65",
 "Malawi",
 15692000,
-0.23,
+0.0023,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Flag_of_Malawi.svg/22px-Flag_of_Malawi.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4362,7 +4376,7 @@ new Date(2010,9,9)
  "66",
 "Mali",
 14517176,
-0.21,
+0.0021,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Mali.svg/22px-Flag_of_Mali.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4371,7 +4385,7 @@ new Date(2010,9,9)
  "67",
 "Guatemala",
 14377000,
-0.21,
+0.0021,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Flag_of_Guatemala.svg/22px-Flag_of_Guatemala.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4380,7 +4394,7 @@ new Date(2010,9,9)
  "68",
 "Ecuador",
 14259000,
-0.21,
+0.0021,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/22px-Flag_of_Ecuador.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4389,7 +4403,7 @@ new Date(2010,9,9)
  "69",
 "Cambodia",
 13395682,
-0.19,
+0.0019,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_Cambodia.svg/22px-Flag_of_Cambodia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4398,7 +4412,7 @@ new Date(2010,9,9)
  "70",
 "Zambia",
 13257000,
-0.19,
+0.0019,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Zambia.svg/22px-Flag_of_Zambia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4407,7 +4421,7 @@ new Date(2010,9,9)
  "71",
 "Senegal",
 12861000,
-0.19,
+0.0019,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/22px-Flag_of_Senegal.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4416,7 +4430,7 @@ new Date(2010,9,9)
  "72",
 "Zimbabwe",
 12644000,
-0.18,
+0.0018,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Flag_of_Zimbabwe.svg/22px-Flag_of_Zimbabwe.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4425,7 +4439,7 @@ new Date(2010,9,9)
  "73",
 "Chad",
 11506000,
-0.17,
+0.0017,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Flag_of_Chad.svg/22px-Flag_of_Chad.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4434,7 +4448,7 @@ new Date(2010,9,9)
  "74",
 "Greece",
 11306183,
-0.16,
+0.0016,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/22px-Flag_of_Greece.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4443,7 +4457,7 @@ new Date(2010,9,9)
  "75",
 "Cuba",
 11204000,
-0.16,
+0.0016,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Flag_of_Cuba.svg/22px-Flag_of_Cuba.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4452,7 +4466,7 @@ new Date(2010,9,9)
  "76",
 "Belgium",
 10827519,
-0.16,
+0.0016,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/22px-Flag_of_Belgium_%28civil%29.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4461,7 +4475,7 @@ new Date(2010,9,9)
  "77",
 "Portugal",
 10636888,
-0.15,
+0.0015,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/22px-Flag_of_Portugal.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4470,7 +4484,7 @@ new Date(2010,9,9)
  "78",
 "Czech Republic",
 10512397,
-0.15,
+0.0015,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_Czech_Republic.svg/22px-Flag_of_the_Czech_Republic.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4479,7 +4493,7 @@ new Date(2010,9,9)
  "79",
 "Tunisia",
 10432500,
-0.15,
+0.0015,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/22px-Flag_of_Tunisia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4488,7 +4502,7 @@ new Date(2010,9,9)
  "80",
 "Guinea",
 10324000,
-0.15,
+0.0015,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Flag_of_Guinea.svg/22px-Flag_of_Guinea.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4497,7 +4511,7 @@ new Date(2010,9,9)
  "81",
 "Rwanda",
 10277000,
-0.15,
+0.0015,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Rwanda.svg/22px-Flag_of_Rwanda.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4506,7 +4520,7 @@ new Date(2010,9,9)
  "82",
 "Dominican Republic",
 10225000,
-0.15,
+0.0015,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_the_Dominican_Republic.svg/22px-Flag_of_the_Dominican_Republic.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4515,7 +4529,7 @@ new Date(2010,9,9)
  "83",
 "Haiti",
 10188000,
-0.15,
+0.0015,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Flag_of_Haiti.svg/22px-Flag_of_Haiti.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4524,7 +4538,7 @@ new Date(2010,9,9)
  "84",
 "Bolivia",
 10031000,
-0.15,
+0.0015,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Bolivia.svg/22px-Flag_of_Bolivia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4533,7 +4547,7 @@ new Date(2010,9,9)
  "85",
 "Hungary",
 10013628,
-0.15,
+0.0015,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/22px-Flag_of_Hungary.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4542,7 +4556,7 @@ new Date(2010,9,9)
  "86",
 "Serbia",
 9856000,
-0.14,
+0.0014,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/22px-Flag_of_Serbia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4551,7 +4565,7 @@ new Date(2010,9,9)
  "87",
 "Belarus",
 9467700,
-0.14,
+0.0014,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/22px-Flag_of_Belarus.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4560,7 +4574,7 @@ new Date(2010,9,9)
  "88",
 "Sweden",
 9393648,
-0.14,
+0.0014,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/22px-Flag_of_Sweden.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4569,7 +4583,7 @@ new Date(2010,9,9)
  "89",
 "Somalia",
 9359000,
-0.14,
+0.0014,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Flag_of_Somalia.svg/22px-Flag_of_Somalia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4578,7 +4592,7 @@ new Date(2010,9,9)
  "90",
 "Benin",
 9212000,
-0.13,
+0.0013,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_Benin.svg/22px-Flag_of_Benin.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4587,7 +4601,7 @@ new Date(2010,9,9)
  "91",
 "Azerbaijan",
 8997400,
-0.13,
+0.0013,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/22px-Flag_of_Azerbaijan.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4596,7 +4610,7 @@ new Date(2010,9,9)
  "92",
 "Burundi",
 8519000,
-0.12,
+0.0012,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Flag_of_Burundi.svg/22px-Flag_of_Burundi.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4605,7 +4619,7 @@ new Date(2010,9,9)
  "93",
 "Austria",
 8372930,
-0.12,
+0.0012,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/22px-Flag_of_Austria.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4614,7 +4628,7 @@ new Date(2010,9,9)
  "94",
 "Switzerland",
 7782900,
-0.11,
+0.0011,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/20px-Flag_of_Switzerland.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4623,7 +4637,7 @@ new Date(2010,9,9)
  "95",
 "Israel",
 7640800,
-0.11,
+0.0011,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Israel.svg/22px-Flag_of_Israel.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4632,7 +4646,7 @@ new Date(2010,9,9)
  "96",
 "Honduras",
 7616000,
-0.11,
+0.0011,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Flag_of_Honduras.svg/22px-Flag_of_Honduras.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4641,7 +4655,7 @@ new Date(2010,9,9)
  "97",
 "Bulgaria",
 7576751,
-0.11,
+0.0011,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Bulgaria.svg/22px-Flag_of_Bulgaria.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4650,7 +4664,7 @@ new Date(2010,9,9)
  "98",
 "Tajikistan",
 7075000,
-0.103,
+0.00103,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Tajikistan.svg/22px-Flag_of_Tajikistan.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4659,7 +4673,7 @@ new Date(2010,9,9)
  "100",
 "Papua New Guinea",
 6888000,
-0.1,
+0.001,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Flag_of_Papua_New_Guinea.svg/22px-Flag_of_Papua_New_Guinea.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4668,7 +4682,7 @@ new Date(2010,9,9)
  "101",
 "Togo",
 6780000,
-0.099,
+0.00099,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Flag_of_Togo.svg/22px-Flag_of_Togo.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4677,7 +4691,7 @@ new Date(2010,9,9)
  "102",
 "Libya",
 6546000,
-0.095,
+0.00095,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Libya.svg/22px-Flag_of_Libya.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4686,7 +4700,7 @@ new Date(2010,9,9)
  "103",
 "Jordan",
 6472000,
-0.094,
+0.00094,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Flag_of_Jordan.svg/22px-Flag_of_Jordan.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4695,7 +4709,7 @@ new Date(2010,9,9)
  "104",
 "Paraguay",
 6460000,
-0.094,
+0.00094,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Paraguay.svg/22px-Flag_of_Paraguay.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4704,7 +4718,7 @@ new Date(2010,9,9)
  "105",
 "Laos",
 6436000,
-0.094,
+0.00094,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Flag_of_Laos.svg/22px-Flag_of_Laos.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4713,7 +4727,7 @@ new Date(2010,9,9)
  "106",
 "El Salvador",
 6194000,
-0.09,
+9e-04,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Flag_of_El_Salvador.svg/22px-Flag_of_El_Salvador.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4722,7 +4736,7 @@ new Date(2010,9,9)
  "107",
 "Sierra Leone",
 5836000,
-0.085,
+0.00085,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Sierra_Leone.svg/22px-Flag_of_Sierra_Leone.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4731,7 +4745,7 @@ new Date(2010,9,9)
  "108",
 "Nicaragua",
 5822000,
-0.085,
+0.00085,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Nicaragua.svg/22px-Flag_of_Nicaragua.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4740,7 +4754,7 @@ new Date(2010,9,9)
  "109",
 "Kyrgyzstan",
 5550000,
-0.081,
+0.00081,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Kyrgyzstan.svg/22px-Flag_of_Kyrgyzstan.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4749,7 +4763,7 @@ new Date(2010,9,9)
  "110",
 "Denmark",
 5543819,
-0.08,
+8e-04,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/22px-Flag_of_Denmark.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4758,7 +4772,7 @@ new Date(2010,9,9)
  "111",
 "Slovakia",
 5429763,
-0.079,
+0.00079,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Slovakia.svg/22px-Flag_of_Slovakia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4767,7 +4781,7 @@ new Date(2010,9,9)
  "112",
 "Finland",
 5370000,
-0.078,
+0.00078,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/22px-Flag_of_Finland.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4776,7 +4790,7 @@ new Date(2010,9,9)
  "113",
 "Eritrea",
 5224000,
-0.076,
+0.00076,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flag_of_Eritrea.svg/22px-Flag_of_Eritrea.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4785,7 +4799,7 @@ new Date(2010,9,9)
  "114",
 "Turkmenistan",
 5177000,
-0.075,
+0.00075,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Turkmenistan.svg/22px-Flag_of_Turkmenistan.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4794,7 +4808,7 @@ new Date(2010,9,9)
  "115",
 "Singapore",
 5076700,
-0.074,
+0.00074,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/22px-Flag_of_Singapore.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4803,7 +4817,7 @@ new Date(2010,9,9)
  "116",
 "Norway",
 4906500,
-0.071,
+0.00071,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/22px-Flag_of_Norway.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4812,7 +4826,7 @@ new Date(2010,9,9)
  "117",
 "United Arab Emirates",
 4707000,
-0.068,
+0.00068,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/22px-Flag_of_the_United_Arab_Emirates.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4821,7 +4835,7 @@ new Date(2010,9,9)
  "118",
 "Costa Rica",
 4640000,
-0.068,
+0.00068,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/22px-Flag_of_Costa_Rica.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4830,7 +4844,7 @@ new Date(2010,9,9)
  "119",
 "Central African Republic",
 4506000,
-0.066,
+0.00066,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Flag_of_the_Central_African_Republic.svg/22px-Flag_of_the_Central_African_Republic.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4839,7 +4853,7 @@ new Date(2010,9,9)
  "120",
 "Ireland",
 4470700,
-0.064,
+0.00064,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/22px-Flag_of_Ireland.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4848,7 +4862,7 @@ new Date(2010,9,9)
  "121",
 "Georgia",
 4436000,
-0.065,
+0.00065,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Georgia.svg/22px-Flag_of_Georgia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4857,7 +4871,7 @@ new Date(2010,9,9)
  "122",
 "Croatia",
 4435056,
-0.065,
+0.00065,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/22px-Flag_of_Croatia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4866,7 +4880,7 @@ new Date(2010,9,9)
  "123",
 "New Zealand",
 4393000,
-0.064,
+0.00064,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/22px-Flag_of_New_Zealand.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4875,7 +4889,7 @@ new Date(2010,9,9)
  "124",
 "Lebanon",
 4255000,
-0.062,
+0.00062,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Flag_of_Lebanon.svg/22px-Flag_of_Lebanon.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4884,7 +4898,7 @@ new Date(2010,9,9)
  "125",
 "Liberia",
 4102000,
-0.06,
+6e-04,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Flag_of_Liberia.svg/22px-Flag_of_Liberia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4893,7 +4907,7 @@ new Date(2010,9,9)
  "127",
 "Palestinian territories",
 3935249,
-0.055,
+0.00055,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Palestine.svg/22px-Flag_of_Palestine.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4902,7 +4916,7 @@ new Date(2010,9,9)
  "128",
 "Bosnia and Herzegovina",
 3760000,
-0.055,
+0.00055,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Flag_of_Bosnia_and_Herzegovina.svg/22px-Flag_of_Bosnia_and_Herzegovina.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4911,7 +4925,7 @@ new Date(2010,9,9)
  "129",
 "Republic of the Congo",
 3759000,
-0.055,
+0.00055,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_the_Republic_of_the_Congo.svg/22px-Flag_of_the_Republic_of_the_Congo.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4920,7 +4934,7 @@ new Date(2010,9,9)
  "130",
 "Moldova",
 3563800,
-0.052,
+0.00052,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Moldova.svg/22px-Flag_of_Moldova.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4929,7 +4943,7 @@ new Date(2010,9,9)
  "131",
 "Uruguay",
 3372000,
-0.049,
+0.00049,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/22px-Flag_of_Uruguay.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4938,7 +4952,7 @@ new Date(2010,9,9)
  "132",
 "Mauritania",
 3366000,
-0.049,
+0.00049,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Flag_of_Mauritania.svg/22px-Flag_of_Mauritania.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4947,7 +4961,7 @@ new Date(2010,9,9)
  "133",
 "Lithuania",
 3329227,
-0.048,
+0.00048,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Flag_of_Lithuania.svg/22px-Flag_of_Lithuania.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4956,7 +4970,7 @@ new Date(2010,9,9)
  "134",
 "Panama",
 3322576,
-0.048,
+0.00048,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/22px-Flag_of_Panama.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4965,7 +4979,7 @@ new Date(2010,9,9)
  "135",
 "Armenia",
 3238000,
-0.047,
+0.00047,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_Armenia.svg/22px-Flag_of_Armenia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4974,7 +4988,7 @@ new Date(2010,9,9)
  "136",
 "Albania",
 3195000,
-0.046,
+0.00046,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/22px-Flag_of_Albania.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4983,7 +4997,7 @@ new Date(2010,9,9)
  "137",
 "Kuwait",
 3051000,
-0.044,
+0.00044,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Flag_of_Kuwait.svg/22px-Flag_of_Kuwait.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -4992,7 +5006,7 @@ new Date(2010,9,9)
  "138",
 "Oman",
 2905000,
-0.042,
+0.00042,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Oman.svg/22px-Flag_of_Oman.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5001,7 +5015,7 @@ new Date(2010,9,9)
  "139",
 "Mongolia",
 2776500,
-0.04,
+4e-04,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Mongolia.svg/22px-Flag_of_Mongolia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5010,7 +5024,7 @@ new Date(2010,9,9)
  "140",
 "Jamaica",
 2730000,
-0.04,
+4e-04,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_Jamaica.svg/22px-Flag_of_Jamaica.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5019,7 +5033,7 @@ new Date(2010,9,9)
  "141",
 "Latvia",
 2236300,
-0.033,
+0.00033,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Latvia.svg/22px-Flag_of_Latvia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5028,7 +5042,7 @@ new Date(2010,9,9)
  "142",
 "Namibia",
 2212000,
-0.032,
+0.00032,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Namibia.svg/22px-Flag_of_Namibia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5037,7 +5051,7 @@ new Date(2010,9,9)
  "143",
 "Lesotho",
 2084000,
-0.03,
+3e-04,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Flag_of_Lesotho.svg/22px-Flag_of_Lesotho.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5046,7 +5060,7 @@ new Date(2010,9,9)
  "144",
 "Slovenia",
 2065720,
-0.03,
+3e-04,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Flag_of_Slovenia.svg/22px-Flag_of_Slovenia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5055,7 +5069,7 @@ new Date(2010,9,9)
  "145",
 "Republic of Macedonia",
 2048620,
-0.03,
+3e-04,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Flag_of_Macedonia.svg/22px-Flag_of_Macedonia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5064,7 +5078,7 @@ new Date(2010,9,9)
  "146",
 "Botswana",
 1978000,
-0.029,
+0.00029,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_Botswana.svg/22px-Flag_of_Botswana.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5073,7 +5087,7 @@ new Date(2010,9,9)
  "147",
 "Gambia",
 1751000,
-0.025,
+0.00025,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_The_Gambia.svg/22px-Flag_of_The_Gambia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5082,7 +5096,7 @@ new Date(2010,9,9)
  "148",
 "Qatar",
 1696563,
-0.025,
+0.00025,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Qatar.svg/22px-Flag_of_Qatar.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5091,7 +5105,7 @@ new Date(2010,9,9)
  "149",
 "Guinea-Bissau",
 1647000,
-0.024,
+0.00024,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Flag_of_Guinea-Bissau.svg/22px-Flag_of_Guinea-Bissau.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5100,7 +5114,7 @@ new Date(2010,9,9)
  "150",
 "Gabon",
 1501000,
-0.022,
+0.00022,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Flag_of_Gabon.svg/22px-Flag_of_Gabon.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5109,7 +5123,7 @@ new Date(2010,9,9)
  "151",
 "Trinidad and Tobago",
 1344000,
-0.02,
+2e-04,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Flag_of_Trinidad_and_Tobago.svg/22px-Flag_of_Trinidad_and_Tobago.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5118,7 +5132,7 @@ new Date(2010,9,9)
  "152",
 "Estonia",
 1340127,
-0.019,
+0.00019,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flag_of_Estonia.svg/22px-Flag_of_Estonia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5127,7 +5141,7 @@ new Date(2010,9,9)
  "153",
 "Mauritius",
 1297000,
-0.019,
+0.00019,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Mauritius.svg/22px-Flag_of_Mauritius.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5136,7 +5150,7 @@ new Date(2010,9,9)
  "154",
 "Swaziland",
 1202000,
-0.017,
+0.00017,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Flag_of_Swaziland.svg/22px-Flag_of_Swaziland.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5145,7 +5159,7 @@ new Date(2010,9,9)
  "155",
 "East Timor",
 1171000,
-0.017,
+0.00017,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Flag_of_East_Timor.svg/22px-Flag_of_East_Timor.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5154,7 +5168,7 @@ new Date(2010,9,9)
  "156",
 "Djibouti",
 879000,
-0.013,
+0.00013,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Flag_of_Djibouti.svg/22px-Flag_of_Djibouti.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5163,7 +5177,7 @@ new Date(2010,9,9)
  "157",
 "Fiji",
 854000,
-0.012,
+0.00012,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Fiji.svg/22px-Flag_of_Fiji.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5172,7 +5186,7 @@ new Date(2010,9,9)
  "158",
 "Bahrain",
 807000,
-0.012,
+0.00012,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Bahrain.svg/22px-Flag_of_Bahrain.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5181,7 +5195,7 @@ new Date(2010,9,9)
  "159",
 "Cyprus",
 801851,
-0.012,
+0.00012,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Cyprus.svg/22px-Flag_of_Cyprus.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5190,7 +5204,7 @@ new Date(2010,9,9)
  "160",
 "Guyana",
 761000,
-0.011,
+0.00011,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_Guyana.svg/22px-Flag_of_Guyana.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5199,7 +5213,7 @@ new Date(2010,9,9)
  "161",
 "Bhutan",
 708000,
-0.01,
+1e-04,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Flag_of_Bhutan.svg/22px-Flag_of_Bhutan.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5208,7 +5222,7 @@ new Date(2010,9,9)
  "162",
 "Equatorial Guinea",
 693000,
-0.01,
+1e-04,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Equatorial_Guinea.svg/22px-Flag_of_Equatorial_Guinea.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5217,7 +5231,7 @@ new Date(2010,9,9)
  "163",
 "Comoros",
 691000,
-0.01,
+1e-04,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Flag_of_the_Comoros.svg/22px-Flag_of_the_Comoros.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5226,7 +5240,7 @@ new Date(2010,9,9)
  "164",
 "Montenegro",
 626000,
-0.009,
+9e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Flag_of_Montenegro.svg/22px-Flag_of_Montenegro.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5235,7 +5249,7 @@ new Date(2010,9,9)
  "166",
 "Solomon Islands",
 536000,
-0.008,
+8e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Flag_of_the_Solomon_Islands.svg/22px-Flag_of_the_Solomon_Islands.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5244,7 +5258,7 @@ new Date(2010,9,9)
  "167",
 "Western Sahara",
 530000,
-0.008,
+8e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Flag_of_Western_Sahara.svg/22px-Flag_of_Western_Sahara.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5253,7 +5267,7 @@ new Date(2010,9,9)
  "168",
 "Suriname",
 524000,
-0.008,
+8e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/22px-Flag_of_Suriname.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5262,7 +5276,7 @@ new Date(2010,9,9)
  "169",
 "Cape Verde",
 513000,
-0.007,
+7e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Cape_Verde.svg/22px-Flag_of_Cape_Verde.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5271,7 +5285,7 @@ new Date(2010,9,9)
  "170",
 "Luxembourg",
 502207,
-0.007,
+7e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Flag_of_Luxembourg.svg/22px-Flag_of_Luxembourg.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5280,7 +5294,7 @@ new Date(2010,9,9)
  "171",
 "Malta",
 416333,
-0.006,
+6e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Malta.svg/22px-Flag_of_Malta.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5289,7 +5303,7 @@ new Date(2010,9,9)
  "172",
 "Brunei",
 407000,
-0.006,
+6e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Brunei.svg/22px-Flag_of_Brunei.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5298,7 +5312,7 @@ new Date(2010,9,9)
  "173",
 "Bahamas",
 346000,
-0.005,
+5e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Flag_of_the_Bahamas.svg/22px-Flag_of_the_Bahamas.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5307,7 +5321,7 @@ new Date(2010,9,9)
  "174",
 "Belize",
 322100,
-0.005,
+5e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Flag_of_Belize.svg/22px-Flag_of_Belize.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5316,7 +5330,7 @@ new Date(2010,9,9)
  "175",
 "Iceland",
 318006,
-0.005,
+5e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/22px-Flag_of_Iceland.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5325,7 +5339,7 @@ new Date(2010,9,9)
  "176",
 "Maldives",
 314000,
-0.005,
+5e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Maldives.svg/22px-Flag_of_Maldives.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5334,7 +5348,7 @@ new Date(2010,9,9)
  "177",
 "Barbados",
 257000,
-0.004,
+4e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Flag_of_Barbados.svg/22px-Flag_of_Barbados.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5343,7 +5357,7 @@ new Date(2010,9,9)
  "178",
 "Vanuatu",
 246000,
-0.004,
+4e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Vanuatu.svg/22px-Flag_of_Vanuatu.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5352,7 +5366,7 @@ new Date(2010,9,9)
  "181",
 "Samoa",
 179000,
-0.003,
+3e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Samoa.svg/22px-Flag_of_Samoa.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5361,7 +5375,7 @@ new Date(2010,9,9)
  "182",
 "Saint Lucia",
 174000,
-0.003,
+3e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Saint_Lucia.svg/22px-Flag_of_Saint_Lucia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5370,7 +5384,7 @@ new Date(2010,9,9)
  "183",
 "Sao Tome and Principe",
 165000,
-0.002,
+2e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Sao_Tome_and_Principe.svg/22px-Flag_of_Sao_Tome_and_Principe.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5379,7 +5393,7 @@ new Date(2010,9,9)
  "184",
 "Federated States of Micronesia",
 111000,
-0.002,
+2e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Federated_States_of_Micronesia.svg/22px-Flag_of_Federated_States_of_Micronesia.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5388,7 +5402,7 @@ new Date(2010,9,9)
  "186",
 "Saint Vincent and the Grenadines",
 109000,
-0.002,
+2e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Flag_of_Saint_Vincent_and_the_Grenadines.svg/22px-Flag_of_Saint_Vincent_and_the_Grenadines.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5397,7 +5411,7 @@ new Date(2010,9,9)
  "188",
 "Grenada",
 104000,
-0.002,
+2e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Grenada.svg/22px-Flag_of_Grenada.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5406,7 +5420,7 @@ new Date(2010,9,9)
  "189",
 "Tonga",
 104000,
-0.002,
+2e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Tonga.svg/22px-Flag_of_Tonga.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5415,7 +5429,7 @@ new Date(2010,9,9)
  "190",
 "Kiribati",
 100000,
-0.001,
+1e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Flag_of_Kiribati.svg/22px-Flag_of_Kiribati.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5424,7 +5438,7 @@ new Date(2010,9,9)
  "192",
 "Antigua and Barbuda",
 89000,
-0.001,
+1e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Flag_of_Antigua_and_Barbuda.svg/22px-Flag_of_Antigua_and_Barbuda.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5433,7 +5447,7 @@ new Date(2010,9,9)
  "194",
 "Seychelles",
 85000,
-0.001,
+1e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_the_Seychelles.svg/22px-Flag_of_the_Seychelles.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5442,7 +5456,7 @@ new Date(2010,9,9)
  "195",
 "Andorra",
 84082,
-0.001,
+1e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Andorra.svg/22px-Flag_of_Andorra.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5451,7 +5465,7 @@ new Date(2010,9,9)
  "198",
 "Dominica",
 67000,
-0.001,
+1e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Flag_of_Dominica.svg/22px-Flag_of_Dominica.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5460,7 +5474,7 @@ new Date(2010,9,9)
  "200",
 "Marshall Islands",
 63000,
-0.001,
+1e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Flag_of_the_Marshall_Islands.svg/22px-Flag_of_the_Marshall_Islands.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5469,7 +5483,7 @@ new Date(2010,9,9)
  "204",
 "Saint Kitts and Nevis",
 52000,
-0.001,
+1e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Saint_Kitts_and_Nevis.svg/22px-Flag_of_Saint_Kitts_and_Nevis.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5478,7 +5492,7 @@ new Date(2010,9,9)
  "206",
 "Liechtenstein",
 35904,
-5e-04,
+5e-06,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Flag_of_Liechtenstein.svg/22px-Flag_of_Liechtenstein.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5487,7 +5501,7 @@ new Date(2010,9,9)
  "207",
 "Monaco",
 33000,
-5e-04,
+5e-06,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Flag_of_Monaco.svg/22px-Flag_of_Monaco.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5496,7 +5510,7 @@ new Date(2010,9,9)
  "209",
 "San Marino",
 31794,
-5e-04,
+5e-06,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Flag_of_San_Marino.svg/22px-Flag_of_San_Marino.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5505,7 +5519,7 @@ new Date(2010,9,9)
  "213",
 "Palau",
 20000,
-3e-04,
+3e-06,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Palau.svg/22px-Flag_of_Palau.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5514,7 +5528,7 @@ new Date(2010,9,9)
  "215",
 "Tuvalu",
 10000,
-1e-04,
+1e-06,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tuvalu.svg/22px-Flag_of_Tuvalu.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5523,7 +5537,7 @@ new Date(2010,9,9)
  "216",
 "Nauru",
 10000,
-1e-04,
+1e-06,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Flag_of_Nauru.svg/22px-Flag_of_Nauru.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5532,7 +5546,7 @@ new Date(2010,9,9)
  "222",
 "Vatican City",
 800,
-2e-05,
+2e-07,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_the_Vatican_City.svg/20px-Flag_of_the_Vatican_City.svg.png\">",
 true,
 new Date(2010,9,9) 
@@ -5550,8 +5564,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartTableID16029389107() {
-var data = gvisDataTableID16029389107();
+function drawChartTableID281763a1727f() {
+var data = gvisDataTableID281763a1727f();
 var options = {};
 options["allowHtml"] = true;
 options["page"] = "enable";
@@ -5562,7 +5576,7 @@ options["page"] = "enable";
   dataFormat2.format(data, 3);
 
     var chart = new google.visualization.Table(
-    document.getElementById('TableID16029389107')
+    document.getElementById('TableID281763a1727f')
     );
     chart.draw(data,options);
     
@@ -5586,9 +5600,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartTableID16029389107);
+callbacks.push(drawChartTableID281763a1727f);
 })();
-function displayChartTableID16029389107() {
+function displayChartTableID281763a1727f() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -5614,12 +5628,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID16029389107"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID281763a1727f"></script>
  
 
 <!-- divChart -->
 
-<div id="TableID16029389107" 
+<div id="TableID281763a1727f" 
   style="width: 500; height: automatic;">
 </div>
 
@@ -5631,16 +5645,16 @@ callbacks.shift()();
 plot(Org)
 </code></pre>
 
-<!-- OrgChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- OrgChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:16 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataOrgChartID160260b9674b () {
+function gvisDataOrgChartID28177c6422f2 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -5708,8 +5722,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartOrgChartID160260b9674b() {
-var data = gvisDataOrgChartID160260b9674b();
+function drawChartOrgChartID28177c6422f2() {
+var data = gvisDataOrgChartID28177c6422f2();
 var options = {};
 options["width"] =    600;
 options["height"] =    250;
@@ -5717,7 +5731,7 @@ options["size"] = "large";
 options["allowCollapse"] = true;
 
     var chart = new google.visualization.OrgChart(
-    document.getElementById('OrgChartID160260b9674b')
+    document.getElementById('OrgChartID28177c6422f2')
     );
     chart.draw(data,options);
     
@@ -5741,9 +5755,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartOrgChartID160260b9674b);
+callbacks.push(drawChartOrgChartID28177c6422f2);
 })();
-function displayChartOrgChartID160260b9674b() {
+function displayChartOrgChartID28177c6422f2() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -5769,12 +5783,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartOrgChartID160260b9674b"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartOrgChartID28177c6422f2"></script>
  
 
 <!-- divChart -->
 
-<div id="OrgChartID160260b9674b" 
+<div id="OrgChartID28177c6422f2" 
   style="width: 600; height: 250;">
 </div>
 
@@ -5789,16 +5803,16 @@ callbacks.shift()();
 plot(Tree)
 </code></pre>
 
-<!-- TreeMap generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- TreeMap generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:16 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataTreeMapID16022c2c9e89 () {
+function gvisDataTreeMapID281712327dab () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -5878,15 +5892,15 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartTreeMapID16022c2c9e89() {
-var data = gvisDataTreeMapID16022c2c9e89();
+function drawChartTreeMapID281712327dab() {
+var data = gvisDataTreeMapID281712327dab();
 var options = {};
 options["width"] =    600;
 options["height"] =    500;
 options["fontSize"] =     16;
 
     var chart = new google.visualization.TreeMap(
-    document.getElementById('TreeMapID16022c2c9e89')
+    document.getElementById('TreeMapID281712327dab')
     );
     chart.draw(data,options);
     
@@ -5910,9 +5924,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartTreeMapID16022c2c9e89);
+callbacks.push(drawChartTreeMapID281712327dab);
 })();
-function displayChartTreeMapID16022c2c9e89() {
+function displayChartTreeMapID281712327dab() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -5938,12 +5952,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTreeMapID16022c2c9e89"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTreeMapID281712327dab"></script>
  
 
 <!-- divChart -->
 
-<div id="TreeMapID16022c2c9e89" 
+<div id="TreeMapID281712327dab" 
   style="width: 600; height: 500;">
 </div>
 
@@ -5965,16 +5979,16 @@ callbacks.shift()();
 plot(Anno)
 </code></pre>
 
-<!-- AnnotationChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- AnnotationChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:16 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataAnnotationChartID1602255c4b07 () {
+function gvisDataAnnotationChartID281730d86ee2 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -6045,8 +6059,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartAnnotationChartID1602255c4b07() {
-var data = gvisDataAnnotationChartID1602255c4b07();
+function drawChartAnnotationChartID281730d86ee2() {
+var data = gvisDataAnnotationChartID281730d86ee2();
 var options = {};
 options["width"] =    600;
 options["height"] =    350;
@@ -6055,7 +6069,7 @@ options["displayExactValues"] = true;
 options["colors"] = ['#0000ff','#00ff00'];
 
     var chart = new google.visualization.AnnotationChart(
-    document.getElementById('AnnotationChartID1602255c4b07')
+    document.getElementById('AnnotationChartID281730d86ee2')
     );
     chart.draw(data,options);
     
@@ -6079,9 +6093,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartAnnotationChartID1602255c4b07);
+callbacks.push(drawChartAnnotationChartID281730d86ee2);
 })();
-function displayChartAnnotationChartID1602255c4b07() {
+function displayChartAnnotationChartID281730d86ee2() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -6107,12 +6121,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartAnnotationChartID1602255c4b07"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartAnnotationChartID281730d86ee2"></script>
  
 
 <!-- divChart -->
 
-<div id="AnnotationChartID1602255c4b07" 
+<div id="AnnotationChartID281730d86ee2" 
   style="width: 600; height: 350;">
 </div>
 
@@ -6130,16 +6144,16 @@ Sankey &lt;- gvisSankey(datSK, from=&quot;From&quot;, to=&quot;To&quot;, weight=
 plot(Sankey)
 </code></pre>
 
-<!-- Sankey generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- Sankey generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:16 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataSankeyID16024e41cbba () {
+function gvisDataSankeyID28175157d07b () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -6182,8 +6196,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartSankeyID16024e41cbba() {
-var data = gvisDataSankeyID16024e41cbba();
+function drawChartSankeyID28175157d07b() {
+var data = gvisDataSankeyID28175157d07b();
 var options = {};
 options["width"] =    400;
 options["height"] =    400;
@@ -6192,7 +6206,7 @@ options["sankey"] = {link: {color: { fill: '#d799ae' } },
                             label: { color: '#871b47' } }};
 
     var chart = new google.visualization.Sankey(
-    document.getElementById('SankeyID16024e41cbba')
+    document.getElementById('SankeyID28175157d07b')
     );
     chart.draw(data,options);
     
@@ -6216,9 +6230,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartSankeyID16024e41cbba);
+callbacks.push(drawChartSankeyID28175157d07b);
 })();
-function displayChartSankeyID16024e41cbba() {
+function displayChartSankeyID28175157d07b() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -6244,12 +6258,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartSankeyID16024e41cbba"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartSankeyID28175157d07b"></script>
  
 
 <!-- divChart -->
 
-<div id="SankeyID16024e41cbba" 
+<div id="SankeyID28175157d07b" 
   style="width: 400; height: 400;">
 </div>
 
@@ -6267,16 +6281,16 @@ Hist &lt;- gvisHistogram(datHist, options=list(
 plot(Hist)
 </code></pre>
 
-<!-- Histogram generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- Histogram generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:16 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataHistogramID160241a64879 () {
+function gvisDataHistogramID28175c3864f5 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -6789,8 +6803,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartHistogramID160241a64879() {
-var data = gvisDataHistogramID160241a64879();
+function drawChartHistogramID28175c3864f5() {
+var data = gvisDataHistogramID28175c3864f5();
 var options = {};
 options["allowHtml"] = true;
 options["legend"] = { position: 'top', maxLines: 2 };
@@ -6799,7 +6813,7 @@ options["width"] =    400;
 options["height"] =    360;
 
     var chart = new google.visualization.Histogram(
-    document.getElementById('HistogramID160241a64879')
+    document.getElementById('HistogramID28175c3864f5')
     );
     chart.draw(data,options);
     
@@ -6823,9 +6837,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartHistogramID160241a64879);
+callbacks.push(drawChartHistogramID28175c3864f5);
 })();
-function displayChartHistogramID160241a64879() {
+function displayChartHistogramID28175c3864f5() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -6851,12 +6865,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartHistogramID160241a64879"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartHistogramID28175c3864f5"></script>
  
 
 <!-- divChart -->
 
-<div id="HistogramID160241a64879" 
+<div id="HistogramID28175c3864f5" 
   style="width: 400; height: 360;">
 </div>
 
@@ -6877,16 +6891,16 @@ callbacks.shift()();
 plot(Cal)
 </code></pre>
 
-<!-- Calendar generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- Calendar generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:16 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataCalendarID1602be0219b () {
+function gvisDataCalendarID28177a6c401f () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -11262,8 +11276,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartCalendarID1602be0219b() {
-var data = gvisDataCalendarID1602be0219b();
+function drawChartCalendarID28177a6c401f() {
+var data = gvisDataCalendarID28177a6c401f();
 var options = {};
 options["width"] =    600;
 options["height"] =    320;
@@ -11275,7 +11289,7 @@ options["calendar"] = {yearLabel: { fontName: 'Times-Roman',
                                focusedCellColor: {stroke:'red'}};
 
     var chart = new google.visualization.Calendar(
-    document.getElementById('CalendarID1602be0219b')
+    document.getElementById('CalendarID28177a6c401f')
     );
     chart.draw(data,options);
     
@@ -11299,9 +11313,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartCalendarID1602be0219b);
+callbacks.push(drawChartCalendarID28177a6c401f);
 })();
-function displayChartCalendarID1602be0219b() {
+function displayChartCalendarID28177a6c401f() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -11327,12 +11341,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartCalendarID1602be0219b"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartCalendarID28177a6c401f"></script>
  
 
 <!-- divChart -->
 
-<div id="CalendarID1602be0219b" 
+<div id="CalendarID28177a6c401f" 
   style="width: 600; height: 320;">
 </div>
 
@@ -11358,16 +11372,16 @@ Timeline &lt;- gvisTimeline(data=datTL,
 plot(Timeline)
 </code></pre>
 
-<!-- Timeline generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- Timeline generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:16 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataTimelineID160227be4d34 () {
+function gvisDataTimelineID281758e5f203 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -11417,8 +11431,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartTimelineID160227be4d34() {
-var data = gvisDataTimelineID160227be4d34();
+function drawChartTimelineID281758e5f203() {
+var data = gvisDataTimelineID281758e5f203();
 var options = {};
 options["width"] =    600;
 options["height"] =    350;
@@ -11427,7 +11441,7 @@ options["backgroundColor"] = "#ffd";
 options["colors"] = ['#cbb69d', '#603913', '#c69c6e'];
 
     var chart = new google.visualization.Timeline(
-    document.getElementById('TimelineID160227be4d34')
+    document.getElementById('TimelineID281758e5f203')
     );
     chart.draw(data,options);
     
@@ -11451,9 +11465,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartTimelineID160227be4d34);
+callbacks.push(drawChartTimelineID281758e5f203);
 })();
-function displayChartTimelineID160227be4d34() {
+function displayChartTimelineID281758e5f203() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -11479,12 +11493,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTimelineID160227be4d34"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTimelineID281758e5f203"></script>
  
 
 <!-- divChart -->
 
-<div id="TimelineID160227be4d34" 
+<div id="TimelineID281758e5f203" 
   style="width: 600; height: 350;">
 </div>
 
@@ -11499,16 +11513,16 @@ GT &lt;- gvisMerge(G,T, horizontal=TRUE)
 plot(GT)
 </code></pre>
 
-<!-- GeoChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- GeoChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:16 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataGeoChartID16023ebea54e () {
+function gvisDataGeoChartID28176073d08d () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -11561,7 +11575,7 @@ return(data);
 
 
 // jsData 
-function gvisDataTableID16025656c410 () {
+function gvisDataTableID281753810a73 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -11624,14 +11638,14 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartGeoChartID16023ebea54e() {
-var data = gvisDataGeoChartID16023ebea54e();
+function drawChartGeoChartID28176073d08d() {
+var data = gvisDataGeoChartID28176073d08d();
 var options = {};
 options["width"] =    300;
 options["height"] =    300;
 
     var chart = new google.visualization.GeoChart(
-    document.getElementById('GeoChartID16023ebea54e')
+    document.getElementById('GeoChartID28176073d08d')
     );
     chart.draw(data,options);
     
@@ -11641,15 +11655,15 @@ options["height"] =    300;
 
 
 // jsDrawChart
-function drawChartTableID16025656c410() {
-var data = gvisDataTableID16025656c410();
+function drawChartTableID281753810a73() {
+var data = gvisDataTableID281753810a73();
 var options = {};
 options["allowHtml"] = true;
 options["width"] =    220;
 options["height"] =    300;
 
     var chart = new google.visualization.Table(
-    document.getElementById('TableID16025656c410')
+    document.getElementById('TableID281753810a73')
     );
     chart.draw(data,options);
     
@@ -11673,9 +11687,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartGeoChartID16023ebea54e);
+callbacks.push(drawChartGeoChartID28176073d08d);
 })();
-function displayChartGeoChartID16023ebea54e() {
+function displayChartGeoChartID28176073d08d() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -11712,9 +11726,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartTableID16025656c410);
+callbacks.push(drawChartTableID281753810a73);
 })();
-function displayChartTableID16025656c410() {
+function displayChartTableID281753810a73() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -11740,11 +11754,11 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID16023ebea54e"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID28176073d08d"></script>
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID16025656c410"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID281753810a73"></script>
  
 
 <table border="0">
@@ -11753,7 +11767,7 @@ callbacks.shift()();
 
 <!-- divChart -->
   
-<div id="GeoChartID16023ebea54e" 
+<div id="GeoChartID28176073d08d" 
   style="width: 300; height: 300;">
 </div>
 
@@ -11762,7 +11776,7 @@ callbacks.shift()();
 
 <!-- divChart -->
   
-<div id="TableID16025656c410" 
+<div id="TableID281753810a73" 
   style="width: 220; height: 300;">
 </div>
 
@@ -11782,16 +11796,16 @@ callbacks.shift()();
 plot(Motion)
 </code></pre>
 
-<!-- MotionChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- MotionChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:16 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataMotionChartID160260d58c63 () {
+function gvisDataMotionChartID28174ff6c7c2 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -11889,14 +11903,15 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartMotionChartID160260d58c63() {
-var data = gvisDataMotionChartID160260d58c63();
+function drawChartMotionChartID28174ff6c7c2() {
+var data = gvisDataMotionChartID28174ff6c7c2();
 var options = {};
 options["width"] =    600;
 options["height"] =    500;
+options["state"] = "";
 
     var chart = new google.visualization.MotionChart(
-    document.getElementById('MotionChartID160260d58c63')
+    document.getElementById('MotionChartID28174ff6c7c2')
     );
     chart.draw(data,options);
     
@@ -11920,9 +11935,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartMotionChartID160260d58c63);
+callbacks.push(drawChartMotionChartID28174ff6c7c2);
 })();
-function displayChartMotionChartID160260d58c63() {
+function displayChartMotionChartID28174ff6c7c2() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -11948,12 +11963,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID160260d58c63"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID28174ff6c7c2"></script>
  
 
 <!-- divChart -->
 
-<div id="MotionChartID160260d58c63" 
+<div id="MotionChartID28174ff6c7c2" 
   style="width: 600; height: 500;">
 </div>
 
@@ -11981,16 +11996,16 @@ M &lt;- gvisMotionChart(Fruits, &quot;Fruit&quot;, &quot;Year&quot;, options=lis
 plot(M)
 </code></pre>
 
-<!-- MotionChart generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- MotionChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:16 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataMotionChartID160263f3e93f () {
+function gvisDataMotionChartID281752b4ba91 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -12088,15 +12103,15 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartMotionChartID160263f3e93f() {
-var data = gvisDataMotionChartID160263f3e93f();
+function drawChartMotionChartID281752b4ba91() {
+var data = gvisDataMotionChartID281752b4ba91();
 var options = {};
 options["width"] =    600;
 options["height"] =    500;
 options["state"] = "\n{\"xZoomedDataMin\":1199145600000,\"colorOption\":\"2\",\n\"duration\":{\"timeUnit\":\"Y\",\"multiplier\":1},\"yLambda\":1,\n\"yAxisOption\":\"4\",\"sizeOption\":\"_UNISIZE\",\n\"iconKeySettings\":[],\"xLambda\":1,\"nonSelectedAlpha\":0,\n\"xZoomedDataMax\":1262304000000,\"iconType\":\"LINE\",\n\"dimensions\":{\"iconDimensions\":[\"dim0\"]},\n\"showTrails\":false,\"uniColorForNonSelected\":false,\n\"xAxisOption\":\"_TIME\",\"orderedByX\":false,\"playDuration\":15000,\n\"xZoomedIn\":false,\"time\":\"2010\",\"yZoomedDataMin\":0,\n\"yZoomedIn\":false,\"orderedByY\":false,\"yZoomedDataMax\":100}\n";
 
     var chart = new google.visualization.MotionChart(
-    document.getElementById('MotionChartID160263f3e93f')
+    document.getElementById('MotionChartID281752b4ba91')
     );
     chart.draw(data,options);
     
@@ -12120,9 +12135,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartMotionChartID160263f3e93f);
+callbacks.push(drawChartMotionChartID281752b4ba91);
 })();
-function displayChartMotionChartID160263f3e93f() {
+function displayChartMotionChartID281752b4ba91() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -12148,12 +12163,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID160263f3e93f"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID281752b4ba91"></script>
  
 
 <!-- divChart -->
 
-<div id="MotionChartID160263f3e93f" 
+<div id="MotionChartID281752b4ba91" 
   style="width: 600; height: 500;">
 </div>
 
@@ -12172,16 +12187,16 @@ callbacks.shift()();
 plot(AndrewGeo)
 </code></pre>
 
-<!-- GeoMap generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- GeoMap generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:16 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataGeoMapID160222565a5d () {
+function gvisDataGeoMapID28175744b002 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -12477,8 +12492,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartGeoMapID160222565a5d() {
-var data = gvisDataGeoMapID160222565a5d();
+function drawChartGeoMapID28175744b002() {
+var data = gvisDataGeoMapID28175744b002();
 var options = {};
 options["dataMode"] = "markers";
 options["width"] =    556;
@@ -12486,7 +12501,7 @@ options["height"] =    350;
 options["region"] = "US";
 
     var chart = new google.visualization.GeoMap(
-    document.getElementById('GeoMapID160222565a5d')
+    document.getElementById('GeoMapID28175744b002')
     );
     chart.draw(data,options);
     
@@ -12510,9 +12525,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartGeoMapID160222565a5d);
+callbacks.push(drawChartGeoMapID28175744b002);
 })();
-function displayChartGeoMapID160222565a5d() {
+function displayChartGeoMapID28175744b002() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -12538,12 +12553,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoMapID160222565a5d"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoMapID28175744b002"></script>
  
 
 <!-- divChart -->
 
-<div id="GeoMapID160222565a5d" 
+<div id="GeoMapID28175744b002" 
   style="width: 556; height: 350;">
 </div>
 
@@ -12560,16 +12575,16 @@ callbacks.shift()();
 plot(AnnoTimeLine)
 </code></pre>
 
-<!-- AnnotatedTimeLine generated in R 3.1.1 by googleVis 0.5.5 package -->
+<!-- AnnotatedTimeLine generated in R 3.1.1 by googleVis 0.5.6 package -->
 
-<!-- Fri Aug 15 22:25:23 2014 -->
+<!-- Sun Oct 12 08:56:16 2014 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataAnnotatedTimeLineID16025346a147 () {
+function gvisDataAnnotatedTimeLineID28175e7f8010 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -12640,15 +12655,15 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartAnnotatedTimeLineID16025346a147() {
-var data = gvisDataAnnotatedTimeLineID16025346a147();
+function drawChartAnnotatedTimeLineID28175e7f8010() {
+var data = gvisDataAnnotatedTimeLineID28175e7f8010();
 var options = {};
 options["width"] = "600px";
 options["height"] = "350px";
 options["displayAnnotations"] = true;
 
     var chart = new google.visualization.AnnotatedTimeLine(
-    document.getElementById('AnnotatedTimeLineID16025346a147')
+    document.getElementById('AnnotatedTimeLineID28175e7f8010')
     );
     chart.draw(data,options);
     
@@ -12672,9 +12687,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartAnnotatedTimeLineID16025346a147);
+callbacks.push(drawChartAnnotatedTimeLineID28175e7f8010);
 })();
-function displayChartAnnotatedTimeLineID16025346a147() {
+function displayChartAnnotatedTimeLineID28175e7f8010() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -12700,12 +12715,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartAnnotatedTimeLineID16025346a147"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartAnnotatedTimeLineID28175e7f8010"></script>
  
 
 <!-- divChart -->
 
-<div id="AnnotatedTimeLineID16025346a147" 
+<div id="AnnotatedTimeLineID28175e7f8010" 
   style="width: 600px; height: 350px;">
 </div>
 
