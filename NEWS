@@ -1,4 +1,13 @@
-googleVis 0.5.9 [2014-07-04]
+googleVis 0.5.10 [2015-08-26]
+----------------------------
+
+Bug fixes 
+
+ o Ordered factors were ignored. 
+   Thanks to Carsten Langer for reporting this issue.
+
+
+googleVis 0.5.9 [2015-07-04]
 ----------------------------
 
 Changes
@@ -8,7 +17,7 @@ Changes
    
   * Updated NAMESPACE file to comply with new R CMD checks in R-3.3.0   
 
-googleVis 0.5.8 [2014-01-21]
+googleVis 0.5.8 [2015-01-21]
 ----------------------------
 
 Changes

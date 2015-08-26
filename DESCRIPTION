@@ -1,8 +1,8 @@
 Package: googleVis
 Type: Package
 Title: R Interface to Google Charts
-Version: 0.5.9
-Date: 2015-07-04
+Version: 0.5.10
+Date: 2015-08-26
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
     email = "markus.gesmann@googlemail.com"),
     person("Diego", "de Castillo", role = "aut",
@@ -19,16 +19,16 @@ Depends: R (>= 3.0.2)
 Imports: methods, RJSONIO, utils
 Suggests: shiny (>= 0.4.0), httpuv (>= 1.2.0), knitr (>= 1.5)
 License: GPL (>= 2)
-URL: http://github.com/mages/googleVis
+URL: https://github.com/mages/googleVis#googlevis
 BugReports: https://github.com/mages/googleVis/issues
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2015-07-04 08:50:05 UTC; Markus
+Packaged: 2015-08-26 18:21:48 UTC; Markus
 Author: Markus Gesmann [aut, cre],
   Diego de Castillo [aut],
   Joe Cheng [ctb]
 Maintainer: Markus Gesmann <markus.gesmann@googlemail.com>
 Repository: CRAN
-Date/Publication: 2015-07-04 15:35:19
+Date/Publication: 2015-08-26 23:22:30
