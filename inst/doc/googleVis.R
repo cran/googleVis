@@ -304,33 +304,19 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 38: googleVis.Rnw:892-895 (eval = FALSE)
-###################################################
-## library(R.rsp) 
-## browseRsp() 
-## # Follow the link for googleVis in the opening browser window
-
-
-###################################################
-### code chunk number 39: googleVis.Rnw:899-900 (eval = FALSE)
-###################################################
-## file.path(system.file("rsp", package = "googleVis"), "index.rsp")
-
-
-###################################################
-### code chunk number 40: googleVis.Rnw:958-959 (eval = FALSE)
+### code chunk number 38: googleVis.Rnw:944-945 (eval = FALSE)
 ###################################################
 ## install.packages('brew')
 
 
 ###################################################
-### code chunk number 41: googleVis.Rnw:993-994 (eval = FALSE)
+### code chunk number 39: googleVis.Rnw:979-980 (eval = FALSE)
 ###################################################
 ## system.file("brew", package = "googleVis")
 
 
 ###################################################
-### code chunk number 42: googleVis.Rnw:1018-1058 (eval = FALSE)
+### code chunk number 40: googleVis.Rnw:1004-1044 (eval = FALSE)
 ###################################################
 ## require(Rook)
 ## require(googleVis)
@@ -375,7 +361,7 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 43: googleVis.Rnw:1077-1104 (eval = FALSE)
+### code chunk number 41: googleVis.Rnw:1063-1090 (eval = FALSE)
 ###################################################
 ## # server.R
 ## library(googleVis)
@@ -407,14 +393,14 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 44: googleVis.Rnw:1115-1117 (eval = FALSE)
+### code chunk number 42: googleVis.Rnw:1101-1103 (eval = FALSE)
 ###################################################
 ## library(shiny) ## Version >= 0.4.0 required
 ## runApp(system.file("shiny/", package="googleVis"))
 
 
 ###################################################
-### code chunk number 45: googleVis.Rnw:1316-1322 (eval = FALSE)
+### code chunk number 43: googleVis.Rnw:1302-1308 (eval = FALSE)
 ###################################################
 ## jscode <- "window.open('http://en.wikipedia.org/wiki/' 
 ##                   + data.getValue(chart.getSelection()[0].row,0)); "
@@ -425,14 +411,14 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 46: googleVis.Rnw:1325-1327 (eval = FALSE)
+### code chunk number 44: googleVis.Rnw:1311-1313 (eval = FALSE)
 ###################################################
 ## plot(gvisOrgChart(Regions,  options=list(gvis.listener.jscode=jscode)))
 ## plot(gvisLineChart(Regions[,c(1,3)], options=list(gvis.listener.jscode=jscode)))
 
 
 ###################################################
-### code chunk number 47: googleVis.Rnw:1331-1339 (eval = FALSE)
+### code chunk number 45: googleVis.Rnw:1317-1325 (eval = FALSE)
 ###################################################
 ## jscode <- "
 ##        var sel = chart.getSelection();
@@ -445,7 +431,7 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 48: googleVis.Rnw:1404-1414 (eval = FALSE)
+### code chunk number 46: googleVis.Rnw:1390-1400 (eval = FALSE)
 ###################################################
 ## library(googleVis)
 ## dat <- data.frame(x=LETTERS[1:10], 
@@ -460,13 +446,13 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 49: googleVis.Rnw:1455-1456 (eval = FALSE)
+### code chunk number 47: googleVis.Rnw:1441-1442 (eval = FALSE)
 ###################################################
 ## citation("googleVis")
 
 
 ###################################################
-### code chunk number 50: googleVis.Rnw:1459-1460 (eval = FALSE)
+### code chunk number 48: googleVis.Rnw:1445-1446 (eval = FALSE)
 ###################################################
 ## citation()
 
