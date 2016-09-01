@@ -7,7 +7,7 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 
 
 ###################################################
-### code chunk number 2: googleVis.Rnw:234-269 (eval = FALSE)
+### code chunk number 2: googleVis.Rnw:232-267 (eval = FALSE)
 ###################################################
 ## ## Code for screen shot
 ## MC <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(width=500, height=300))
@@ -47,142 +47,142 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 
 
 ###################################################
-### code chunk number 3: googleVis.Rnw:285-286 (eval = FALSE)
+### code chunk number 3: googleVis.Rnw:283-284 (eval = FALSE)
 ###################################################
 ## install.packages('googleVis') 
 
 
 ###################################################
-### code chunk number 4: googleVis.Rnw:290-291
+### code chunk number 4: googleVis.Rnw:288-289
 ###################################################
 library(googleVis)
 
 
 ###################################################
-### code chunk number 5: googleVis.Rnw:293-294 (eval = FALSE)
+### code chunk number 5: googleVis.Rnw:291-292 (eval = FALSE)
 ###################################################
 ## library(googleVis)
 
 
 ###################################################
-### code chunk number 6: googleVis.Rnw:296-297
+### code chunk number 6: googleVis.Rnw:294-295
 ###################################################
 cat(googleVis:::gvisWelcomeMessage())
 
 
 ###################################################
-### code chunk number 7: googleVis.Rnw:326-327 (eval = FALSE)
+### code chunk number 7: googleVis.Rnw:324-325 (eval = FALSE)
 ###################################################
 ## help('gvisMotionChart')
 
 
 ###################################################
-### code chunk number 8: googleVis.Rnw:372-374
+### code chunk number 8: googleVis.Rnw:370-372
 ###################################################
 data(Fruits)
 Fruits
 
 
 ###################################################
-### code chunk number 9: googleVis.Rnw:381-382
+### code chunk number 9: googleVis.Rnw:379-380
 ###################################################
  M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
 
 
 ###################################################
-### code chunk number 10: googleVis.Rnw:386-387 (eval = FALSE)
+### code chunk number 10: googleVis.Rnw:384-385 (eval = FALSE)
 ###################################################
 ##  str(M)
 
 
 ###################################################
-### code chunk number 11: googleVis.Rnw:389-391
+### code chunk number 11: googleVis.Rnw:387-389
 ###################################################
 ## This statement avoids truncation
 cat(paste(substring( capture.output( str(M) ) , 0, 66), sep="\n", collapse="\n"))
 
 
 ###################################################
-### code chunk number 12: googleVis.Rnw:396-398
+### code chunk number 12: googleVis.Rnw:394-396
 ###################################################
 M$type
 M$chartid
 
 
 ###################################################
-### code chunk number 13: googleVis.Rnw:405-406
+### code chunk number 13: googleVis.Rnw:403-404
 ###################################################
 print(M, tag='header')
 
 
 ###################################################
-### code chunk number 14: googleVis.Rnw:421-422
+### code chunk number 14: googleVis.Rnw:419-420
 ###################################################
 names(M$html$chart)
 
 
 ###################################################
-### code chunk number 15: googleVis.Rnw:425-426
+### code chunk number 15: googleVis.Rnw:423-424
 ###################################################
 print(M, tag='chart')  ## or cat(M$html$chart)
 
 
 ###################################################
-### code chunk number 16: googleVis.Rnw:429-430 (eval = FALSE)
+### code chunk number 16: googleVis.Rnw:427-428 (eval = FALSE)
 ###################################################
 ## cat(M$html$chart['jsChart']) # or print(M, 'jsChart')
 
 
 ###################################################
-### code chunk number 17: googleVis.Rnw:432-433
+### code chunk number 17: googleVis.Rnw:430-431
 ###################################################
 cat(paste(substring( capture.output( cat(M$html$chart['jsChart']) ) , 0, 66), sep="\n", collapse="\n"))
 
 
 ###################################################
-### code chunk number 18: googleVis.Rnw:438-439 (eval = FALSE)
+### code chunk number 18: googleVis.Rnw:436-437 (eval = FALSE)
 ###################################################
 ## print(M, tag='caption')
 
 
 ###################################################
-### code chunk number 19: googleVis.Rnw:441-442
+### code chunk number 19: googleVis.Rnw:439-440
 ###################################################
 cat(paste(substring( capture.output( cat(M$html$caption) ) , 0, 66), sep="\n", collapse="\n"))
 
 
 ###################################################
-### code chunk number 20: googleVis.Rnw:445-446 (eval = FALSE)
+### code chunk number 20: googleVis.Rnw:443-444 (eval = FALSE)
 ###################################################
 ## print(M, tag='footer')
 
 
 ###################################################
-### code chunk number 21: googleVis.Rnw:448-449
+### code chunk number 21: googleVis.Rnw:446-447
 ###################################################
 cat(paste(substring( capture.output( cat(M$html$footer) ) , 0, 66), sep="\n", collapse="\n"))
 
 
 ###################################################
-### code chunk number 22: googleVis.Rnw:456-457 (eval = FALSE)
+### code chunk number 22: googleVis.Rnw:454-455 (eval = FALSE)
 ###################################################
 ## plot(M)  # returns invisibly the file name
 
 
 ###################################################
-### code chunk number 23: googleVis.Rnw:472-473 (eval = FALSE)
+### code chunk number 23: googleVis.Rnw:470-471 (eval = FALSE)
 ###################################################
 ## print(M, file="myGoogleVisChart.html")
 
 
 ###################################################
-### code chunk number 24: googleVis.Rnw:502-503 (eval = FALSE)
+### code chunk number 24: googleVis.Rnw:500-501 (eval = FALSE)
 ###################################################
 ## plot.gvis("/Users/JoeBloggs/myGoogleVisChart.html")
 
 
 ###################################################
-### code chunk number 25: googleVis.Rnw:559-568
+### code chunk number 25: googleVis.Rnw:557-566
 ###################################################
 G <- gvisGeoChart(Exports, "Country", "Profit", 
                   options=list(width=200, height=100))
@@ -196,13 +196,13 @@ GTM <- gvisMerge(GT, M, horizontal=TRUE,
 
 
 ###################################################
-### code chunk number 26: googleVis.Rnw:570-571 (eval = FALSE)
+### code chunk number 26: googleVis.Rnw:568-569 (eval = FALSE)
 ###################################################
 ## plot(GTM)
 
 
 ###################################################
-### code chunk number 27: googleVis.Rnw:591-612 (eval = FALSE)
+### code chunk number 27: googleVis.Rnw:589-610 (eval = FALSE)
 ###################################################
 ## df <- data.frame(country=c("US", "GB", "BR"), 
 ##                         val1=c(1,3,4), val2=c(23,12,32))
@@ -228,7 +228,7 @@ GTM <- gvisMerge(GT, M, horizontal=TRUE,
 
 
 ###################################################
-### code chunk number 28: googleVis.Rnw:660-668 (eval = FALSE)
+### code chunk number 28: googleVis.Rnw:658-666 (eval = FALSE)
 ###################################################
 ## Geo <- gvisGeoChart(CityPopularity, locationvar='City', 
 ##                     colorvar='Popularity',
@@ -241,14 +241,14 @@ GTM <- gvisMerge(GT, M, horizontal=TRUE,
 
 
 ###################################################
-### code chunk number 29: googleVis.Rnw:686-688 (eval = FALSE)
+### code chunk number 29: googleVis.Rnw:684-686 (eval = FALSE)
 ###################################################
 ## Editor <- gvisLineChart(df, options=list(gvis.editor='Edit me!'))
 ## plot(Editor)
 
 
 ###################################################
-### code chunk number 30: googleVis.Rnw:710-717
+### code chunk number 30: googleVis.Rnw:708-715
 ###################################################
 df <- data.frame("Year"=c(2009,2010), "Lloyd\\'s"=c(86.1, 93.3), 
                  "Munich Re\\'s R/I"=c(95.3, 100.5),
@@ -260,63 +260,63 @@ CR <- gvisColumnChart(df, options=list(vAxis='{baseline:0}',
 
 
 ###################################################
-### code chunk number 31: googleVis.Rnw:719-720 (eval = FALSE)
+### code chunk number 31: googleVis.Rnw:717-718 (eval = FALSE)
 ###################################################
 ## plot(CR)
 
 
 ###################################################
-### code chunk number 32: googleVis.Rnw:738-739 (eval = FALSE)
+### code chunk number 32: googleVis.Rnw:736-737 (eval = FALSE)
 ###################################################
 ## print(M, 'chart')  ## or cat(M$html$chart) 
 
 
 ###################################################
-### code chunk number 33: googleVis.Rnw:742-743 (eval = FALSE)
+### code chunk number 33: googleVis.Rnw:740-741 (eval = FALSE)
 ###################################################
 ## print(M, 'chart', file='myfilename')
 
 
 ###################################################
-### code chunk number 34: googleVis.Rnw:764-766 (eval = FALSE)
+### code chunk number 34: googleVis.Rnw:762-764 (eval = FALSE)
 ###################################################
 ## M <- gvisMotionChart(Fruits, "Fruit", "Year",
 ## 		     options=list(width=400, height=370))
 
 
 ###################################################
-### code chunk number 35: googleVis.Rnw:769-770 (eval = FALSE)
+### code chunk number 35: googleVis.Rnw:767-768 (eval = FALSE)
 ###################################################
 ## print(M, 'chart')
 
 
 ###################################################
-### code chunk number 36: googleVis.Rnw:807-809
+### code chunk number 36: googleVis.Rnw:805-807
 ###################################################
 M <- gvisMotionChart(Fruits, "Fruit", "Year")
 G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 37: googleVis.Rnw:811-812 (eval = FALSE)
+### code chunk number 37: googleVis.Rnw:809-810 (eval = FALSE)
 ###################################################
 ## cat(G, file="myGadget.xml")
 
 
 ###################################################
-### code chunk number 38: googleVis.Rnw:944-945 (eval = FALSE)
+### code chunk number 38: googleVis.Rnw:942-943 (eval = FALSE)
 ###################################################
 ## install.packages('brew')
 
 
 ###################################################
-### code chunk number 39: googleVis.Rnw:979-980 (eval = FALSE)
+### code chunk number 39: googleVis.Rnw:977-978 (eval = FALSE)
 ###################################################
 ## system.file("brew", package = "googleVis")
 
 
 ###################################################
-### code chunk number 40: googleVis.Rnw:1004-1044 (eval = FALSE)
+### code chunk number 40: googleVis.Rnw:1002-1042 (eval = FALSE)
 ###################################################
 ## require(Rook)
 ## require(googleVis)
@@ -361,7 +361,7 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 41: googleVis.Rnw:1063-1090 (eval = FALSE)
+### code chunk number 41: googleVis.Rnw:1061-1088 (eval = FALSE)
 ###################################################
 ## # server.R
 ## library(googleVis)
@@ -393,14 +393,14 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 42: googleVis.Rnw:1101-1103 (eval = FALSE)
+### code chunk number 42: googleVis.Rnw:1099-1101 (eval = FALSE)
 ###################################################
 ## library(shiny) ## Version >= 0.4.0 required
 ## runApp(system.file("shiny/", package="googleVis"))
 
 
 ###################################################
-### code chunk number 43: googleVis.Rnw:1302-1308 (eval = FALSE)
+### code chunk number 43: googleVis.Rnw:1300-1306 (eval = FALSE)
 ###################################################
 ## jscode <- "window.open('http://en.wikipedia.org/wiki/' 
 ##                   + data.getValue(chart.getSelection()[0].row,0)); "
@@ -411,14 +411,14 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 44: googleVis.Rnw:1311-1313 (eval = FALSE)
+### code chunk number 44: googleVis.Rnw:1309-1311 (eval = FALSE)
 ###################################################
 ## plot(gvisOrgChart(Regions,  options=list(gvis.listener.jscode=jscode)))
 ## plot(gvisLineChart(Regions[,c(1,3)], options=list(gvis.listener.jscode=jscode)))
 
 
 ###################################################
-### code chunk number 45: googleVis.Rnw:1317-1325 (eval = FALSE)
+### code chunk number 45: googleVis.Rnw:1315-1323 (eval = FALSE)
 ###################################################
 ## jscode <- "
 ##        var sel = chart.getSelection();
@@ -431,7 +431,7 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 46: googleVis.Rnw:1390-1400 (eval = FALSE)
+### code chunk number 46: googleVis.Rnw:1384-1394 (eval = FALSE)
 ###################################################
 ## library(googleVis)
 ## dat <- data.frame(x=LETTERS[1:10], 
@@ -446,13 +446,13 @@ G <- createGoogleGadget(M)
 
 
 ###################################################
-### code chunk number 47: googleVis.Rnw:1441-1442 (eval = FALSE)
+### code chunk number 47: googleVis.Rnw:1424-1425 (eval = FALSE)
 ###################################################
 ## citation("googleVis")
 
 
 ###################################################
-### code chunk number 48: googleVis.Rnw:1445-1446 (eval = FALSE)
+### code chunk number 48: googleVis.Rnw:1428-1429 (eval = FALSE)
 ###################################################
 ## citation()
 

@@ -234,48 +234,48 @@ CC &lt;- gvisComboChart(CityPopularity, xvar=&#39;City&#39;,
 plot(CC)
 </code></pre>
 
-<!-- ComboChart generated in R 3.3.1 by googleVis 0.6.0 package -->
+<!-- ComboChart generated in R 3.3.1 by googleVis 0.6.1 package -->
 
-<!-- Mon Jul  4 19:47:43 2016 -->
+<!-- Thu Sep  1 06:03:32 2016 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataComboChartID852248221123 () {
+function gvisDataComboChartID14c80116c12f9 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
  [
- "New York",
+"New York",
 450,
-200 
+200
 ],
 [
- "Boston",
+"Boston",
 450,
-300 
+300
 ],
 [
- "Miami",
+"Miami",
 450,
-400 
+400
 ],
 [
- "Chicago",
+"Chicago",
 450,
-500 
+500
 ],
 [
- "Los Angeles",
+"Los Angeles",
 450,
-600 
+600
 ],
 [
- "Houston",
+"Houston",
 450,
-700 
+700
 ] 
 ];
 data.addColumn('string','City');
@@ -286,18 +286,18 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartComboChartID852248221123() {
-var data = gvisDataComboChartID852248221123();
+function drawChartComboChartID14c80116c12f9() {
+var data = gvisDataComboChartID14c80116c12f9();
 var options = {};
-options["allowHtml"] = [true];
-options["seriesType"] = ["bars"];
-options["width"] = [450];
-options["height"] = [300];
-options["title"] = ["City Popularity"];
+options["allowHtml"] = true;
+options["seriesType"] = "bars";
+options["width"] = 450;
+options["height"] = 300;
+options["title"] = "City Popularity";
 options["series"] = {0: {type:"line"}};
 
     var chart = new google.visualization.ComboChart(
-    document.getElementById('ComboChartID852248221123')
+    document.getElementById('ComboChartID14c80116c12f9')
     );
     chart.draw(data,options);
     
@@ -321,9 +321,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartComboChartID852248221123);
+callbacks.push(drawChartComboChartID14c80116c12f9);
 })();
-function displayChartComboChartID852248221123() {
+function displayChartComboChartID14c80116c12f9() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -349,12 +349,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartComboChartID852248221123"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartComboChartID14c80116c12f9"></script>
  
 
 <!-- divChart -->
 
-<div id="ComboChartID852248221123" 
+<div id="ComboChartID14c80116c12f9" 
   style="width: 450; height: 300;">
 </div>
 
@@ -362,58 +362,58 @@ callbacks.shift()();
 
 <h2>Place two charts next to each other</h2>
 
-<!-- GeoChart generated in R 3.3.1 by googleVis 0.6.0 package -->
+<!-- GeoChart generated in R 3.3.1 by googleVis 0.6.1 package -->
 
-<!-- Mon Jul  4 19:47:43 2016 -->
+<!-- Thu Sep  1 06:03:32 2016 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataGeoChartID85222cb30c43 () {
+function gvisDataGeoChartID14c80517af17d () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
  [
- "Germany",
-3 
+"Germany",
+3
 ],
 [
- "Brazil",
-4 
+"Brazil",
+4
 ],
 [
- "United States",
-5 
+"United States",
+5
 ],
 [
- "France",
-4 
+"France",
+4
 ],
 [
- "Hungary",
-3 
+"Hungary",
+3
 ],
 [
- "India",
-2 
+"India",
+2
 ],
 [
- "Iceland",
-1 
+"Iceland",
+1
 ],
 [
- "Norway",
-4 
+"Norway",
+4
 ],
 [
- "Spain",
-5 
+"Spain",
+5
 ],
 [
- "Turkey",
-1 
+"Turkey",
+1
 ] 
 ];
 data.addColumn('string','Country');
@@ -424,59 +424,59 @@ return(data);
 
 
 // jsData 
-function gvisDataTableID85221eea19a2 () {
+function gvisDataTableID14c805e846f55 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
  [
- "Germany",
+"Germany",
 3,
-true 
+true
 ],
 [
- "Brazil",
+"Brazil",
 4,
-false 
+false
 ],
 [
- "United States",
+"United States",
 5,
-true 
+true
 ],
 [
- "France",
+"France",
 4,
-true 
+true
 ],
 [
- "Hungary",
+"Hungary",
 3,
-false 
+false
 ],
 [
- "India",
+"India",
 2,
-true 
+true
 ],
 [
- "Iceland",
+"Iceland",
 1,
-false 
+false
 ],
 [
- "Norway",
+"Norway",
 4,
-true 
+true
 ],
 [
- "Spain",
+"Spain",
 5,
-true 
+true
 ],
 [
- "Turkey",
+"Turkey",
 1,
-false 
+false
 ] 
 ];
 data.addColumn('string','Country');
@@ -487,14 +487,14 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartGeoChartID85222cb30c43() {
-var data = gvisDataGeoChartID85222cb30c43();
+function drawChartGeoChartID14c80517af17d() {
+var data = gvisDataGeoChartID14c80517af17d();
 var options = {};
-options["width"] = [350];
-options["height"] = [300];
+options["width"] = 350;
+options["height"] = 300;
 
     var chart = new google.visualization.GeoChart(
-    document.getElementById('GeoChartID85222cb30c43')
+    document.getElementById('GeoChartID14c80517af17d')
     );
     chart.draw(data,options);
     
@@ -504,15 +504,15 @@ options["height"] = [300];
 
 
 // jsDrawChart
-function drawChartTableID85221eea19a2() {
-var data = gvisDataTableID85221eea19a2();
+function drawChartTableID14c805e846f55() {
+var data = gvisDataTableID14c805e846f55();
 var options = {};
-options["allowHtml"] = [true];
-options["height"] = [300];
-options["width"] = [200];
+options["allowHtml"] = true;
+options["height"] = 300;
+options["width"] = 200;
 
     var chart = new google.visualization.Table(
-    document.getElementById('TableID85221eea19a2')
+    document.getElementById('TableID14c805e846f55')
     );
     chart.draw(data,options);
     
@@ -536,9 +536,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartGeoChartID85222cb30c43);
+callbacks.push(drawChartGeoChartID14c80517af17d);
 })();
-function displayChartGeoChartID85222cb30c43() {
+function displayChartGeoChartID14c80517af17d() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -575,9 +575,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartTableID85221eea19a2);
+callbacks.push(drawChartTableID14c805e846f55);
 })();
-function displayChartTableID85221eea19a2() {
+function displayChartTableID14c805e846f55() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -603,11 +603,11 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID85222cb30c43"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID14c80517af17d"></script>
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID85221eea19a2"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID14c805e846f55"></script>
  
 
 <table border="0">
@@ -616,7 +616,7 @@ callbacks.shift()();
 
 <!-- divChart -->
   
-<div id="GeoChartID85222cb30c43" 
+<div id="GeoChartID14c80517af17d" 
   style="width: 350; height: 300;">
 </div>
 
@@ -625,7 +625,7 @@ callbacks.shift()();
 
 <!-- divChart -->
   
-<div id="TableID85221eea19a2" 
+<div id="TableID14c805e846f55" 
   style="width: 200; height: 300;">
 </div>
 
@@ -642,99 +642,99 @@ callbacks.shift()();
 plot(M)
 </code></pre>
 
-<!-- MotionChart generated in R 3.3.1 by googleVis 0.6.0 package -->
+<!-- MotionChart generated in R 3.3.1 by googleVis 0.6.1 package -->
 
-<!-- Mon Jul  4 19:47:43 2016 -->
+<!-- Thu Sep  1 06:03:32 2016 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataMotionChartID852227d281fb () {
+function gvisDataMotionChartID14c80563d6f86 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
  [
- "Apples",
+"Apples",
 2008,
 "West",
 98,
 78,
 20,
-"2008-12-31" 
+"2008-12-31"
 ],
 [
- "Apples",
+"Apples",
 2009,
 "West",
 111,
 79,
 32,
-"2009-12-31" 
+"2009-12-31"
 ],
 [
- "Apples",
+"Apples",
 2010,
 "West",
 89,
 76,
 13,
-"2010-12-31" 
+"2010-12-31"
 ],
 [
- "Oranges",
+"Oranges",
 2008,
 "East",
 96,
 81,
 15,
-"2008-12-31" 
+"2008-12-31"
 ],
 [
- "Bananas",
+"Bananas",
 2008,
 "East",
 85,
 76,
 9,
-"2008-12-31" 
+"2008-12-31"
 ],
 [
- "Oranges",
+"Oranges",
 2009,
 "East",
 93,
 80,
 13,
-"2009-12-31" 
+"2009-12-31"
 ],
 [
- "Bananas",
+"Bananas",
 2009,
 "East",
 94,
 78,
 16,
-"2009-12-31" 
+"2009-12-31"
 ],
 [
- "Oranges",
+"Oranges",
 2010,
 "East",
 98,
 91,
 7,
-"2010-12-31" 
+"2010-12-31"
 ],
 [
- "Bananas",
+"Bananas",
 2010,
 "East",
 81,
 71,
 10,
-"2010-12-31" 
+"2010-12-31"
 ] 
 ];
 data.addColumn('string','Fruit');
@@ -749,15 +749,15 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartMotionChartID852227d281fb() {
-var data = gvisDataMotionChartID852227d281fb();
+function drawChartMotionChartID14c80563d6f86() {
+var data = gvisDataMotionChartID14c80563d6f86();
 var options = {};
-options["width"] = [400];
-options["height"] = [350];
-options["state"] = [""];
+options["width"] = 400;
+options["height"] = 350;
+options["state"] = "";
 
     var chart = new google.visualization.MotionChart(
-    document.getElementById('MotionChartID852227d281fb')
+    document.getElementById('MotionChartID14c80563d6f86')
     );
     chart.draw(data,options);
     
@@ -781,9 +781,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartMotionChartID852227d281fb);
+callbacks.push(drawChartMotionChartID14c80563d6f86);
 })();
-function displayChartMotionChartID852227d281fb() {
+function displayChartMotionChartID14c80563d6f86() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -809,12 +809,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID852227d281fb"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID14c80563d6f86"></script>
  
 
 <!-- divChart -->
 
-<div id="MotionChartID852227d281fb" 
+<div id="MotionChartID14c80563d6f86" 
   style="width: 400; height: 350;">
 </div>
 

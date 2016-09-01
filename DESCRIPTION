@@ -1,8 +1,8 @@
 Package: googleVis
 Type: Package
 Title: R Interface to Google Charts
-Version: 0.6.0
-Date: 2016-07-04
+Version: 0.6.1
+Date: 2016-08-31
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
     email = "markus.gesmann@googlemail.com"),
     person("Diego", "de Castillo", role = "aut",
@@ -27,10 +27,10 @@ LazyData: yes
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2016-07-04 18:48:10 UTC; Markus
+Packaged: 2016-09-01 05:03:45 UTC; mages
 Author: Markus Gesmann [aut, cre],
   Diego de Castillo [aut],
   Joe Cheng [ctb]
 Maintainer: Markus Gesmann <markus.gesmann@googlemail.com>
 Repository: CRAN
-Date/Publication: 2016-07-05 08:55:19
+Date/Publication: 2016-09-01 08:24:56
