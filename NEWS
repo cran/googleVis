@@ -1,4 +1,13 @@
-googleVis 0.6.1 [2016-08-31]
+googleVis 0.6.2 [2017-01-01]
+----------------------------
+
+Changes
+
+  o Update links to omegahat from omegahat.org
+    to omegahat.net as requested by CRAN
+
+
+googleVis 0.6.1 [2016-09-01]
 ----------------------------
 
 Changes
@@ -19,8 +28,8 @@ googleVis 0.6.0 [2016-07-04]
 
 Changes
 
- o Changed package dependency from RJSONIO to jsonlite
-  
+ o Changed package dependency from RJSONIO to jsonlite.
+   
  o Change demo AnimatedGeoMap to AnimatedGeoChart
 
 
