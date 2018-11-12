@@ -30,10 +30,11 @@ Use a googleVis Chart as Shiny Output
 \section{Details}{
 
 More information about shiny is available online: 
- \url{http://www.rstudio.com/shiny/}. 
+ \url{https://www.rstudio.com/shiny/}. 
  You find further examples with googleVis on shiny on mages' blog:
- \url{http://lamages.blogspot.co.uk/search/label/shiny}
+ \url{https://magesblog.com/tags/shiny/}
 }
+
 \examples{
   
 \dontrun{
@@ -75,4 +76,3 @@ shinyUI(pageWithSidebar(
 Joe Cheng, \email{joe@rstudio.com}
 }
 \keyword{shiny}
-

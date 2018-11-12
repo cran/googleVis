@@ -7,8 +7,8 @@
 \Sexpr{gvisChartName <- "gvisMotionChart"}}
 \usage{
 gvisMotionChart(data, idvar = "id", timevar = "time", xvar = "",
-  yvar = "", colorvar = "", sizevar = "", date.format = "\%Y/\%m/\%d",
-  options = list(), chartid)
+  yvar = "", colorvar = "", sizevar = "",
+  date.format = "\%Y/\%m/\%d", options = list(), chartid)
 }
 \arguments{
 \item{data}{a \code{data.frame}. The data has to have at least four
@@ -83,9 +83,9 @@ time.
 Because of Flash security settings the chart 
 might not work correctly when accessed from a file location in the 
 browser (e.g., file:///c:/webhost/myhost/myviz.html) rather than 
-from a web server URL (e.g. http://www.myhost.com/myviz.html). 
+from a web server URL (e.g. https://www.myhost.com/myviz.html). 
 See the googleVis package vignette and the Macromedia web 
-site (\url{http://www.macromedia.com/support/documentation/en/flashplayer/help/}) 
+site (\url{https://www.macromedia.com/support/documentation/en/flashplayer/help/}) 
 for more details.
 }
 
@@ -94,6 +94,7 @@ for more details.
 Please note that a \code{timevar} with values less than 100 will 
 be shown as years 19xx.
 }
+
 \examples{
 ## Please note that by default the googleVis plot command
 ## will open a browser window and requires Flash and Internet
@@ -168,10 +169,6 @@ plot(M7)
 ## plots.
  
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com}, 
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -185,5 +182,8 @@ readLines(file.path(".", "inst",  "mansections",
 See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} 
 for printing and plotting methods.
 }
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com}, 
+Diego de Castillo \email{decastillo@gmail.com}
+}
 \keyword{iplot}
-

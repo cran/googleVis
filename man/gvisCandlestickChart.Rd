@@ -6,8 +6,8 @@
 \Sexpr{googleChartName <- "candlestickchart"}
 \Sexpr{gvisChartName <- "gvisCandlestickChart"}}
 \usage{
-gvisCandlestickChart(data, xvar = "", low = "", open = "", close = "",
-  high = "", options = list(), chartid)
+gvisCandlestickChart(data, xvar = "", low = "", open = "",
+  close = "", high = "", options = list(), chartid)
 }
 \arguments{
 \item{data}{a \code{\link{data.frame}} to be displayed as a candlestick
@@ -86,11 +86,6 @@ plot(C1)
 
 
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com},
-
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -104,5 +99,9 @@ readLines(file.path(".", "inst",  "mansections",
 See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
 printing and plotting methods
 }
-\keyword{iplot}
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
+Diego de Castillo \email{decastillo@gmail.com}
+}
+\keyword{iplot}

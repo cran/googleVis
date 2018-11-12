@@ -145,7 +145,7 @@ month <- ifelse(month < 10, paste("0",month, sep=""), m)
 
 ## Get weekly stock prices from Apple Inc.
 tckr <- 'AAPL'
-yahoo <- 'http://ichart.finance.yahoo.com/table.csv'
+yahoo <- 'https://ichart.finance.yahoo.com/table.csv'
 
 fn <- sprintf('\%s?s=\%s&a=08&b=7&c=1984&d=\%s&e=\%s&f=\%s&g=w&ignore=.csv',
       yahoo, tckr, month, current.day, current.year)
@@ -180,10 +180,6 @@ plot(aapl)
 }
 
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com},
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -198,5 +194,8 @@ See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and
 plotting methods. Further see \code{\link{reshape}} for reshaping data, e.g.
 from a wide format into a long format.
 }
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com},
+Diego de Castillo \email{decastillo@gmail.com}
+}
 \keyword{iplot}
-

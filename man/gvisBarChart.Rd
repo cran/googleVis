@@ -83,7 +83,7 @@ plot(Bar4)
 library(XML)
 ## Get the data of the biggest ISO container companies from Wikipedia
 ##(table 3):
-df=readHTMLTable(readLines("http://en.wikipedia.org/wiki/Intermodal_freight_transport"))[[3]][,1:2]
+df=readHTMLTable(readLines("https://en.wikipedia.org/wiki/Intermodal_freight_transport"))[[3]][,1:2]
 ## Rename the second column
 names(df)[2]="TEU capacity"
 ## The numbers are displayed with commas to separate thousands, so let's
@@ -101,11 +101,6 @@ plot(Bar5)
 }
 
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com},
-
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -119,5 +114,9 @@ readLines(file.path(".", "inst",  "mansections",
 See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
 printing and plotting methods
 }
-\keyword{iplot}
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
+Diego de Castillo \email{decastillo@gmail.com}
+}
+\keyword{iplot}

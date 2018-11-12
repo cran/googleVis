@@ -78,9 +78,9 @@ For more details visit: goo.gl/tkiEV8
 Because of Flash security settings the chart might not work correctly when
 accessed from a file location in the browser (e.g.,
 file:///c:/webhost/myhost/myviz.html) rather than from a web server URL
-(e.g. http://www.myhost.com/myviz.html). See the googleVis package vignette
+(e.g. https://www.myhost.com/myviz.html). See the googleVis package vignette
 and the Macromedia web site
-(\url{http://www.macromedia.com/support/documentation/en/flashplayer/help/})
+(\url{https://www.macromedia.com/support/documentation/en/flashplayer/help/})
 for more details.
 
 Important: To use this visualization, you must specify the height and width 
@@ -89,6 +89,7 @@ options=list(width="600px", height="350px")
 
 Use code{\link{gvisAnnotationChart}} for a non-Flash version of this plot.
 }
+
 \examples{
 
 ## Please note that by default the googleVis plot command
@@ -169,7 +170,7 @@ month <- ifelse(month < 10, paste("0",month, sep=""), m)
 
 ## Get weekly stock prices from Apple Inc.
 tckr <- 'AAPL'
-yahoo <- 'http://ichart.finance.yahoo.com/table.csv'
+yahoo <- 'https://ichart.finance.yahoo.com/table.csv'
 
 fn <- sprintf('\%s?s=\%s&a=08&b=7&c=1984&d=\%s&e=\%s&f=\%s&g=w&ignore=.csv',
       yahoo, tckr, month, current.day, current.year)
@@ -204,11 +205,6 @@ plot(aapl)
 }
 
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com},
-
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -223,5 +219,9 @@ See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and
 plotting methods. Further see \code{\link{reshape}} for reshaping data, e.g.
 from a wide format into a long format.
 }
-\keyword{iplot}
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
+Diego de Castillo \email{decastillo@gmail.com}
+}
+\keyword{iplot}

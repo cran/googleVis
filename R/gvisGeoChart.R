@@ -43,7 +43,7 @@
 #' \item{Format 1}{'latitude:longitude'. See the example below.} \item{Format
 #' 2}{Address, country name, region name locations, or US metropolitan area
 #' codes, see
-#' \url{http://code.google.com/apis/adwords/docs/developer/adwords_api_us_metros.html}.
+#' \url{https://developers.google.com/adwords/api/docs/appendix/geotargeting?csw=1l}.
 #' This format works with the \code{dataMode} option set to either 'markers' or
 #' 'regions'. The following formats are accepted: A specific address (for
 #' example, "1600 Pennsylvania Ave"). A country name as a string (for example,
@@ -98,8 +98,6 @@
 #' @seealso 
 #' See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} 
 #' for printing and plotting methods.
-#' 
-#' @export
 #' 
 #' @keywords iplot
 #' 
@@ -180,7 +178,7 @@
 #' # Plot S&P countries' credit rating sourced from Wikipedia
 #' # Use the hovervar to show the rating
 #' library(XML)
-#' url <- "http://en.wikipedia.org/wiki/List_of_countries_by_credit_rating"
+#' url <- "https://en.wikipedia.org/wiki/List_of_countries_by_credit_rating"
 #' x <- readHTMLTable(readLines(url), which=3)
 #' levels(x$Rating) <- substring(levels(x$Rating), 4, 
 #'                               nchar(levels(x$Rating)))
@@ -198,10 +196,14 @@
 #' ## Plot world wide earth quakes of the last 30 days with magnitude >= 4.0 
 #' library(XML)
 #' ## Get earthquake data of the last 30 days
-#' eq <- read.csv("http://earthquake.usgs.gov/earthquakes/feed/v0.1/summary/2.5_week.csv")
-#' eq$loc=paste(eq$Latitude, eq$Longitude, sep=":")
-#' 
-#' G9 <- gvisGeoChart(eq, "loc", "Depth", "Magnitude",
+#' url <- "https://ds.iris.edu/seismon/eventlist/index.phtml"
+#' eq <- readHTMLTable(readLines(url),
+#'                     colClasses=c("factor", rep("numeric", 4), "factor"))$evTable
+#'                     names(eq) <- c("DATE", "LAT", "LON", "MAG",
+#'                                    "DEPTH", "LOCATION_NAME", "IRIS_ID")
+#' ##Format location data
+#' eq$loc=paste(eq$LAT, eq$LON, sep=":")                   
+#' G9 <- gvisGeoChart(eq, "loc", "DEPTH", "MAG",
 #'                    options=list(displayMode="Markers", 
 #'                    colorAxis="{colors:['purple', 'red', 'orange', 'grey']}",
 #'                    backgroundColor="lightblue"), chartid="EQ")

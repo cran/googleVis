@@ -6,7 +6,8 @@
 \Sexpr{googleChartName <- "columnchart"}
 \Sexpr{gvisChartName <- "gvisColumnChart"}}
 \usage{
-gvisColumnChart(data, xvar = "", yvar = "", options = list(), chartid)
+gvisColumnChart(data, xvar = "", yvar = "", options = list(),
+  chartid)
 }
 \arguments{
 \item{data}{a \code{\link{data.frame}} to be displayed as a column chart}
@@ -78,11 +79,6 @@ plot(Col4)
 
 
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com},
-
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -96,5 +92,9 @@ readLines(file.path(".", "inst",  "mansections",
 See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
 printing and plotting methods
 }
-\keyword{iplot}
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
+Diego de Castillo \email{decastillo@gmail.com}
+}
+\keyword{iplot}
