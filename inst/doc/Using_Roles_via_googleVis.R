@@ -1,17 +1,17 @@
-## ----setOptions, message=FALSE, echo=FALSE-------------------------------
+## ----setOptions, message=FALSE, echo=FALSE------------------------------------
 library(googleVis)
 library(knitr)
 op <- options(gvis.plot.tag='chart')
 read_demo('Roles', 'googleVis')
 
-## ----Tooltip, results='asis', tidy=FALSE---------------------------------
+## ----Tooltip, results='asis', tidy=FALSE--------------------------------------
 df <- data.frame(year=1:11,pop=1:11,
                  pop.html.tooltip=letters[1:11])
 plot( 
   gvisScatterChart(df)
 )
 
-## ----TooltipHTML, results='asis', tidy=FALSE-----------------------------
+## ----TooltipHTML, results='asis', tidy=FALSE----------------------------------
 levels(df$pop.html.tooltip)[1] <- 
   '<a href="https://www.r-project.com"><img src="https://www.r-project.org/Rlogo.jpg" alt="R logo" /></a>'
 plot( 
@@ -19,7 +19,7 @@ plot(
                    options=list(tooltip="{isHtml:'true'}"))
 )
 
-## ----CertaintyScopeEmphasis, results='asis', tidy=FALSE------------------
+## ----CertaintyScopeEmphasis, results='asis', tidy=FALSE-----------------------
 df <- data.frame(year=1:11, x=1:11,
                  x.scope=c(rep(TRUE, 8), rep(FALSE, 3)),
                  y=11:1, y.html.tooltip=LETTERS[11:1],                 
@@ -29,7 +29,7 @@ plot(
   gvisScatterChart(df,options=list(lineWidth=2))
 )
 
-## ----ColumnChart, results='asis', tidy=FALSE-----------------------------
+## ----ColumnChart, results='asis', tidy=FALSE----------------------------------
 dat <- data.frame(Year=2010:2013,
                   Sales=c(600, 1500, 800, 1000),
                   Sales.html.tooltip=c('$600K in our first year!',
@@ -43,7 +43,7 @@ plot(
   )
 )
 
-## ----TwoLines, results='asis', tidy=FALSE--------------------------------
+## ----TwoLines, results='asis', tidy=FALSE-------------------------------------
 df <- data.frame(country=c("US", "GB", "BR"), 
                  val1=c(1,3,4), 
                  val1.emphasis=c(TRUE, TRUE, FALSE),
@@ -60,7 +60,7 @@ plot(
   )
 )
 
-## ----VerticalReferenceLine, results='asis', tidy=FALSE-------------------
+## ----VerticalReferenceLine, results='asis', tidy=FALSE------------------------
 dat <- data.frame(Year=2010:2013, 
                   Sales=c(600, 1500, 800, 1000),
                   Sales.annotation=c('First year', NA, NA, 'Last Year'),
@@ -78,7 +78,7 @@ plot(
   )
 )
 
-## ----Interval, results='asis', tidy=FALSE--------------------------------
+## ----Interval, results='asis', tidy=FALSE-------------------------------------
 df <- data.frame(Year=2013:2014, Sales=c(120, 130), 
                  Sales.interval.1=c(100,110), 
                  Sales.interval.2=c(140, 150),
