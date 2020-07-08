@@ -220,6 +220,15 @@ var options = {};
 <!-- jsChart -->  
 <script type="text/javascript\" src="https://www.google.com/jsapi?callback=displayChart%s"></script>
 '
+  
+'
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+  google.charts.load(\'current\', {packages: [\'corechart\']});
+  google.charts.setOnLoadCallback(drawChart);
+</script><script src="googleCharts/bindings.js"></script>
+'  
+  
   jsChart  <- sprintf(jsChart, chartid)
   
   

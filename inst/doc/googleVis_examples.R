@@ -140,10 +140,6 @@ Gauge <-  gvisGauge(CityPopularity,
                                  redFrom=0, redTo=300, width=400, height=300))
 plot(Gauge)
 
-## ----IntensityMap, results='asis', tidy=FALSE---------------------------------
-Intensity <- gvisIntensityMap(df)
-plot(Intensity)
-
 ## ----GeoChart, results='asis', tidy=FALSE-------------------------------------
 Geo=gvisGeoChart(Exports, locationvar="Country", 
                  colorvar="Profit",
@@ -311,25 +307,4 @@ plot(M)
 
 
 ## See demo(package='googleVis') for other available demos.
-
-## ----GeoMap, results='asis', tidy=FALSE---------------------------------------
-AndrewGeo <- gvisGeoMap(Andrew, 
-                        locationvar="LatLong", 
-                        numvar="Speed_kt", 
-                        hovervar="Category", 
-                        options=list(height=350, 
-                                     region="US", 
-                                     dataMode="markers"))
-plot(AndrewGeo)
-
-## ----AnnotatedTimeLine, results='asis', tidy=FALSE----------------------------
-AnnoTimeLine  <- gvisAnnotatedTimeLine(Stock, 
-                                       datevar="Date",
-                                       numvar="Value", 
-                                       idvar="Device",
-                                       titlevar="Title", 
-                                       annotationvar="Annotation",
-                                       options=list(displayAnnotations=TRUE,
-                                                    width="600px", height="350px"))
-plot(AnnoTimeLine)
 
