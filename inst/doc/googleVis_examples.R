@@ -163,15 +163,6 @@ GeoMarker <- gvisGeoChart(Andrew, "LatLong",
                           options=list(region="US"))
 plot(GeoMarker)
 
-## ----GoogleMapHurricaneAndrew, results='asis', tidy=FALSE---------------------
-AndrewMap <- gvisMap(Andrew, "LatLong" , "Tip", 
-                     options=list(showTip=TRUE, 
-                                  showLine=TRUE, 
-                                  enableScrollWheel=TRUE,
-                                  mapType='terrain', 
-                                  useMapTypeControl=TRUE))
-plot(AndrewMap)
-
 ## ----Table, results='asis', tidy=FALSE----------------------------------------
 Table <- gvisTable(Stock, 
                    formats=list(Value="#,###"))

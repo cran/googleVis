@@ -1,16 +1,27 @@
 ---
 title: "googleVis examples"
+author: "Markus Gesmann and Diego de Castillo"
 date: "`r Sys.Date()`"
 output:
   html_document:
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    number_sections: true
     self_contained: false
-    css: mystyles.css
 ---
 
 <!--
-%\VignetteEngine{knitr::knitr}
+%\VignetteEngine{knitr::rmarkdown}
 %\VignetteIndexEntry{Demonstration of googleVis}
 -->
+
+
+```{js, echo=FALSE}
+$('.title').css('color', 'darkred')
+```
 
 # Demonstration of googleVis
 
@@ -115,10 +126,6 @@ The same option is available for all other charts as well.
 ```{r GeoChartHurricaneAndrew, results='asis', tidy=FALSE}
 ```
 
-## Google Maps
-```{r GoogleMapHurricaneAndrew, results='asis', tidy=FALSE}
-```
-
 ## Table
 ```{r Table, results='asis', tidy=FALSE}
 ```
@@ -169,7 +176,12 @@ Left mouse-click to drill down, right mouse-click to move up a level.
 # Flash charts
 All the following chart requires a Flash player.
 
+
 ## Motion chart
+
+The Google motion chart requires Flash, which is no longer
+supported by most browsers. An alternative is `plotly::ggplotly`. For more see [https://plotly.com/r/animations/#mulitple-trace-animations](https://plotly.com/r/animations/#mulitple-trace-animations)
+
 ```{r MotionChart, results='asis', tidy=FALSE}
 ```
 

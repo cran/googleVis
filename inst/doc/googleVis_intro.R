@@ -152,8 +152,8 @@ cat(paste(substring( capture.output( cat(gchart$html$caption) ) , 0, 66), sep="\
 ## ----echo=FALSE---------------------------------------------------------------
 cat(paste(substring( capture.output( cat(gchart$html$footer) ) , 0, 66), sep="\n", collapse="\n"))
 
-## ----eval=FALSE---------------------------------------------------------------
-#  plot(gchart)  # returns invisibly the file name
+## ----displaygchart, results='asis'--------------------------------------------
+plot(gchart)  # returns invisibly the file name
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  print(gchart, file="myGoogleVisChart.html")
