@@ -1,10 +1,10 @@
-c6fffb3a329bfaed25af20f795913bd1 *DESCRIPTION
+69cff85515fcd11efd5aa4562fdea9b1 *DESCRIPTION
 de0b7ad612140f3323d01a93c2fab7a7 *NAMESPACE
-7123975065c0707f591bd1798afb9005 *NEWS.md
+1a3e2f6ea91cd0bf774cfa2bfeeee341 *NEWS.md
 e3be3e4cf3c043e4fe8ba406b5f0b3a7 *R/gadget.R
-8343c24c1b7f812a850bdfb8709d513b *R/gvis.R
-5a06a1bb935df08a1c52f488209334bd *R/gvisAnnotatedTimeLine.R
-e71c713cdde5949c5767f8c3586fe28e *R/gvisAnnotationChart.R
+ae5b97203fcb822050a8c06d46616821 *R/gvis.R
+b36b93081a0cc73b994af22955e41a88 *R/gvisAnnotatedTimeLine.R
+7bfabd83f279a26f3fe964c6d5c711cf *R/gvisAnnotationChart.R
 a7f4542ab35b41d38ab2df69f80eff82 *R/gvisBubbleChart.R
 da68bec9767303823d1d3826ece54294 *R/gvisCalendar.R
 ef907f89877ca91af78ed842226ff2ef *R/gvisChartEditor.R
@@ -14,7 +14,7 @@ e12d0e7999615b9e6294cae24cf1ee3d *R/gvisGeoMap.R
 dc168599816e1f78cdac47d734b419fa *R/gvisHistogram.R
 0a188edee4e3dceccb6aa7d867ae777c *R/gvisMap.R
 6525eab52f33f62287d1d1c5f49b57f5 *R/gvisMethods.R
-aa12bce94ad5b673cdc780db2e9fd749 *R/gvisMotionChart.R
+b46fcb7dae24304eed94cb27c95ffdb9 *R/gvisMotionChart.R
 cfe327f6e80262823c3af785a7255671 *R/gvisOrgChart.R
 cf3d3adcd7f20039573ca900ca24df8e *R/gvisPieGaugeChart.R
 63bc7e4fb337f64dcfd2c3ff2cd08ba7 *R/gvisSankey.R
@@ -26,7 +26,7 @@ ae7f610bc8c3c88488eb8ddef2dce83d *R/gvisWordTree.R
 eea314658919ff6052e3872163d5ab1a *R/zzz.R
 3f7f1be3a476b9a499efb78ff67156ca *README.md
 18dffaf695a6539c4b4d49d67fad26dd *THANKS
-2b8001475450d6115336fe4420dc87ef *build/googleVis.pdf
+f8d17d4d1d75b4266a586ab8eae62a52 *build/googleVis.pdf
 88e410fcaf5854d7925c4649c7183fcc *build/vignette.rds
 91d0506c4220a2d76d3b266771c52f4f *data/Andrew.RData
 e66d6f02a338720ff56db4bd6fdfb45d *data/Cairo.RData
@@ -47,10 +47,10 @@ b91ef9efe9978858dcdffb43eb9d18f8 *demo/EventListener.R
 3d422a5fc8b614f85d8d3dbc24167222 *inst/CITATION
 3f66137bd3b5f928e400454462b13678 *inst/doc/googleVis_examples.R
 f5d866a1d6f0ee652347aa29e1df9bb9 *inst/doc/googleVis_examples.Rmd
-4271df2bdd578c5dadca1d0aaf57d993 *inst/doc/googleVis_examples.html
+6bd1813474b3b570f84d637bb34a6543 *inst/doc/googleVis_examples.html
 d32e8afb16498d9a7f471346ccd2b153 *inst/doc/googleVis_intro.R
 96a7a02fa0b3b4a65c496429c9205276 *inst/doc/googleVis_intro.Rmd
-e79fd306ae81549ce4640cf161bd9602 *inst/doc/googleVis_intro.html
+cf005532062c949caff1d318d4f63a31 *inst/doc/googleVis_intro.html
 70c96db0318fdda91d08cec3d8de4ea1 *inst/googleVis_hexagon.R
 b49e9d8bc56bb84a1f18299242b36b89 *inst/mansections/GoogleChartToolsURL.txt
 ddb7656486c4a2924d00c2e6cffb69ab *inst/mansections/GoogleChartToolsURLConfigOptions.txt
@@ -72,8 +72,8 @@ e242b4aaa81695841f8b11ca4d98eff9 *man/createGoogleGadget.Rd
 014b4ee5222f5d83fddd92364d421089 *man/dino.Rd
 4dba77065931e373810139328e82b874 *man/figures/logo.png
 a64339b268508d0fb967ff33700cc6e1 *man/googleVis-package.Rd
-9b3e9a49e3a52f9c0c3da91aa0e95ee6 *man/gvisAnnotatedTimeLine.Rd
-c713affc63c7c6d1344cabbe04341712 *man/gvisAnnotationChart.Rd
+377be9e5372df1ec97dfbafd32f84076 *man/gvisAnnotatedTimeLine.Rd
+8a994c6da04369371cbf398842de5fac *man/gvisAnnotationChart.Rd
 b841f640743f0352c608503a538c9685 *man/gvisAreaChart.Rd
 ab1d67d203bfbc220169c42d573c243a *man/gvisBarChart.Rd
 4ee950220da6b025d8268b9aa976dde3 *man/gvisBubbleChart.Rd
