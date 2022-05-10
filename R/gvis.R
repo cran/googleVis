@@ -406,7 +406,7 @@ check.char <- function(x){
 
 check.date <- function(x){
   y = as.Date(x)
-  if (class(y)!="Date")
+  if (!class(y) %in% "Date")
     stop(paste("The column has to be of date format. Currently it is", class(x)))
   y
 }
@@ -463,17 +463,17 @@ gvisCheckData <- function(data="", options=list(), data.structure=list()){
   if(any(is.na(vars.pos)) & (length(varNames) < length(vars.req))){
     stop("There are not enough columns in your data.")
   }
-  x <- x[as.character(options$data[options$data!="" &
-                                     names(options$data) != "allowed" &
-                                     names(options$data) != "date.format"])]
+  x <- x[as.character(options$data[!options$data %in% "" &
+                                     !names(options$data) %in% "allowed" &
+                                     !names(options$data) %in% "date.format"])]
   
   html.tooltip.col <- names(data)[endsIn(names(data), '.tooltip')]
   if (length(html.tooltip.col) == 1) {
     x[[html.tooltip.col]] <- data[[html.tooltip.col]]
   }
   
-  sapply(names(options$data[options$data!="" & names(options$data) !=
-                              "allowed" & names(options$data) != "date.format"]), 
+  sapply(names(options$data[!options$data %in% "" & !names(options$data) %in%
+                              "allowed" & !names(options$data) %in% "date.format"]), 
          function(.x){ 
            .x <- as.character(.x)
            y <- x[[as.character(options$data[.x])]];
@@ -618,13 +618,13 @@ body {
   if(type %in% "gvisMerge"){
     policy <- "Data Policy: See individual charts"
   }else{
-    policy <- sprintf('<a href="https://developers.google.com/chart/interactive/docs/gallery/%s">Documentation and Data Policy</a>', type)
+    policy <- sprintf('<a href="https://developers.google.com/chart/interactive/docs/gallery/%s">Documentation and Data Policy</a>', ifelse(type %in% "gantt", "ganttchart", type))
   }
   
   htmlFooter <- sprintf(htmlFooter, R.Version()$version.string,
                          policy)  
-  htmlCaption <- sprintf('<div><span>Data: %s &#8226; Chart ID: <a href="Chart_%s.html">%s</a> &#8226; <a href="https://github.com/mages/googleVis">googleVis-%s</a></span><br />' ,
-                         dataName, chartid, chartid,packageDescription('googleVis')$Version)
+  htmlCaption <- sprintf('<div><span>Data: %s &#8226; Chart ID: <a href="Chart_%s.html">%s</a> &#8226; <a href="https://mages.github.io/googleVis/">googleVis-%s</a></span><br />' ,
+                         dataName, chartid, chartid, packageDescription('googleVis')$Version)
   
   return(list(htmlHeader=htmlHeader,
               htmlFooter=htmlFooter,

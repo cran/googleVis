@@ -340,6 +340,34 @@ Timeline <- gvisTimeline(data=datTL,
                                       colors="['#cbb69d', '#603913', '#c69c6e']"))
 plot(Timeline)
 
+# ---- Gantt ----
+
+daysToMilliseconds <- function(days){
+  days * 24 * 60 * 60 * 1000
+}
+
+dat <- data.frame(
+  taskID = c("Research", "Write", "Cite", "Complete", "Outline"),
+  taskName = c("Find sources", "Write Paper",  "Create bibliography", "Hand in paper", "Outline paper"),
+  resource = c(NA, "write", "write", "complete", "write"),
+  start = c(as.Date("2015-01-01"), NA, NA, NA, NA),
+  end = as.Date(c("2015-01-05", "2015-01-09", "2015-01-07", "2015-01-10", "2015-01-06")),
+  duration = c(NA, daysToMilliseconds(c(3, 1, 1, 1))),
+  percentComplete = c(100, 25, 20, 0, 100),
+  dependencies = c(NA, "Research, Outline", "Research", "Cite, Write", "Research")
+)
+
+gntt <- gvisGantt(dat, taskID = "taskID",
+                  taskName = "taskName", 
+                  resource = "resource",
+                  start = "start",
+                  end = "end", 
+                  duration = "duration",
+                  percentComplete = "percentComplete",
+                  dependencies = "dependencies")
+
+plot(gntt)
+
 ## ---- pause ----
 pause()
 
@@ -373,41 +401,5 @@ plot(GT)
 
 ## ---- pause ----
 pause()
-
-## Flash charts
-## ---- MotionChart ----
-Motion=gvisMotionChart(Fruits, 
-                       idvar="Fruit", 
-                       timevar="Year")
-plot(Motion)
-
-## ---- pause ----
-pause()
-
-
-## You can change some of displaying settings via the browser,
-## e.g. the level of opacity of non-selected items, or the chart type.
-## The state string from the 'Advanced' tab can be used to set those
-## settings via R. Just copy and past the string from the browser into
-## the argument state of the options list.
-## Here is an example of a motion chart, with an initial line chart
-## displayed.
-
-## ---- MotionChartSettings ----
-myStateSettings <-'
-{"xZoomedDataMin":1199145600000,"colorOption":"2",
-"duration":{"timeUnit":"Y","multiplier":1},"yLambda":1,
-"yAxisOption":"4","sizeOption":"_UNISIZE",
-"iconKeySettings":[],"xLambda":1,"nonSelectedAlpha":0,
-"xZoomedDataMax":1262304000000,"iconType":"LINE",
-"dimensions":{"iconDimensions":["dim0"]},
-"showTrails":false,"uniColorForNonSelected":false,
-"xAxisOption":"_TIME","orderedByX":false,"playDuration":15000,
-"xZoomedIn":false,"time":"2010","yZoomedDataMin":0,
-"yZoomedIn":false,"orderedByY":false,"yZoomedDataMax":100}
-'
-M <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(state=myStateSettings))
-plot(M)
-
 
 ## See demo(package='googleVis') for other available demos.

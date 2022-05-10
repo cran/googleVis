@@ -1,3 +1,8 @@
+# googleVis 0.7.0
+
+ * New gvisGantt function for Gantt charts
+ * Removed Flash based charts from demo
+
 # googleVis 0.6.12
 
  * Added example to gvisAnnotationChart help file that
@@ -59,12 +64,12 @@
    show a warning, reminding users to switch to the HTML5 charts
    gvisGeoChart and gvisAnnotationChart instead.
 * In some cases option settings were not converted 
-   porperly into JSON objects.  
+   properly into JSON objects.  
 
 # googleVis 0.6.0
 
  * Changed package dependency from RJSONIO to jsonlite.
- * Change demo AnimatedGeoMap to AnimatedGeoChart
+ * Changed demo AnimatedGeoMap to AnimatedGeoChart
 
 # googleVis 0.5.10
 

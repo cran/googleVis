@@ -1,8 +1,8 @@
 Package: googleVis
 Type: Package
 Title: R Interface to Google Charts
-Version: 0.6.12
-Date: 2022-04-06
+Version: 0.7.0
+Date: 2022-05-10
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
     email = "markus.gesmann@googlemail.com"),
     person("Diego", "de Castillo", role = "aut",
@@ -29,7 +29,7 @@ VignetteBuilder: knitr, rmarkdown
 RoxygenNote: 7.1.2
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2022-04-06 11:21:23 UTC; mages
+Packaged: 2022-05-10 08:26:53 UTC; mages
 Author: Markus Gesmann [aut, cre],
   Diego de Castillo [aut],
   Joe Cheng [ctb],
@@ -37,4 +37,4 @@ Author: Markus Gesmann [aut, cre],
   Durey Ingeniería [ctb]
 Maintainer: Markus Gesmann <markus.gesmann@googlemail.com>
 Repository: CRAN
-Date/Publication: 2022-04-06 19:42:29 UTC
+Date/Publication: 2022-05-10 08:50:02 UTC
